@@ -1,0 +1,22 @@
+var $ar = new Array();
+$ar[$ar.length] = ["hi", "there", "one", "a\"b"];
+$ar[$ar.length] = ["hey", "he,re", 2, " aa "];
+
+_writeCSVFile($ar, "D:/sahicsv.txt", true);
+
+var $ar2 = _readCSVFile("D:/sahicsv.txt");
+
+for (var $i=0; $i<$ar.length; $i++){
+	for (var $j=0; $j<$ar[$i].length; $j++){
+		_assertEqual($ar[$i][$j], $ar2[$i][$j]);
+	}
+}
+
+_writeFile("hi, there, one, a\"b\nhey, \"he,re\", 2, \" aa \"", "D:/sahicsv.txt", true);
+var $ar2 = _readCSVFile("D:/sahicsv.txt");
+
+for (var $i=0; $i<$ar.length; $i++){
+	for (var $j=0; $j<$ar[$i].length; $j++){
+		_assertEqual($ar[$i][$j], $ar2[$i][$j]);
+	}
+}

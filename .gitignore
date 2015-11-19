@@ -10,6 +10,5 @@ tags/
 libs/central/
 tags
 *.iml
-/sahi
 out/
 nohup.out

@@ -1,0 +1,28 @@
+var $filePath = _userDataDir() +  "/testsaveas_x.zip";
+//var $filePath = "C:/testsaveas_x.zip";
+
+var f = new java.io.File($filePath);
+if (f.exists()){
+	f["delete"]();
+}
+var file = new java.io.File($filePath);
+var $exists = file.exists();
+_assertFalse($exists);
+
+_click(_link("Save As Test"));
+_assertExists(_link("testsaveas.zip"));
+_assertExists(_link("Back"));
+_click(_link("testsaveas.zip"));
+_assertEqual("testsaveas.zip", _lastDownloadedFileName());
+_wait(2000);
+_saveDownloadedAs($filePath);
+_clearLastDownloadedFileName();
+_assertNotEqual("testsaveas.zip", _lastDownloadedFileName());
+_click(_link("Back"));
+_assertExists(_link("Link Test"));
+var file = new java.io.File($filePath);
+var $exists = file.exists();
+_assertTrue($exists)
+if ($exists){
+	file["delete"]();
+}
