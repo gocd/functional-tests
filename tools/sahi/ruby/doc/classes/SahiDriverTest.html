@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: SahiDriverTest</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">SahiDriverTest</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/test/sahi_test_rb.html">
+                test/sahi_test.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Test::Unit::TestCase
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000016">alert1</a>&nbsp;&nbsp;
+      <a href="#M000003">init_browser</a>&nbsp;&nbsp;
+      <a href="#M000001">setup</a>&nbsp;&nbsp;
+      <a href="#M000002">teardown</a>&nbsp;&nbsp;
+      <a href="#M000004">test1</a>&nbsp;&nbsp;
+      <a href="#M000005">test_ZK</a>&nbsp;&nbsp;
+      <a href="#M000007">test_accessors</a>&nbsp;&nbsp;
+      <a href="#M000017">test_alert</a>&nbsp;&nbsp;
+      <a href="#M000024">test_area</a>&nbsp;&nbsp;
+      <a href="#M000021">test_check</a>&nbsp;&nbsp;
+      <a href="#M000011">test_clicks</a>&nbsp;&nbsp;
+      <a href="#M000018">test_confirm</a>&nbsp;&nbsp;
+      <a href="#M000025">test_dragdrop</a>&nbsp;&nbsp;
+      <a href="#M000015">test_exists</a>&nbsp;&nbsp;
+      <a href="#M000006">test_fetch</a>&nbsp;&nbsp;
+      <a href="#M000022">test_focus</a>&nbsp;&nbsp;
+      <a href="#M000027">test_google</a>&nbsp;&nbsp;
+      <a href="#M000014">test_in</a>&nbsp;&nbsp;
+      <a href="#M000012">test_links</a>&nbsp;&nbsp;
+      <a href="#M000010">test_multi_file_upload</a>&nbsp;&nbsp;
+      <a href="#M000013">test_popup_title_name_mix</a>&nbsp;&nbsp;
+      <a href="#M000019">test_prompt</a>&nbsp;&nbsp;
+      <a href="#M000008">test_select</a>&nbsp;&nbsp;
+      <a href="#M000009">test_set_file</a>&nbsp;&nbsp;
+      <a href="#M000023">test_title</a>&nbsp;&nbsp;
+      <a href="#M000020">test_visible</a>&nbsp;&nbsp;
+      <a href="#M000026">test_wait</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000016.html');return false;">
+          <span class="method-name">alert1</span><span class="method-args">(message)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000003.html');return false;">
+          <span class="method-name">init_browser</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000001.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000001.html');return false;">
+          <span class="method-name">setup</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000002.html');return false;">
+          <span class="method-name">teardown</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000004.html');return false;">
+          <span class="method-name">test1</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000005.html');return false;">
+          <span class="method-name">test_ZK</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000007.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000007.html');return false;">
+          <span class="method-name">test_accessors</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000017.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000017.html');return false;">
+          <span class="method-name">test_alert</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000024.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000024.html');return false;">
+          <span class="method-name">test_area</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000021.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000021.html');return false;">
+          <span class="method-name">test_check</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000011.html');return false;">
+          <span class="method-name">test_clicks</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000018.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000018.html');return false;">
+          <span class="method-name">test_confirm</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000025.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000025.html');return false;">
+          <span class="method-name">test_dragdrop</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000015.html');return false;">
+          <span class="method-name">test_exists</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000006.html');return false;">
+          <span class="method-name">test_fetch</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000022.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000022.html');return false;">
+          <span class="method-name">test_focus</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000027" class="method-detail">
+        <a name="M000027"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000027.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000027.html');return false;">
+          <span class="method-name">test_google</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000014.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000014.html');return false;">
+          <span class="method-name">test_in</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000012.html');return false;">
+          <span class="method-name">test_links</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000010.html');return false;">
+          <span class="method-name">test_multi_file_upload</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000013.html');return false;">
+          <span class="method-name">test_popup_title_name_mix</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000019.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000019.html');return false;">
+          <span class="method-name">test_prompt</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000008.html');return false;">
+          <span class="method-name">test_select</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000009.html');return false;">
+          <span class="method-name">test_set_file</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000023.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000023.html');return false;">
+          <span class="method-name">test_title</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000020.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000020.html');return false;">
+          <span class="method-name">test_visible</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
+
+        <div class="method-heading">
+          <a href="SahiDriverTest.src/M000026.html" target="Code" class="method-signature"
+            onclick="popupCode('SahiDriverTest.src/M000026.html');return false;">
+          <span class="method-name">test_wait</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

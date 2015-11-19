@@ -1,0 +1,38 @@
+_navigateTo("http://www.zkoss.org/zkdemo/userguide");
+
+_click(_div("Hello World"));
+_click(_span("Pure Java"));
+_click(_div("Various Form"));
+_assertExists(_textbox("z-textbox"));
+_assert(_isVisible(_textbox("z-textbox")));
+_assertEqual("Jerry", _textbox("z-textbox").value);
+_click(_div("Form with Popup"));
+_click(_div("Comboboxes"));
+_setValue(_textbox("z-combobox-inp"), "aaa");
+_click(_italic("z-combobox-btn"));
+_click(_cell("Cool!"));
+_assertExists(_textbox("z-combobox-inp"));
+_assert(_isVisible(_textbox("z-combobox-inp")));
+_assertEqual("Cool!", _textbox("z-combobox-inp").value);
+_click(_italic("z-combobox-btn[1]"));
+_click(_cell(/Ajax and RIA[ ]*Rich Internet Application by Ajax/));
+_assertExists(_textbox("z-combobox-inp[1]"));
+_assert(_isVisible(_textbox("z-combobox-inp[1]")));
+_assertEqual("Ajax and RIA", _textbox("z-combobox-inp[1]").value);
+_click(_italic("z-combobox-btn[2]"));
+_click(_image("CogwheelEye-32x32.gif"));
+_assertExists(_textbox("z-combobox-inp[2]"));
+_assert(_isVisible(_textbox("z-combobox-inp[2]")));
+_assertEqual("Cool!", _textbox("z-combobox-inp[2]").value);
+
+
+_click(_image("Layout and Windows"));
+_assertExists(_div("Border Layout"));
+_assert(_isVisible(_div("Border Layout")));
+_setValue(_textbox(0, _near(_span("Search:"))), "layo");
+_assert(!_isVisible(_div("Panel")));
+_click(_div("Column Layout"));
+_assertTrue(_contains(_div("z-listbox", _near(_div("Available projects:"))), _div("ZK Forge")))
+_click(_span("z-listitem-img z-listitem-img-checkbox[2]"));
+_click(_image("Add Project"));
+_assertTrue(_contains(_div("z-listbox", _near(_div("Configured projects:"))), _div("ZK Forge")))

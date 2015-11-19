@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Users: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= javascript_include_tag :all %>
+</head>
+
+<div style="width:300px;float:left;">
+  <h1 style="margin-top:3px;margin-bottom:2px">Parlsey.com</h1>
+  Your personal finance dashboard
+</div>
+
+<div style="align:right;float:right;">
+  <% if controller.logged_in? %>
+    <%= controller.current_user.email %> | <a href="<%= url_for(:controller => :sessions, :action => :clear_session) %>">logout</a>
+  <% else %>
+    <a href="<%= url_for(:controller => :users, :action => :new) %>">Sign up</a> | <a href="<%= url_for(:controller => :sessions, :action => :index) %>">Login</a>
+  <% end %>
+</div>
+
+<div style="padding-top:5px;clear:both;">
+
+<div >
+  <p style="margin-top:3em; color: green"><%= flash[:notice] %></p>
+  <%= yield %>
+</div>
+</body>
+</html>

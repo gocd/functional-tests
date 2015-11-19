@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: ::MsSQL</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">::MsSQL</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/jdbc_adapter/jdbc_mssql_rb.html">
+                lib/jdbc_adapter/jdbc_mssql.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000171">_execute</a>&nbsp;&nbsp;
+      <a href="#M000147">adapter_matcher</a>&nbsp;&nbsp;
+      <a href="#M000164">add_column</a>&nbsp;&nbsp;
+      <a href="#M000172">add_lock!</a>&nbsp;&nbsp;
+      <a href="#M000151">add_version_specific_add_limit_offset</a>&nbsp;&nbsp;
+      <a href="#M000146">after_save_with_mssql_lob</a>&nbsp;&nbsp;
+      <a href="#M000158">change_order_direction</a>&nbsp;&nbsp;
+      <a href="#M000148">column_selector</a>&nbsp;&nbsp;
+      <a href="#M000170">columns</a>&nbsp;&nbsp;
+      <a href="#M000162">create_database</a>&nbsp;&nbsp;
+      <a href="#M000161">drop_database</a>&nbsp;&nbsp;
+      <a href="#M000145">extended</a>&nbsp;&nbsp;
+      <a href="#M000149">jdbc_connection_class</a>&nbsp;&nbsp;
+      <a href="#M000152">quote</a>&nbsp;&nbsp;
+      <a href="#M000155">quote_column_name</a>&nbsp;&nbsp;
+      <a href="#M000153">quote_string</a>&nbsp;&nbsp;
+      <a href="#M000154">quote_table_name</a>&nbsp;&nbsp;
+      <a href="#M000157">quoted_false</a>&nbsp;&nbsp;
+      <a href="#M000156">quoted_true</a>&nbsp;&nbsp;
+      <a href="#M000160">recreate_database</a>&nbsp;&nbsp;
+      <a href="#M000168">remove_check_constraints</a>&nbsp;&nbsp;
+      <a href="#M000166">remove_column</a>&nbsp;&nbsp;
+      <a href="#M000167">remove_default_constraint</a>&nbsp;&nbsp;
+      <a href="#M000169">remove_index</a>&nbsp;&nbsp;
+      <a href="#M000165">rename_column</a>&nbsp;&nbsp;
+      <a href="#M000163">rename_table</a>&nbsp;&nbsp;
+      <a href="#M000150">sqlserver_version</a>&nbsp;&nbsp;
+      <a href="#M000159">supports_ddl_transactions?</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="TSqlMethods.html">TSqlMethods</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="MsSQL/Column.html" class="link">::MsSQL::Column</a><br />
+Module <a href="MsSQL/SqlServer2000LimitOffset.html" class="link">::MsSQL::SqlServer2000LimitOffset</a><br />
+Module <a href="MsSQL/SqlServerLimitOffset.html" class="link">::MsSQL::SqlServerLimitOffset</a><br />
+
+    </div>
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000147" class="method-detail">
+        <a name="M000147"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000147.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000147.html');return false;">
+          <span class="method-name">adapter_matcher</span><span class="method-args">(name, *)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000148" class="method-detail">
+        <a name="M000148"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000148.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000148.html');return false;">
+          <span class="method-name">column_selector</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000145" class="method-detail">
+        <a name="M000145"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000145.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000145.html');return false;">
+          <span class="method-name">extended</span><span class="method-args">(mod)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000149" class="method-detail">
+        <a name="M000149"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000149.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000149.html');return false;">
+          <span class="method-name">jdbc_connection_class</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000171" class="method-detail">
+        <a name="M000171"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000171.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000171.html');return false;">
+          <span class="method-name">_execute</span><span class="method-args">(sql, name = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000164" class="method-detail">
+        <a name="M000164"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000164.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000164.html');return false;">
+          <span class="method-name">add_column</span><span class="method-args">(table_name, column_name, type, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds a new column to the named table. See TableDefinition#column for
+details of the options you can use.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000172" class="method-detail">
+        <a name="M000172"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000172.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000172.html');return false;">
+          <span class="method-name">add_lock!</span><span class="method-args">(sql, options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+SELECT .. FOR UPDATE is not supported on Microsoft SQL Server
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000151" class="method-detail">
+        <a name="M000151"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000151.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000151.html');return false;">
+          <span class="method-name">add_version_specific_add_limit_offset</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000146" class="method-detail">
+        <a name="M000146"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000146.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000146.html');return false;">
+          <span class="method-name">after_save_with_mssql_lob</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000158" class="method-detail">
+        <a name="M000158"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000158.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000158.html');return false;">
+          <span class="method-name">change_order_direction</span><span class="method-args">(order)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000170" class="method-detail">
+        <a name="M000170"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000170.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000170.html');return false;">
+          <span class="method-name">columns</span><span class="method-args">(table_name, name = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000162" class="method-detail">
+        <a name="M000162"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000162.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000162.html');return false;">
+          <span class="method-name">create_database</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000161" class="method-detail">
+        <a name="M000161"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000161.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000161.html');return false;">
+          <span class="method-name">drop_database</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000152" class="method-detail">
+        <a name="M000152"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000152.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000152.html');return false;">
+          <span class="method-name">quote</span><span class="method-args">(value, column = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000155" class="method-detail">
+        <a name="M000155"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000155.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000155.html');return false;">
+          <span class="method-name">quote_column_name</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000153" class="method-detail">
+        <a name="M000153"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000153.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000153.html');return false;">
+          <span class="method-name">quote_string</span><span class="method-args">(string)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000154" class="method-detail">
+        <a name="M000154"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000154.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000154.html');return false;">
+          <span class="method-name">quote_table_name</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000157" class="method-detail">
+        <a name="M000157"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000157.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000157.html');return false;">
+          <span class="method-name">quoted_false</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000156" class="method-detail">
+        <a name="M000156"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000156.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000156.html');return false;">
+          <span class="method-name">quoted_true</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000160" class="method-detail">
+        <a name="M000160"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000160.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000160.html');return false;">
+          <span class="method-name">recreate_database</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000168" class="method-detail">
+        <a name="M000168"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000168.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000168.html');return false;">
+          <span class="method-name">remove_check_constraints</span><span class="method-args">(table_name, column_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000166" class="method-detail">
+        <a name="M000166"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000166.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000166.html');return false;">
+          <span class="method-name">remove_column</span><span class="method-args">(table_name, column_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000167" class="method-detail">
+        <a name="M000167"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000167.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000167.html');return false;">
+          <span class="method-name">remove_default_constraint</span><span class="method-args">(table_name, column_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000169" class="method-detail">
+        <a name="M000169"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000169.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000169.html');return false;">
+          <span class="method-name">remove_index</span><span class="method-args">(table_name, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000165" class="method-detail">
+        <a name="M000165"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000165.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000165.html');return false;">
+          <span class="method-name">rename_column</span><span class="method-args">(table, column, new_column_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000163" class="method-detail">
+        <a name="M000163"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000163.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000163.html');return false;">
+          <span class="method-name">rename_table</span><span class="method-args">(name, new_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000150" class="method-detail">
+        <a name="M000150"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000150.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000150.html');return false;">
+          <span class="method-name">sqlserver_version</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000159" class="method-detail">
+        <a name="M000159"></a>
+
+        <div class="method-heading">
+          <a href="MsSQL.src/M000159.html" target="Code" class="method-signature"
+            onclick="popupCode('MsSQL.src/M000159.html');return false;">
+          <span class="method-name">supports_ddl_transactions?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

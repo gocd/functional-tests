@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>get_session (Rack::Session::Memcache)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rack/session/memcache.rb, line 44</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_session</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">sid</span>)
+        <span class="ruby-identifier">session</span> = <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">sid</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">sid</span>
+        <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">lock</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">env</span>[<span class="ruby-value str">'rack.multithread'</span>]
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">sid</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">session</span>
+          <span class="ruby-identifier">env</span>[<span class="ruby-value str">'rack.errors'</span>].<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;Session '#{sid.inspect}' not found, initializing...&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$VERBOSE</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">sid</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">session</span> = {}
+          <span class="ruby-identifier">sid</span> = <span class="ruby-identifier">generate_sid</span>
+          <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">add</span> <span class="ruby-identifier">sid</span>, <span class="ruby-identifier">session</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Session collision on '#{sid.inspect}'&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-regexp re">/^STORED/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">ret</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">session</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-value str">'@old'</span>, {}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">session</span>))
+        <span class="ruby-keyword kw">return</span> [<span class="ruby-identifier">sid</span>, <span class="ruby-identifier">session</span>]
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">MemCache</span><span class="ruby-operator">::</span><span class="ruby-constant">MemCacheError</span>, <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECONNREFUSED</span> <span class="ruby-comment cmt"># MemCache server cannot be contacted</span>
+        <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;#{self} is unable to find server.&quot;</span>
+        <span class="ruby-identifier">warn</span> <span class="ruby-identifier">$!</span>.<span class="ruby-identifier">inspect</span>
+        <span class="ruby-keyword kw">return</span> [ <span class="ruby-keyword kw">nil</span>, {} ]
+      <span class="ruby-keyword kw">ensure</span>
+        <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">unlock</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">env</span>[<span class="ruby-value str">'rack.multithread'</span>]
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

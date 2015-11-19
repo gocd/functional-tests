@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- *************************GO-LICENSE-START******************************
+ * Copyright 2015 ThoughtWorks, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *************************GO-LICENSE-END******************************* -->
+
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="76">
+    <server artifactsdir="artifacts" serverId="twist">
+    </server>
+    
+     <!-- group 1-->    
+     <pipelines group="big-setup">
+        <pipeline name="C1" template="manualStagePipelineTemplate">
+      	  <materials>
+        <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
+        <git url="$git-two" materialName="git-two" dest="git-two" autoUpdate="true"/>
+          </materials>
+       </pipeline>
+    <pipeline name="C2" template="manualStagePipelineTemplate">
+      <materials>
+        <git url="$git-one" materialName="git-one" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+    <pipeline name="C3" template="manualStagePipelineTemplate">
+      <materials>
+        <git url="$git-one" materialName="git-one" autoUpdate="true"/>
+        <pipeline pipelineName="C2" stageName="defaultStage" />
+        <pipeline pipelineName="C1" stageName="defaultStage" />
+      </materials>
+    </pipeline>
+    <pipeline name="C4-auto" template="autoStagePipelineTemplate">
+      <materials>
+        <pipeline pipelineName="C1" stageName="defaultStage" />
+        <pipeline pipelineName="C2" stageName="defaultStage" />
+        <pipeline pipelineName="C3" stageName="defaultStage" />
+      </materials>
+    </pipeline>
+    <pipeline name="C5" template="manualStagePipelineTemplate">
+      <materials>
+        <git url="$git-two" materialName="git-two" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+    <pipeline name="C6-auto" template="autoStagePipelineTemplate">
+      <materials>
+        <git url="$git-one" materialName="git-one" dest="git-one1" autoUpdate="true"/>
+        <git url="$git-four" materialName="git-four" dest="git-four" autoUpdate="true"/>
+        <pipeline pipelineName="C1" stageName="defaultStage" />
+        <pipeline pipelineName="C4-auto" stageName="defaultStage" />
+        <pipeline pipelineName="C5" stageName="defaultStage" />
+        <pipeline pipelineName="C7" stageName="defaultStage" />
+        <pipeline pipelineName="C8" stageName="defaultStage" />
+      </materials>
+    </pipeline>
+    <pipeline name="C7" template="manualStagePipelineTemplate">
+      <materials>
+        <git url="$git-three" materialName="git-three" dest="git-three1" autoUpdate="true"/>
+        <git url="$git-one" materialName="git-one" dest="git-one2" autoUpdate="true"/>
+        <pipeline pipelineName="C4-auto" stageName="defaultStage" />
+      </materials>
+    </pipeline>
+    <pipeline name="C8" template="manualStagePipelineTemplate">
+      <materials>
+        <git url="$git-three" materialName="git-three" autoUpdate="true"/>
+        <pipeline pipelineName="C2" stageName="defaultStage" />
+      </materials>
+    </pipeline>
+    <pipeline name="C9" template="manualStagePipelineTemplate">
+      <materials>
+        <pipeline pipelineName="C6-auto" stageName="defaultStage" />
+      </materials>
+    </pipeline>
+    <pipeline name="C10-auto" template="autoStagePipelineTemplate">
+      <materials>
+        <pipeline pipelineName="C8" stageName="defaultStage" />
+        <pipeline pipelineName="C6-auto" stageName="defaultStage" />
+      </materials>
+    </pipeline>
+    <pipeline name="C11-auto" template="autoStagePipelineTemplate">
+      <materials>
+        <pipeline pipelineName="C10-auto" stageName="defaultStage" />
+        <pipeline pipelineName="C9" stageName="defaultStage" />
+        <git url="$git-three" materialName="git-three" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+     <pipeline name="C4-man" template="manualStagePipelineTemplate">
+      <materials>
+        <pipeline pipelineName="C1" stageName="defaultStage" />
+        <pipeline pipelineName="C2" stageName="defaultStage" />
+        <pipeline pipelineName="C3" stageName="defaultStage" />
+      </materials>
+    </pipeline>
+     <pipeline name="C4-auto-new" template="autoStagePipelineTemplate">
+      <materials>
+        <pipeline pipelineName="C1" stageName="defaultStage" />
+        <pipeline pipelineName="C2" stageName="defaultStage" />
+        <pipeline pipelineName="C3" stageName="defaultStage" />
+        <pipeline pipelineName="C5" stageName="defaultStage" />
+        <git url="$git-one" materialName="git-one" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+     <pipeline name="C6-auto-s" template="autoStagePipelineTemplate">
+      <materials>
+        <git url="$git-one" materialName="git-one" autoUpdate="true"/>
+        <pipeline pipelineName="C1" stageName="defaultStage" />
+        <pipeline pipelineName="C4-man" stageName="defaultStage" />
+        <pipeline pipelineName="C5" stageName="defaultStage" />
+      </materials>
+    </pipeline>
+  </pipelines>
+  
+  
+    <!-- group 2-->
+    <pipelines group="dependency-group">       
+        <pipeline name="d-up-left" template="manualStagePipelineTemplate">
+            <materials>
+                <git url="$git-second" materialName="git-second" autoUpdate="true"/>
+            </materials>
+        </pipeline>
+        <pipeline name="d-up-right" template="manualStagePipelineTemplate">
+            <materials>
+                <git url="$git-second" materialName="git-second" autoUpdate="true"/>
+            </materials>
+        </pipeline>
+        <pipeline name="d-down" template="autoStagePipelineTemplate">
+            <materials>
+                <pipeline pipelineName="d-up-left" stageName="defaultStage"/>
+                <pipeline pipelineName="d-up-right" stageName="defaultStage"/>
+            </materials>
+        </pipeline>
+    </pipelines>
+ 
+     <!-- group 3-->   
+    <pipelines group="dummy-group">
+	       <pipeline name="basic-auto-pipeline" template="manualStagePipelineTemplate">
+            <materials>
+                <git url="$git-on-basic-auto-pipeline" materialName="git"/>
+            </materials>
+        </pipeline>
+      </pipelines>
+      
+
+    <!-- group 4-->     
+    <pipelines group="dependency-add-group"> 
+     <pipeline name="grandparent" template="manualStagePipelineTemplate">
+        <materials>
+            <git url="$git-second" materialName="git-second" autoUpdate="true"/>
+        </materials>
+    </pipeline>
+    <pipeline name="parent-left" template="manualStagePipelineTemplate">
+        <materials>
+            <pipeline pipelineName="grandparent" stageName="defaultStage"/>
+            <git url="$git-on-basic-auto-pipeline" materialName="git"/>
+        </materials>
+    </pipeline>
+    <pipeline name="parent-right" template="manualStagePipelineTemplate">
+        <materials>
+            <pipeline pipelineName="grandparent" stageName="defaultStage"/>
+        </materials>
+    </pipeline>
+    <pipeline name="child-down" template="autoStagePipelineTemplate">
+        <materials>
+            <pipeline pipelineName="parent-left" stageName="defaultStage"/>
+            <pipeline pipelineName="parent-right" stageName="defaultStage"/>
+        </materials>
+    </pipeline>
+</pipelines>
+
+<!-- group 5-->     
+  <pipelines group="all-auto-group"> 
+    <pipeline name="grandparent-fast" template="autoStagePipelineTemplate">
+        <materials>
+            <git url="$git-five" materialName="git-five" autoUpdate="true"/>
+        </materials>
+    </pipeline>
+    <pipeline name="parent-fast" template="autoStagePipelineTemplate">
+        <materials>
+            <pipeline pipelineName="grandparent-fast" stageName="defaultStage"/>
+        </materials>
+    </pipeline>
+    <pipeline name="parent-slow" template="slow-pipeline-template">
+        <materials>
+            <pipeline pipelineName="grandparent-fast" stageName="defaultStage"/>
+        </materials>
+    </pipeline>
+    <pipeline name="child-fast" template="autoStagePipelineTemplate">
+        <materials>
+            <pipeline pipelineName="parent-fast" stageName="defaultStage"/>
+            <pipeline pipelineName="parent-slow" stageName="defaultStage"/>
+            <pipeline pipelineName="grandparent-fast" stageName="defaultStage"/>
+            <git url="$git-five" materialName="git-five" autoUpdate="true"/>
+        </materials>
+    </pipeline>
+  </pipelines>
+  
+<!-- group 6-->
+     <pipelines group="multi-stage-deep-triangle">
+        <pipeline name="DeepC1" template="multi-stage-deep-triangle-template">
+      	  <materials>
+        <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
+       </materials>
+       </pipeline>
+    <pipeline name="DeepC2" template="multi-stage-deep-triangle-template">
+      <materials>
+        <pipeline pipelineName="DeepC1" stageName="second_stage" />
+      </materials>
+    </pipeline>
+    <pipeline name="DeepC3" template="multi-stage-deep-triangle-template">
+      <materials>
+        <pipeline pipelineName="DeepC2" stageName="first_stage" />
+      </materials>
+    </pipeline>
+  
+  <pipeline name="DeepC5" template="multi-stage-deep-triangle-template">
+      <materials>
+        <git url="$git-two" materialName="git-two" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+
+    <pipeline name="DeepC6" template="multi-stage-deep-triangle-template">
+      <materials>
+              <git url="$git-two" materialName="git-two" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+
+    <pipeline name="DeepC4-auto" template="multi-stage-deep-triangle-template-auto">
+      <materials>
+        <pipeline pipelineName="DeepC3" stageName="first_stage" />
+        <pipeline pipelineName="DeepC5" stageName="first_stage" />
+        <pipeline pipelineName="DeepC1" stageName="first_stage" />
+        <pipeline pipelineName="DeepC6" stageName="second_stage" />
+      </materials>
+    </pipeline>
+</pipelines>
+<pipelines group="blacklisting_for_triangle_configuration">
+    <pipeline name="cruise" template="autoStagePipelineTemplate">
+      <materials>
+        <git url="$git-one" dest="git-one" materialName="git-one">
+          <filter>
+            <ignore pattern="**/*" />
+          </filter>
+        </git>
+        <git url="$git-two" dest="git-two" materialName="git-two" />
+      </materials>
+    </pipeline>
+    <pipeline name="acceptance" template="autoStagePipelineTemplate">
+      <materials>
+        <git url="$git-one" dest="git-one" materialName="git-one" />
+        <pipeline pipelineName="cruise" stageName="defaultStage" />
+      </materials>
+    </pipeline>
+  </pipelines>
+  
+  <pipelines group="manual_and_auto_trigger_for_deep_diamond_configuration">
+    <pipeline name="P1" template="manualStagePipelineTemplate">
+      <materials>
+        <git url="$git-one" dest="git-one" materialName="git-one" />
+      </materials>
+    </pipeline>
+    <pipeline name="P2" template="manualStagePipelineTemplate">
+      <materials>
+      	<pipeline pipelineName="P1" stageName="defaultStage" />
+      </materials>
+    </pipeline>
+	<pipeline name="P3" template="manualStagePipelineTemplate">
+      <materials>
+        <git url="$git-one" dest="git-one" materialName="git-one" />
+      </materials>
+    </pipeline>
+    <pipeline name="P4" template="autoStagePipelineTemplate">
+      <materials>
+        <git url="$git-one" dest="git-one" materialName="git-one" />
+        <git url="$git-two" dest="git-two" materialName="git-two" />
+        <pipeline pipelineName="P2" stageName="defaultStage" />
+        <pipeline pipelineName="P3" stageName="defaultStage" />
+      </materials>
+    </pipeline>
+  </pipelines>
+  
+    <pipelines group="stage-fail-and-cancel">
+    <pipeline name="FS1">
+      <materials>
+        <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
+      </materials>
+      <stage name="stage1">
+        <approval type="manual" />
+        <jobs>
+          <job name="job1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="stage2-manual">
+        <approval type="manual" />
+        <jobs>
+          <job name="job2">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="FS2" isLocked="false">
+      <materials>
+        <pipeline pipelineName="FS1" stageName="stage2-manual" />
+      </materials>
+      <stage name="stage1">
+        
+        <jobs>
+          <job name="job1">
+            <tasks>
+              <exec command="sleep" args="60" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="FS3">
+      <materials>
+        <pipeline pipelineName="FS1" stageName="stage1" />
+        <pipeline pipelineName="FS2" stageName="stage1" />
+      </materials>
+      <stage name="stage1">
+        <jobs>
+          <job name="job1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+  
+  <pipelines group="inconsistent-revisions">
+    <pipeline name="FIR1">
+      <materials>
+        <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
+      </materials>
+      <stage name="stage1">
+        <approval type="manual" />
+        <jobs>
+          <job name="job1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="FIR2" isLocked="false">
+      <materials>
+        <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
+      </materials>
+      <stage name="stage1">
+      	<approval type="manual" />
+        <jobs>
+          <job name="job1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="FIR3">
+      <materials>
+        <pipeline pipelineName="FIR1" stageName="stage1" />
+        <pipeline pipelineName="FIR2" stageName="stage1" />
+      </materials>
+      <stage name="stage1">
+        <jobs>
+          <job name="job1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+  
+  <pipelines group="trigger-with-options">
+    <pipeline name="FTO1">
+      <materials>
+        <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
+      </materials>
+      <stage name="stage1">
+        <approval type="manual" />
+        <jobs>
+          <job name="job1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="FTO2" isLocked="false">
+      <materials>
+        <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
+      </materials>
+      <stage name="stage1">
+      	<approval type="manual" />
+        <jobs>
+          <job name="job1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="FTO3">
+      <materials>
+        <pipeline pipelineName="FTO1" stageName="stage1" />
+        <pipeline pipelineName="FTO2" stageName="stage1" />
+        <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
+      </materials>
+      <stage name="stage1">
+      	<approval type="manual" />
+        <jobs>
+          <job name="job1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="FTO4">
+      <materials>
+        <pipeline pipelineName="FTO1" stageName="stage1" />
+        <pipeline pipelineName="FTO2" stageName="stage1" />
+        <pipeline pipelineName="FTO3" stageName="stage1" />
+      </materials>
+      <stage name="stage1">
+        <jobs>
+          <job name="job1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="FTO5" isLocked="false">
+      <materials>
+        <pipeline pipelineName="FTO4" stageName="stage1" />
+      </materials>
+      <stage name="stage1">
+        <jobs>
+          <job name="job1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+
+<pipelines group="stage_rerun_for_a_diamond_configuration">
+     <pipeline name="Upstream1">
+            <materials>
+                <git url="$git-one" dest="git-one" materialName="git-one"/>
+            </materials>
+            <stage name="defaultStage">
+                <approval type="manual"/>
+                <jobs>
+                    <job name="first">
+                        <tasks>
+                     		<ant target="run.till.file.exists" workingdir="git-one">
+                                <oncancel/>
+                            </ant>             		 
+                        </tasks>
+                    </job>
+                 </jobs>
+              </stage>      
+	</pipeline>
+     <pipeline name="Upstream2"  template="upstream_2_template" >
+            <materials>
+                <git url="$git-one" dest="git-one" materialName="git-one"/>
+            </materials>
+	</pipeline>
+     <pipeline name="Downstream1"  template="autoStagePipelineTemplate">
+            <materials>
+		        <pipeline pipelineName="Upstream1" stageName="defaultStage" />
+		        <pipeline pipelineName="Upstream2" stageName="defaultStage" />            
+            </materials>
+     </pipeline>
+</pipelines>      
+
+      
+    <templates>
+
+        <pipeline name="upstream_2_template">
+            <stage name="defaultStage">
+            <approval type="manual"/>
+                <jobs>
+                    <job name="defaultJob">
+                        <tasks>
+                            <exec command="ls"/>
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+        </pipeline>
+
+    
+        <pipeline name="autoStagePipelineTemplate">
+            <stage name="defaultStage">
+                <jobs>
+                    <job name="defaultJob">
+                        <tasks>
+                            <exec command="ls"/>
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+        </pipeline>
+        <pipeline name="manualStagePipelineTemplate">
+            <stage name="defaultStage">
+                <approval type="manual"/>
+                <jobs>
+                    <job name="defaultJob">
+                        <tasks>
+                            <exec command="ls"/>
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+        </pipeline>
+        <pipeline name="slow-pipeline-template">
+         <stage name="defaultStage">
+        	<jobs>
+          		<job name="defaultJob">
+            		<tasks>
+              			<exec command="sleep">
+                       	 <arg>90</arg>
+                       </exec>
+                   </tasks>
+               </job>
+            </jobs>
+         </stage>
+        </pipeline>
+        
+        
+    <pipeline name="multi-stage-deep-triangle-template">
+            <stage name="first_stage">
+                <approval type="manual"/>
+                <jobs>
+                    <job name="defaultJob">
+                        <tasks>
+                            <exec command="ls"/>
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+
+            <stage name="second_stage">
+                <approval type="manual"/>
+                <jobs>
+                    <job name="defaultJob">
+                        <tasks>
+                            <exec command="ls"/>
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+</pipeline>
+
+<pipeline name="multi-stage-deep-triangle-template-auto">
+            <stage name="first_stage">
+                <approval type="success"/>
+                <jobs>
+                    <job name="defaultJob">
+                        <tasks>
+                            <exec command="ls"/>
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+              <stage name="second_stage">
+                <approval type="success"/>
+                <jobs>
+                    <job name="defaultJob">
+                        <tasks>
+                            <exec command="ls"/>
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+            
+</pipeline>
+        
+        
+        
+    </templates>
+    
+    <agents>
+        <agent hostname="missing-agent" ipaddress="10.232.3.1" uuid="missing">
+            <resources>
+                <resource>missing</resource>
+            </resources>
+        </agent>
+        <agent hostname="denied-agent" ipaddress="10.232.3.2" uuid="denied" isDisabled="true">
+            <resources>
+                <resource>denied</resource>
+            </resources>
+        </agent>
+    </agents>
+</cruise>

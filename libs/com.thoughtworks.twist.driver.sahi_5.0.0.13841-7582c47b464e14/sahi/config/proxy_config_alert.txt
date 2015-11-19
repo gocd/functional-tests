@@ -1,0 +1,5 @@
+Sahi needs to change system/browser proxy settings
+in order to work with browsers.
+Sahi will revert the proxy settings when it closes.
+
+Do you want to allow Sahi to change Proxy settings?

@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+includes: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: 'Context allows the use of a compatible middleware at different points in
+    a request handling stack. A compatible middleware must define #context which should
+    take the arguments env and app. The first of which would be the request environment.
+    The second of which would be the rack application that the request would be forwarded
+    to.'
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  rw: R
+  name: app
+- !ruby/object:RI::Attribute 
+  comment: 
+  rw: R
+  name: for
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: context
+- !ruby/object:RI::MethodSummary 
+  name: recontext
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+full_name: Rack::Utils::Context
+constants: []
+
+superclass: Object
+name: Context

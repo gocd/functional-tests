@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_title (SahiDriverTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/sahi_test.rb, line 349</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_title</span>() 
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">navigate_to</span>(<span class="ruby-ivar">@base_url</span>  <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/demo/index.htm&quot;</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;Sahi Tests&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">title</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Form Test&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;Form Test&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">title</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Back&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Window Open Test With Title&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;With Title&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">popup</span>(<span class="ruby-value str">&quot;With Title&quot;</span>).<span class="ruby-identifier">title</span>)
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

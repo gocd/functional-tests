@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_google (SahiDriverTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/sahi_test.rb, line 390</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_google</span>()
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">navigate_to</span>(<span class="ruby-value str">&quot;http://www.google.com&quot;</span>)
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;q&quot;</span>).<span class="ruby-identifier">value</span> = <span class="ruby-value str">&quot;sahi forums&quot;</span>
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">submit</span>(<span class="ruby-value str">&quot;Google Search&quot;</span>).<span class="ruby-identifier">click</span>
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Sahi - Web Automation and Test Tool&quot;</span>).<span class="ruby-identifier">click</span>          
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Login&quot;</span>).<span class="ruby-identifier">click</span>
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">wait</span>(<span class="ruby-value">2</span>);
+    <span class="ruby-identifier">assert</span> <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;req_username&quot;</span>).<span class="ruby-identifier">exists?</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

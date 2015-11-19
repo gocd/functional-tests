@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_links (SahiDriverTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/sahi_test.rb, line 160</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_links</span>()
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">navigate_to</span>(<span class="ruby-ivar">@base_url</span>  <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/demo/index.htm&quot;</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Link Test&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;linkByContent&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Back&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;link with return true&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textarea</span>(<span class="ruby-value str">&quot;ta1&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textarea</span>(<span class="ruby-value str">&quot;ta1&quot;</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Back&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Link Test&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;link with return false&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;t1&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;formTest link with return false&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;t1&quot;</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;linkByContent&quot;</span>).<span class="ruby-identifier">exists?</span>)
+
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;link with returnValue=false&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;t1&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;formTest link with returnValue=false&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;t1&quot;</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;added handler using js&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;t1&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;myFn called&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;t1&quot;</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;t1&quot;</span>).<span class="ruby-identifier">value</span> = (<span class="ruby-value str">&quot;&quot;</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">image</span>(<span class="ruby-value str">&quot;imgWithLink&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Link Test&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">image</span>(<span class="ruby-value str">&quot;imgWithLinkNoClick&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;t1&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;myFn called&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;t1&quot;</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Back&quot;</span>).<span class="ruby-identifier">click</span>;          
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

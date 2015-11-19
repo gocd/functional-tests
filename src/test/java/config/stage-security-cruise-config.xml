@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- *************************GO-LICENSE-START******************************
+ * Copyright 2015 ThoughtWorks, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *************************GO-LICENSE-END******************************* -->
+
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../cruise-config.xsd" schemaVersion="76">
+	<server artifactsdir="artifacts" serverId="twist">
+		<security>
+			<ldap uri="ldap://chidc04.corporate.thoughtworks.com"
+				managerDn="cn=Active Directory Ldap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=corporate,dc=thoughtworks,dc=com"
+				managerPassword="!@dus3r!"				
+				searchFilter="(sAMAccountName={0})" >
+		      	<bases>
+		      		<base value="ou=Employees,ou=Enterprise,ou=Principal,dc=corporate,dc=thoughtworks,dc=com"/>
+		      	</bases>
+     		</ldap>  
+			<passwordFile path="$password_properties" />
+			<roles>
+				<role name="admins">
+					<users>
+						<user>admin</user>
+					</users>
+				</role>
+				<role name="viewer">
+					<users>
+						<user>view</user>
+					</users>
+				</role>
+				<role name="operator">
+					<users>
+						<user>operate</user>
+					</users>
+				</role>
+				<role name="misc">
+					<users>
+						<user>group1view</user>
+					</users>
+				</role>
+			</roles>
+			<admins>
+				<role>admins</role>
+			</admins>
+		</security>
+	</server>
+	<pipelines group="A">
+		<authorization>
+			<view>
+				<user>view</user>
+				<user>operate</user>
+				<role>misc</role>
+			</view>
+			<operate>
+				<user>view</user>
+				<user>operate</user>
+			</operate>
+		</authorization>
+		<pipeline name="p1">
+			<materials>
+				<hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false" />
+			</materials>
+			<stage name="defaultStage">
+				<approval type="manual">
+					<authorization>
+						<user>operate</user>
+					</authorization>
+				</approval>
+				<jobs>
+					<job name="defaultJob">
+						<tasks>
+							<exec command="ls" />
+						</tasks>
+					</job>
+				</jobs>
+			</stage>
+		</pipeline>
+		<pipeline name="p2">
+			<materials>
+				<hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false" />
+			</materials>
+			<stage name="defaultStage">
+				<approval type="manual" />
+				<jobs>
+					<job name="defaultJob">
+						<tasks>
+							<exec command="ls" />
+						</tasks>
+					</job>
+				</jobs>
+			</stage>
+		</pipeline>
+	</pipelines>
+	<pipelines group='B'>
+		<authorization>
+			<admins>
+				<user>view</user>
+				<role>misc</role>
+			</admins>
+		</authorization>
+		<pipeline name="p3">
+			<materials>
+				<hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false" />
+			</materials>
+			<stage name="defaultStage">
+				<approval type="manual">
+					<authorization>
+						<user>operate</user>
+					</authorization>
+				</approval>
+				<jobs>
+					<job name="defaultJob">
+						<tasks>
+							<exec command="ls" />
+						</tasks>
+					</job>
+				</jobs>
+			</stage>
+		</pipeline>
+	</pipelines>
+	<pipelines group='C'>
+		<authorization>
+			<view>
+				<user>view</user>
+				<user>operate</user>
+				<role>misc</role>
+			</view>
+			<operate>
+				<user>view</user>
+				<user>operate</user>
+				<role>misc</role>
+			</operate>
+		</authorization>
+		<pipeline name="p4">
+			<materials>
+				<hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false" />
+			</materials>
+			<stage name="defaultStage">
+				<approval type="manual">
+					<authorization>
+						<user>view</user>
+						<role>misc</role>
+					</authorization>
+				</approval>
+				<jobs>
+					<job name="defaultJob">
+						<tasks>
+							<exec command="ls" />
+						</tasks>
+					</job>
+				</jobs>
+			</stage>
+			<stage name="stage2">
+				<approval type="manual">
+					<authorization>
+						<user>operate</user>
+					</authorization>
+				</approval>
+				<jobs>
+					<job name="defaultJob">
+						<tasks>
+							<exec command="ls" />
+						</tasks>
+					</job>
+				</jobs>
+			</stage>
+		</pipeline>
+	</pipelines>
+	<agents>
+		<agent hostname="missing-agent" ipaddress="10.232.3.1" uuid="missing">
+			<resources>
+				<resource>missing</resource>
+			</resources>
+		</agent>
+		<agent hostname="denied-agent" ipaddress="10.232.3.2" uuid="denied"
+			isDisabled="true">
+			<resources>
+				<resource>denied</resource>
+			</resources>
+		</agent>
+	</agents>
+</cruise>

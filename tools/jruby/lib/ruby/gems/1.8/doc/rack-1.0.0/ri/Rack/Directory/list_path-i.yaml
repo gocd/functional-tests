@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: 'TODO: add correct response if not readable, not sure if 404 is the best'
+- !ruby/struct:SM::Flow::VERB 
+  body: "      option\n"
+full_name: Rack::Directory#list_path
+params: ()
+name: list_path
+is_singleton: false
+aliases: []
+

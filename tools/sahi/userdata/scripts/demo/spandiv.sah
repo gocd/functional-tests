@@ -1,0 +1,16 @@
+_click(_link("Span and Div Page"));
+
+function testNewLineIsIgnored(){
+	_assertNotNull(_spandiv("span with newline"));
+	_assertContainsText("span with newline", _spandiv("span with newline"));
+}
+
+function testInnermostElementWithRegExpLikeIdentifier(){
+	_assertExists(_div("*Region"));
+	_assertExists(_label("*Region"));
+}
+
+function testInnermostElementReturned(){
+	_assertEqual("requiredMark", _span("xx").className);
+}
+_runUnitTests();

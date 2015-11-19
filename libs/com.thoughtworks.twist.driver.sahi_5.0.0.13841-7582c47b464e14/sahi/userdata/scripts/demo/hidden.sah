@@ -1,0 +1,5 @@
+_navigateTo("/demo/formTest.htm");
+_assertExists(_hidden("hiddenone"));
+_assertEqual("abc", _hidden("hiddenone").value);
+_call(_hidden("hiddenone").value = "xyz");
+_assertEqual("xyz", _hidden("hiddenone").value);

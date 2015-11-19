@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>alert1 (SahiDriverTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/sahi_test.rb, line 240</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">alert1</span>(<span class="ruby-identifier">message</span>) 
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">navigate_to</span>(<span class="ruby-ivar">@base_url</span>  <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/demo/alertTest.htm&quot;</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;t1&quot;</span>).<span class="ruby-identifier">value</span> = (<span class="ruby-value str">&quot;Message &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">message</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">button</span>(<span class="ruby-value str">&quot;Click For Alert&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">navigate_to</span>(<span class="ruby-value str">&quot;/demo/alertTest.htm&quot;</span>)
+                <span class="ruby-identifier">sleep</span>(<span class="ruby-value">1</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;Message &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">message</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">last_alert</span>())
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">clear_last_alert</span>()
+                <span class="ruby-identifier">assert_nil</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">last_alert</span>())
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

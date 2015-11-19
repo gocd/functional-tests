@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>extended (JdbcSpec::QuotedPrimaryKeyExtension)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/active_record/connection_adapters/jdbc_adapter.rb, line 61</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">extended</span>(<span class="ruby-identifier">base</span>)
+      <span class="ruby-comment cmt">#       Rails 3 method           Rails 2 method</span>
+      <span class="ruby-identifier">meth</span> = [<span class="ruby-identifier">:arel_attributes_values</span>, <span class="ruby-identifier">:attributes_with_quotes</span>].<span class="ruby-identifier">detect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">base</span>.<span class="ruby-identifier">private_instance_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">m</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">pk_hash_key</span> = <span class="ruby-value str">&quot;self.class.primary_key&quot;</span>
+      <span class="ruby-identifier">pk_hash_value</span> = <span class="ruby-value str">'&quot;?&quot;'</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">meth</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:arel_attributes_values</span>
+        <span class="ruby-identifier">pk_hash_key</span> = <span class="ruby-node">&quot;self.class.arel_table[#{pk_hash_key}]&quot;</span>
+        <span class="ruby-identifier">pk_hash_value</span> = <span class="ruby-node">&quot;Arel::SqlLiteral.new(#{pk_hash_value})&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">meth</span>
+        <span class="ruby-identifier">base</span>.<span class="ruby-identifier">module_eval</span> <span class="ruby-node">%{
+          alias :#{meth}_pre_pk :#{meth}
+          def #{meth}(include_primary_key = true, *args) #:nodoc:
+            aq = #{meth}_pre_pk(include_primary_key, *args)
+            if connection.is_a?(JdbcSpec::Oracle) || connection.is_a?(JdbcSpec::Mimer)
+              aq[#{pk_hash_key}] = #{pk_hash_value} if include_primary_key &amp;&amp; aq[#{pk_hash_key}].nil?
+            end
+            aq
+          end
+        }</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

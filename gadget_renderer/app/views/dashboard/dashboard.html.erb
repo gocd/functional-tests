@@ -1,0 +1,9 @@
+<div style="float:left">
+    Add A Go Gadget:
+    <% form_remote_tag :url => {:action => 'add_account_gadget'}  do %>
+        <%= text_field_tag('up_pipelineName') %>
+        <%= submit_tag 'Add' %>
+    <% end %>
+</div>
+<div id="dashboard">
+</div>

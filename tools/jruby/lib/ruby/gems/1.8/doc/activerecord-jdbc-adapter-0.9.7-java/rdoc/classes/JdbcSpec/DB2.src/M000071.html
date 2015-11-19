@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>pk_and_sequence_for (JdbcSpec::DB2)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/jdbc_adapter/jdbc_db2.rb, line 89</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pk_and_sequence_for</span>(<span class="ruby-identifier">table</span>)
+      <span class="ruby-comment cmt"># In JDBC/DB2 side, only upcase names of table and column are handled.</span>
+      <span class="ruby-identifier">keys</span> = <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">table</span>.<span class="ruby-identifier">upcase</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">keys</span>[<span class="ruby-value">0</span>]
+        <span class="ruby-comment cmt"># In ActiveRecord side, only downcase names of table and column are handled.</span>
+        <span class="ruby-identifier">keys</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">keys</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">downcase</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">keys</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

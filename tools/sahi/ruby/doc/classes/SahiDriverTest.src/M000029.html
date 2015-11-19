@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_check (SahiDriverTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/sahi_test.rb, line 321</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_check</span>() 
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">navigate_to</span>(<span class="ruby-ivar">@base_url</span>  <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/demo/&quot;</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Form Test&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;false&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-value str">&quot;checked&quot;</span>))
+                <span class="ruby-identifier">assert</span>(<span class="ruby-operator">!</span><span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">checked</span>())
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">check</span>()
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;true&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-value str">&quot;checked&quot;</span>))
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">checked</span>())
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">check</span>()
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;true&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-value str">&quot;checked&quot;</span>))
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">uncheck</span>()
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;false&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-value str">&quot;checked&quot;</span>))
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">uncheck</span>()
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;false&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-value str">&quot;checked&quot;</span>))
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;true&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-value str">&quot;checked&quot;</span>))
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

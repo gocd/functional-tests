@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_multi_file_upload (SahiDriverTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/sahi_test.rb, line 128</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_multi_file_upload</span>()
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">navigate_to</span>(<span class="ruby-ivar">@base_url</span>  <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/demo/php/fileUpload.htm&quot;</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">file</span>(<span class="ruby-value str">&quot;file[]&quot;</span>).<span class="ruby-identifier">file</span> = <span class="ruby-value str">&quot;D:/sahi/sf/sahi_993/userdata/scripts/demo/uploadme.txt&quot;</span>;
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">file</span>(<span class="ruby-value str">&quot;file[]&quot;</span>).<span class="ruby-identifier">file</span> = <span class="ruby-value str">&quot;D:/sahi/sf/sahi_993/userdata/scripts/demo/uploadme2.txt&quot;</span>;
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">submit</span>(<span class="ruby-value str">&quot;Submit Array&quot;</span>).<span class="ruby-identifier">click</span>;
+                <span class="ruby-identifier">assert_not_nil</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">span</span>(<span class="ruby-value str">&quot;type&quot;</span>).<span class="ruby-identifier">text</span>().<span class="ruby-identifier">index</span>(<span class="ruby-value str">&quot;Array&quot;</span>))
+                <span class="ruby-identifier">assert_not_nil</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">span</span>(<span class="ruby-value str">&quot;file&quot;</span>).<span class="ruby-identifier">text</span>().<span class="ruby-identifier">index</span>(<span class="ruby-value str">&quot;uploadme.txt&quot;</span>))
+                <span class="ruby-identifier">assert_not_nil</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">span</span>(<span class="ruby-value str">&quot;size&quot;</span>).<span class="ruby-identifier">text</span>().<span class="ruby-identifier">index</span>(<span class="ruby-value str">&quot;0.3046875 Kb&quot;</span>))
+                
+                <span class="ruby-identifier">assert_not_nil</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">span</span>(<span class="ruby-value str">&quot;file[1]&quot;</span>).<span class="ruby-identifier">text</span>().<span class="ruby-identifier">index</span>(<span class="ruby-value str">&quot;uploadme2.txt&quot;</span>))
+                <span class="ruby-identifier">assert_not_nil</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">span</span>(<span class="ruby-value str">&quot;size[1]&quot;</span>).<span class="ruby-identifier">text</span>().<span class="ruby-identifier">index</span>(<span class="ruby-value str">&quot;0.32421875 Kb&quot;</span>))
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

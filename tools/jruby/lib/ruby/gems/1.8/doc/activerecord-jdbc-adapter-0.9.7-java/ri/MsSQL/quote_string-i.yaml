@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+full_name: "::MsSQL#quote_string"
+params: (string)
+name: quote_string
+is_singleton: false
+aliases: []
+

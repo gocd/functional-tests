@@ -1,0 +1,10 @@
+<!--SAHI_INJECT_START-->
+<script src="/_s_/spr/domainfix.js"></script>
+<script src='/_s_/spr/concat.js'></script>
+<script src='http://sahi.example.com/_s_/dyn/SessionState/state.js'></script>
+<script src='/_s_/spr/language_pack.js'></script>
+<script>
+document.write("<script src='/_s_/dyn/Player_script/script.js?sahisid="+ _sahi.sid +"'></scr" + "ipt>");
+</script>
+<script src='/_s_/spr/playback.js'></script>
+<!--SAHI_INJECT_END-->

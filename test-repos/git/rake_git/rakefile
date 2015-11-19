@@ -1,0 +1,11 @@
+file 'main.o' => ["main.c", "greet.h"] do
+    sh "cc -c -o main.o main.c"
+  end
+
+  file 'greet.o' => ['greet.c'] do
+    sh "cc -c -o greet.o greet.c"
+  end
+
+  file "hello" => ["main.o", "greet.o"] do
+    sh "cc -o hello main.o greet.o"
+  end

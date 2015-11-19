@@ -1,0 +1,37 @@
+//TEST FOR LEFTOF RIGHTOF AND LEFTORRIGHTOF BY using DIFFERENT OFFSETS 
+
+_navigateTo("left_right_offsets.html");
+
+function testRightOfCases(){
+	_navigateTo("left_right_offsets.html");
+	_assertEqual(_cell(3),_cell(0,_rightOf(_cell(6),[30,10])));
+	_assertEqual(_cell(12),_cell(0,_rightOf(_cell(6),[0,50])));
+	_assertEqual(_cell("4......4"),_cell(0,_rightOf(_cell("2......3"),[0,50])));
+	_assertEqual(_cell("4......5"),_cell(1,_rightOf(_cell("2......3"),[0,50])));
+	_assertEqual(_bold("4.link"),_bold(3,_rightOf(_bold("2.link"),[40,50])));
+	_assertEqual(_link("1.link"),_link(0,_rightOf(_cell("5......5"),[0,80])));
+}
+
+function testLeftOfCases()
+{
+	_navigateTo("left_right_offsets.html");
+	_assertEqual(_bold("2.link"),_bold(1,_leftOf(_bold("3.link"),[0,50])));
+	_assertEqual(_bold("2.link"),_bold(1,_leftOf(_bold("3.link"),[40,50])));
+	_assertEqual(_cell("1......1"),_cell(0,_leftOf(_cell("4......2"),[100,0])));
+	_assertEqual(_bold("3.link"),_bold(2,_leftOf(_bold("4.link"),[100,0])));
+	_assertEqual(_bold("2.link"),_bold(1,_leftOf(_bold("3.link"),[0,100])));
+	_assertEqual(_cell(4),_cell(0, _leftOf(_cell(16),[80,0])));
+}
+
+function testLeftOrRightOfCases(){
+	_navigateTo("left_right_offsets.html");
+	_assertEqual(_bold("2.link"),_bold(1,_leftOrRightOf(_bold("3.link"),[0,100])));
+	_assertEqual(_cell("1......4"),_cell(3,_leftOrRightOf(_cell("4......2"),[100,0])));
+	_assertEqual(_cell("1......4"), _cell(3, _leftOrRightOf(_cell("3......2"),[60,0])));
+	_assertEqual(_cell("1......1"),_cell(0,_leftOrRightOf(_cell("4......2"),[100,0])));
+	_assertEqual(_bold("3.link"),_bold(2,_leftOrRightOf(_bold("4.link"),[100,0])));
+	_assertEqual(_bold("2.link"),_bold(1,_leftOrRightOf(_bold("3.link"),[0,100])));
+	_assertEqual(_cell(4),_cell(0, _leftOrRightOf(_cell(16),[80,0])));
+}
+
+_runUnitTests();

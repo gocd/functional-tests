@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Sahi::Browser</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Sahi::Browser</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/sahi_rb.html">
+                lib/sahi.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The <a href="Browser.html">Browser</a> class controls different browsers
+via <a href="../Sahi.html">Sahi</a>&#8216;s proxy.
+</p>
+<p>
+Thank you Sai Venkat for helping kickstart the ruby driver.
+</p>
+<table>
+<tr><td valign="top">Author:</td><td>Narayan Raman (<a href="mailto:narayan@sahi.co.in">narayan@sahi.co.in</a>)
+
+</td></tr>
+<tr><td valign="top">Copyright:</td><td>Copyright (c) 2006 V Narayan Raman
+
+</td></tr>
+<tr><td valign="top">License:</td><td>Apache License, Version 2.0
+
+</td></tr>
+</table>
+<p>
+Download <a href="../Sahi.html">Sahi</a> from <a
+href="http://sahi.co.in">sahi.co.in</a>/ . Java 1.5 or greater is needed to
+run <a href="../Sahi.html">Sahi</a>.
+</p>
+<p>
+Start <a href="../Sahi.html">Sahi</a>: cd sahi\userdata\bin;
+start_sahi.bat;
+</p>
+<p>
+or
+</p>
+<p>
+cd sahi/userdata/bin; start_sahi.sh;
+</p>
+<p>
+Point the browser proxy settings to localhost 9999.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000022">add_url_mock</a>&nbsp;&nbsp;
+      <a href="#M000012">clear_last_alert</a>&nbsp;&nbsp;
+      <a href="#M000014">clear_last_confirm</a>&nbsp;&nbsp;
+      <a href="#M000020">clear_last_downloaded_filename</a>&nbsp;&nbsp;
+      <a href="#M000017">clear_last_prompt</a>&nbsp;&nbsp;
+      <a href="#M000007">close</a>&nbsp;&nbsp;
+      <a href="#M000015">expect_confirm</a>&nbsp;&nbsp;
+      <a href="#M000018">expect_prompt</a>&nbsp;&nbsp;
+      <a href="#M000006">fetch</a>&nbsp;&nbsp;
+      <a href="#M000011">last_alert</a>&nbsp;&nbsp;
+      <a href="#M000013">last_confirm</a>&nbsp;&nbsp;
+      <a href="#M000019">last_downloaded_filename</a>&nbsp;&nbsp;
+      <a href="#M000016">last_prompt</a>&nbsp;&nbsp;
+      <a href="#M000005">method_missing</a>&nbsp;&nbsp;
+      <a href="#M000004">navigate_to</a>&nbsp;&nbsp;
+      <a href="#M000001">new</a>&nbsp;&nbsp;
+      <a href="#M000002">open</a>&nbsp;&nbsp;
+      <a href="#M000009">popup</a>&nbsp;&nbsp;
+      <a href="#M000010">popup?</a>&nbsp;&nbsp;
+      <a href="#M000023">remove_url_mock</a>&nbsp;&nbsp;
+      <a href="#M000003">response</a>&nbsp;&nbsp;
+      <a href="#M000021">save_downloaded</a>&nbsp;&nbsp;
+      <a href="#M000008">set_speed</a>&nbsp;&nbsp;
+      <a href="#M000024">title</a>&nbsp;&nbsp;
+      <a href="#M000025">wait</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">popup_name</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">print_steps</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">proxy_host</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">proxy_port</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">sahisid</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000001.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000001.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(browser_path, browser_options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Takes browser_path and browser_options Various browser options needed to
+initialize the <a href="Browser.html">Browser</a> object are:
+</p>
+<p>
+Internet Explorer 6&amp;7:
+</p>
+<pre>
+  browser_path = &quot;C:\\Program Files\\Internet Explorer\\iexplore.exe&quot;
+  browser_options = &quot;&quot;
+</pre>
+<p>
+Internet Explorer 8:
+</p>
+<pre>
+  browser_path = &quot;C:\\Program Files\\Internet Explorer\\iexplore.exe&quot;
+  browser_options = &quot;-nomerge&quot;
+</pre>
+<p>
+Firefox:
+</p>
+<pre>
+  userdata_dir = &quot;D:/sahi/sf/sahi_993/userdata&quot; #  path to Sahi's userdata directory.
+  browser_path = &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot;
+  browser_options = &quot;-profile # {userdata_dir}/browser/ff/profiles/sahi0 -no-remote&quot;
+</pre>
+<p>
+Chrome:
+</p>
+<pre>
+  userdata_dir = &quot;D:/sahi/sf/sahi_993/userdata&quot; #  path to Sahi's userdata directory.
+  browser_path = &quot;C:\\Documents and Settings\\YOU_THE_USER\\Local Settings\\Application Data\\Google\\Chrome\\Application\\chrome.exe&quot;
+  browser_options = &quot;--user-data-dir=# {userdata_dir}\browser\chrome\profiles\sahi$threadNo&quot;
+</pre>
+<p>
+Safari:
+</p>
+<pre>
+  browser_path = &quot;C:\\Program Files\\Safari\Safari.exe&quot;
+  browser_options = &quot;&quot;
+</pre>
+<p>
+Opera:
+</p>
+<pre>
+  browser_path = &quot;C:\\Program Files\\Opera\\opera.exe&quot;
+  browser_options = &quot;&quot;
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000022.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000022.html');return false;">
+          <span class="method-name">add_url_mock</span><span class="method-args">(url_pattern, clazz=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+make specific url patterns return dummy responses. Look at _addMock
+documentation.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000012.html');return false;">
+          <span class="method-name">clear_last_alert</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+resets the last alerted message
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000014.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000014.html');return false;">
+          <span class="method-name">clear_last_confirm</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+resets the last confirm message
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000020.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000020.html');return false;">
+          <span class="method-name">clear_last_downloaded_filename</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+clear last downloaded file&#8216;s name
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000017.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000017.html');return false;">
+          <span class="method-name">clear_last_prompt</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+clears the last prompted message
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000007.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000007.html');return false;">
+          <span class="method-name">close</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+closes the browser
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000015.html');return false;">
+          <span class="method-name">expect_confirm</span><span class="method-args">(message, input)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+set an expectation to press OK (true) or Cancel (false) for specific
+confirm message
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000018.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000018.html');return false;">
+          <span class="method-name">expect_prompt</span><span class="method-args">(message, input)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+set an expectation to set given value for specific prompt message
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000006.html');return false;">
+          <span class="method-name">fetch</span><span class="method-args">(expression)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+evaluates a javascript expression on the browser and fetches its value
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000011.html');return false;">
+          <span class="method-name">last_alert</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns the message last alerted on the browser
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000013.html');return false;">
+          <span class="method-name">last_confirm</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns the last confirm message
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000019.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000019.html');return false;">
+          <span class="method-name">last_downloaded_filename</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+get last downloaded file&#8216;s name
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000016.html');return false;">
+          <span class="method-name">last_prompt</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns the last prompted message
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000005.html');return false;">
+          <span class="method-name">method_missing</span><span class="method-args">(m, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000004.html');return false;">
+          <span class="method-name">navigate_to</span><span class="method-args">(url, force_reload=false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+navigates to the given url
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000002.html');return false;">
+          <span class="method-name">open</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+opens the browser
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000009.html');return false;">
+          <span class="method-name">popup</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+represents a <a href="Browser.html#M000009">popup</a> window. The name is
+either the window name or its <a href="Browser.html#M000024">title</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000010.html');return false;">
+          <span class="method-name">popup?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000023.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000023.html');return false;">
+          <span class="method-name">remove_url_mock</span><span class="method-args">(url_pattern)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+reverse effect of <a href="Browser.html#M000022">add_url_mock</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000003.html');return false;">
+          <span class="method-name">response</span><span class="method-args">(url, qs={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000021.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000021.html');return false;">
+          <span class="method-name">save_downloaded</span><span class="method-args">(file_path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Save the last downloaded file to specified path
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000008.html');return false;">
+          <span class="method-name">set_speed</span><span class="method-args">(ms)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+sets the speed of execution. The speed is specified in milli seconds
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000024.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000024.html');return false;">
+          <span class="method-name">title</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+return window <a href="Browser.html#M000024">title</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <a href="Browser.src/M000025.html" target="Code" class="method-signature"
+            onclick="popupCode('Browser.src/M000025.html');return false;">
+          <span class="method-name">wait</span><span class="method-args">(timeout) {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+waits for specified time (in seconds). if a block is passed, it will <a
+href="Browser.html#M000025">wait</a> till the block evaluates to true or
+till the specified timeout, which ever is earlier.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- *************************GO-LICENSE-START******************************
+ * Copyright 2015 ThoughtWorks, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *************************GO-LICENSE-END******************************* -->
+
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="76">
+    <server artifactsdir="artifacts" serverId="twist">
+    </server>
+    
+	<repositories>
+	    <repository id="repo-id" name="tw-repo">
+	      <pluginConfiguration id="yum" version="1"/> 	
+	      <configuration>
+	        <property>
+	          <key>REPO_URL</key>
+	          <value>http://localhost:8081/${http_repo1}</value>
+	        </property>
+	        <property>
+	          <key>USERNAME</key>
+	          <value>user</value>
+	        </property>
+	        <property>
+	          <key>PASSWORD</key>
+	          <value>password</value>
+	        </property>
+	      </configuration>
+	      <packages>
+	        <package id="package-id" name="go-agent">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-agent</value>
+	            </property>
+	          </configuration>
+	        </package>
+	      </packages>
+	    </repository>
+	    <repository id="repo-id-2" name="tw-repo-2">
+	      <pluginConfiguration id="yum" version="1"/> 	
+	      <configuration>
+	        <property>
+	          <key>REPO_URL</key>
+	          <value>http://localhost:8081/${http_repo1}</value>
+	        </property>
+	        <property>
+	          <key>USERNAME</key>
+	          <value>user_with_special_password</value>
+	        </property>
+	        <property>
+	          <key>PASSWORD</key>
+	          <value>:password!@</value>
+	        </property>
+	      </configuration>
+	      <packages>
+	        <package id="package-id-2" name="go-agent-noarch">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-agent.noarch</value>
+	            </property>
+	          </configuration>
+	        </package>
+	      </packages>
+	    </repository>
+	    <repository id="repo-with-missing-plugin" name="repo-with-missing-plugin">
+	      <pluginConfiguration id="missing" version="1"/> 	
+	      <configuration>
+	            <property>
+	              <key>PROPERTY</key>
+	              <value>some-value</value>
+	            </property>
+	          </configuration>
+	      <packages>
+	        <package id="package-with-missing-plugin" name="package-with-missing-plugin">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-agent</value>
+	            </property>
+	          </configuration>
+	        </package>
+	      </packages>
+	    </repository>
+	    <repository id="repo-1" name="repo-1">
+	      <pluginConfiguration id="yum" version="1"/> 	
+	      <configuration>
+	        <property>
+	          <key>REPO_URL</key>
+	          <value>$repo1</value>
+	        </property>
+	      </configuration>
+	      <packages>        
+	        <package id="P1" name="P-1">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-server</value>
+	            </property>
+	          </configuration>
+	        </package>
+	        <package id="P2" name="P-2">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-server-13.1.0</value>
+	            </property>
+	          </configuration>
+	        </package>
+	         <package id="MP1" name="MP-1">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>1go-server</value>
+	            </property>
+	          </configuration>
+	        </package>
+	        <package id="MP2" name="MP-2">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-server-13.1</value>
+	            </property>
+	          </configuration>
+	        </package>
+	         <package id="MP3" name="MP-3">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-server.noarch</value>
+	            </property>
+	          </configuration>
+	        </package>
+	        <package id="MP4" name="MP-4">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>GO-server</value>
+	            </property>
+	          </configuration>
+	        </package>
+	      </packages>
+	    </repository>
+	    <repository id="repo-2" name="repo-2">
+	      <pluginConfiguration id="yum" version="1"/> 	
+	      <configuration>
+	        <property>
+	          <key>REPO_URL</key>
+	          <value>$repo2</value>
+	        </property>
+	      </configuration>
+	      <packages>        
+	        <package id="Q1" name="Q-1">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-agent-13.1.0-112</value>
+	            </property>
+	          </configuration>
+	        </package>
+	        <package id="Q2" name="Q-2">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-agent.noarch</value>
+	            </property>
+	          </configuration>
+	        </package>
+	        <package id="Q3" name="Q-3">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-agent-13.1.0-5411.noarch</value>
+	            </property>
+	          </configuration>
+	        </package>
+	      </packages>
+	    </repository>
+	    <repository id="repo-3" name="repo-3">
+	      <pluginConfiguration id="yum" version="1"/> 	
+	      <configuration>
+	        <property>
+	          <key>REPO_URL</key>
+	          <value>$repo3</value>
+	        </property>
+	      </configuration>
+	      <packages>        
+	        <package id="CP1" name="CP-1">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-server</value>
+	            </property>
+	          </configuration>
+	        </package>
+	        <package id="CP2" name="CP-2">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-agent</value>
+	            </property>
+	          </configuration>
+	        </package>
+	        <package id="MQ2" name="MQ-2">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-agent*</value>
+	            </property>
+	          </configuration>
+	        </package>
+	        <package id="MQ3" name="MQ-3">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value> go-agent-13.1.0.noarch</value>
+	            </property>
+	          </configuration>
+	        </package>
+	        <package id="MQ4" name="MQ-4">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-agent?</value>
+	            </property>
+	          </configuration>
+	        </package>
+	        <package id="MQ5" name="MQ-5">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-agent+</value>
+	            </property>
+	          </configuration>
+	        </package>
+	      </packages>
+	    </repository>
+	    <repository id="repo-with-dup-and-invalid-keys" name="repo-with-dup-and-invalid-keys">
+	      <pluginConfiguration id="yum" version="1"/> 	
+	      <configuration>
+	        <property>
+	          <key>REPO_URL</key>
+	          <value>$repo3</value>
+	        </property>
+	        <property>
+	          <key>REPO_URL_DUP</key>
+	          <value>$repo3</value>
+	        </property>	        
+	      </configuration>
+	      <packages>        
+	        <package id="pkg-dup-and-invalid-keys" name="pkg-dup-and-invalid-keys">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value>go-server</value>
+	            </property>
+	            <property>
+	              <key>PACKAGE_SPEC_DUP</key>
+	              <value>go-server</value>
+	            </property>
+	          </configuration>
+	        </package>
+	       </packages> 	
+	    </repository>
+	    <repository id="repo-with-empty-key-value" name="repo-with-empty-key-value">
+	      <pluginConfiguration id="yum" version="1"/> 	
+	      <configuration>
+	        <property>
+	          <key>REPO_URL</key>
+	          <value/>
+	        </property>
+	      </configuration>
+	      <packages>        
+	        <package id="pkg-with-empty-key-value" name="pkg-with-empty-key-value">
+	          <configuration>
+	            <property>
+	              <key>PACKAGE_SPEC</key>
+	              <value/>
+	            </property>
+	          </configuration>
+	        </package>
+	       </packages>	
+	    </repository>
+  </repositories>
+  
+  <pipelines group="defaultGroup">
+    <pipeline name="pipeline_with_yum_repo_package_as_material">
+      <materials>
+        <package ref="package-id" />
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="/bin/sh">
+                <arg>-c</arg>
+                <arg>echo GO_REPO_TW_REPO_GO_AGENT_PASSWORD : $GO_REPO_TW_REPO_GO_AGENT_PASSWORD AND GO_PACKAGE_TW_REPO_GO_AGENT_LOCATION : $GO_PACKAGE_TW_REPO_GO_AGENT_LOCATION</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    
+    <pipeline name="pipeline_with_yum_repo_package_api">
+      <materials>
+        <package ref="package-id" />
+      </materials>
+      <stage name="defaultStage">
+      <approval type="manual" />
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="/bin/sh">
+                <arg>-c</arg>
+                <arg>echo GO_REPO_TW_REPO_GO_AGENT_PASSWORD : $GO_REPO_TW_REPO_GO_AGENT_PASSWORD AND GO_PACKAGE_TW_REPO_GO_AGENT_LOCATION : $GO_PACKAGE_TW_REPO_GO_AGENT_LOCATION</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    
+     <pipeline name="pipeline_repo_user_has_special_password">
+      <materials>
+        <package ref="package-id-2" />
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="/bin/sh">
+                <arg>-c</arg>
+                <arg>echo GO_REPO_TW_REPO_2_GO_AGENT_NOARCH_PASSWORD : $GO_REPO_TW_REPO_2_GO_AGENT_NOARCH_PASSWORD AND GO_PACKAGE_TW_REPO_2_GO_AGENT_NOARCH_LOCATION : $GO_PACKAGE_TW_REPO_2_GO_AGENT_NOARCH_LOCATION</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    
+    <pipeline name="pipeline-for-test">
+      <materials>
+        <git url="$giturl" materialName="modifiable_git" dest="git-mod"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    
+    
+    <pipeline name="A1" template="A-series">
+      <materials>
+        <package ref="P1" />
+        <package ref="Q1" />      
+       <pipeline pipelineName="A3" stageName="defaultStage"/>
+        
+      </materials>
+    </pipeline>
+
+     <pipeline name="A2" template="A-series">
+      <materials>
+        <package ref="P2" />
+        <package ref="Q2" />
+        <git url="$giturl" materialName="modifiable_git" dest="git-mod"/>
+      </materials>
+    </pipeline>
+
+     <pipeline name="A3" template="A-series">
+      <materials>
+        <package ref="P2" />
+        <package ref="Q3" />
+      </materials>
+    </pipeline>
+    
+    
+    <pipeline name="C1" template="C-series">
+      <materials>
+        <git url="$giturl" materialName="modifiable_git" dest="git-mod"/>
+      </materials>
+    </pipeline>
+    
+    <pipeline name="C2" template="C-series">
+      <materials>
+        
+      	<pipeline pipelineName="C1" stageName="defaultStage"/>
+        <package ref="CP1" />
+        <package ref="CP2" />
+        <hg url="$hgurl" dest="hg" materialName="hg-c2"/>
+        
+      </materials>
+    </pipeline> 
+    
+    <pipeline name="F1" template="A-series">
+      <materials>
+        <package ref="P1" />
+      </materials>
+    </pipeline>
+    
+    <pipeline name="F2" template="A-series">
+      <materials>
+        <package ref="P1" />
+        <package ref="CP2" />
+      </materials>
+    </pipeline>
+    
+    <pipeline name="F3" template="A-series">
+      <materials>
+		<pipeline pipelineName="F1" stageName="defaultStage"/>
+        <pipeline pipelineName="F2" stageName="defaultStage"/>
+        <package ref="CP2" />
+      </materials>
+    </pipeline>  
+    
+    <pipeline name="K1">
+      <materials>
+        <package ref="CP2" />
+      </materials>
+       <stage name="defaultStage">
+        <approval type="manual" />
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    
+    <pipeline name="K2">
+      <materials>
+        <package ref="CP1" />
+      </materials>
+       <stage name="defaultStage">
+        <approval type="manual" />
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  
+     <pipeline name="K3">
+      <materials>
+        <hg url="$hgurl" dest="hg" materialName="hg-k3" />
+        <package ref="CP1" />
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual" />
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+            <artifacts>
+              <test src="hg/dev/pass.xml" dest="pass" />
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    
+    <pipeline name="K4">
+      <materials>
+        <hg url="$hgurl" dest="hg" materialName="hg-k4" />
+        <package ref="CP1" />
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual" />
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls123" />
+            </tasks>
+            <artifacts>
+              <test src="hg/dev/fail.xml" dest="fail" />
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  
+  </pipelines>
+  
+  <pipelines group="fanin-advanced">
+    <pipeline name="fanin_a" template="fanin_a-template">
+      <materials>
+        <package ref="CP2" />
+      </materials>
+    </pipeline>
+    
+    <pipeline name="fanin_b" template="fanin_b_template">
+      <materials>
+        <pipeline pipelineName="fanin_a" stageName="stage_1"/>
+      </materials>
+    </pipeline>
+    
+    <pipeline name="fanin_c" template="A-series">
+      <materials>
+        <pipeline pipelineName="fanin_a" stageName="stage_2"/>
+      </materials>
+    </pipeline>
+
+
+    <pipeline name="fanin_d" template="A-series">
+      <materials>
+        <pipeline pipelineName="fanin_b" stageName="defaultStage"/>
+        <pipeline pipelineName="fanin_c" stageName="defaultStage"/>
+      </materials>
+    </pipeline>
+
+  </pipelines>
+  
+  
+    <pipelines group="mduErrors">    
+    <pipeline name="M1" template="A-series">
+      <materials>
+        <package ref="MQ2" />
+        <package ref="MP3" />
+      </materials>
+    </pipeline>
+    
+     <pipeline name="M2" template="A-series">
+      <materials>
+        <package ref="MP1" />
+        <package ref="MP3" />
+      </materials>
+    </pipeline> 
+    
+     <pipeline name="M3" template="A-series">
+      <materials>
+        <package ref="MQ2" />
+      </materials>
+    </pipeline>
+    
+    <pipeline name="M4" template="A-series">
+      <materials>
+        <package ref="MQ3" />
+        <package ref="MQ5" />
+      </materials>
+    </pipeline>
+  
+  <pipeline name="M5" template="A-series">
+      <materials>
+        <package ref="MP2" />
+        <package ref="MQ4" />
+      </materials>
+    </pipeline>			
+
+  
+  <pipeline name="M6" template="A-series">
+      <materials>
+        <package ref="CP2" />
+        <package ref="MP3" />
+      </materials>
+    </pipeline>	
+    
+    <pipeline name="M7" template="A-series">
+      <materials>
+        <package ref="MP4" />
+      </materials>
+    </pipeline>	
+    
+    <pipeline name="M8" template="A-series">
+      <materials>
+        <package ref="pkg-dup-and-invalid-keys" />
+      </materials>
+    </pipeline>	
+    
+    <pipeline name="M9" template="A-series">
+      <materials>
+        <package ref="pkg-with-empty-key-value" />
+      </materials>
+    </pipeline>		
+  	
+  </pipelines>
+  
+  
+  <templates>
+  
+
+  <pipeline name="fanin_a-template">
+      <stage name="stage_1">
+         <jobs>
+          <job name="job1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="stage_2">
+      <approval type="manual" />
+         <jobs>
+          <job name="job1">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>      
+    </pipeline>
+
+  <pipeline name="A-series">
+      <stage name="defaultStage">
+         <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      </pipeline>
+
+  <pipeline name="fanin_b_template">
+      <stage name="defaultStage">
+         <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      </pipeline>
+      
+
+   <pipeline name="C-series">
+      <stage name="defaultStage">
+      <approval type="manual" />
+         <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      </pipeline>
+  	</templates>
+  
+    <agents>
+    <agent hostname="missing-agent" ipaddress="10.232.3.1" uuid="missing">
+      <resources>
+        <resource>missing</resource>
+      </resources>
+    </agent>
+    <agent hostname="denied-agent" ipaddress="10.232.3.2" uuid="denied" isDisabled="true">
+      <resources>
+        <resource>denied</resource>
+      </resources>
+    </agent>
+  </agents>
+</cruise>

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: (found, mtime)
+comment: 
+full_name: Rack::Reloader::Stat#rotation
+params: () {|found, mtime| ...}
+name: rotation
+is_singleton: false
+aliases: []
+

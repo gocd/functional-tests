@@ -1,0 +1,334 @@
+# Logfile created on Mon Sep 15 12:25:50 UTC 2014  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (20.0ms)[0m   [0mCREATE TABLE access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, access_token VARCHAR(255), user_id integer(0), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (12.0ms)[0m   [0mCREATE TABLE accounts (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), bank_id integer(0), account_type VARCHAR(255), account_number VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (12.0ms)[0m   [0mCREATE TABLE authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), code VARCHAR(255), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (7.0ms)[0m   [0mCREATE TABLE banks (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255), url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mCREATE TABLE gadgets_oauth_clients (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadget_url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), service_name VARCHAR(255), redirect_uri VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mCREATE TABLE oauth_access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), access_token VARCHAR(255), refresh_token VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mCREATE TABLE oauth_authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), code VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mCREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email VARCHAR(255), password VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (12.0ms)[0m   [0mCREATE TABLE schema_migrations (version VARCHAR(255) NOT NULL) [0m
+  [4;36;1mSQL (8.0ms)[0m   [0;1mCREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations (version)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100715001151')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215916')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215917')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714222343')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215915')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (12.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714230519')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (12.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215914')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714221638')[0m
+  [4;35;1mBank Create (1.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('ACME Bank', 'https://localhost:5000', 'dd07b68e5400d428350cc585af6df38069056de96daf953091b4a65295fdf727', '9e07285bbcf48f892e4570f546f9fade0adf8c750fe313ac9b40d084f09f2fa9', '2014-09-15 12:25:53', '2014-09-15 12:25:53')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+  [4;35;1mBank Create (0.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Programmers Credit Union', 'https://localhost:6000', 'zzz', 'zzz', '2014-09-15 12:25:53', '2014-09-15 12:25:53')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2014-09-15 12:25:53) [GET]
+  [4;35;1mBank Create (0.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Money Club', 'https://localhost:7000', 'yyy', 'yyy', '2014-09-15 12:25:53', '2014-09-15 12:25:53')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 88ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2014-09-15 12:25:54) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 5ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2014-09-15 12:25:54) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 110ms (View: 107, DB: 0) | 200 OK [http://localhost/sessions/new]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mCREATE TABLE access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, access_token VARCHAR(255), user_id integer(0), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (8.0ms)[0m   [0mCREATE TABLE accounts (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), bank_id integer(0), account_type VARCHAR(255), account_number VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mCREATE TABLE authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), code VARCHAR(255), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mCREATE TABLE banks (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255), url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mCREATE TABLE gadgets_oauth_clients (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadget_url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), service_name VARCHAR(255), redirect_uri VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (13.0ms)[0m   [0mCREATE TABLE oauth_access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), access_token VARCHAR(255), refresh_token VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (13.0ms)[0m   [0mCREATE TABLE oauth_authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), code VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (7.0ms)[0m   [0mCREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email VARCHAR(255), password VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mCREATE TABLE schema_migrations (version VARCHAR(255) NOT NULL) [0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mCREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations (version)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100715001151')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (20.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215916')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (13.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215917')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (13.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714222343')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215915')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714230519')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215914')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (13.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714221638')[0m
+  [4;35;1mBank Create (0.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('ACME Bank', 'https://localhost:5000', 'dd07b68e5400d428350cc585af6df38069056de96daf953091b4a65295fdf727', '9e07285bbcf48f892e4570f546f9fade0adf8c750fe313ac9b40d084f09f2fa9', '2014-09-15 12:28:18', '2014-09-15 12:28:18')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+  [4;35;1mBank Create (0.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Programmers Credit Union', 'https://localhost:6000', 'zzz', 'zzz', '2014-09-15 12:28:18', '2014-09-15 12:28:18')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+  [4;35;1mBank Create (0.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Money Club', 'https://localhost:7000', 'yyy', 'yyy', '2014-09-15 12:28:18', '2014-09-15 12:28:18')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2014-09-15 12:28:18) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 81ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2014-09-15 12:28:19) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 7ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2014-09-15 12:28:19) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 122ms (View: 118, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2014-09-15 12:34:49) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 58ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2014-09-15 12:34:50) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 6ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2014-09-15 12:34:50) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 104ms (View: 100, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2014-09-15 12:35:19) [POST]
+  Parameters: {"email"=>"admin@tw.com", "password"=>"admin"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.email = 'admin@tw.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 44ms (View: 12, DB: 0) | 200 OK [http://localhost/sessions/create]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2014-09-15 12:35:37) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM users WHERE (users.email IS NULL) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 84ms (View: 20, DB: 1) | 200 OK [http://localhost/sessions/create]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2014-09-15 12:35:42) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 17ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2014-09-15 12:35:42) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2014-09-15 12:35:42) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 32ms (View: 30, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2014-09-15 12:35:52) [POST]
+  Parameters: {"email"=>"admin@tw.com", "password"=>"admin"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.email = 'admin@tw.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 42ms (View: 13, DB: 0) | 200 OK [http://localhost/sessions/create]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2014-09-15 12:35:57) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 93ms (View: 69, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2014-09-15 12:36:08) [POST]
+  Parameters: {"user"=>{"email"=>"admin@tw.com", "password"=>"admin"}, "commit"=>"Create"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT users.id FROM users WHERE (users.email = 'admin@tw.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO users (email, password, created_at, updated_at) VALUES('admin@tw.com', 'admin', '2014-09-15 12:36:08', '2014-09-15 12:36:08')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'users'[0m
+Redirected to http://localhost:3000/users/1
+Completed in 49ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2014-09-15 12:36:09) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/users/1]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2014-09-15 12:36:09) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 4ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2014-09-15 12:36:09) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 29ms (View: 26, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2014-09-15 12:36:16) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2014-09-15 12:36:16) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 28ms (View: 26, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2014-09-15 12:36:21) [POST]
+  Parameters: {"email"=>"admin@tw.com", "password"=>"admin"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.email = 'admin@tw.com') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 24ms (DB: 0) | 302 Found [http://localhost/sessions/create]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2014-09-15 12:36:21) [GET]
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 82ms (View: 67, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#add_account_gadget (for 127.0.0.1 at 2014-09-15 12:36:25) [POST]
+  Parameters: {"up_pipelineName"=>"", "commit"=>"Add", "_"=>""}
+Completed in 22ms (View: 9, DB: 0) | 200 OK [http://localhost/dashboard/add_account_gadget]
+
+
+Processing GadgetRenderingController#ifr (for 127.0.0.1 at 2014-09-15 12:36:25) [GET]
+  Parameters: {"bpc"=>"1", "nocache"=>"1", "url"=>"https://localhost:8254/go/gadgets/pipeline.xml", "up_pipelineName"=>""}
+Completed in 613ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/ifr?bpc=1&nocache=1&url=https://localhost:8254/go/gadgets/pipeline.xml&up_pipelineName=]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2014-09-15 12:36:26) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/css", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-d4b524193c7091068b2031a2853441fa.css", "2"=>"https://localhost:8254/go/assets/patterns/application-6ce7f68f3e6d48e6d730035393eaebcc.css"}
+Completed in 63ms (View: 7, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/css&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-d4b524193c7091068b2031a2853441fa.css&2=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fpatterns%2Fapplication-6ce7f68f3e6d48e6d730035393eaebcc.css]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2014-09-15 12:36:26) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/javascript", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-fc653cdac6ce13faee0dae869c5d2078.js"}
+Completed in 25ms (View: 6, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/javascript&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-fc653cdac6ce13faee0dae869c5d2078.js]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2014-09-15 12:36:27) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;36;1mGadgetsOauthClient Load (1.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+Remote request failed: 
+url: https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=
+status code: 403
+metadata: {oauthError=UNKNOWN_PROBLEM, oauthErrorText=can not find client info for gadget: https://localhost:8254/go/gadgets/pipeline.xml and service: Go}
+body:
+******************************** start of response body *****************************************
+
+********************************  end of response body ******************************************
+Completed in 131ms (View: 2, DB: 1) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2014-09-15 12:36:27) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/icons/icon_error_16-daa3ab4c62b94068046aec0616706333.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 112ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Ficons%2Ficon_error_16-daa3ab4c62b94068046aec0616706333.png&fp=-182800334&refresh=86400]

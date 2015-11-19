@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_ZK (SahiDriverTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/sahi_test.rb, line 38</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_ZK</span>
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">set_speed</span>(<span class="ruby-value">200</span>)
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">navigate_to</span>(<span class="ruby-value str">&quot;http://www.zkoss.org/zkdemo/userguide/&quot;</span>)
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value str">&quot;Hello World&quot;</span>).<span class="ruby-identifier">click</span>
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">span</span>(<span class="ruby-value str">&quot;Pure Java&quot;</span>).<span class="ruby-identifier">click</span>
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value str">&quot;Various Form&quot;</span>).<span class="ruby-identifier">click</span>
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">wait</span>(<span class="ruby-value">5000</span>) {<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;z-intbox[1]&quot;</span>).<span class="ruby-identifier">visible?</span>}
+    
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value str">&quot;Comboboxes&quot;</span>).<span class="ruby-identifier">click</span>
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;z-combobox-inp&quot;</span>).<span class="ruby-identifier">value</span> = <span class="ruby-value str">&quot;aa&quot;</span>
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">italic</span>(<span class="ruby-value str">&quot;z-combobox-btn&quot;</span>).<span class="ruby-identifier">click</span>
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">cell</span>(<span class="ruby-value str">&quot;Simple and Rich&quot;</span>).<span class="ruby-identifier">click</span>
+
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">italic</span>(<span class="ruby-value str">&quot;z-combobox-btn[1]&quot;</span>).<span class="ruby-identifier">click</span>
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">span</span>(<span class="ruby-value str">&quot;The coolest technology&quot;</span>).<span class="ruby-identifier">click</span>
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">italic</span>(<span class="ruby-value str">&quot;z-combobox-btn[2]&quot;</span>).<span class="ruby-identifier">click</span>
+    <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">image</span>(<span class="ruby-value str">&quot;CogwheelEye-32x32.gif&quot;</span>).<span class="ruby-identifier">click</span>
+    <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;z-combobox-inp[2]&quot;</span>).<span class="ruby-identifier">exists?</span>)       
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

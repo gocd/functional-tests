@@ -1,0 +1,3 @@
+// set script.max_cycles_for_page_load=100 before running this
+_navigateTo("/demo/php/delayedLoadInner.php?t=30");
+_assert(_exists(_div("Hi there!"))); // should fail with "page not loaded" log message

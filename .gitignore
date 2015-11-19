@@ -1,0 +1,15 @@
+target/
+logs/
+*.swp
+nohup.out
+.idea/
+reports
+gauge_bin
+*~
+tags/
+libs/central/
+tags
+*.iml
+/sahi
+out/
+nohup.out

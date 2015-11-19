@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>adapter_spec (ActiveRecord::ConnectionAdapters::JdbcAdapter)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/active_record/connection_adapters/jdbc_adapter.rb, line 491</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">adapter_spec</span>(<span class="ruby-identifier">config</span>)
+        <span class="ruby-identifier">dialect</span> = (<span class="ruby-identifier">config</span>[<span class="ruby-identifier">:dialect</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">config</span>[<span class="ruby-identifier">:driver</span>]).<span class="ruby-identifier">to_s</span>
+        <span class="ruby-operator">::</span><span class="ruby-constant">JdbcSpec</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">JdbcSpec</span>.<span class="ruby-identifier">const_get</span> <span class="ruby-identifier">name</span> }.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">constant</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">constant</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">:adapter_matcher</span>
+            <span class="ruby-identifier">spec</span> = <span class="ruby-identifier">constant</span>.<span class="ruby-identifier">adapter_matcher</span>(<span class="ruby-identifier">dialect</span>, <span class="ruby-identifier">config</span>)
+            <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">spec</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">spec</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

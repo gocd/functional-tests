@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>wait (Sahi::Browser)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/sahi.rb, line 263</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">wait</span>(<span class="ruby-identifier">timeout</span>) 
+      <span class="ruby-identifier">total</span> = <span class="ruby-value">0</span>;
+      <span class="ruby-identifier">interval</span> = <span class="ruby-value">0</span><span class="ruby-value">.2</span>;
+      
+      <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">block_given?</span>
+        <span class="ruby-identifier">sleep</span>(<span class="ruby-identifier">timeout</span>)
+        <span class="ruby-keyword kw">return</span>
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-keyword kw">while</span> (<span class="ruby-identifier">total</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">timeout</span>)
+        <span class="ruby-identifier">sleep</span>(<span class="ruby-identifier">interval</span>);
+        <span class="ruby-identifier">total</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">interval</span>;
+        <span class="ruby-keyword kw">begin</span> 
+          <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">yield</span>
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Exception</span>=<span class="ruby-operator">&gt;</span><span class="ruby-identifier">e</span> 
+          <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>          
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

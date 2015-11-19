@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_accessors (SahiDriverTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/sahi_test.rb, line 64</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_accessors</span>()
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">navigate_to</span>(<span class="ruby-ivar">@base_url</span>  <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/demo/formTest.htm&quot;</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;t1&quot;</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;$a_dollar&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value str">&quot;$a_dollar&quot;</span>).<span class="ruby-identifier">value</span> = (<span class="ruby-value str">&quot;adas&quot;</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textbox</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textarea</span>(<span class="ruby-value str">&quot;ta1&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textarea</span>(<span class="ruby-value str">&quot;ta1&quot;</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textarea</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">textarea</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;cv1&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1&quot;</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;cv2&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1[1]&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;cv3&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value str">&quot;c1[1]&quot;</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value">3</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">checkbox</span>(<span class="ruby-value">3</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">radio</span>(<span class="ruby-value str">&quot;r1&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;rv1&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">radio</span>(<span class="ruby-value str">&quot;r1&quot;</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">password</span>(<span class="ruby-value str">&quot;p1&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">password</span>(<span class="ruby-value str">&quot;p1&quot;</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">password</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">password</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">value</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">select</span>(<span class="ruby-value str">&quot;s1&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;o1&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">select</span>(<span class="ruby-value str">&quot;s1&quot;</span>).<span class="ruby-identifier">selected_text</span>())
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">select</span>(<span class="ruby-value str">&quot;s1Id[1]&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;o1&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">select</span>(<span class="ruby-value str">&quot;s1Id[1]&quot;</span>).<span class="ruby-identifier">selected_text</span>())
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">select</span>(<span class="ruby-value">2</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;o1&quot;</span>, <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">select</span>(<span class="ruby-value">2</span>).<span class="ruby-identifier">selected_text</span>())
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">button</span>(<span class="ruby-value str">&quot;button value&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">button</span>(<span class="ruby-value str">&quot;btnName[1]&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">button</span>(<span class="ruby-value str">&quot;btnId[2]&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">button</span>(<span class="ruby-value">3</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">submit</span>(<span class="ruby-value str">&quot;Add&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">submit</span>(<span class="ruby-value str">&quot;submitBtnName[1]&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">submit</span>(<span class="ruby-value str">&quot;submitBtnId[2]&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">submit</span>(<span class="ruby-value">3</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">image</span>(<span class="ruby-value str">&quot;imageAlt1&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">image</span>(<span class="ruby-value str">&quot;imageId1[1]&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">image</span>(<span class="ruby-value">2</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-operator">!</span><span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Back22&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">link</span>(<span class="ruby-value str">&quot;Back&quot;</span>).<span class="ruby-identifier">exists?</span>)
+                <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">accessor</span>(<span class="ruby-value str">&quot;document.getElementById('s1Id')&quot;</span>).<span class="ruby-identifier">exists?</span>)
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

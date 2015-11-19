@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- *************************GO-LICENSE-START******************************
+ * Copyright 2015 ThoughtWorks, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *************************GO-LICENSE-END******************************* -->
+
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="76">
+    <server artifactsdir="artifacts" serverId="twist">
+    <security>
+     <passwordFile path="$password_properties"/>
+      <admins>
+        <user>admin</user>
+      </admins> 
+    </security>   
+    </server>
+    <pipelines group="Task_Plugin">
+      <pipeline name="curl-task-pass">
+            <materials>
+                <git url="$giturl-basic-pipeline-with-job-resources" dest="git" materialName="basic-git-material" autoUpdate="false"/>
+            </materials>
+            <stage name="defaultStage">
+                <approval type="manual"/>
+                <jobs>
+                    <job name="defaultJob">
+                        <tasks>
+                            <task>
+							      <pluginConfiguration id="curl.task.plugin" version="1.0" />
+							      <configuration>
+							           <property>
+							                <key>Url</key>
+							                <value>https://www.codeschool.com</value>
+							           </property>
+							           <property>
+                    						<key>SecureConnection</key>
+                    						<value>yes</value>
+                  						</property>
+						                  <property>
+						                    <key>RequestType</key>
+						                    <value>-G</value>
+						                  </property>
+						                  <property>
+						                    <key>AdditionalOptions</key>
+						                    <value />
+						                  </property>
+							      </configuration>
+							</task>
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+        </pipeline>
+        <pipeline name="curl-task-fail">
+	            <materials>
+	                <git url="$giturl-basic-pipeline-with-job-resources" dest="git" materialName="basic-git-material" autoUpdate="false"/>
+	            </materials>
+	            <stage name="defaultStage">
+	                <approval type="manual"/>
+	                <jobs>
+	                    <job name="defaultJob">
+	                        <tasks>
+	                            <task>
+								      <pluginConfiguration id="curl.task.plugin" version="1.0" />
+								      <configuration>
+								           <property>
+								                <key>Url</key>
+								                <value>https://www.abcdummynonexistent.com</value>
+								           </property>
+								           <property>
+                    						 <key>SecureConnection</key>
+                    						 <value>no</value>
+                  							</property>
+						                  <property>
+						                    <key>RequestType</key>
+						                    <value>-G</value>
+						                  </property>
+						                  <property>
+						                    <key>AdditionalOptions</key>
+						                    <value />
+						                  </property>
+								      </configuration>
+								</task>
+	                        </tasks>
+	                    </job>
+	                </jobs>
+	            </stage>
+	        </pipeline>
+    </pipelines>
+    <agents>
+        <agent hostname="missing-agent" ipaddress="10.232.3.1" uuid="missing">
+            <resources>
+                <resource>missing</resource>
+            </resources>
+        </agent>
+        <agent hostname="denied-agent" ipaddress="10.232.3.2" uuid="denied" isDisabled="true">
+            <resources>
+                <resource>denied</resource>
+            </resources>
+        </agent>
+    </agents>
+</cruise>

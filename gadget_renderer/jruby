@@ -1,0 +1,1 @@
+./tools/jruby-1.4.0/bin/jruby $*

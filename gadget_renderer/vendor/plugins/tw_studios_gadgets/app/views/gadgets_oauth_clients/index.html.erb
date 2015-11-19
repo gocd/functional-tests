@@ -1,0 +1,28 @@
+<h1>Listing gadgets_oauth_clients</h1>
+
+<table>
+  <tr>
+    <th>Gadget url</th>
+    <th>Client id</th>
+    <th>Client secret</th>
+    <th>Service name</th>
+    <th>Redirect uri</th>
+  </tr>
+
+<% @gadgets_oauth_clients.each do |gadgets_oauth_client| %>
+  <tr>
+    <td><%=h gadgets_oauth_client.gadget_url %></td>
+    <td><%=h gadgets_oauth_client.client_id %></td>
+    <td><%=h gadgets_oauth_client.client_secret %></td>
+    <td><%=h gadgets_oauth_client.service_name %></td>
+    <td><%=h gadgets_oauth_client.redirect_uri %></td>
+    <td><%= link_to 'Show', gadgets_oauth_client %></td>
+    <td><%= link_to 'Edit', edit_gadgets_oauth_client_path(gadgets_oauth_client) %></td>
+    <td><%= link_to 'Destroy', gadgets_oauth_client, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New gadgets_oauth_client', new_gadgets_oauth_client_path %>

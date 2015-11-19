@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>open (Sahi::Browser)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/sahi.rb, line 81</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">open</span>()
+      <span class="ruby-identifier">check_proxy</span>()
+      
+      <span class="ruby-ivar">@sahisid</span> = <span class="ruby-constant">Guid</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">cmd</span> = <span class="ruby-node">&quot;#{@browser_path} #{@browser_options} http://sahi.example.com/_s_/dyn/Driver_start?sahisid=#{@sahisid}&amp;startUrl=#{CGI.escape(&quot;http://sahi.example.com/_s_/dyn/Driver_initialized&quot;)}&quot;</span>
+      
+      <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Platform</span><span class="ruby-operator">::</span><span class="ruby-constant">OS</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:win32</span>
+        <span class="ruby-identifier">require</span> <span class="ruby-value str">&quot;win32/process&quot;</span>
+        <span class="ruby-ivar">@pid</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">:app_name</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cmd</span>,
+                                <span class="ruby-identifier">:process_inherit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>,
+                                <span class="ruby-identifier">:thread_inherit</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>,
+                                <span class="ruby-identifier">:inherit</span>         =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>).<span class="ruby-identifier">process_id</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-ivar">@pid</span> = <span class="ruby-identifier">fork</span> { <span class="ruby-identifier">exec</span>(<span class="ruby-identifier">cmd</span>) }
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+      <span class="ruby-keyword kw">while</span> (<span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">500</span>)
+        <span class="ruby-identifier">i</span><span class="ruby-operator">+=</span><span class="ruby-value">1</span>
+        <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">is_ready?</span>
+        <span class="ruby-identifier">sleep</span>(<span class="ruby-value">0</span><span class="ruby-value">.1</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

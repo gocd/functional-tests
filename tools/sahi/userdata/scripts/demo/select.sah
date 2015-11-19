@@ -1,0 +1,21 @@
+_navigateTo("/demo/selectTest.htm");
+
+function checkSelectedIndex($selectId, $optionId, $selIndex){
+	_setSelected(_select($selectId), $optionId);
+	_assertEqual($selIndex, _select($selectId).selectedIndex);
+}
+
+checkSelectedIndex("s1Id", "o1", 1);
+checkSelectedIndex("s1Id", "o2", 2);
+checkSelectedIndex("s1Id", "o3", 3);
+checkSelectedIndex("s1Id", "", 0);
+
+checkSelectedIndex("s2Id", "o1", 1);
+checkSelectedIndex("s2Id", "o2", 2);
+checkSelectedIndex("s2Id", "o3", 3);
+checkSelectedIndex("s2Id", "", 0);
+
+checkSelectedIndex("s1Id", "id1", 1);
+checkSelectedIndex("s1Id", "id2", 2);
+checkSelectedIndex("s1Id", "id3", 3);
+checkSelectedIndex("s1Id", "", 0);

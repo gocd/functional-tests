@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+name: snippet2
+description: Snippet 2 description.
+author: Go Team
+authorinfo: http://go.team
+moreinfo: http://more.info
+keywords: snippet, test-snippet
+-->
+<exec command="snippet2">
+    <arg>arg1_for_snippet2</arg>
+    <arg>arg2_for_snippet2</arg>
+</exec>

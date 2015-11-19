@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+full_name: Rack::Reloader::new
+params: (app, cooldown = 10, backend = Stat)
+name: new
+is_singleton: true
+aliases: []
+

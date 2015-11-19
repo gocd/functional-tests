@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_dragdrop (SahiDriverTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/sahi_test.rb, line 378</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_dragdrop</span>()
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">navigate_to</span>(<span class="ruby-value str">&quot;http://www.snook.ca/technical/mootoolsdragdrop/&quot;</span>)
+                <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value str">&quot;Drag me&quot;</span>).<span class="ruby-identifier">dragAndDropOn</span>(<span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value str">&quot;Item 2&quot;</span>))
+                <span class="ruby-identifier">assert</span> <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value str">&quot;dropped&quot;</span>).<span class="ruby-identifier">exists?</span>
+                <span class="ruby-identifier">assert</span> <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value str">&quot;Item 1&quot;</span>).<span class="ruby-identifier">exists?</span>
+                <span class="ruby-identifier">assert</span> <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value str">&quot;Item 3&quot;</span>).<span class="ruby-identifier">exists?</span>
+                <span class="ruby-identifier">assert</span> <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">div</span>(<span class="ruby-value str">&quot;Item 4&quot;</span>).<span class="ruby-identifier">exists?</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

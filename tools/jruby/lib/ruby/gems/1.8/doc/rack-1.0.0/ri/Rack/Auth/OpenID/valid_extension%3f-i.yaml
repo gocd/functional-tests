@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Checks the validitity, in the context of usage, of a submitted extension.
+full_name: Rack::Auth::OpenID#valid_extension?
+params: (ext)
+name: valid_extension?
+is_singleton: false
+aliases: []
+

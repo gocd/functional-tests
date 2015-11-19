@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+name: snippet1
+description: dummy snippet for testing
+author: Go Team
+moreinfo: http://www.hypexr.org/linux_scp_help.php
+keywords: snippet, test-snippet
+-->
+<exec command="snippet1">
+    <arg>arg1_for_snippet1</arg>
+    <arg>arg2_for_snippet1</arg>
+</exec>

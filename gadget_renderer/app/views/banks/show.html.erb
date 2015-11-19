@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @bank.name %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @bank.url %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%=h @bank.client_id %>
+</p>
+
+<p>
+  <b>Client secret:</b>
+  <%=h @bank.client_secret %>
+</p>
+
+
+<%= link_to 'Edit', edit_bank_path(@bank) %> |
+<%= link_to 'Back', banks_path %>

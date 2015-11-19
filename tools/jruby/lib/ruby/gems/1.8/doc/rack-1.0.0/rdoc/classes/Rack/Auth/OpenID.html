@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Rack::Auth::OpenID</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Rack::Auth::OpenID</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/rack/auth/openid_rb.html">
+                lib/rack/auth/openid.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="OpenID.html">Rack::Auth::OpenID</a> provides a simple method for
+setting up an <a href="OpenID.html">OpenID</a> Consumer. It requires the
+ruby-openid library from janrain to operate, as well as a rack method of
+session management.
+</p>
+<p>
+The ruby-openid home page is at <a
+href="http://openidenabled.com/ruby-openid">openidenabled.com/ruby-openid</a>/.
+</p>
+<p>
+The <a href="OpenID.html">OpenID</a> specifications can be found at <a
+href="http://openid.net/specs/openid-authentication-1_1.html">openid.net/specs/openid-authentication-1_1.html</a>
+and <a
+href="http://openid.net/specs/openid-authentication-2_0.html">openid.net/specs/openid-authentication-2_0.html</a>.
+Documentation for published <a href="OpenID.html">OpenID</a> extensions and
+related topics can be found at <a
+href="http://openid.net/developers/specs">openid.net/developers/specs</a>/.
+</p>
+<p>
+It is recommended to read through the <a href="OpenID.html">OpenID</a>
+spec, as well as ruby-openid&#8216;s documentation, to understand what
+exactly goes on. However a setup as simple as the presented examples is
+enough to provide Consumer functionality.
+</p>
+<p>
+This library strongly intends to utilize the <a
+href="OpenID.html">OpenID</a> 2.0 features of the ruby-openid library,
+which provides <a href="OpenID.html">OpenID</a> 1.0 compatiblity.
+</p>
+<p>
+NOTE: Due to the amount of data that this library stores in the session, <a
+href="../Session/Cookie.html">Rack::Session::Cookie</a> may fault.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000050">access_denied</a>&nbsp;&nbsp;
+      <a href="#M000042">add_extension</a>&nbsp;&nbsp;
+      <a href="#M000048">bad_request</a>&nbsp;&nbsp;
+      <a href="#M000039">call</a>&nbsp;&nbsp;
+      <a href="#M000040">check</a>&nbsp;&nbsp;
+      <a href="#M000046">confirm_post_params</a>&nbsp;&nbsp;
+      <a href="#M000041">finish</a>&nbsp;&nbsp;
+      <a href="#M000051">foreign_server_failure</a>&nbsp;&nbsp;
+      <a href="#M000045">include?</a>&nbsp;&nbsp;
+      <a href="#M000038">new</a>&nbsp;&nbsp;
+      <a href="#M000047">redirect</a>&nbsp;&nbsp;
+      <a href="#M000049">unauthorized</a>&nbsp;&nbsp;
+      <a href="#M000043">valid_extension?</a>&nbsp;&nbsp;
+      <a href="#M000044">within_realm?</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="OpenID/BadExtension.html" class="link">Rack::Auth::OpenID::BadExtension</a><br />
+Class <a href="OpenID/NoSession.html" class="link">Rack::Auth::OpenID::NoSession</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ValidStatus</td>
+          <td>=</td>
+          <td class="context-item-value">[:success, :setup_needed, :cancel, :failure]</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Required for ruby-openid
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">extensions</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">immediate</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">openid_param</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">realm</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">return_to</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">session_key</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">store</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000038" class="method-detail">
+        <a name="M000038"></a>
+
+        <div class="method-heading">
+          <a href="OpenID.src/M000038.html" target="Code" class="method-signature"
+            onclick="popupCode('OpenID.src/M000038.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(realm, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <h1>Arguments</h1>
+<p>
+The first argument is the realm, identifying the site they are trusting
+with their identity. This is required, also treated as the trust_root in <a
+href="OpenID.html">OpenID</a> 1.x exchanges.
+</p>
+<p>
+The optional second argument is a hash of options.
+</p>
+<h2>Options</h2>
+<p>
+<tt>:return_to</tt> defines the url to return to after the client
+authenticates with the openid service provider. This url should point to
+where <a href="OpenID.html">Rack::Auth::OpenID</a> is mounted. If
+<tt>:return_to</tt> is not provided, return_to will be the current url
+which allows flexibility with caveats.
+</p>
+<p>
+<tt>:session_key</tt> defines the key to the session hash in the env. It
+defaults to &#8216;rack.session&#8217;.
+</p>
+<p>
+<tt>:openid_param</tt> defines at what key in the request parameters to
+find the identifier to resolve. As per the 2.0 spec, the default is
+&#8216;openid_identifier&#8217;.
+</p>
+<p>
+<tt>:store</tt> defined what <a href="OpenID.html">OpenID</a> Store to use
+for persistant information. By default a Store::Memory will be used.
+</p>
+<p>
+<tt>:immediate</tt> as true will make initial requests to be of an
+immediate type. This is false by default. See <a
+href="OpenID.html">OpenID</a> specification documentation.
+</p>
+<p>
+<tt>:extensions</tt> should be a hash of openid extension implementations.
+The key should be the extension main module, the value should be an array
+of arguments for <a
+href="../Request.html#M000245">extension::Request.new</a>. The hash is
+iterated over and passed to <a href="OpenID.html#M000042">add_extension</a>
+for processing. Please see <a href="OpenID.html#M000042">add_extension</a>
+for further documentation.
+</p>
+<h2>Examples</h2>
+<pre>
+  simple_oid = OpenID.new('http://mysite.com/')
+
+  return_oid = OpenID.new('http://mysite.com/', {
+    :return_to =&gt; 'http://mysite.com/openid'
+  })
+
+  complex_oid = OpenID.new('http://mysite.com/',
+    :immediate =&gt; true,
+    :extensions =&gt; {
+      ::OpenID::SReg =&gt; [['email'],['nickname']]
+    }
+  )
+</pre>
+<h1>Advanced</h1>
+<p>
+Most of the functionality of this library is encapsulated such that
+expansion and overriding functions isn&#8216;t difficult nor tricky.
+Alternately, to avoid opening up singleton objects or subclassing, a
+wrapper rack middleware can be composed to act upon <a
+href="OpenID.html">Auth::OpenID</a>&#8216;s responses. See <a
+href="OpenID.html#M000040">check</a> and <a
+href="OpenID.html#M000041">finish</a> for locations of pertinent data.
+</p>
+<h2>Responses</h2>
+<p>
+To change the responses that <a href="OpenID.html">Auth::OpenID</a>
+returns, override the methods <a href="OpenID.html#M000047">redirect</a>,
+<a href="OpenID.html#M000048">bad_request</a>, <a
+href="OpenID.html#M000049">unauthorized</a>, <a
+href="OpenID.html#M000050">access_denied</a>, and <a
+href="OpenID.html#M000051">foreign_server_failure</a>.
+</p>
+<p>
+Additionally <a href="OpenID.html#M000046">confirm_post_params</a> is used
+when the URI would exceed length limits on a GET request when doing the
+initial verification request.
+</p>
+<h2>Processing</h2>
+<p>
+To change methods of processing completed transactions, override the
+methods success, setup_needed, cancel, and failure. Please ensure the
+returned object is a rack compatible response.
+</p>
+<p>
+The first argument is an <a href="../Response.html">OpenID::Response</a>,
+the second is a <a href="../Request.html">Rack::Request</a> of the current
+request, the last is the hash used in ruby-openid handling, which can be
+found manually at <a href="http://'rack.session'">env</a>[:openid].
+</p>
+<p>
+This is useful if you wanted to expand the processing done, such as setting
+up user accounts.
+</p>
+<pre>
+  oid_app = Rack::Auth::OpenID.new realm, :return_to =&gt; return_to
+  def oid_app.success oid, request, session
+    user = Models::User[oid.identity_url]
+    user ||= Models::User.create_from_openid oid
+    request['rack.session'][:user] = user.id
+    redirect MyApp.site_home
+  end
+
+  site_map['/openid'] = oid_app
+  map = Rack::URLMap.new site_map
+  ...
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="OpenID.src/M000042.html" target="Code" class="method-signature"
+            onclick="popupCode('OpenID.src/M000042.html');return false;">
+          <span class="method-name">add_extension</span><span class="method-args">(ext, *args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The first argument should be the main extension module. The extension
+module should contain the constants:
+</p>
+<pre>
+  * class Request, should have OpenID::Extension as an ancestor
+  * class Response, should have OpenID::Extension as an ancestor
+  * string NS_URI, which defining the namespace of the extension
+</pre>
+<p>
+All trailing arguments will be passed to <a
+href="../Request.html#M000245">extension::Request.new</a> in <a
+href="OpenID.html#M000040">check</a>. The openid response will be passed to
+extension::Response#from_success_response, get_extension_args will be
+called on the result to attain the gathered data.
+</p>
+<p>
+This method returns the key at which the response data will be found in the
+session, which is the namespace uri by default.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
+
+        <div class="method-heading">
+          <a href="OpenID.src/M000039.html" target="Code" class="method-signature"
+            onclick="popupCode('OpenID.src/M000039.html');return false;">
+          <span class="method-name">call</span><span class="method-args">(env)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets up and uses session data at <tt>:openid</tt> within the session.
+Errors in this setup will raise a <a
+href="OpenID/NoSession.html">NoSession</a> exception.
+</p>
+<p>
+If the parameter &#8216;openid.mode&#8217; is set, which implies a followup
+from the openid server, processing is passed to <a
+href="OpenID.html#M000041">finish</a> and the result is returned. However,
+if there is no appropriate openid information in the session, a 400 error
+is returned.
+</p>
+<p>
+If the parameter specified by <tt>options[:openid_param]</tt> is present,
+processing is passed to <a href="OpenID.html#M000040">check</a> and the
+result is returned.
+</p>
+<p>
+If neither of these conditions are met, <a
+href="OpenID.html#M000049">unauthorized</a> is called.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
+
+        <div class="method-heading">
+          <a href="OpenID.src/M000040.html" target="Code" class="method-signature"
+            onclick="popupCode('OpenID.src/M000040.html');return false;">
+          <span class="method-name">check</span><span class="method-args">(consumer, session, req)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+As the first part of <a href="OpenID.html">OpenID</a> consumer action, <a
+href="OpenID.html#M000040">check</a> retrieves the data required for
+completion.
+</p>
+<p>
+If all parameters fit within the max length of a URI, a 303 <a
+href="OpenID.html#M000047">redirect</a> will be returned. Otherwise <a
+href="OpenID.html#M000046">confirm_post_params</a> will be called.
+</p>
+<p>
+Any messages from <a href="OpenID.html">OpenID</a>&#8216;s request are
+logged to <a href="http://'rack.errors'">env</a>
+</p>
+<p>
+<tt><a href="http://'rack.auth.openid.request'">env</a></tt> is the openid
+checkid request instance.
+</p>
+<p>
+<tt>session[:openid_param]</tt> is set to the openid identifier provided by
+the user.
+</p>
+<p>
+<tt>session[:return_to]</tt> is set to the return_to uri given to the
+identity provider.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="OpenID.src/M000041.html" target="Code" class="method-signature"
+            onclick="popupCode('OpenID.src/M000041.html');return false;">
+          <span class="method-name">finish</span><span class="method-args">(consumer, session, req)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This is the final portion of authentication. If successful, a <a
+href="OpenID.html#M000047">redirect</a> to the realm is be returned. Data
+gathered from extensions are stored in session[:openid] with the
+extension&#8216;s namespace uri as the key.
+</p>
+<p>
+Any messages from <a href="OpenID.html">OpenID</a>&#8216;s response are
+logged to <a href="http://'rack.errors'">env</a>
+</p>
+<p>
+<tt><a href="http://'rack.auth.openid.response'">env</a></tt> will contain
+the openid response.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+          <span class="method-name">include?</span><span class="method-args">(uri)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for within_realm?
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="OpenID.src/M000043.html" target="Code" class="method-signature"
+            onclick="popupCode('OpenID.src/M000043.html');return false;">
+          <span class="method-name">valid_extension?</span><span class="method-args">(ext)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Checks the validitity, in the context of usage, of a submitted extension.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000044" class="method-detail">
+        <a name="M000044"></a>
+
+        <div class="method-heading">
+          <a href="OpenID.src/M000044.html" target="Code" class="method-signature"
+            onclick="popupCode('OpenID.src/M000044.html');return false;">
+          <span class="method-name">within_realm?</span><span class="method-args">(uri)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Checks the provided uri to ensure it&#8216;d be considered within the
+realm. is currently not compatible with wildcard realms.
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="OpenID.src/M000050.html" target="Code" class="method-signature"
+            onclick="popupCode('OpenID.src/M000050.html');return false;">
+          <span class="method-name">access_denied</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a basic access denied 403 response.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <a href="OpenID.src/M000048.html" target="Code" class="method-signature"
+            onclick="popupCode('OpenID.src/M000048.html');return false;">
+          <span class="method-name">bad_request</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns an empty 400 response.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="OpenID.src/M000046.html" target="Code" class="method-signature"
+            onclick="popupCode('OpenID.src/M000046.html');return false;">
+          <span class="method-name">confirm_post_params</span><span class="method-args">(oid, realm, return_to, immediate)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns an html form page for posting to an Identity Provider if the GET
+request would exceed the upper URI length limit.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="OpenID.src/M000051.html" target="Code" class="method-signature"
+            onclick="popupCode('OpenID.src/M000051.html');return false;">
+          <span class="method-name">foreign_server_failure</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a 503 response to be used if communication with the remote <a
+href="OpenID.html">OpenID</a> server fails.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="OpenID.src/M000047.html" target="Code" class="method-signature"
+            onclick="popupCode('OpenID.src/M000047.html');return false;">
+          <span class="method-name">redirect</span><span class="method-args">(uri)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a 303 <a href="OpenID.html#M000047">redirect</a> with the
+destination of that provided by the argument.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="OpenID.src/M000049.html" target="Code" class="method-signature"
+            onclick="popupCode('OpenID.src/M000049.html');return false;">
+          <span class="method-name">unauthorized</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a basic <a href="OpenID.html#M000049">unauthorized</a> 401
+response.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+//var db = _getDB("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/sahitest?user=user&password=password", "user", "password");
+
+var $props = new java.util.Properties();
+$props.put("user", "user");
+$props.put("password", "password");
+var db = _getDB("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/sahitest?user=user&password=password", $props);
+
+function init(){
+	db.update("delete from user where name='ramu' and age=20")
+	db.update("delete from user where name='raju' and age=30")
+
+	db.update("insert into user (name, age) values ('ramu', 20)");
+	db.update("insert into user (name, age) values ('raju', 30)");
+}
+
+
+init();
+var $rs1 = db.select("select count(*) from user");
+var $x = $rs1[0]["count(*)"];
+_assertEqual(2, $x);
+var $rs = db.select("select id, name, age from user order by age asc limit 10");
+_assertEqual(2, $rs.length);
+
+_log(_sahi.toJSON($rs[0]));
+
+_assertEqual(3, $rs[0].length);
+_assertEqual("ramu", $rs[0].name);
+_assertEqual("ramu", $rs[0][1]);
+_assertEqual("ramu", $rs[0]["name"]);
+_assertEqual(20, $rs[0].age);
+_assertEqual(20, $rs[0][2]);
+_click(_link("Link Test"));
+_click(_link("Back"));
+
+_assertEqual(3, $rs[1].length);
+_assertEqual("raju", $rs[1].name);
+_assertEqual("raju", $rs[1][1]);
+_assertEqual("raju", $rs[1]["name"]);
+_assertEqual(30, $rs[1].age);
+_assertEqual(30, $rs[1][2]);
+_click(_link("Link Test"));
+_click(_link("Back"));
+
+function getColumnNames(){
+	// var $rs = db.select("select * from user where 1=2", true);
+	var $rs = db.select("select * from user limit 0", true);
+	return $rs[0];
+}
+
+// get column names
+var $colNames = getColumnNames();
+_assertEqual(["id","name","age"], $colNames);
+
+// _dataDrive
+function showRow($id, $name, $age) {
+	_log($id + " " + $name + " " + $age);
+}
+
+var $data = db.select("select id, name, age from user order by age asc limit 10");
+_dataDrive(showRow, $data);

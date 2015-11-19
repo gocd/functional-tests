@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ name: GRADLE-with-Compile
+ keywords: gradle
+-->
+<exec command="gradle">
+  <arg>clean</arg>
+  <arg>compile</arg>
+</exec>

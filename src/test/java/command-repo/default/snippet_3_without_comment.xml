@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exec command="snippet3">
+    <arg>arg1_for_snippet3</arg>
+    <arg>arg2_for_snippet3</arg>
+</exec>

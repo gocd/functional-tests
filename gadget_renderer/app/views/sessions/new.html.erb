@@ -1,0 +1,5 @@
+<form action="<%= url_for(:action => :create) %>" method="post">
+  <p>email: <%= text_field_tag :email %> </p>
+  <p>password: <%= text_field_tag :password %> </p>
+  <input type="submit" value="Submit" />
+</form>

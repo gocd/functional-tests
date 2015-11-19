@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="2" hostname="host" name="cruise.testing.JUnit" tests="2" time="2.0" timestamp="2010-02-22T19:47:28">
+  <testcase classname="cruise.testing.JUnit" name="a" time="1.0">
+    <failure message="Just failed" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Just failed
+	at cruise.testing.JUnit.a(JUnit.java:10)
+</failure>
+  </testcase>
+  <testcase classname="cruise.testing.JUnit" name="b" time="1.0">
+    <failure message="Just failed" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Just failed
+	at cruise.testing.JUnit.b(JUnit.java:20)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
