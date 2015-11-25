@@ -1,4 +1,19 @@
 #!/bin/bash
+#*************************GO-LICENSE-START********************************
+# Copyright 2015 ThoughtWorks, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#*************************GO-LICENSE-END**********************************
 
 PRODUCTION_MODE=${PRODUCTION_MODE:-"Y"}
 
@@ -49,6 +64,12 @@ else
 fi
 
 AGENT_STARTUP_ARGS="-Xms$AGENT_MEM -Xmx$AGENT_MAX_MEM $JVM_DEBUG $GO_AGENT_SYSTEM_PROPERTIES -Dcruise.console.publish.interval=10 -Dgo.twist.agent=true"
+if [ "$TMPDIR" != "" ]; then
+    AGENT_STARTUP_ARGS="$AGENT_STARTUP_ARGS -Djava.io.tmpdir=$TMPDIR"
+fi
+if [ "$USE_URANDOM" != "false" ] && [ -e "/dev/urandom" ]; then
+    AGENT_STARTUP_ARGS="$AGENT_STARTUP_ARGS -Djava.security.egd=file:/dev/./urandom"
+fi
 export AGENT_STARTUP_ARGS
 export LOG_FILE
 
@@ -60,10 +81,10 @@ echo "[`date`] AGENT_STARTUP_ARGS=$AGENT_STARTUP_ARGS" >>$LOG_FILE
 cd "$AGENT_WORK_DIR"
 
 if [ "$DAEMON" == "Y" ]; then
-    eval "nohup $CMD >>$LOG_FILE &"
+    eval exec nohup "$CMD" >>"$LOG_FILE" &
     echo $! >$PID_FILE
 else
-    eval "$CMD"
+    eval exec "$CMD"
 fi
 
 
