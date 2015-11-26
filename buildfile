@@ -117,6 +117,7 @@ end
 task :copy_agent do
   mkdir_p "target"
   cp_r "../#{GO_TRUNK_DIRNAME}/target/go-agent-#{VERSION_NUMBER}", "target"
+  cp "target/go-agent-#{VERSION_NUMBER}/agent.sh", "src/test/java/com/thoughtworks/cruise/preconditions/start-twist-agent.sh"
 end
 
 task :setup => [:copy_agent, :copy_server, :copy_plugins] do
