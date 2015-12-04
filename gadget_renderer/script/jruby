@@ -3,4 +3,4 @@ CLASSPATH=$CLASSPATH:vendor/plugins/tw_studios_gadgets/config
 for i in vendor/plugins/tw_studios_gadgets/lib/java/*.jar; do CLASSPATH=$CLASSPATH:$i; done
 export CLASSPATH
 
-exec `dirname $0`/../../../tools/bin/go.jruby $*
+exec `dirname $0`/../../tools/bin/go.jruby $*

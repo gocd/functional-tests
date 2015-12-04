@@ -24,7 +24,7 @@ Setup of contexts
 PipelineStatusGadget
 --------------------
 
-tags: 4249, gadgets, oAuth, 4366, 4332, 5270
+tags: 4249, gadgets, oAuth, 4366, 4332, 5270, manual
 
 * Open "Server Configuration" tab
 

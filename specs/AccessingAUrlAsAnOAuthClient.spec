@@ -72,7 +72,10 @@ Populate OAuth Clients
 * Gadget page for pipeline "basic-pipeline" should contain "No historical data"
 * "/pipelines" Should return code "403"
 * On Preferences OAuth Tokens page
+* Logout - On any page over localhost ssl
 
+force logging out session for hostname. Other tests use hostname in url. Was causing flakyness
+* Logout - On Any Page Over Hostname Ssl
 
 
 
