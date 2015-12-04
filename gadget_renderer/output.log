@@ -1,0 +1,118 @@
+out: => Booting WEBrick
+out: => Rails 2.3.4 application starting on hout: Dec 01, 2015 3:57:18 PM org.apache.shindig.common.cache.LruCacheProvider createCache
+out: INFO: Creating cache named expressions
+out: Dec 01, 2015 3:57:18 PM org.apache.shindig.config.JsonContainerConfig loadContainers
+out: INFO: Loading resources from: tw_container.js
+out: Dec 01, 2015 3:57:18 PM org.apache.shindig.config.JsonContainerConfig loadResources
+out: INFO: Reading container config: tw_container.js
+out: Dec 01, 2015 3:57:18 PM org.apache.shindig.common.cache.LruCacheProvider createCache
+out: INFO: Creating cache named httpResponses
+out: Dec 01, 2015 3:57:18 PM org.apache.shindig.common.cache.LruCacheProvider createCache
+out: INFO: Creating cache named invalidatedUsers
+out: Dec 01, 2015 3:57:18 PM org.apache.shindig.common.cache.LruCacheProvider createCache
+out: INFO: Creating cache named messageBundles
+out: Dec 01, 2015 3:57:18 PM org.apache.shindig.common.cache.LruCacheProvider createCache
+out: INFO: Creating cache named gadgetSpecs
+out: Dec 01, 2015 3:57:18 PM org.apache.shindig.gadgets.features.FeatureRegistry register
+out: INFO: Loading resources from: res:features/features.txt
+out: Dec 01, 2015 3:57:18 PM org.apache.shindig.common.xml.XmlUtil <clinit>
+out: INFO: Not using secure XML processing.
+out: Dec 01, 2015 3:57:18 PM org.apache.shindig.common.xml.XmlUtil <clinit>
+out: INFO: Reusing document builders
+out: Dec 01, 2015 3:57:18 PM org.apache.shindig.common.xml.XmlUtil$2 initialValue
+out: INFO: Created a new document builder
+out: Dec 01, 2015 3:57:18 PM org.apache.shindig.common.cache.LruCacheProvider createCache
+out: INFO: Creating cache named parsedDocuments
+out: Dec 01, 2015 3:57:18 PM org.apache.shindig.common.cache.LruCacheProvider createCache
+out: INFO: Creating cache named parsedFragments
+out: -- create_table("access_tokens", {:force=>true})
+out:    -> 0.0390s
+out:    -> 0 rows
+out: -- create_table("accounts", {:force=>true})
+out:    -> 0.0210s
+out:    -> 0 rows
+out: -- create_table("authorization_codes", {:force=>true})
+out:    -> 0.0420s
+out:    -> 0 rows
+oout:   [4;36;1mSQL (13.0ms)[0m   [0;1m SELECT name
+out:  FROM sqlite_master
+out:  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+out: [0m
+out:   [4;35;1mSQL (21.0ms)[0m   [0mCREATE TABLE access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, access_token VARCHAR(255), user_id integer(0), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+out:   [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+out:  FROM sqlite_master
+out:  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+out: [0m
+out:   [4;35;1mSQL (16.0ms)[0m   [0mCREATE TABLE accounts (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), bank_id integer(0), account_type VARCHAR(255), account_number VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+out:   [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+out:  FROM sqlite_master
+out:  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+out: [0m
+out:   [4;35;1mSQL (36.0ms)[0m   [0mCREATE TABLE authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), code VARCHAR(255), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+out:   [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+out:  FROM sqlite_master
+out:  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+out: [0m
+out:   [4;35;1mSQL (14.0ms)[0m   [0mCREATE TABLE banks (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255), url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+out:   [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+out:  FROM sqlite_master
+out:  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+out: [0m
+out:   [4;35;1mSQL (15.0ms)[0m   [0mCREATE TABLE gadgets_oauth_clients (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadget_url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), service_name VARCHAR(255), redirect_uri VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+out:   [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+out:  FROM sqlite_master
+out:  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+out: [0m
+out:   [4;35;1mSQL (19.0ms)[0m   [0mCREATE TABLE oauth_access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), access_token VARCHAR(255), refresh_token VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+out:   [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+out:  FROM sqlite_master
+out:  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+out: [0m
+out:   [4;35;1mSQL (14.0ms)[0m   [0mCREATE TABLE oauth_authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), code VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+out:   [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+out:  FROM sqlite_master
+out:  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+out: [0m
+out:   [4;35;1mSQL (12.0ms)[0m   [0mCREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email VARCHAR(255), password VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+out:   [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+out:  FROM sqlite_master
+out:  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+out: [0m
+out:   [4;35;1mSQL (11.0ms)[0m   [0mCREATE TABLE schema_migrations (version VARCHAR(255) NOT NULL) [0m
+out:   [4;36;1mSQL (18.0ms)[0m   [0;1mCREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations (version)[0m
+out:   [4;35;1mSQL (9.0ms)[0m   [0m SELECT name
+out:  FROM sqlite_master
+out:  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+out: [0m
+out:   [4;36;1mSQL (5.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+out:   [4;35;1mSQL (5.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+out:   [4;36;1mSQL (11.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100715001151')[0m
+out:   [4;35;1mSQL (6.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+out:   [4;36;1mSQL (14.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215914')[0m
+out:   [4;35;1mSQL (4.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+out:   [4;36;1mSQL (9.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215915')[0m
+out:   [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+out:   [4;36;1mSQL (8.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215916')[0m
+out:   [4;35;1mSQL (4.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+out:   [4;36;1mSQL (12.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215917')[0m
+out:   [4;35;1mSQL (3.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+out:   [4;36;1mSQL (8.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714221638')[0m
+out:   [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+out:   [4;36;1mSQL (8.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714222343')[0m
+out:   [4;35;1mSQL (3.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+out:   [4;36;1mSQL (9.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714230519')[0m
+out:   [4;35;1mBank Create (3.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('ACME Bank', 'https://localhost:5000', 'dd07b68e5400d428350cc585af6df38069056de96daf953091b4a65295fdf727', '9e07285bbcf48f892e4570f546f9fade0adf8c750fe313ac9b40d084f09f2fa9', '2015-12-01 10:27:21', '2015-12-01 10:27:21')[0m
+out:   [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+out:   [4;35;1mBank Create (5.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Programmers Credit Union', 'https://localhost:6000', 'zzz', 'zzz', '2015-12-01 10:27:21', '2015-12-01 10:27:21')[0m
+out:   [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+out:   [4;35;1mBank Create (4.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Money Club', 'https://localhost:7000', 'yyy', 'yyy', '2015-12-01 10:27:21', '2015-12-01 10:27:21')[0m
+out:   [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+out: 
+out: 
+out: Processing DashboardController#index (for 127.0.0.1 at 2015-12-01 10:27:21) [GET]
+out: Redirected to http://localhost:3000/sessions
+out: Filter chain halted as [:login_required] rendered_or_redirected.
+out: Completed in 46ms (DB: 0) | 302 Found [http://localhost/]
+out: [2015-12-01 10:27:22] INFO  going to shutdown ...
+out: [2015-12-01 10:27:22] INFO  WEBrick::HTTPServer#start done.
+out: Exiting

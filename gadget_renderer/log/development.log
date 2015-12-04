@@ -332,3 +332,2127 @@ Completed in 131ms (View: 2, DB: 1) | 200 OK [http://localhost/gadgets/makeReque
 Processing GadgetProxyController#proxy (for 127.0.0.1 at 2014-09-15 12:36:27) [GET]
   Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/icons/icon_error_16-daa3ab4c62b94068046aec0616706333.png", "fp"=>"-182800334", "refresh"=>"86400"}
 Completed in 112ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Ficons%2Ficon_error_16-daa3ab4c62b94068046aec0616706333.png&fp=-182800334&refresh=86400]
+  [4;36;1mSQL (19.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (26.0ms)[0m   [0mCREATE TABLE access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, access_token VARCHAR(255), user_id integer(0), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (27.0ms)[0m   [0mCREATE TABLE accounts (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), bank_id integer(0), account_type VARCHAR(255), account_number VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (12.0ms)[0m   [0mCREATE TABLE authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), code VARCHAR(255), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mCREATE TABLE banks (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255), url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:47:36) [GET]
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mCREATE TABLE gadgets_oauth_clients (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadget_url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), service_name VARCHAR(255), redirect_uri VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mCREATE TABLE oauth_access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), access_token VARCHAR(255), refresh_token VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 62ms (DB: 0) | 302 Found [http://localhost/]
+  [4;35;1mSQL (13.0ms)[0m   [0mCREATE TABLE oauth_authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), code VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (11.0ms)[0m   [0mCREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email VARCHAR(255), password VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (9.0ms)[0m   [0mCREATE TABLE schema_migrations (version VARCHAR(255) NOT NULL) [0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mCREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations (version)[0m
+  [4;35;1mSQL (7.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (13.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100715001151')[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (13.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215914')[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (12.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215915')[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (11.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215916')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215917')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714221638')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714222343')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714230519')[0m
+  [4;35;1mBank Create (3.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('ACME Bank', 'https://localhost:5000', 'dd07b68e5400d428350cc585af6df38069056de96daf953091b4a65295fdf727', '9e07285bbcf48f892e4570f546f9fade0adf8c750fe313ac9b40d084f09f2fa9', '2015-11-28 19:47:37', '2015-11-28 19:47:37')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+  [4;35;1mBank Create (3.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Programmers Credit Union', 'https://localhost:6000', 'zzz', 'zzz', '2015-11-28 19:47:37', '2015-11-28 19:47:37')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+  [4;35;1mBank Create (3.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Money Club', 'https://localhost:7000', 'yyy', 'yyy', '2015-11-28 19:47:37', '2015-11-28 19:47:37')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:47:37) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 5ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:47:37) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 122ms (View: 117, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:48:08) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 25ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:48:08) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 5ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:48:08) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 36ms (View: 32, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2015-11-28 19:48:08) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 137ms (View: 85, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2015-11-28 19:48:09) [POST]
+  Parameters: {"user"=>{"email"=>"admin@tw.com", "password"=>"admin"}, "commit"=>"Create"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT users.id FROM users WHERE (users.email = 'admin@tw.com') LIMIT 1[0m
+  [4;35;1mUser Create (4.0ms)[0m   [0mINSERT INTO users (email, password, created_at, updated_at) VALUES('admin@tw.com', 'admin', '2015-11-28 19:48:09', '2015-11-28 19:48:09')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'users'[0m
+Redirected to http://localhost:3000/users/1
+Completed in 81ms (DB: 7) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2015-11-28 19:48:09) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/users/1]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:48:09) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:48:09) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 64ms (View: 58, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:48:10) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:48:10) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:48:10) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 21ms (View: 19, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2015-11-28 19:48:10) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 53ms (View: 27, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2015-11-28 19:48:11) [POST]
+  Parameters: {"user"=>{"email"=>"view@tw.com", "password"=>"view"}, "commit"=>"Create"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT users.id FROM users WHERE (users.email = 'view@tw.com') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO users (email, password, created_at, updated_at) VALUES('view@tw.com', 'view', '2015-11-28 19:48:11', '2015-11-28 19:48:11')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'users'[0m
+Redirected to http://localhost:3000/users/2
+Completed in 67ms (DB: 6) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2015-11-28 19:48:11) [GET]
+  Parameters: {"id"=>"2"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/users/2]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:48:11) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:48:11) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 24ms (View: 22, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:48:12) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:48:12) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:48:12) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 32ms (View: 24, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2015-11-28 19:48:12) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 91ms (View: 33, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2015-11-28 19:48:13) [POST]
+  Parameters: {"user"=>{"email"=>"noPermission@tw.com", "password"=>"noPermission"}, "commit"=>"Create"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT users.id FROM users WHERE (users.email = 'noPermission@tw.com') LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO users (email, password, created_at, updated_at) VALUES('noPermission@tw.com', 'noPermission', '2015-11-28 19:48:13', '2015-11-28 19:48:13')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'users'[0m
+Redirected to http://localhost:3000/users/3
+Completed in 50ms (DB: 5) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2015-11-28 19:48:13) [GET]
+  Parameters: {"id"=>"3"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/users/3]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:48:13) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:48:13) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 28ms (View: 26, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:48:13) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:48:13) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:48:14) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 27ms (View: 17, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2015-11-28 19:48:14) [POST]
+  Parameters: {"email"=>"admin@tw.com", "password"=>"admin"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM users WHERE (users.email = 'admin@tw.com') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 34ms (DB: 2) | 302 Found [http://localhost/sessions/create]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:48:14) [GET]
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 90ms (View: 78, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing GadgetsOauthClientsController#index (for 127.0.0.1 at 2015-11-28 19:48:15) [GET]
+  [4;35;1mGadgetsOauthClient Load (13.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients [0m
+Rendering template within layouts/application
+Rendering gadgets_oauth_clients/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 81ms (View: 40, DB: 15) | 200 OK [http://localhost/gadgets/oauth_clients]
+
+
+Processing GadgetsOauthClientsController#new (for 127.0.0.1 at 2015-11-28 19:48:15) [GET]
+Rendering template within layouts/application
+Rendering gadgets_oauth_clients/new
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 98ms (View: 58, DB: 2) | 200 OK [http://localhost/gadgets/oauth_clients/new]
+
+
+Processing GadgetsOauthClientsController#create (for 127.0.0.1 at 2015-11-28 19:48:16) [POST]
+  Parameters: {"gadgets_oauth_client"=>{"gadget_url"=>"https://localhost:8254/go/gadgets/pipeline.xml", "client_id"=>"80d9546dc52ec96cca509392290ac8400284b9e6c215e52a676fb4dfb17ca309", "client_secret"=>"be8eff2a5d71cd4b577b3d130ead354d960b63d49bdc441102258cbf05136332", "service_name"=>"Go", "redirect_uri"=>"http://localhost:3000/gadgets/oauthcallback"}, "commit"=>"Create"}
+  [4;36;1mGadgetsOauthClient Create (13.0ms)[0m   [0;1mINSERT INTO gadgets_oauth_clients (gadget_url, client_id, client_secret, service_name, redirect_uri, created_at, updated_at) VALUES('https://localhost:8254/go/gadgets/pipeline.xml', '80d9546dc52ec96cca509392290ac8400284b9e6c215e52a676fb4dfb17ca309', 'be8eff2a5d71cd4b577b3d130ead354d960b63d49bdc441102258cbf05136332', 'Go', 'http://localhost:3000/gadgets/oauthcallback', '2015-11-28 19:48:16', '2015-11-28 19:48:16')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'gadgets_oauth_clients'[0m
+Redirected to http://localhost:3000/gadgets/oauth_clients/1
+Completed in 35ms (DB: 14) | 302 Found [http://localhost/gadgets/oauth_clients]
+
+
+Processing GadgetsOauthClientsController#show (for 127.0.0.1 at 2015-11-28 19:48:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mGadgetsOauthClient Load (11.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.id = 1) [0m
+Rendering template within layouts/application
+Rendering gadgets_oauth_clients/show
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 49ms (View: 22, DB: 13) | 200 OK [http://localhost/gadgets/oauth_clients/1]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:48:16) [GET]
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 39ms (View: 28, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#add_account_gadget (for 127.0.0.1 at 2015-11-28 19:48:17) [POST]
+  Parameters: {"up_pipelineName"=>"admin-pipeline4fee5f48", "commit"=>"Add"}
+Completed in 14ms (View: 3, DB: 0) | 200 OK [http://localhost/dashboard/add_account_gadget]
+
+
+Processing GadgetRenderingController#ifr (for 127.0.0.1 at 2015-11-28 19:48:17) [GET]
+  Parameters: {"bpc"=>"1", "nocache"=>"1", "url"=>"https://localhost:8254/go/gadgets/pipeline.xml", "up_pipelineName"=>"admin-pipeline4fee5f48"}
+Completed in 601ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/ifr?bpc=1&nocache=1&url=https://localhost:8254/go/gadgets/pipeline.xml&up_pipelineName=admin-pipeline4fee5f48]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 19:48:18) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/css", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css", "2"=>"https://localhost:8254/go/assets/patterns/application-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css"}
+Completed in 11ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/css&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css&2=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fpatterns%2Fapplication-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 19:48:18) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/javascript", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js"}
+Completed in 12ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/javascript&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 19:48:18) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline4fee5f48", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;35;1mGadgetsOauthClient Load (10.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;36;1mOauthAccessToken Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 147ms (View: 1, DB: 15) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetOauthCallbackController#oauth_callback (for 127.0.0.1 at 2015-11-28 19:48:21) [GET]
+  Parameters: {"code"=>"c3792a11b3e081c8574caee23c4d87fb1900c119821a2cdd22cfc1db9ce6aeaf", "expires_in"=>"3599", "state"=>"eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn\r\nZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0=\r\n"}
+  [4;36;1mGadgetsOauthClient Load (10.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (3.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = 1) AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (2.0ms)[0m   [0;1mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1' AND oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Create (3.0ms)[0m   [0mINSERT INTO oauth_authorization_codes (gadgets_oauth_client_id, user_id, code, expires_in, created_at, updated_at) VALUES(1, 1, 'c3792a11b3e081c8574caee23c4d87fb1900c119821a2cdd22cfc1db9ce6aeaf', 3599, '2015-11-28 19:48:21', '2015-11-28 19:48:21')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_authorization_codes'[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1' AND oauth_authorization_codes.gadgets_oauth_client_id = 1 AND oauth_authorization_codes.id <> 1) LIMIT 1[0m
+Completed in 70ms (View: 2, DB: 22) | 200 OK [http://localhost/gadgets/oauthcallback?code=c3792a11b3e081c8574caee23c4d87fb1900c119821a2cdd22cfc1db9ce6aeaf&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 19:48:21) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline4fee5f48", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "OAUTH_RECEIVED_CALLBACK"=>"http://localhost:3000/gadgets/oauthcallback?code=c3792a11b3e081c8574caee23c4d87fb1900c119821a2cdd22cfc1db9ce6aeaf&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;36;1mGadgetsOauthClient Load (11.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (4.0ms)[0m   [0mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (2.0ms)[0m   [0mSELECT oauth_access_tokens.id FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1' AND oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAccessToken Create (3.0ms)[0m   [0;1mINSERT INTO oauth_access_tokens (gadgets_oauth_client_id, user_id, access_token, refresh_token, expires_in, created_at, updated_at) VALUES(1, '1', 'd5e0776401ce70894da29747bd1a9941766ec10ace3570d75b014426de8e749c', '736f5ff73ab1f3afc1be262748d58ce0e810f6bb0505ff68e1105a3b24904f8b', 7775999, '2015-11-28 19:48:21', '2015-11-28 19:48:21')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_access_tokens'[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Delete all (4.0ms)[0m   [0mDELETE FROM oauth_authorization_codes WHERE (id IN (1)) [0m
+  [4;36;1mOauthAccessToken Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 353ms (View: 1, DB: 31) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 19:48:21) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/icons/icon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 165ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Ficons%2Ficon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png&fp=-182800334&refresh=86400]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 19:48:22) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/backgrounds/bg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 31ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Fbackgrounds%2Fbg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png&fp=-182800334&refresh=86400]
+
+
+Processing SessionsController#clear_session (for 127.0.0.1 at 2015-11-28 19:48:24) [GET]
+Redirected to http://localhost:3000/sessions
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/sessions/clear_session]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:48:24) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:48:24) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 25ms (View: 24, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2015-11-28 19:48:25) [POST]
+  Parameters: {"email"=>"noPermission@tw.com", "password"=>"noPermission"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM users WHERE (users.email = 'noPermission@tw.com') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 38ms (DB: 2) | 302 Found [http://localhost/sessions/create]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:48:25) [GET]
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 3) [0m
+Completed in 39ms (View: 27, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#add_account_gadget (for 127.0.0.1 at 2015-11-28 19:48:25) [POST]
+  Parameters: {"up_pipelineName"=>"admin-pipeline4fee5f48", "commit"=>"Add"}
+Completed in 12ms (View: 3, DB: 0) | 200 OK [http://localhost/dashboard/add_account_gadget]
+
+
+Processing GadgetRenderingController#ifr (for 127.0.0.1 at 2015-11-28 19:48:25) [GET]
+  Parameters: {"bpc"=>"1", "nocache"=>"1", "url"=>"https://localhost:8254/go/gadgets/pipeline.xml", "up_pipelineName"=>"admin-pipeline4fee5f48"}
+Completed in 59ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/ifr?bpc=1&nocache=1&url=https://localhost:8254/go/gadgets/pipeline.xml&up_pipelineName=admin-pipeline4fee5f48]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 19:48:25) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/css", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css", "2"=>"https://localhost:8254/go/assets/patterns/application-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css"}
+Completed in 9ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/css&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css&2=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fpatterns%2Fapplication-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 19:48:25) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/javascript", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js"}
+Completed in 9ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/javascript&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 19:48:26) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline4fee5f48", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;35;1mGadgetsOauthClient Load (9.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;36;1mOauthAccessToken Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (3.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 109ms (View: 4, DB: 15) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetOauthCallbackController#oauth_callback (for 127.0.0.1 at 2015-11-28 19:48:29) [GET]
+  Parameters: {"code"=>"91a01f102e6583f784ebde16026970bc37e0f0fc81a43ae1034b2de96e318b90", "expires_in"=>"3599", "state"=>"eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn\r\nZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0=\r\n"}
+  [4;36;1mGadgetsOauthClient Load (10.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = 3) AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (2.0ms)[0m   [0;1mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3' AND oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Create (3.0ms)[0m   [0mINSERT INTO oauth_authorization_codes (gadgets_oauth_client_id, user_id, code, expires_in, created_at, updated_at) VALUES(1, 3, '91a01f102e6583f784ebde16026970bc37e0f0fc81a43ae1034b2de96e318b90', 3599, '2015-11-28 19:48:29', '2015-11-28 19:48:29')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_authorization_codes'[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3' AND oauth_authorization_codes.gadgets_oauth_client_id = 1 AND oauth_authorization_codes.id <> 2) LIMIT 1[0m
+Completed in 56ms (View: 1, DB: 20) | 200 OK [http://localhost/gadgets/oauthcallback?code=91a01f102e6583f784ebde16026970bc37e0f0fc81a43ae1034b2de96e318b90&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 19:48:29) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline4fee5f48", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "OAUTH_RECEIVED_CALLBACK"=>"http://localhost:3000/gadgets/oauthcallback?code=91a01f102e6583f784ebde16026970bc37e0f0fc81a43ae1034b2de96e318b90&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;36;1mGadgetsOauthClient Load (11.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (3.0ms)[0m   [0mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (2.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (2.0ms)[0m   [0mSELECT oauth_access_tokens.id FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3' AND oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAccessToken Create (3.0ms)[0m   [0;1mINSERT INTO oauth_access_tokens (gadgets_oauth_client_id, user_id, access_token, refresh_token, expires_in, created_at, updated_at) VALUES(1, '3', '078a79155bce552a071fa723b7dcdb5934c87524e400d705f9aa17ff2e331dbd', '53b0528a42787b23e838f62390ed30416141f5be37e82194cefb940d410c4a75', 7775999, '2015-11-28 19:48:29', '2015-11-28 19:48:29')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_access_tokens'[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Delete all (3.0ms)[0m   [0mDELETE FROM oauth_authorization_codes WHERE (id IN (2)) [0m
+  [4;36;1mOauthAccessToken Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 208ms (View: 1, DB: 28) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 19:48:29) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/backgrounds/bg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 28ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Fbackgrounds%2Fbg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png&fp=-182800334&refresh=86400]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 19:48:29) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/icons/icon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 14ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Ficons%2Ficon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png&fp=-182800334&refresh=86400]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 19:49:31) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline4fee5f48", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;35;1mGadgetsOauthClient Load (10.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;36;1mOauthAccessToken Load (2.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (4.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Remote request failed: 
+url: https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline4fee5f48
+status code: 404
+metadata: {}
+body:
+******************************** start of response body *****************************************
+Pipeline 'admin-pipeline4fee5f48' not found.
+
+********************************  end of response body ******************************************
+Completed in 207ms (View: 4, DB: 16) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 19:49:31) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/icons/icon_error_16-98e154ce3a631d6a4fc59d3aed519105cbbfbc50a6e874631c71ddf5dc39fc39.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 24ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Ficons%2Ficon_error_16-98e154ce3a631d6a4fc59d3aed519105cbbfbc50a6e874631c71ddf5dc39fc39.png&fp=-182800334&refresh=86400]
+  [4;36;1mSQL (10.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (20.0ms)[0m   [0mCREATE TABLE access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, access_token VARCHAR(255), user_id integer(0), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (13.0ms)[0m   [0mCREATE TABLE accounts (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), bank_id integer(0), account_type VARCHAR(255), account_number VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (12.0ms)[0m   [0mCREATE TABLE authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), code VARCHAR(255), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (14.0ms)[0m   [0mCREATE TABLE banks (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255), url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (14.0ms)[0m   [0mCREATE TABLE gadgets_oauth_clients (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadget_url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), service_name VARCHAR(255), redirect_uri VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (20.0ms)[0m   [0mCREATE TABLE oauth_access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), access_token VARCHAR(255), refresh_token VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (12.0ms)[0m   [0mCREATE TABLE oauth_authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), code VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:58:20) [GET]
+  [4;35;1mSQL (13.0ms)[0m   [0mCREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email VARCHAR(255), password VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (11.0ms)[0m   [0mCREATE TABLE schema_migrations (version VARCHAR(255) NOT NULL) [0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mCREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations (version)[0m
+  [4;35;1mSQL (10.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (11.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100715001151')[0m
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 73ms (DB: 0) | 302 Found [http://localhost/]
+  [4;35;1mSQL (5.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (12.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215914')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215915')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215916')[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (8.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215917')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714221638')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714222343')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714230519')[0m
+  [4;35;1mBank Create (3.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('ACME Bank', 'https://localhost:5000', 'dd07b68e5400d428350cc585af6df38069056de96daf953091b4a65295fdf727', '9e07285bbcf48f892e4570f546f9fade0adf8c750fe313ac9b40d084f09f2fa9', '2015-11-28 19:58:20', '2015-11-28 19:58:20')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+  [4;35;1mBank Create (3.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Programmers Credit Union', 'https://localhost:6000', 'zzz', 'zzz', '2015-11-28 19:58:20', '2015-11-28 19:58:20')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+  [4;35;1mBank Create (3.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Money Club', 'https://localhost:7000', 'yyy', 'yyy', '2015-11-28 19:58:20', '2015-11-28 19:58:20')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:58:20) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 5ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:58:20) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 105ms (View: 102, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:58:51) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 23ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:58:51) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 4ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:58:52) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 30ms (View: 26, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2015-11-28 19:58:52) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 127ms (View: 78, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2015-11-28 19:58:53) [POST]
+  Parameters: {"user"=>{"email"=>"admin@tw.com", "password"=>"admin"}, "commit"=>"Create"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT users.id FROM users WHERE (users.email = 'admin@tw.com') LIMIT 1[0m
+  [4;35;1mUser Create (4.0ms)[0m   [0mINSERT INTO users (email, password, created_at, updated_at) VALUES('admin@tw.com', 'admin', '2015-11-28 19:58:53', '2015-11-28 19:58:53')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'users'[0m
+Redirected to http://localhost:3000/users/1
+Completed in 73ms (DB: 7) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2015-11-28 19:58:53) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/users/1]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:58:53) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:58:53) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 35ms (View: 29, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:58:53) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:58:53) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:58:54) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 25ms (View: 22, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2015-11-28 19:58:54) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 59ms (View: 30, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2015-11-28 19:58:55) [POST]
+  Parameters: {"user"=>{"email"=>"view@tw.com", "password"=>"view"}, "commit"=>"Create"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT users.id FROM users WHERE (users.email = 'view@tw.com') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO users (email, password, created_at, updated_at) VALUES('view@tw.com', 'view', '2015-11-28 19:58:55', '2015-11-28 19:58:55')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'users'[0m
+Redirected to http://localhost:3000/users/2
+Completed in 67ms (DB: 6) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2015-11-28 19:58:55) [GET]
+  Parameters: {"id"=>"2"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/users/2]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:58:55) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:58:55) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 22ms (View: 20, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:58:55) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:58:55) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:58:55) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 22ms (View: 20, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2015-11-28 19:58:56) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 92ms (View: 30, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2015-11-28 19:58:57) [POST]
+  Parameters: {"user"=>{"email"=>"noPermission@tw.com", "password"=>"noPermission"}, "commit"=>"Create"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT users.id FROM users WHERE (users.email = 'noPermission@tw.com') LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO users (email, password, created_at, updated_at) VALUES('noPermission@tw.com', 'noPermission', '2015-11-28 19:58:57', '2015-11-28 19:58:57')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'users'[0m
+Redirected to http://localhost:3000/users/3
+Completed in 50ms (DB: 6) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2015-11-28 19:58:57) [GET]
+  Parameters: {"id"=>"3"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/users/3]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:58:57) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:58:57) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 29ms (View: 26, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:58:57) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 23ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:58:57) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:58:57) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 26ms (View: 18, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2015-11-28 19:58:58) [POST]
+  Parameters: {"email"=>"admin@tw.com", "password"=>"admin"}
+  [4;35;1mUser Load (3.0ms)[0m   [0mSELECT * FROM users WHERE (users.email = 'admin@tw.com') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 36ms (DB: 3) | 302 Found [http://localhost/sessions/create]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:58:58) [GET]
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 90ms (View: 78, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing GadgetsOauthClientsController#index (for 127.0.0.1 at 2015-11-28 19:58:58) [GET]
+  [4;35;1mGadgetsOauthClient Load (11.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients [0m
+Rendering template within layouts/application
+Rendering gadgets_oauth_clients/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 82ms (View: 43, DB: 13) | 200 OK [http://localhost/gadgets/oauth_clients]
+
+
+Processing GadgetsOauthClientsController#new (for 127.0.0.1 at 2015-11-28 19:58:59) [GET]
+Rendering template within layouts/application
+Rendering gadgets_oauth_clients/new
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 83ms (View: 46, DB: 2) | 200 OK [http://localhost/gadgets/oauth_clients/new]
+
+
+Processing GadgetsOauthClientsController#create (for 127.0.0.1 at 2015-11-28 19:59:00) [POST]
+  Parameters: {"gadgets_oauth_client"=>{"gadget_url"=>"https://localhost:8254/go/gadgets/pipeline.xml", "client_id"=>"e5af649467b9f1161b81227cffb855f00053fea3f061adb9820e8da77aa3b608", "client_secret"=>"bff94f11d332206235577d1174e0886601642b5ac256cf0853f7aa0bd731718c", "service_name"=>"Go", "redirect_uri"=>"http://localhost:3000/gadgets/oauthcallback"}, "commit"=>"Create"}
+  [4;36;1mGadgetsOauthClient Create (10.0ms)[0m   [0;1mINSERT INTO gadgets_oauth_clients (gadget_url, client_id, client_secret, service_name, redirect_uri, created_at, updated_at) VALUES('https://localhost:8254/go/gadgets/pipeline.xml', 'e5af649467b9f1161b81227cffb855f00053fea3f061adb9820e8da77aa3b608', 'bff94f11d332206235577d1174e0886601642b5ac256cf0853f7aa0bd731718c', 'Go', 'http://localhost:3000/gadgets/oauthcallback', '2015-11-28 19:59:00', '2015-11-28 19:59:00')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'gadgets_oauth_clients'[0m
+Redirected to http://localhost:3000/gadgets/oauth_clients/1
+Completed in 35ms (DB: 11) | 302 Found [http://localhost/gadgets/oauth_clients]
+
+
+Processing GadgetsOauthClientsController#show (for 127.0.0.1 at 2015-11-28 19:59:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mGadgetsOauthClient Load (10.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.id = 1) [0m
+Rendering template within layouts/application
+Rendering gadgets_oauth_clients/show
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 47ms (View: 21, DB: 12) | 200 OK [http://localhost/gadgets/oauth_clients/1]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:59:00) [GET]
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 40ms (View: 27, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#add_account_gadget (for 127.0.0.1 at 2015-11-28 19:59:01) [POST]
+  Parameters: {"up_pipelineName"=>"admin-pipelinee1e7d6de", "commit"=>"Add"}
+Completed in 14ms (View: 3, DB: 0) | 200 OK [http://localhost/dashboard/add_account_gadget]
+
+
+Processing GadgetRenderingController#ifr (for 127.0.0.1 at 2015-11-28 19:59:01) [GET]
+  Parameters: {"bpc"=>"1", "nocache"=>"1", "url"=>"https://localhost:8254/go/gadgets/pipeline.xml", "up_pipelineName"=>"admin-pipelinee1e7d6de"}
+Completed in 592ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/ifr?bpc=1&nocache=1&url=https://localhost:8254/go/gadgets/pipeline.xml&up_pipelineName=admin-pipelinee1e7d6de]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 19:59:01) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/javascript", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js"}
+Completed in 12ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/javascript&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 19:59:02) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/css", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css", "2"=>"https://localhost:8254/go/assets/patterns/application-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css"}
+Completed in 12ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/css&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css&2=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fpatterns%2Fapplication-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 19:59:02) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipelinee1e7d6de", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;35;1mGadgetsOauthClient Load (10.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;36;1mOauthAccessToken Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 141ms (View: 2, DB: 15) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetOauthCallbackController#oauth_callback (for 127.0.0.1 at 2015-11-28 19:59:04) [GET]
+  Parameters: {"code"=>"8aa0fa0b24a02a7ab9ea663a0afbf1378df30d65652702ced065020f8014e2b2", "expires_in"=>"3599", "state"=>"eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn\r\nZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0=\r\n"}
+  [4;36;1mGadgetsOauthClient Load (11.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = 1) AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (2.0ms)[0m   [0;1mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1' AND oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Create (2.0ms)[0m   [0mINSERT INTO oauth_authorization_codes (gadgets_oauth_client_id, user_id, code, expires_in, created_at, updated_at) VALUES(1, 1, '8aa0fa0b24a02a7ab9ea663a0afbf1378df30d65652702ced065020f8014e2b2', 3599, '2015-11-28 19:59:04', '2015-11-28 19:59:04')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_authorization_codes'[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1' AND oauth_authorization_codes.gadgets_oauth_client_id = 1 AND oauth_authorization_codes.id <> 1) LIMIT 1[0m
+Completed in 63ms (View: 2, DB: 20) | 200 OK [http://localhost/gadgets/oauthcallback?code=8aa0fa0b24a02a7ab9ea663a0afbf1378df30d65652702ced065020f8014e2b2&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 19:59:05) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipelinee1e7d6de", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "OAUTH_RECEIVED_CALLBACK"=>"http://localhost:3000/gadgets/oauthcallback?code=8aa0fa0b24a02a7ab9ea663a0afbf1378df30d65652702ced065020f8014e2b2&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;36;1mGadgetsOauthClient Load (10.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (4.0ms)[0m   [0mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (2.0ms)[0m   [0mSELECT oauth_access_tokens.id FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1' AND oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAccessToken Create (2.0ms)[0m   [0;1mINSERT INTO oauth_access_tokens (gadgets_oauth_client_id, user_id, access_token, refresh_token, expires_in, created_at, updated_at) VALUES(1, '1', '3278f15f6ee81ce307bd32e2ba77cfabe7279e55e44e8c633360a271426ee426', '439c8299c4d683ad9ddea586827f459137e96c5ae0c4260a893f8895fae2c806', 7775999, '2015-11-28 19:59:05', '2015-11-28 19:59:05')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_access_tokens'[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Delete all (4.0ms)[0m   [0mDELETE FROM oauth_authorization_codes WHERE (id IN (1)) [0m
+  [4;36;1mOauthAccessToken Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 281ms (View: 2, DB: 29) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 19:59:05) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/icons/icon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 156ms (View: 3, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Ficons%2Ficon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png&fp=-182800334&refresh=86400]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 19:59:05) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/backgrounds/bg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 30ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Fbackgrounds%2Fbg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png&fp=-182800334&refresh=86400]
+
+
+Processing SessionsController#clear_session (for 127.0.0.1 at 2015-11-28 19:59:08) [GET]
+Redirected to http://localhost:3000/sessions
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/sessions/clear_session]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 19:59:08) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 19:59:08) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 29ms (View: 27, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2015-11-28 19:59:09) [POST]
+  Parameters: {"email"=>"noPermission@tw.com", "password"=>"noPermission"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM users WHERE (users.email = 'noPermission@tw.com') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 45ms (DB: 2) | 302 Found [http://localhost/sessions/create]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 19:59:09) [GET]
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 3) [0m
+Completed in 41ms (View: 30, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#add_account_gadget (for 127.0.0.1 at 2015-11-28 19:59:09) [POST]
+  Parameters: {"up_pipelineName"=>"admin-pipelinee1e7d6de", "commit"=>"Add"}
+Completed in 13ms (View: 3, DB: 0) | 200 OK [http://localhost/dashboard/add_account_gadget]
+
+
+Processing GadgetRenderingController#ifr (for 127.0.0.1 at 2015-11-28 19:59:09) [GET]
+  Parameters: {"bpc"=>"1", "nocache"=>"1", "url"=>"https://localhost:8254/go/gadgets/pipeline.xml", "up_pipelineName"=>"admin-pipelinee1e7d6de"}
+Completed in 84ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/ifr?bpc=1&nocache=1&url=https://localhost:8254/go/gadgets/pipeline.xml&up_pipelineName=admin-pipelinee1e7d6de]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 19:59:10) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/css", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css", "2"=>"https://localhost:8254/go/assets/patterns/application-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/css&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css&2=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fpatterns%2Fapplication-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 19:59:10) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/javascript", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js"}
+Completed in 10ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/javascript&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 19:59:10) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipelinee1e7d6de", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;35;1mGadgetsOauthClient Load (10.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;36;1mOauthAccessToken Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (3.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 84ms (View: 5, DB: 16) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetOauthCallbackController#oauth_callback (for 127.0.0.1 at 2015-11-28 19:59:13) [GET]
+  Parameters: {"code"=>"dc6087f2d6d5725ca65764699a30d551c4957742de709da9c167971795f67d63", "expires_in"=>"3599", "state"=>"eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn\r\nZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0=\r\n"}
+  [4;36;1mGadgetsOauthClient Load (11.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (3.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = 3) AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (2.0ms)[0m   [0;1mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3' AND oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Create (2.0ms)[0m   [0mINSERT INTO oauth_authorization_codes (gadgets_oauth_client_id, user_id, code, expires_in, created_at, updated_at) VALUES(1, 3, 'dc6087f2d6d5725ca65764699a30d551c4957742de709da9c167971795f67d63', 3599, '2015-11-28 19:59:13', '2015-11-28 19:59:13')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_authorization_codes'[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3' AND oauth_authorization_codes.gadgets_oauth_client_id = 1 AND oauth_authorization_codes.id <> 2) LIMIT 1[0m
+Completed in 64ms (View: 1, DB: 21) | 200 OK [http://localhost/gadgets/oauthcallback?code=dc6087f2d6d5725ca65764699a30d551c4957742de709da9c167971795f67d63&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 19:59:13) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipelinee1e7d6de", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "OAUTH_RECEIVED_CALLBACK"=>"http://localhost:3000/gadgets/oauthcallback?code=dc6087f2d6d5725ca65764699a30d551c4957742de709da9c167971795f67d63&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;36;1mGadgetsOauthClient Load (9.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (3.0ms)[0m   [0mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (2.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (2.0ms)[0m   [0mSELECT oauth_access_tokens.id FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3' AND oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAccessToken Create (3.0ms)[0m   [0;1mINSERT INTO oauth_access_tokens (gadgets_oauth_client_id, user_id, access_token, refresh_token, expires_in, created_at, updated_at) VALUES(1, '3', '056061e8556cfac8d35cf2ac189b7742ffa1d5d492828ae9e61191b8da347b33', 'b97a3a7de983ddd61058b7d5944739375493ced4928dea34aad12fdf78b984db', 7775999, '2015-11-28 19:59:13', '2015-11-28 19:59:13')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_access_tokens'[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Delete all (3.0ms)[0m   [0mDELETE FROM oauth_authorization_codes WHERE (id IN (2)) [0m
+  [4;36;1mOauthAccessToken Load (2.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 254ms (View: 1, DB: 26) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 19:59:13) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/icons/icon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 33ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Ficons%2Ficon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png&fp=-182800334&refresh=86400]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 19:59:13) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/backgrounds/bg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 16ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Fbackgrounds%2Fbg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png&fp=-182800334&refresh=86400]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 20:00:15) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipelinee1e7d6de", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;35;1mGadgetsOauthClient Load (11.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;36;1mOauthAccessToken Load (2.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (5.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 186ms (View: 4, DB: 18) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 20:01:31) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipelinee1e7d6de", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;35;1mGadgetsOauthClient Load (11.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;36;1mOauthAccessToken Load (2.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (3.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Remote request failed: 
+url: https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipelinee1e7d6de
+status code: 404
+metadata: {}
+body:
+******************************** start of response body *****************************************
+Pipeline 'admin-pipelinee1e7d6de' not found.
+
+********************************  end of response body ******************************************
+Completed in 228ms (View: 2, DB: 16) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 20:01:31) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/icons/icon_error_16-98e154ce3a631d6a4fc59d3aed519105cbbfbc50a6e874631c71ddf5dc39fc39.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 50ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Ficons%2Ficon_error_16-98e154ce3a631d6a4fc59d3aed519105cbbfbc50a6e874631c71ddf5dc39fc39.png&fp=-182800334&refresh=86400]
+
+
+Processing SessionsController#clear_session (for 127.0.0.1 at 2015-11-28 20:02:12) [GET]
+Redirected to http://localhost:3000/sessions
+Completed in 21ms (DB: 0) | 302 Found [http://localhost/sessions/clear_session]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:02:12) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:02:12) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 23ms (View: 21, DB: 0) | 200 OK [http://localhost/sessions/new]
+  [4;36;1mSQL (12.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (29.0ms)[0m   [0mCREATE TABLE access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, access_token VARCHAR(255), user_id integer(0), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (13.0ms)[0m   [0mCREATE TABLE accounts (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), bank_id integer(0), account_type VARCHAR(255), account_number VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (17.0ms)[0m   [0mCREATE TABLE authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), code VARCHAR(255), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (13.0ms)[0m   [0mCREATE TABLE banks (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255), url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (20.0ms)[0m   [0mCREATE TABLE gadgets_oauth_clients (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadget_url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), service_name VARCHAR(255), redirect_uri VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mCREATE TABLE oauth_access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), access_token VARCHAR(255), refresh_token VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (12.0ms)[0m   [0mCREATE TABLE oauth_authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), code VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (14.0ms)[0m   [0mCREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email VARCHAR(255), password VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (11.0ms)[0m   [0mCREATE TABLE schema_migrations (version VARCHAR(255) NOT NULL) [0m
+  [4;36;1mSQL (14.0ms)[0m   [0;1mCREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations (version)[0m
+  [4;35;1mSQL (7.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (12.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100715001151')[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (12.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215914')[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (8.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215915')[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215916')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215917')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714221638')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714222343')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714230519')[0m
+  [4;35;1mBank Create (3.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('ACME Bank', 'https://localhost:5000', 'dd07b68e5400d428350cc585af6df38069056de96daf953091b4a65295fdf727', '9e07285bbcf48f892e4570f546f9fade0adf8c750fe313ac9b40d084f09f2fa9', '2015-11-28 20:06:49', '2015-11-28 20:06:49')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+  [4;35;1mBank Create (3.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Programmers Credit Union', 'https://localhost:6000', 'zzz', 'zzz', '2015-11-28 20:06:49', '2015-11-28 20:06:49')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:06:49) [GET]
+  [4;35;1mBank Create (4.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Money Club', 'https://localhost:7000', 'yyy', 'yyy', '2015-11-28 20:06:49', '2015-11-28 20:06:49')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 55ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:06:50) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 6ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:06:50) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 124ms (View: 120, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:07:21) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 23ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:07:21) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:07:21) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 33ms (View: 31, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2015-11-28 20:07:22) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 120ms (View: 71, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2015-11-28 20:07:22) [POST]
+  Parameters: {"user"=>{"email"=>"admin@tw.com", "password"=>"admin"}, "commit"=>"Create"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT users.id FROM users WHERE (users.email = 'admin@tw.com') LIMIT 1[0m
+  [4;35;1mUser Create (4.0ms)[0m   [0mINSERT INTO users (email, password, created_at, updated_at) VALUES('admin@tw.com', 'admin', '2015-11-28 20:07:23', '2015-11-28 20:07:23')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'users'[0m
+Redirected to http://localhost:3000/users/1
+Completed in 77ms (DB: 8) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2015-11-28 20:07:23) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/users/1]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:07:23) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 4ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:07:23) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 37ms (View: 31, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:07:23) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:07:23) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:07:23) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 20ms (View: 18, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2015-11-28 20:07:24) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 53ms (View: 26, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2015-11-28 20:07:24) [POST]
+  Parameters: {"user"=>{"email"=>"view@tw.com", "password"=>"view"}, "commit"=>"Create"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT users.id FROM users WHERE (users.email = 'view@tw.com') LIMIT 1[0m
+  [4;36;1mUser Create (3.0ms)[0m   [0;1mINSERT INTO users (email, password, created_at, updated_at) VALUES('view@tw.com', 'view', '2015-11-28 20:07:24', '2015-11-28 20:07:24')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'users'[0m
+Redirected to http://localhost:3000/users/2
+Completed in 65ms (DB: 6) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2015-11-28 20:07:25) [GET]
+  Parameters: {"id"=>"2"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/users/2]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:07:25) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:07:25) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 24ms (View: 22, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:07:25) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:07:25) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 4ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:07:25) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 23ms (View: 21, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2015-11-28 20:07:26) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 101ms (View: 37, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2015-11-28 20:07:26) [POST]
+  Parameters: {"user"=>{"email"=>"noPermission@tw.com", "password"=>"noPermission"}, "commit"=>"Create"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT users.id FROM users WHERE (users.email = 'noPermission@tw.com') LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO users (email, password, created_at, updated_at) VALUES('noPermission@tw.com', 'noPermission', '2015-11-28 20:07:26', '2015-11-28 20:07:26')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'users'[0m
+Redirected to http://localhost:3000/users/3
+Completed in 53ms (DB: 5) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2015-11-28 20:07:26) [GET]
+  Parameters: {"id"=>"3"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/users/3]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:07:27) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:07:27) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 28ms (View: 26, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:07:27) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:07:27) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:07:27) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 34ms (View: 24, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2015-11-28 20:07:28) [POST]
+  Parameters: {"email"=>"admin@tw.com", "password"=>"admin"}
+  [4;35;1mUser Load (3.0ms)[0m   [0mSELECT * FROM users WHERE (users.email = 'admin@tw.com') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 36ms (DB: 3) | 302 Found [http://localhost/sessions/create]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:07:28) [GET]
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 91ms (View: 79, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing GadgetsOauthClientsController#index (for 127.0.0.1 at 2015-11-28 20:07:28) [GET]
+  [4;35;1mGadgetsOauthClient Load (12.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients [0m
+Rendering template within layouts/application
+Rendering gadgets_oauth_clients/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 83ms (View: 41, DB: 14) | 200 OK [http://localhost/gadgets/oauth_clients]
+
+
+Processing GadgetsOauthClientsController#new (for 127.0.0.1 at 2015-11-28 20:07:29) [GET]
+Rendering template within layouts/application
+Rendering gadgets_oauth_clients/new
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 97ms (View: 52, DB: 2) | 200 OK [http://localhost/gadgets/oauth_clients/new]
+
+
+Processing GadgetsOauthClientsController#create (for 127.0.0.1 at 2015-11-28 20:07:30) [POST]
+  Parameters: {"gadgets_oauth_client"=>{"gadget_url"=>"https://localhost:8254/go/gadgets/pipeline.xml", "client_id"=>"b37a5282642ca92022f5103fdb44d5cecd746054beb0cd4474f4fe70663575ea", "client_secret"=>"95c16a030586d4561dac809c030d050191466216db7e0b6ff8bf17a9cd212bc9", "service_name"=>"Go", "redirect_uri"=>"http://localhost:3000/gadgets/oauthcallback"}, "commit"=>"Create"}
+  [4;36;1mGadgetsOauthClient Create (12.0ms)[0m   [0;1mINSERT INTO gadgets_oauth_clients (gadget_url, client_id, client_secret, service_name, redirect_uri, created_at, updated_at) VALUES('https://localhost:8254/go/gadgets/pipeline.xml', 'b37a5282642ca92022f5103fdb44d5cecd746054beb0cd4474f4fe70663575ea', '95c16a030586d4561dac809c030d050191466216db7e0b6ff8bf17a9cd212bc9', 'Go', 'http://localhost:3000/gadgets/oauthcallback', '2015-11-28 20:07:30', '2015-11-28 20:07:30')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'gadgets_oauth_clients'[0m
+Redirected to http://localhost:3000/gadgets/oauth_clients/1
+Completed in 37ms (DB: 14) | 302 Found [http://localhost/gadgets/oauth_clients]
+
+
+Processing GadgetsOauthClientsController#show (for 127.0.0.1 at 2015-11-28 20:07:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mGadgetsOauthClient Load (12.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.id = 1) [0m
+Rendering template within layouts/application
+Rendering gadgets_oauth_clients/show
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 50ms (View: 20, DB: 14) | 200 OK [http://localhost/gadgets/oauth_clients/1]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:07:30) [GET]
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 41ms (View: 29, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#add_account_gadget (for 127.0.0.1 at 2015-11-28 20:07:31) [POST]
+  Parameters: {"up_pipelineName"=>"admin-pipeline492356a2", "commit"=>"Add"}
+Completed in 14ms (View: 3, DB: 0) | 200 OK [http://localhost/dashboard/add_account_gadget]
+
+
+Processing GadgetRenderingController#ifr (for 127.0.0.1 at 2015-11-28 20:07:31) [GET]
+  Parameters: {"bpc"=>"1", "nocache"=>"1", "url"=>"https://localhost:8254/go/gadgets/pipeline.xml", "up_pipelineName"=>"admin-pipeline492356a2"}
+Completed in 599ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/ifr?bpc=1&nocache=1&url=https://localhost:8254/go/gadgets/pipeline.xml&up_pipelineName=admin-pipeline492356a2]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 20:07:31) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/javascript", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js"}
+Completed in 13ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/javascript&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 20:07:32) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/css", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css", "2"=>"https://localhost:8254/go/assets/patterns/application-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css"}
+Completed in 12ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/css&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css&2=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fpatterns%2Fapplication-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 20:07:32) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline492356a2", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;35;1mGadgetsOauthClient Load (11.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;36;1mOauthAccessToken Load (5.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (4.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 157ms (View: 1, DB: 20) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetOauthCallbackController#oauth_callback (for 127.0.0.1 at 2015-11-28 20:07:34) [GET]
+  Parameters: {"code"=>"367e07cbf97c81bb6bbb9899cd589a9b571b42216900308161f8664d84531db9", "expires_in"=>"3599", "state"=>"eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn\r\nZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0=\r\n"}
+  [4;36;1mGadgetsOauthClient Load (11.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (3.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = 1) AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (1.0ms)[0m   [0;1mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1' AND oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Create (2.0ms)[0m   [0mINSERT INTO oauth_authorization_codes (gadgets_oauth_client_id, user_id, code, expires_in, created_at, updated_at) VALUES(1, 1, '367e07cbf97c81bb6bbb9899cd589a9b571b42216900308161f8664d84531db9', 3599, '2015-11-28 20:07:34', '2015-11-28 20:07:34')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_authorization_codes'[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1' AND oauth_authorization_codes.gadgets_oauth_client_id = 1 AND oauth_authorization_codes.id <> 1) LIMIT 1[0m
+Completed in 60ms (View: 1, DB: 20) | 200 OK [http://localhost/gadgets/oauthcallback?code=367e07cbf97c81bb6bbb9899cd589a9b571b42216900308161f8664d84531db9&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 20:07:35) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline492356a2", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "OAUTH_RECEIVED_CALLBACK"=>"http://localhost:3000/gadgets/oauthcallback?code=367e07cbf97c81bb6bbb9899cd589a9b571b42216900308161f8664d84531db9&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;36;1mGadgetsOauthClient Load (10.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (3.0ms)[0m   [0mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (2.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (2.0ms)[0m   [0mSELECT oauth_access_tokens.id FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1' AND oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAccessToken Create (3.0ms)[0m   [0;1mINSERT INTO oauth_access_tokens (gadgets_oauth_client_id, user_id, access_token, refresh_token, expires_in, created_at, updated_at) VALUES(1, '1', '131e8b88d5bb407247f8c68406d4296ff4687d00464a810a94e909b6d99da617', 'df1c2c251ef20310219f622013daf33ef9074ed0676c6bb239cc218ae037ac3a', 7775999, '2015-11-28 20:07:35', '2015-11-28 20:07:35')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_access_tokens'[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Delete all (4.0ms)[0m   [0mDELETE FROM oauth_authorization_codes WHERE (id IN (1)) [0m
+  [4;36;1mOauthAccessToken Load (2.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 287ms (View: 1, DB: 27) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 20:07:35) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/icons/icon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 158ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Ficons%2Ficon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png&fp=-182800334&refresh=86400]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 20:07:35) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/backgrounds/bg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 29ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Fbackgrounds%2Fbg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png&fp=-182800334&refresh=86400]
+
+
+Processing SessionsController#clear_session (for 127.0.0.1 at 2015-11-28 20:07:37) [GET]
+Redirected to http://localhost:3000/sessions
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/sessions/clear_session]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:07:37) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:07:38) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 27ms (View: 25, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2015-11-28 20:07:38) [POST]
+  Parameters: {"email"=>"noPermission@tw.com", "password"=>"noPermission"}
+  [4;35;1mUser Load (3.0ms)[0m   [0mSELECT * FROM users WHERE (users.email = 'noPermission@tw.com') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 44ms (DB: 3) | 302 Found [http://localhost/sessions/create]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:07:38) [GET]
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 3) [0m
+Completed in 39ms (View: 27, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#add_account_gadget (for 127.0.0.1 at 2015-11-28 20:07:39) [POST]
+  Parameters: {"up_pipelineName"=>"admin-pipeline492356a2", "commit"=>"Add"}
+Completed in 12ms (View: 2, DB: 0) | 200 OK [http://localhost/dashboard/add_account_gadget]
+
+
+Processing GadgetRenderingController#ifr (for 127.0.0.1 at 2015-11-28 20:07:39) [GET]
+  Parameters: {"bpc"=>"1", "nocache"=>"1", "url"=>"https://localhost:8254/go/gadgets/pipeline.xml", "up_pipelineName"=>"admin-pipeline492356a2"}
+Completed in 86ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/ifr?bpc=1&nocache=1&url=https://localhost:8254/go/gadgets/pipeline.xml&up_pipelineName=admin-pipeline492356a2]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 20:07:39) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/javascript", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js"}
+Completed in 9ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/javascript&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 20:07:39) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/css", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css", "2"=>"https://localhost:8254/go/assets/patterns/application-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css"}
+Completed in 10ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/css&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css&2=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fpatterns%2Fapplication-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 20:07:39) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline492356a2", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;35;1mGadgetsOauthClient Load (10.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;36;1mOauthAccessToken Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 87ms (View: 5, DB: 15) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetOauthCallbackController#oauth_callback (for 127.0.0.1 at 2015-11-28 20:07:42) [GET]
+  Parameters: {"code"=>"183d59d5429dd8e0bf4f7b1162cd173e79e723f43a9c610415b3cb3a9e2fc0e8", "expires_in"=>"3599", "state"=>"eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn\r\nZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0=\r\n"}
+  [4;36;1mGadgetsOauthClient Load (13.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (3.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = 3) AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (2.0ms)[0m   [0;1mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3' AND oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Create (3.0ms)[0m   [0mINSERT INTO oauth_authorization_codes (gadgets_oauth_client_id, user_id, code, expires_in, created_at, updated_at) VALUES(1, 3, '183d59d5429dd8e0bf4f7b1162cd173e79e723f43a9c610415b3cb3a9e2fc0e8', 3599, '2015-11-28 20:07:43', '2015-11-28 20:07:43')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_authorization_codes'[0m
+  [4;35;1mOauthAuthorizationCode Load (3.0ms)[0m   [0mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3' AND oauth_authorization_codes.gadgets_oauth_client_id = 1 AND oauth_authorization_codes.id <> 2) LIMIT 1[0m
+Completed in 66ms (View: 1, DB: 26) | 200 OK [http://localhost/gadgets/oauthcallback?code=183d59d5429dd8e0bf4f7b1162cd173e79e723f43a9c610415b3cb3a9e2fc0e8&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 20:07:43) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline492356a2", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "OAUTH_RECEIVED_CALLBACK"=>"http://localhost:3000/gadgets/oauthcallback?code=183d59d5429dd8e0bf4f7b1162cd173e79e723f43a9c610415b3cb3a9e2fc0e8&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;36;1mGadgetsOauthClient Load (10.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (3.0ms)[0m   [0mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (2.0ms)[0m   [0mSELECT oauth_access_tokens.id FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3' AND oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAccessToken Create (5.0ms)[0m   [0;1mINSERT INTO oauth_access_tokens (gadgets_oauth_client_id, user_id, access_token, refresh_token, expires_in, created_at, updated_at) VALUES(1, '3', 'eaefbc8e862cbf7f23a56e7002def4d875946e670c027854e9ccce9848605ff1', '48f6570893a0daca4ad58f136657ccf0150a8ab6f78d53e32405890a5c75d51b', 7775999, '2015-11-28 20:07:43', '2015-11-28 20:07:43')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_access_tokens'[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Delete all (3.0ms)[0m   [0mDELETE FROM oauth_authorization_codes WHERE (id IN (2)) [0m
+  [4;36;1mOauthAccessToken Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 319ms (View: 2, DB: 31) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 20:07:43) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/icons/icon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 39ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Ficons%2Ficon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png&fp=-182800334&refresh=86400]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 20:07:43) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/backgrounds/bg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 17ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Fbackgrounds%2Fbg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png&fp=-182800334&refresh=86400]
+
+
+Processing SessionsController#clear_session (for 127.0.0.1 at 2015-11-28 20:07:51) [GET]
+Redirected to http://localhost:3000/sessions
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/sessions/clear_session]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:07:51) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:07:51) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 16ms (View: 14, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#add_account_gadget (for 127.0.0.1 at 2015-11-28 20:08:14) [POST]
+  Parameters: {"up_pipelineName"=>"admin-pipeline492356a2", "commit"=>"Add"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 8ms (DB: 0) | 302 Found [http://localhost/dashboard/add_account_gadget]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:08:14) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:08:14) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 16ms (View: 13, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:08:19) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:08:19) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:08:19) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 16ms (View: 15, DB: 0) | 200 OK [http://localhost/sessions/new]
+  [4;36;1mSQL (14.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (24.0ms)[0m   [0mCREATE TABLE access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, access_token VARCHAR(255), user_id integer(0), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (14.0ms)[0m   [0mCREATE TABLE accounts (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), bank_id integer(0), account_type VARCHAR(255), account_number VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (11.0ms)[0m   [0mCREATE TABLE authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), code VARCHAR(255), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (14.0ms)[0m   [0mCREATE TABLE banks (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255), url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (20.0ms)[0m   [0mCREATE TABLE gadgets_oauth_clients (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadget_url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), service_name VARCHAR(255), redirect_uri VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mCREATE TABLE oauth_access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), access_token VARCHAR(255), refresh_token VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (17.0ms)[0m   [0mCREATE TABLE oauth_authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), code VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mCREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email VARCHAR(255), password VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mCREATE TABLE schema_migrations (version VARCHAR(255) NOT NULL) [0m
+  [4;36;1mSQL (19.0ms)[0m   [0;1mCREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations (version)[0m
+  [4;35;1mSQL (9.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (13.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100715001151')[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215914')[0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:21:14) [GET]
+  [4;35;1mSQL (7.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215915')[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (14.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215916')[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (12.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215917')[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (13.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714221638')[0m
+Redirected to http://localhost:3000/sessions
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+Filter chain halted as [:login_required] rendered_or_redirected.
+  [4;36;1mSQL (8.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714222343')[0m
+Completed in 57ms (DB: 0) | 302 Found [http://localhost/]
+  [4;35;1mSQL (3.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714230519')[0m
+  [4;35;1mBank Create (3.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('ACME Bank', 'https://localhost:5000', 'dd07b68e5400d428350cc585af6df38069056de96daf953091b4a65295fdf727', '9e07285bbcf48f892e4570f546f9fade0adf8c750fe313ac9b40d084f09f2fa9', '2015-11-28 20:21:14', '2015-11-28 20:21:14')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+  [4;35;1mBank Create (3.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Programmers Credit Union', 'https://localhost:6000', 'zzz', 'zzz', '2015-11-28 20:21:14', '2015-11-28 20:21:14')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+  [4;35;1mBank Create (4.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Money Club', 'https://localhost:7000', 'yyy', 'yyy', '2015-11-28 20:21:14', '2015-11-28 20:21:14')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:21:15) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 5ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:21:15) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 102ms (View: 99, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:21:46) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 24ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:21:46) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 6ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:21:47) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 38ms (View: 33, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2015-11-28 20:21:47) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 139ms (View: 84, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2015-11-28 20:21:48) [POST]
+  Parameters: {"user"=>{"email"=>"admin@tw.com", "password"=>"admin"}, "commit"=>"Create"}
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT users.id FROM users WHERE (users.email = 'admin@tw.com') LIMIT 1[0m
+  [4;35;1mUser Create (6.0ms)[0m   [0mINSERT INTO users (email, password, created_at, updated_at) VALUES('admin@tw.com', 'admin', '2015-11-28 20:21:48', '2015-11-28 20:21:48')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'users'[0m
+Redirected to http://localhost:3000/users/1
+Completed in 101ms (DB: 11) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2015-11-28 20:21:48) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/users/1]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:21:48) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:21:48) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 38ms (View: 31, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:21:49) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 17ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:21:49) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:21:49) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 24ms (View: 22, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2015-11-28 20:21:49) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 70ms (View: 38, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2015-11-28 20:21:50) [POST]
+  Parameters: {"user"=>{"email"=>"view@tw.com", "password"=>"view"}, "commit"=>"Create"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT users.id FROM users WHERE (users.email = 'view@tw.com') LIMIT 1[0m
+  [4;36;1mUser Create (3.0ms)[0m   [0;1mINSERT INTO users (email, password, created_at, updated_at) VALUES('view@tw.com', 'view', '2015-11-28 20:21:50', '2015-11-28 20:21:50')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'users'[0m
+Redirected to http://localhost:3000/users/2
+Completed in 76ms (DB: 6) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2015-11-28 20:21:50) [GET]
+  Parameters: {"id"=>"2"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/users/2]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:21:50) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:21:50) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 21ms (View: 20, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:21:51) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 29ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:21:51) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:21:51) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 23ms (View: 21, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2015-11-28 20:21:51) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 102ms (View: 33, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2015-11-28 20:21:52) [POST]
+  Parameters: {"user"=>{"email"=>"noPermission@tw.com", "password"=>"noPermission"}, "commit"=>"Create"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT users.id FROM users WHERE (users.email = 'noPermission@tw.com') LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO users (email, password, created_at, updated_at) VALUES('noPermission@tw.com', 'noPermission', '2015-11-28 20:21:52', '2015-11-28 20:21:52')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'users'[0m
+Redirected to http://localhost:3000/users/3
+Completed in 50ms (DB: 5) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2015-11-28 20:21:52) [GET]
+  Parameters: {"id"=>"3"}
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/users/3]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:21:52) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:21:52) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 28ms (View: 25, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:21:52) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:21:53) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:21:53) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 28ms (View: 19, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2015-11-28 20:21:53) [POST]
+  Parameters: {"email"=>"admin@tw.com", "password"=>"admin"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM users WHERE (users.email = 'admin@tw.com') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 34ms (DB: 2) | 302 Found [http://localhost/sessions/create]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:21:53) [GET]
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 89ms (View: 77, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing GadgetsOauthClientsController#index (for 127.0.0.1 at 2015-11-28 20:21:54) [GET]
+  [4;35;1mGadgetsOauthClient Load (13.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients [0m
+Rendering template within layouts/application
+Rendering gadgets_oauth_clients/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 86ms (View: 43, DB: 15) | 200 OK [http://localhost/gadgets/oauth_clients]
+
+
+Processing GadgetsOauthClientsController#new (for 127.0.0.1 at 2015-11-28 20:21:54) [GET]
+Rendering template within layouts/application
+Rendering gadgets_oauth_clients/new
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 84ms (View: 44, DB: 2) | 200 OK [http://localhost/gadgets/oauth_clients/new]
+
+
+Processing GadgetsOauthClientsController#create (for 127.0.0.1 at 2015-11-28 20:21:55) [POST]
+  Parameters: {"gadgets_oauth_client"=>{"gadget_url"=>"https://localhost:8254/go/gadgets/pipeline.xml", "client_id"=>"0c25c3c8aa58499b76da22ba79f6fad64acb87bc876c0cd73652b03de926fccf", "client_secret"=>"926ab65184b54e370cb830da56963d99dc452fd06fb47c894822ca78920bf91d", "service_name"=>"Go", "redirect_uri"=>"http://localhost:3000/gadgets/oauthcallback"}, "commit"=>"Create"}
+  [4;36;1mGadgetsOauthClient Create (11.0ms)[0m   [0;1mINSERT INTO gadgets_oauth_clients (gadget_url, client_id, client_secret, service_name, redirect_uri, created_at, updated_at) VALUES('https://localhost:8254/go/gadgets/pipeline.xml', '0c25c3c8aa58499b76da22ba79f6fad64acb87bc876c0cd73652b03de926fccf', '926ab65184b54e370cb830da56963d99dc452fd06fb47c894822ca78920bf91d', 'Go', 'http://localhost:3000/gadgets/oauthcallback', '2015-11-28 20:21:55', '2015-11-28 20:21:55')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'gadgets_oauth_clients'[0m
+Redirected to http://localhost:3000/gadgets/oauth_clients/1
+Completed in 32ms (DB: 12) | 302 Found [http://localhost/gadgets/oauth_clients]
+
+
+Processing GadgetsOauthClientsController#show (for 127.0.0.1 at 2015-11-28 20:21:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mGadgetsOauthClient Load (11.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.id = 1) [0m
+Rendering template within layouts/application
+Rendering gadgets_oauth_clients/show
+  [4;35;1mUser Load (3.0ms)[0m   [0mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 54ms (View: 24, DB: 14) | 200 OK [http://localhost/gadgets/oauth_clients/1]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:21:56) [GET]
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) [0m
+Completed in 40ms (View: 27, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#add_account_gadget (for 127.0.0.1 at 2015-11-28 20:21:56) [POST]
+  Parameters: {"up_pipelineName"=>"admin-pipeline50facbfa", "commit"=>"Add"}
+Completed in 14ms (View: 2, DB: 0) | 200 OK [http://localhost/dashboard/add_account_gadget]
+
+
+Processing GadgetRenderingController#ifr (for 127.0.0.1 at 2015-11-28 20:21:56) [GET]
+  Parameters: {"bpc"=>"1", "nocache"=>"1", "url"=>"https://localhost:8254/go/gadgets/pipeline.xml", "up_pipelineName"=>"admin-pipeline50facbfa"}
+Completed in 582ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/ifr?bpc=1&nocache=1&url=https://localhost:8254/go/gadgets/pipeline.xml&up_pipelineName=admin-pipeline50facbfa]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 20:21:57) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/css", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css", "2"=>"https://localhost:8254/go/assets/patterns/application-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css"}
+Completed in 13ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/css&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css&2=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fpatterns%2Fapplication-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 20:21:57) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/javascript", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js"}
+Completed in 13ms (View: 3, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/javascript&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 20:21:58) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline50facbfa", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;35;1mGadgetsOauthClient Load (10.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;36;1mOauthAccessToken Load (12.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (3.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 161ms (View: 2, DB: 25) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetOauthCallbackController#oauth_callback (for 127.0.0.1 at 2015-11-28 20:22:00) [GET]
+  Parameters: {"code"=>"2d989321ed8d2691325a4954f04dda00e12ef668e886731625596d7270e2ecfa", "expires_in"=>"3599", "state"=>"eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn\r\nZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0=\r\n"}
+  [4;36;1mGadgetsOauthClient Load (13.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (4.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = 1) AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (1.0ms)[0m   [0;1mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1' AND oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Create (3.0ms)[0m   [0mINSERT INTO oauth_authorization_codes (gadgets_oauth_client_id, user_id, code, expires_in, created_at, updated_at) VALUES(1, 1, '2d989321ed8d2691325a4954f04dda00e12ef668e886731625596d7270e2ecfa', 3599, '2015-11-28 20:22:00', '2015-11-28 20:22:00')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_authorization_codes'[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1' AND oauth_authorization_codes.gadgets_oauth_client_id = 1 AND oauth_authorization_codes.id <> 1) LIMIT 1[0m
+Completed in 70ms (View: 2, DB: 24) | 200 OK [http://localhost/gadgets/oauthcallback?code=2d989321ed8d2691325a4954f04dda00e12ef668e886731625596d7270e2ecfa&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 20:22:00) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline50facbfa", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "OAUTH_RECEIVED_CALLBACK"=>"http://localhost:3000/gadgets/oauthcallback?code=2d989321ed8d2691325a4954f04dda00e12ef668e886731625596d7270e2ecfa&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;36;1mGadgetsOauthClient Load (10.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (3.0ms)[0m   [0mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (2.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (2.0ms)[0m   [0mSELECT oauth_access_tokens.id FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1' AND oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAccessToken Create (2.0ms)[0m   [0;1mINSERT INTO oauth_access_tokens (gadgets_oauth_client_id, user_id, access_token, refresh_token, expires_in, created_at, updated_at) VALUES(1, '1', '92c49e5601aedd436882b43ae494e5a2d3061b23950405358670d37849bcbe0a', '6a2086471d2b03eff1911e39b7f9f59949697348a72c92204d891773b1b16910', 7775999, '2015-11-28 20:22:00', '2015-11-28 20:22:00')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_access_tokens'[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '1') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Delete all (4.0ms)[0m   [0mDELETE FROM oauth_authorization_codes WHERE (id IN (1)) [0m
+  [4;36;1mOauthAccessToken Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '1') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 312ms (View: 2, DB: 28) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 20:22:00) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/backgrounds/bg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 122ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Fbackgrounds%2Fbg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png&fp=-182800334&refresh=86400]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 20:22:00) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/icons/icon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 48ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Ficons%2Ficon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png&fp=-182800334&refresh=86400]
+
+
+Processing SessionsController#clear_session (for 127.0.0.1 at 2015-11-28 20:22:03) [GET]
+Redirected to http://localhost:3000/sessions
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/sessions/clear_session]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-11-28 20:22:03) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-11-28 20:22:03) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 23ms (View: 22, DB: 0) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2015-11-28 20:22:04) [POST]
+  Parameters: {"email"=>"noPermission@tw.com", "password"=>"noPermission"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM users WHERE (users.email = 'noPermission@tw.com') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 36ms (DB: 2) | 302 Found [http://localhost/sessions/create]
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-11-28 20:22:04) [GET]
+Rendering template within layouts/application
+Rendering dashboard/index
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM users WHERE (users.id = 3) [0m
+Completed in 40ms (View: 29, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#add_account_gadget (for 127.0.0.1 at 2015-11-28 20:22:04) [POST]
+  Parameters: {"up_pipelineName"=>"admin-pipeline50facbfa", "commit"=>"Add"}
+Completed in 11ms (View: 2, DB: 0) | 200 OK [http://localhost/dashboard/add_account_gadget]
+
+
+Processing GadgetRenderingController#ifr (for 127.0.0.1 at 2015-11-28 20:22:04) [GET]
+  Parameters: {"bpc"=>"1", "nocache"=>"1", "url"=>"https://localhost:8254/go/gadgets/pipeline.xml", "up_pipelineName"=>"admin-pipeline50facbfa"}
+Completed in 51ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/ifr?bpc=1&nocache=1&url=https://localhost:8254/go/gadgets/pipeline.xml&up_pipelineName=admin-pipeline50facbfa]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 20:22:04) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/javascript", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js"}
+Completed in 11ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/javascript&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-8c1d11a88b7bc07964ff6a879dee412fe9f77b4a0ac279514c3a899e964d93d0.js]
+
+
+Processing GadgetProxyController#concat (for 127.0.0.1 at 2015-11-28 20:22:04) [GET]
+  Parameters: {"container"=>"default", "rewriteMime"=>"text/css", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "fp"=>"-182800334", "nocache"=>"1", "refresh"=>"86400", "1"=>"https://localhost:8254/go/assets/application-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css", "2"=>"https://localhost:8254/go/assets/patterns/application-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css"}
+Completed in 9ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/concat?container=default&rewriteMime=text/css&gadget=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fgadgets%2Fpipeline.xml&fp=-182800334&nocache=1&refresh=86400&1=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fapplication-1627a52001980c63b13ddc9bafb53326c9fecd091edcd31265e660d50531624b.css&2=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fpatterns%2Fapplication-c9db0dc0617cde7ef9b33ba196098beaae0b2c749ab3fa4515eb27c5aab6f3f1.css]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 20:22:05) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline50facbfa", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;35;1mGadgetsOauthClient Load (9.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;36;1mOauthAccessToken Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 105ms (View: 5, DB: 14) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetOauthCallbackController#oauth_callback (for 127.0.0.1 at 2015-11-28 20:22:08) [GET]
+  Parameters: {"code"=>"223c3604a0e59c4f03414fd8cdcdf6c3c36ebe4c78ee18f65f8e669dda25a687", "expires_in"=>"3599", "state"=>"eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn\r\nZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0=\r\n"}
+  [4;36;1mGadgetsOauthClient Load (9.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (3.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = 3) AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (2.0ms)[0m   [0;1mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3' AND oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Create (3.0ms)[0m   [0mINSERT INTO oauth_authorization_codes (gadgets_oauth_client_id, user_id, code, expires_in, created_at, updated_at) VALUES(1, 3, '223c3604a0e59c4f03414fd8cdcdf6c3c36ebe4c78ee18f65f8e669dda25a687', 3599, '2015-11-28 20:22:08', '2015-11-28 20:22:08')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_authorization_codes'[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT oauth_authorization_codes.id FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3' AND oauth_authorization_codes.gadgets_oauth_client_id = 1 AND oauth_authorization_codes.id <> 2) LIMIT 1[0m
+Completed in 59ms (View: 2, DB: 20) | 200 OK [http://localhost/gadgets/oauthcallback?code=223c3604a0e59c4f03414fd8cdcdf6c3c36ebe4c78ee18f65f8e669dda25a687&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 20:22:08) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline50facbfa", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "OAUTH_RECEIVED_CALLBACK"=>"http://localhost:3000/gadgets/oauthcallback?code=223c3604a0e59c4f03414fd8cdcdf6c3c36ebe4c78ee18f65f8e669dda25a687&expires_in=3599&state=eyJnYWRnZXRfdXJsIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODI1NC9nby9nYWRn%0D%0AZXRzL3BpcGVsaW5lLnhtbCIsInNlcnZpY2VfbmFtZSI6IkdvIn0%3D%0D%0A", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;36;1mGadgetsOauthClient Load (9.0ms)[0m   [0;1mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (2.0ms)[0m   [0mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAuthorizationCode Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAccessToken Load (1.0ms)[0m   [0mSELECT oauth_access_tokens.id FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3' AND oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mOauthAccessToken Create (2.0ms)[0m   [0;1mINSERT INTO oauth_access_tokens (gadgets_oauth_client_id, user_id, access_token, refresh_token, expires_in, created_at, updated_at) VALUES(1, '3', 'a00a643944936458466ee21900cd543b82c432fb188e5c71806072f2f025aec0', '6a04b1ab0aaa7630cd72b26a7cf9262dc735ddfcb390614803a5386db0b3e2cd', 7775999, '2015-11-28 20:22:08', '2015-11-28 20:22:08')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'oauth_access_tokens'[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Delete all (4.0ms)[0m   [0mDELETE FROM oauth_authorization_codes WHERE (id IN (2)) [0m
+  [4;36;1mOauthAccessToken Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 296ms (View: 1, DB: 25) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 20:22:08) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/backgrounds/bg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 30ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Fbackgrounds%2Fbg_status_diagonal-790a61026f71e850ff0d17e6e99d7e6b8f55f3efa31940f914d243ce78c8e849.png&fp=-182800334&refresh=86400]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 20:22:08) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/icons/icon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 16ms (View: 1, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Ficons%2Ficon_pipeline_24-45d02a05e7bd0bc81af0b95c5c99d9e1ad436f739c949b5bf3320df6a156fa6a.png&fp=-182800334&refresh=86400]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 20:23:10) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline50facbfa", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;35;1mGadgetsOauthClient Load (11.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;36;1mOauthAccessToken Load (3.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (4.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Completed in 137ms (View: 2, DB: 18) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetMakeRequestController#make_request (for 127.0.0.1 at 2015-11-28 20:24:18) [POST]
+  Parameters: {"url"=>"https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline50facbfa", "httpMethod"=>"GET", "headers"=>"", "postData"=>"", "authz"=>"oauth", "st"=>"", "contentType"=>"TEXT", "numEntries"=>"3", "getSummaries"=>"false", "signOwner"=>"true", "signViewer"=>"true", "gadget"=>"https://localhost:8254/go/gadgets/pipeline.xml", "container"=>"default", "bypassSpecCache"=>"1", "oauthState"=>"", "OAUTH_USE_TOKEN"=>"always", "OAUTH_SERVICE_NAME"=>"Go"}
+  [4;35;1mGadgetsOauthClient Load (9.0ms)[0m   [0mSELECT * FROM gadgets_oauth_clients WHERE (gadgets_oauth_clients.gadget_url = 'https://localhost:8254/go/gadgets/pipeline.xml' AND gadgets_oauth_clients.service_name = 'Go') LIMIT 1[0m
+  [4;36;1mOauthAccessToken Load (2.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;35;1mOauthAuthorizationCode Load (2.0ms)[0m   [0mSELECT * FROM oauth_authorization_codes WHERE (oauth_authorization_codes.user_id = '3') AND (oauth_authorization_codes.gadgets_oauth_client_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM oauth_access_tokens WHERE (oauth_access_tokens.user_id = '3') AND (oauth_access_tokens.gadgets_oauth_client_id = 1) LIMIT 1[0m
+Remote request failed: 
+url: https://localhost:8254/go/gadgets/pipeline/content?pipeline_name=admin-pipeline50facbfa
+status code: 404
+metadata: {}
+body:
+******************************** start of response body *****************************************
+Pipeline 'admin-pipeline50facbfa' not found.
+
+********************************  end of response body ******************************************
+Completed in 136ms (View: 1, DB: 13) | 200 OK [http://localhost/gadgets/makeRequest]
+
+
+Processing GadgetProxyController#proxy (for 127.0.0.1 at 2015-11-28 20:24:18) [GET]
+  Parameters: {"container"=>"default", "url"=>"https://localhost:8254/go/assets/g9/icons/icon_error_16-98e154ce3a631d6a4fc59d3aed519105cbbfbc50a6e874631c71ddf5dc39fc39.png", "fp"=>"-182800334", "refresh"=>"86400"}
+Completed in 29ms (View: 2, DB: 0) | 200 OK [http://localhost/gadgets/proxy?container=default&url=https%3A%2F%2Flocalhost%3A8254%2Fgo%2Fassets%2Fg9%2Ficons%2Ficon_error_16-98e154ce3a631d6a4fc59d3aed519105cbbfbc50a6e874631c71ddf5dc39fc39.png&fp=-182800334&refresh=86400]
+  [4;36;1mSQL (13.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (21.0ms)[0m   [0mCREATE TABLE access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, access_token VARCHAR(255), user_id integer(0), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mCREATE TABLE accounts (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), bank_id integer(0), account_type VARCHAR(255), account_number VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (36.0ms)[0m   [0mCREATE TABLE authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user_id integer(0), code VARCHAR(255), bank_id integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (14.0ms)[0m   [0mCREATE TABLE banks (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255), url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mCREATE TABLE gadgets_oauth_clients (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadget_url VARCHAR(255), client_id VARCHAR(255), client_secret VARCHAR(255), service_name VARCHAR(255), redirect_uri VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (19.0ms)[0m   [0mCREATE TABLE oauth_access_tokens (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), access_token VARCHAR(255), refresh_token VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (14.0ms)[0m   [0mCREATE TABLE oauth_authorization_codes (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, gadgets_oauth_client_id integer(0), user_id VARCHAR(255), code VARCHAR(255), expires_in integer(0), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (12.0ms)[0m   [0mCREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email VARCHAR(255), password VARCHAR(255), created_at DATETIME, updated_at DATETIME) [0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (11.0ms)[0m   [0mCREATE TABLE schema_migrations (version VARCHAR(255) NOT NULL) [0m
+  [4;36;1mSQL (18.0ms)[0m   [0;1mCREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations (version)[0m
+  [4;35;1mSQL (9.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (11.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100715001151')[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (14.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215914')[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (9.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215915')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (8.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215916')[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (12.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714215917')[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (8.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714221638')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (8.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714222343')[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'schema_migrations'[0m
+  [4;36;1mSQL (9.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100714230519')[0m
+  [4;35;1mBank Create (3.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('ACME Bank', 'https://localhost:5000', 'dd07b68e5400d428350cc585af6df38069056de96daf953091b4a65295fdf727', '9e07285bbcf48f892e4570f546f9fade0adf8c750fe313ac9b40d084f09f2fa9', '2015-12-01 10:27:21', '2015-12-01 10:27:21')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+  [4;35;1mBank Create (5.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Programmers Credit Union', 'https://localhost:6000', 'zzz', 'zzz', '2015-12-01 10:27:21', '2015-12-01 10:27:21')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+  [4;35;1mBank Create (4.0ms)[0m   [0mINSERT INTO banks (name, url, client_id, client_secret, created_at, updated_at) VALUES('Money Club', 'https://localhost:7000', 'yyy', 'yyy', '2015-12-01 10:27:21', '2015-12-01 10:27:21')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'banks'[0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2015-12-01 10:27:21) [GET]
+Redirected to http://localhost:3000/sessions
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 46ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#index (for 127.0.0.1 at 2015-12-01 10:27:21) [GET]
+Redirected to http://localhost:3000/sessions/new
+Completed in 6ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2015-12-01 10:27:21) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 104ms (View: 101, DB: 0) | 200 OK [http://localhost/sessions/new]

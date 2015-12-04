@@ -69,8 +69,7 @@ Populate OAuth Clients
 * Approve pending request
 * Save authorization code
 
-* On Admin page - Logged in using ssl
-* Navigate to Admin page
+* On Admin page
 * Open "OAuth Clients" tab
 
 * Delete "group1-client" entry
