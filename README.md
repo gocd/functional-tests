@@ -11,8 +11,7 @@ Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg
 * ``` git clone``` as a sibling directory to
   [go.cd](https://github.com/gocd/gocd)
 * ```$ cd gocd-functional-tests```
-* ```$ gauge --install java```
-* ```$ gauge --install html-report```
+* ```$ gauge --install-all```
 
 ## Prepare
 * cd to ```gocd-plugins``` codebase, run : ```$ mvn clean install -DskipTests```
