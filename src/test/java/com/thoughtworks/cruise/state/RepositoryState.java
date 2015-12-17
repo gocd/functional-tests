@@ -57,8 +57,9 @@ public class RepositoryState {
     public void createMaterial(Element element) {
         if (!RepositoryFactory.isRepository(element.getName()))
             return;
-        getOrCreateRepository(element).setUrl(element);
-        
+        Repository repository = getOrCreateRepository(element);
+        repository.setUrl(element);
+        repository.setOtherAttributes(element);
     }
 
     private Repository getOrCreateRepository(Element material) {

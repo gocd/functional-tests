@@ -93,5 +93,7 @@ public abstract class AbstractRepository implements Repository {
             return;
         element.attribute("url").setValue(getUrl());
     }
-    
+    @Override
+    public void setOtherAttributes(Element element){
+    }
 }

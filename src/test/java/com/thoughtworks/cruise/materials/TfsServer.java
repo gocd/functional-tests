@@ -1,4 +1,4 @@
-/*************************GO-LICENSE-START*********************************
+/*
  * Copyright 2015 ThoughtWorks, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,17 +12,37 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *************************GO-LICENSE-END***********************************/
+ */
 
 package com.thoughtworks.cruise.materials;
 
-public class TfsServer {
-	public String getUrl(){
-    	return System.getenv("TFS_SERVER_URL")!=null ? System.getenv("TFS_SERVER_URL") : "http://sifystdgobgr101.thoughtworks.com:8080/tfs/";
-	}
+import org.apache.commons.lang.StringUtils;
 
-	public String getDefaultTfsCollectionUrl() {
-		return getUrl() + "twist_tests";
-	}	
+public class TfsServer {
+    public String getUrl() {
+        return getPropertyOrBomb("TFS_SERVER_URL");
+    }
+
+    public String getDefaultTfsCollectionUrl() {
+        return getUrl() + "twist_tests";
+    }
+
+    public String getPassword() {
+        return getPropertyOrBomb("TFS_SERVER_PASSWORD");
+    }
+
+    public String getDomain() {
+        return getPropertyOrBomb("TFS_SERVER_DOMAIN");
+    }
+
+    public String getUsername() {
+        return getPropertyOrBomb("TFS_SERVER_USERNAME");
+    }
+
+    private String getPropertyOrBomb(String propertyName) {
+        String username = System.getenv(propertyName);
+        if (StringUtils.isBlank(username)) throw new RuntimeException(String.format("%s is not set", propertyName));
+        return username;
+    }
 }
 

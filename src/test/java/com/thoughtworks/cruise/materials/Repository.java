@@ -41,6 +41,7 @@ public interface Repository {
     Revision latestRevision();
     String latestRevisionString();
     void setUrl(Element element);
+    void setOtherAttributes(Element element);
 	void modifyFile(String fileName, String userName);
 	void deleteFile(String fileName, String userName);
     //String getMaterialAttribute(String attribute);

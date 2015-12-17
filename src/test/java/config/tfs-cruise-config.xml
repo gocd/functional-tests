@@ -21,7 +21,7 @@
     <pipelines group="basic">
 	    <pipeline name="tfs_artifact_in_dest">
 	      <materials>
-	        <tfs url="$tfsurl" username="cruise_builder" domain="corporate" password="BXrQ51uhU" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false" />
+	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false" />
 	      </materials>
 	      <stage name="defaultStage">
 	      	<approval type="manual" />
@@ -43,7 +43,7 @@
 	    </pipeline>
 	    <pipeline name="tfs_artifact_in_child_directory">
 	      <materials>
-	        <tfs url="$tfsurl" username="cruise_builder" domain="corporate" password="BXrQ51uhU" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false" />
+	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false" />
 	      </materials>
 	      <stage name="defaultStage">
 	       	<approval type="manual" />
@@ -68,7 +68,7 @@
 	    </pipeline>
 	    <pipeline name="tfs_generated_file_gets_deleted">
 	      <materials>
-	        <tfs url="$tfsurl" username="cruise_builder" domain="corporate" password="BXrQ51uhU" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false" />
+	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false" />
 	      </materials>
 	      <stage name="defaultStage">
 	       	<approval type="manual" />
@@ -94,7 +94,7 @@
 	    </pipeline>
 	    <pipeline name="tfs-pipeline-with-multiple-stages">
 	      <materials>
-		    <tfs url="$tfsurl" username="cruise_builder" domain="corporate" password="BXrQ51uhU" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false" />
+		    <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false" />
 		  </materials>
 		  <stage name="stage1">
 		  	<approval type="manual" />

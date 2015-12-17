@@ -33,9 +33,6 @@ public class TfsRepository extends AbstractRepository {
 
     private File repositoryFolder;
     private String workspaceName;
-    
-    public static final String DEFAULT_PASSWORD = "BXrQ51uhU";
-    public static final String DEFAULT_USER_DOMAIN = "corporate\\cruise_builder";
 
     public TfsRepository(Element material) {
         super(material);
@@ -46,7 +43,7 @@ public class TfsRepository extends AbstractRepository {
     }
 
     private void initializeTestWorkspace() {
-        CommandLine cmd = createCommandLine(tfCommand()).withArgs("workspace", "-new", "-noprompt", serverArg(), loginArg(), workspaceName + ";cruise_builder");
+        CommandLine cmd = createCommandLine(tfCommand()).withArgs("workspace", "-new", "-noprompt", serverArg(), loginArg(), workspaceName + ";"+ new TfsServer().getUsername());
         cmd.getArguments();
         cmd.runOrBomb();
     }
@@ -67,7 +64,8 @@ public class TfsRepository extends AbstractRepository {
     }
     
     private String loginArg() {
-        return String.format("-login:%s\\%s,%s", getMaterialAttribute("domain"), getMaterialAttribute("username"), DEFAULT_PASSWORD);
+        TfsServer tfsServer = new TfsServer();
+        return String.format("-login:%s\\%s,%s", tfsServer.getDomain(), tfsServer.getUsername(), tfsServer.getPassword());
     }
 
     private String serverArg() {
@@ -77,6 +75,21 @@ public class TfsRepository extends AbstractRepository {
     @Override
     public String getUrl() {
         return new TfsServer().getDefaultTfsCollectionUrl();
+    }
+
+    @Override
+    public void setOtherAttributes(Element element) {
+        TfsServer tfsServer = new TfsServer();
+        super.setOtherAttributes(element);
+        if (element.attribute("username") != null) {
+            element.attribute("username").setValue(tfsServer.getUsername());
+        }
+        if (element.attribute("password") != null) {
+            element.attribute("password").setValue(tfsServer.getPassword());
+        }
+        if (element.attribute("domain") != null) {
+            element.attribute("domain").setValue(tfsServer.getDomain());
+        }
     }
 
     @Override

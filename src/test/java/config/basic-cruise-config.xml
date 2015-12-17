@@ -1854,7 +1854,7 @@
     <pipelines group="tfs_group">
      	<pipeline name="basic-tfs-pipeline">
             <materials>
-                  <tfs url="$tfsurl" domain="corporate" username="cruise_builder" password="BXrQ51uhU" projectPath="$/for_twist_tests_1" dest="new_dir" materialName="tfs_mat" autoUpdate="false" >
+                  <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_1" dest="new_dir" materialName="tfs_mat" autoUpdate="false" >
                   <filter>
                         <ignore pattern="*.ignore.txt"/>
                         <ignore pattern="$/for_twist_tests_1/Folder with space/*" />
@@ -1874,8 +1874,8 @@
         </pipeline>
 		<pipeline name="tfs-pipeline-with-duplicate-materials">
             <materials>
-                  <tfs url="$tfsurl" domain="corporate" username="cruise_builder" password="BXrQ51uhU" projectPath="$/for_twist_tests_2" dest="new_dir_1" materialName="tfs_mat_1" autoUpdate="false" />
-				  <tfs url="$tfsurl" domain="corporate" username="cruise_builder" password="BXrQ51uhU" projectPath="$/for_twist_tests_2" dest="new_dir_2" materialName="tfs_mat_2" autoUpdate="false" />
+                  <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_2" dest="new_dir_1" materialName="tfs_mat_1" autoUpdate="false" />
+				  <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_2" dest="new_dir_2" materialName="tfs_mat_2" autoUpdate="false" />
             </materials>
             <stage name="defaultStage">
                 <approval type="manual"/>
