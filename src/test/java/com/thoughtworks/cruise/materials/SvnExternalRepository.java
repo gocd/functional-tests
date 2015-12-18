@@ -121,6 +121,11 @@ public class SvnExternalRepository implements Repository {
     }
 
 	@Override
+	public void setOtherAttributes(Element element) {
+		
+	}
+
+	@Override
 	public void deleteFile(String fileName, String userName) {
 		throw new UnsupportedOperationException("not implemented yet");
 	}
