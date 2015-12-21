@@ -16,8 +16,8 @@
  *************************GO-LICENSE-END******************************* -->
 
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans org/springframework/beans/factory/xml/spring-beans-2.5.xsd">
-    <bean id="cleanupScenario" autowire="constructor" class="com.thoughtworks.cruise.preconditions.CleanupScenario" lazy-init="false"/>
-    <bean id="cleanupTfsWorkspaces" autowire="constructor" class="com.thoughtworks.cruise.preconditions.CleanupTfsWorkspaces" lazy-init="false"/>
+    <bean id="cleanupScenario" autowire="constructor" class="com.thoughtworks.cruise.preconditions.CleanupScenario" lazy-init="false" />
+    <!--bean id="cleanupTfsWorkspaces" autowire="constructor" class="com.thoughtworks.cruise.preconditions.CleanupTfsWorkspaces" lazy-init="false" -->
     <bean id="usingAgentsApi" autowire="constructor" class="com.thoughtworks.cruise.api.UsingAgentsApi"/>
     <bean id="usingStageApi" autowire="constructor" class="com.thoughtworks.cruise.api.UsingStageApi"/>
     <bean id="usingConfigVersioningApi" autowire="constructor" class="com.thoughtworks.cruise.api.UsingConfigVersioningApi"/>
