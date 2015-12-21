@@ -64,7 +64,7 @@ public class CruiseConstants {
     public static final String APPROVAL_SUCCESS = "success";
     public static final String APPROVAL_MANUAL = "manual";
     public static final int PUBLISH_MAX_RETRIES = 3;
-    public static final String CURRENT_REVISION = "15.3.0";
+    public static final String CURRENT_REVISION = System.getenv("GO_VERSION") != null ? System.getenv("GO_VERSION") : "16.1.0";
     public static final String TEST_EMAIL_SUBJECT = "Cruise Email Notification";
     public static final int DEFAULT_TIMEOUT = 60 * 1000;
     public static final String LICENSE_LIMITATION_ERROR = "License limitation error";
