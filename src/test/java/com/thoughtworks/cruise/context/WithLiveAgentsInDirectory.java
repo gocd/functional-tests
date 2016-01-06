@@ -136,13 +136,13 @@ public class WithLiveAgentsInDirectory {
     private void stopAnyOldAgentsLeftBehind() {
         System.out.println(new DateTime() + " ==================================");
         System.out.println(new DateTime() + " List agents before sending a kill:");
-        System.out.println(ProcessUtils.pgrep("go.twist.agent"));
+        System.out.println(ProcessUtils.pgrep("twist.agents"));
 
-        ProcessUtils.pkill("go.twist.agent");
-        ProcessUtils.pkillForcibly("go.twist.agent");
+        ProcessUtils.pkill("twist.agents");
+        ProcessUtils.pkillForcibly("twist.agents");
 
         System.out.println(new DateTime() + " List agents after sending a kill:");
-        System.out.println(ProcessUtils.pgrep("go.twist.agent"));
+        System.out.println(ProcessUtils.pgrep("twist.agents"));
         System.out.println(new DateTime() + " ==================================");
     }
 
