@@ -22,7 +22,7 @@ for agent_folder in `ls -d $CRUISE/target/twist-agents/*`
 do
     echo "Cleaning up agent at $agent_folder..."
     cd $agent_folder
-    bash stop-agent.sh
+    bash stop-twist-agent.sh
     cd -
     rm -rf $agent_folder
 done
