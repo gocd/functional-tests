@@ -155,6 +155,12 @@ task :agent_cleanup do
   end
 end
 
+task :cleanup_test_agents do
+   if !Util.win_os?
+     sh "scripts/cleanup-agents.sh"
+   end
+end
+
 task :setup_go do
   if Util.win_os?
     system("cmd /c scripts\\setup-go.bat")
