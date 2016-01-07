@@ -15,7 +15,7 @@
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
 
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="76">
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="77">
   <server artifactsdir="artifacts" serverId="twist">
       <security>
             <ldap uri="ldap://chidc04.corporate.thoughtworks.com" managerDn="cn=Active Directory Ldap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=corporate,dc=thoughtworks,dc=com" managerPassword="!@dus3r!" searchFilter="(sAMAccountName={0})" >
