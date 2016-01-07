@@ -33,7 +33,7 @@ public class WithNoUsers {
 	@com.thoughtworks.gauge.Step("With no users - setup")
 	public void setUp() throws Exception {
 	    CruiseResponse response = talkToCruise.delete(Urls.urlFor("/admin/users/delete_all"));
-	   // Assert.assertThat(response.getStatus(), Is.is(200));
+	    Assert.assertThat(response.getStatus(), Is.is(200));
 	}
 
 	@com.thoughtworks.gauge.Step("With no users - teardown")
