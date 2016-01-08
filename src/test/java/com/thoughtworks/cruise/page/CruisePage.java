@@ -102,7 +102,7 @@ public abstract class CruisePage {
     }
 
     public void verifyCruiseFooter() throws Exception {
-        ElementStub footerText = browser.listItem("Copyright © 2015 ThoughtWorks, Inc. Licensed under Apache License, Version 2.0. Go includes third-party software.");
+        ElementStub footerText = browser.listItem("Copyright © 2016 ThoughtWorks, Inc. Licensed under Apache License, Version 2.0. Go includes third-party software.");
 		assertTrue(footerText.isVisible());
 
         ElementStub elementTWLink = browser.link("/ThoughtWorks/").in(footerText);
