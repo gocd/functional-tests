@@ -57,6 +57,7 @@
         <constructor-arg value="${sahi.browserExecutable}"/>
         <constructor-arg value="${sahi.browserOptions}"/>
     </bean>
-<bean class="com.thoughtworks.twist.core.execution.TwistDataStoreFactory" id="twistDataStoreFactory"/>
-   <bean factory-bean="twistDataStoreFactory" factory-method="getSuiteStore" id="twistSuiteStore" scope="singleton"/>
+    <bean class="com.thoughtworks.twist.core.execution.TwistDataStoreFactory" id="twistDataStoreFactory"/>
+    <bean factory-bean="twistDataStoreFactory" factory-method="getSuiteStore" id="twistSuiteStore" scope="singleton"/>
+    <bean class="org.openqa.selenium.firefox.FirefoxDriver" id="driver"/>
 </beans>
