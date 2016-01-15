@@ -21,12 +21,13 @@ package com.thoughtworks.cruise.context.configuration;
 import com.thoughtworks.cruise.context.Configuration;
 import com.thoughtworks.cruise.state.RepositoryState;
 import com.thoughtworks.cruise.state.ScenarioState;
+import com.thoughtworks.cruise.util.SystemUtil;
 import com.thoughtworks.cruise.utils.ScenarioHelper;
+import com.thoughtworks.cruise.utils.configfile.CruiseConfigDom;
 import net.sf.sahi.client.Browser;
+import org.apache.commons.lang3.StringUtils;
 
 public class ValidLdapConfiguration extends AbstractConfiguration{
-
-
 	public ValidLdapConfiguration(Configuration config, ScenarioState state, RepositoryState repositoryState, ScenarioHelper scenarioHelper, Browser browser) throws Exception {
 		super("/config/valid-ldap-server-cruise-config.xml",config,state,repositoryState, scenarioHelper, browser);
 	}
@@ -35,6 +36,13 @@ public class ValidLdapConfiguration extends AbstractConfiguration{
 	public void setUp() throws Exception {
 		super.setUp();
 	}
+
+	protected void postProcess(CruiseConfigDom dom) throws Exception {
+		String ldapServerIp = System.getenv("LDAP_SERVER_IP");
+		if (StringUtils.isBlank(ldapServerIp)) throw new RuntimeException(String.format("%s is not set", ldapServerIp));
+		dom.getLdap().attribute("uri").setValue("ldap://" + ldapServerIp);
+	}
+
 
 	@com.thoughtworks.gauge.Step("Valid ldap configuration - teardown")
 	public void tearDown() throws Exception {
