@@ -17,6 +17,7 @@
 package com.thoughtworks.cruise.page;
 
 import com.thoughtworks.cruise.Regex;
+import com.thoughtworks.cruise.materials.TfsServer;
 import com.thoughtworks.cruise.state.RepositoryState;
 import com.thoughtworks.cruise.state.ScenarioState;
 import net.sf.sahi.client.Browser;
@@ -96,6 +97,10 @@ public class AlreadyOnBuildCauseSection {
             username = String.format("%s on %s", split[0], format);
         }
 		assertThat(elementModification(modificationOffset, "modified_by").getText().trim(), containsString(username));
+	}
+	@com.thoughtworks.gauge.Step("Verify tfs modification <modificationOffset> is checked in by authorized user with comment <comment>")
+	public void verifyTfsModificationIsCheckedInByAuthorizedUserWithComment(Integer modificationOffset, String comment) throws Exception {
+		verifyModificationIsCheckedInByWithComment(modificationOffset, String.format("%s\\%s", TfsServer.getDomain(), TfsServer.getUsername()), comment);
 	}
 
 

@@ -1650,7 +1650,7 @@ public class CruiseConfigDom {
 			String[] nameAndValue = nameValue.split(">");
 			String value = nameAndValue[1];
 			if("tfs".equals(materialType) && "url".equals(nameAndValue[0])){
-				value = new TfsServer().getUrl() + value;
+				value = TfsServer.getUrl() + value;
 			}
 			Attribute attrib = material.attribute(nameAndValue[0]);
 			if (attrib == null || !attrib.getText().equals(value)) {

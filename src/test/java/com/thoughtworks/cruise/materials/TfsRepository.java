@@ -43,7 +43,7 @@ public class TfsRepository extends AbstractRepository {
     }
 
     private void initializeTestWorkspace() {
-        CommandLine cmd = createCommandLine(tfCommand()).withArgs("workspace", "-new", "-noprompt", serverArg(), loginArg(), workspaceName + ";"+ new TfsServer().getUsername());
+        CommandLine cmd = createCommandLine(tfCommand()).withArgs("workspace", "-new", "-noprompt", serverArg(), loginArg(), workspaceName + ";"+ TfsServer.getUsername());
         cmd.getArguments();
         cmd.runOrBomb();
     }
@@ -64,8 +64,7 @@ public class TfsRepository extends AbstractRepository {
     }
     
     private String loginArg() {
-        TfsServer tfsServer = new TfsServer();
-        return String.format("-login:%s\\%s,%s", tfsServer.getDomain(), tfsServer.getUsername(), tfsServer.getPassword());
+        return String.format("-login:%s\\%s,%s", TfsServer.getDomain(), TfsServer.getUsername(), TfsServer.getPassword());
     }
 
     private String serverArg() {
@@ -74,21 +73,20 @@ public class TfsRepository extends AbstractRepository {
 
     @Override
     public String getUrl() {
-        return new TfsServer().getDefaultTfsCollectionUrl();
+        return TfsServer.getDefaultTfsCollectionUrl();
     }
 
     @Override
     public void setOtherAttributes(Element element) {
-        TfsServer tfsServer = new TfsServer();
         super.setOtherAttributes(element);
         if (element.attribute("username") != null) {
-            element.attribute("username").setValue(tfsServer.getUsername());
+            element.attribute("username").setValue(TfsServer.getUsername());
         }
         if (element.attribute("password") != null) {
-            element.attribute("password").setValue(tfsServer.getPassword());
+            element.attribute("password").setValue(TfsServer.getPassword());
         }
         if (element.attribute("domain") != null) {
-            element.attribute("domain").setValue(tfsServer.getDomain());
+            element.attribute("domain").setValue(TfsServer.getDomain());
         }
     }
 

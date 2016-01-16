@@ -19,27 +19,27 @@ package com.thoughtworks.cruise.materials;
 import org.apache.commons.lang.StringUtils;
 
 public class TfsServer {
-    public String getUrl() {
+    public static String getUrl() {
         return getPropertyOrBomb("TFS_SERVER_URL");
     }
 
-    public String getDefaultTfsCollectionUrl() {
+    public static String getDefaultTfsCollectionUrl() {
         return getUrl() + "twist_tests";
     }
 
-    public String getPassword() {
+    public static String getPassword() {
         return getPropertyOrBomb("TFS_SERVER_PASSWORD");
     }
 
-    public String getDomain() {
+    public static String getDomain() {
         return getPropertyOrBomb("TFS_SERVER_DOMAIN");
     }
 
-    public String getUsername() {
+    public static String getUsername() {
         return getPropertyOrBomb("TFS_SERVER_USERNAME");
     }
 
-    private String getPropertyOrBomb(String propertyName) {
+    private static String getPropertyOrBomb(String propertyName) {
         String username = System.getenv(propertyName);
         if (StringUtils.isBlank(username)) throw new RuntimeException(String.format("%s is not set", propertyName));
         return username;

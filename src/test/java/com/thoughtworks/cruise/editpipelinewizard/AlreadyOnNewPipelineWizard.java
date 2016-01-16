@@ -64,7 +64,7 @@ public class AlreadyOnNewPipelineWizard extends AlreadyOnEditPipelineWizardPage 
     
     @com.thoughtworks.gauge.Step("Set tfs collection <collection>")
 	public void setTfsCollection(String collection) throws Exception {
-    	FormField formField = new FormField(scenarioState.expand(String.format("pipeline_group[pipeline][materials][TfsMaterial][url](text_field): %s%s", new TfsServer().getUrl(), collection)));    	
+    	FormField formField = new FormField(scenarioState.expand(String.format("pipeline_group[pipeline][materials][TfsMaterial][url](text_field): %s%s", TfsServer.getUrl(), collection)));
         formField.setValue(browser);
     }
 
