@@ -23,7 +23,7 @@ Setup of contexts
 TfsArtifactUpload
 -----------------
 
-tags: tfs, regression
+tags: tfs, regression, internal
 
 Rajeshvaran's Regression Suite - 7.1.1 - artifacts are generated in the working folder of TFS on agent
 * Looking at pipeline "tfs_artifact_in_dest"

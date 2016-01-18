@@ -23,7 +23,7 @@ Setup of contexts
 TfsMaterial
 -----------
 
-tags: tfs, 6194
+tags: tfs, 6194, internal
 
 * Type new resource "tfs" for agent "2" and press return
 * Type new resource "tfs" for agent "3" and press return
