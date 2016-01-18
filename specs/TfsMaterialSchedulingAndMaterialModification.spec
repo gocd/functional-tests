@@ -23,7 +23,7 @@ Setup of contexts
 TfsMaterialSchedulingAndMaterialModification
 --------------------------------------------
 
-tags: tfs, regression
+tags: tfs, regression, internal
 
 * With material named "tfs_mat" in pipeline "tfs-pipeline-with-multiple-stages"
 * Modify file "AnotherHelloWorld.txt" as "luser"

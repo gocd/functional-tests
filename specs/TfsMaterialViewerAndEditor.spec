@@ -22,7 +22,7 @@ Setup of contexts
 TfsMaterialViewerAndEditor
 --------------------------
 
-tags: Clicky Admin, #5775, 6191, tfs
+tags: Clicky Admin, #5775, 6191, tfs, internal
 
 * Click on pipeline "edit-pipeline" for editing
 

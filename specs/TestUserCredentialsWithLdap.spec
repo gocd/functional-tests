@@ -21,7 +21,7 @@ Setup of contexts
 TestUserCredentialsWithLdap
 ---------------------------
 
-tags: 6441, ldap
+tags: 6441, ldap, internal
 
 user should get logged in if valid ldap credentials are provided
 * Login with username "cruise_builder" and password "BXrQ51uhU"
