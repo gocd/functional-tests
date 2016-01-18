@@ -28,6 +28,7 @@ tags: Blacklisting for triangle configuration, #6436, 6436, Fanin off, server_re
 * Stop server
 * Start server with fanin turned off
 
+* On Pipeline Dashboard Page
 * Looking at pipeline "cruise"
 * Verify stage "1" is "Passed" on pipeline with label "1"
 * Looking at pipeline "acceptance"
