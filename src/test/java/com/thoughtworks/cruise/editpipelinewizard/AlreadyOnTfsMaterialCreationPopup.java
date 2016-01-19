@@ -43,17 +43,27 @@ public class AlreadyOnTfsMaterialCreationPopup extends AlreadyOnEditMaterialPopu
 	
 	@com.thoughtworks.gauge.Step("Enter url <collection> - Already on tfs material creation popup")
 	public void enterUrl(String collection) throws Exception {
-        super.enterUrl(new TfsServer().getUrl() + collection);
+        super.enterUrl(TfsServer.getUrl() + collection);
     }
 
 	@com.thoughtworks.gauge.Step("Enter username <userName> - Already on Tfs Material Creation Popup")
 	public void enterUsername(String userName) throws Exception {
 		elementUsername().setValue(userName);
 	}
-	
+
+	@com.thoughtworks.gauge.Step("Enter valid username - Already on Tfs Material Creation Popup")
+	public void enterValidUsername() throws Exception {
+		enterUsername(TfsServer.getUsername());
+	}
+
 	@com.thoughtworks.gauge.Step("Enter domain <domain>")
 	public void enterDomain(String domain) throws Exception {
 		elementDomain().setValue(domain);
+	}
+
+	@com.thoughtworks.gauge.Step("Enter valid domain")
+	public void enterValidDomain() throws Exception {
+		enterDomain(TfsServer.getDomain());
 	}
 
 	private ElementStub elementUsername() {
@@ -63,6 +73,11 @@ public class AlreadyOnTfsMaterialCreationPopup extends AlreadyOnEditMaterialPopu
 	@com.thoughtworks.gauge.Step("Enter password <password> - Already on Tfs Material Creation Popup")
 	public void enterPassword(String password) throws Exception {
 		elementPassword().setValue(password);
+	}
+
+	@com.thoughtworks.gauge.Step("Enter valid password - Already on Tfs Material Creation Popup")
+	public void enterValidPassword() throws Exception {
+		enterPassword(TfsServer.getPassword());
 	}
 
 	private ElementStub elementPassword() {

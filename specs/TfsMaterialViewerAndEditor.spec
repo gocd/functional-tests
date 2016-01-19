@@ -29,9 +29,9 @@ tags: Clicky Admin, #5775, 6191, tfs, internal
 * Open parameters page
 
 * Enter tfs url as parameter "1" with name "valid_tfs_url" and value "integration_tests"
-* Enter parameter "2" name "username" and value "cruise_builder"
+* Enter parameter "2" name "username" and derive value from environment variable "TFS_SERVER_USERNAME"
 * Enter parameter "3" name "valid_project_path" and value "$/for_tests"
-* Enter parameter "4" name "domain" and value "corporate"
+* Enter parameter "4" name "domain" and derive value from environment variable "TFS_SERVER_DOMAIN"
 * Enter parameter "5" name "destination_dir" and value "tfs_destination"
 * Enter tfs url as parameter "6" with name "invalid_tfs_url" and value "incorrect_url"
 * Enter parameter "7" name "invalid_username" and value "invalidUser"
@@ -61,12 +61,12 @@ tags: Clicky Admin, #5775, 6191, tfs, internal
 * Click check connection
 * Verify message "Access denied connecting to TFS server"
 * Enter username "#{username}" - Already on Tfs Material Creation Popup
-* Enter password "BXrQ51uhU" - Already on Tfs Material Creation Popup
+* Enter valid password - Already on Tfs Material Creation Popup
 * Enter project path as "$/invalid_project_path"
-* Enter domain "corporate"
+* Enter valid domain
 * Click check connection
 * Verify message "project path might be invalid"
-* Enter username "cruise_builder" - Already on Tfs Material Creation Popup
+* Enter valid username - Already on Tfs Material Creation Popup
 * Enter project path as "#{invalid_project_path}"
 * Click check connection
 * Verify message "project path might be invalid"

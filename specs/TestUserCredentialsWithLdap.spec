@@ -24,24 +24,18 @@ TestUserCredentialsWithLdap
 tags: 6441, ldap, internal
 
 user should get logged in if valid ldap credentials are provided
-* Login with username "cruise_builder" and password "BXrQ51uhU"
-* User should get logged in as "Cruise Builder"
+* Login with username "user1" and password "pass_user1"
+* User should get logged in as "User_user1 LastName_user1"
 
 
 user should see error message when incorrect username is provided
-* Login with username "cruise_builder1" and password "BXrQ51uhU"
-* Assert login error "User cruise_builder1 not found in directory. Help Topic: Authentication"
-
-
-user should see error message when incorrect password is provided
-* Login with username "cruise_builder" and password "1BXrQ51uhU"
+* Login with username "does_not_exist" and password "password"
 * Assert login error "Bad credentials Help Topic: Authentication"
 
 
-
-
-
-
+user should see error message when incorrect password is provided
+* Login with username "user1" and password "incorrect_password"
+* Assert login error "Bad credentials Help Topic: Authentication"
 
 
 Teardown of contexts

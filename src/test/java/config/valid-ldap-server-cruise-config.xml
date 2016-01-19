@@ -18,11 +18,11 @@
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="77">
   <server artifactsdir="artifacts" serverId="twist">
       <security>
-            <ldap uri="ldap://chidc04.corporate.thoughtworks.com" managerDn="cn=Active Directory Ldap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=corporate,dc=thoughtworks,dc=com" managerPassword="!@dus3r!" searchFilter="(sAMAccountName={0})" >
-		      	<bases>
-      				<base value="ou=Enterprise,ou=Principal,dc=corporate,dc=thoughtworks,dc=com"/>
-      			</bases>
-      		</ldap>  
+          <ldap uri="$ldap_server" searchFilter="(uid={0})">
+              <bases>
+                  <base value="ou=People,dc=tests,dc=com" />
+              </bases>
+          </ldap>
     </security>
   </server>
 </cruise>

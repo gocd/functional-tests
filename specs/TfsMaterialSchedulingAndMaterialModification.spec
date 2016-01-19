@@ -56,7 +56,7 @@ verify first instance built with older material
 
 * Looking at material of type "Tfs" named "tfs_mat"
 * Verify material has changed - Already On Build Cause Section
-* Verify modification "0" is checked in by "CORPORATE\\cruise_builder" with comment "interesting comment by luser"
+* Verify tfs modification "0" is checked in by authorized user with comment "interesting comment by luser"
 
 verify second instance built with newer material
 * Navigate to materials for "tfs-pipeline-with-multiple-stages" "2" "stage1" "1"

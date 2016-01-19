@@ -81,7 +81,7 @@ public class AlreadyOnParametersPage extends AlreadyOnEditPipelineWizardPage {
 
 	@com.thoughtworks.gauge.Step("Enter tfs url as parameter <parameterLocation> with name <name> and value <collection>")
 	public void enterTfsUrlAsParameterWithNameAndValue(Integer parameterLocation, String name, String collection) throws Exception {
-		enterParameterNameAndValue(parameterLocation, name, new TfsServer().getUrl() + collection);
+		enterParameterNameAndValue(parameterLocation, name, TfsServer.getUrl() + collection);
 	}
 
     @com.thoughtworks.gauge.Step("Enter parameter <parameterLocation> name <parameterName> and value <parameterValue>")
@@ -92,6 +92,11 @@ public class AlreadyOnParametersPage extends AlreadyOnEditPipelineWizardPage {
         getParamTextBox(getParameterNameFieldId(parameterLocation)).setValue(parameterName);
         getParamTextBox(getParameterValueFieldId(parameterLocation)).setValue(parameterValue);
     }
+
+    @com.thoughtworks.gauge.Step("Enter parameter <parameterLocation> name <parameterName> and derive value from environment variable <environmentVariable>")
+	public void enterParameterNameAndDeriveValueFromEnvVar(Integer parameterLocation, String parameterName, String environmentVariable) throws Exception {
+		enterParameterNameAndValue(parameterLocation, parameterName, System.getenv(environmentVariable));
+	}
 
 	@com.thoughtworks.gauge.Step("Enter material url for parameter <parameterLocation> name <parameterName> and material name <materialName> associated with pipeline <parentPipelineName>")
 	public void enterMaterialUrlForParameterNameAndMaterialNameAssociatedWithPipeline(
