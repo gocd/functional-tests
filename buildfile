@@ -64,7 +64,7 @@ end
 # Specify Maven 2.0 remote repositories here, like this:
 repositories.remote << "http://repo1.maven.org/maven2/"
 
-drop_recreate_pgsql_db
+#drop_recreate_pgsql_db
 
 desc "The Cruise project"
 define "cruise" do |project|
