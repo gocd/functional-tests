@@ -25,7 +25,7 @@ tags: 6441, ldap, internal
 
 user should get logged in if valid ldap credentials are provided
 * Login with username "user1" and password "pass_user1"
-* User should get logged in as "User_user1 LastName_user1"
+* User should get logged in as "user1"
 
 
 user should see error message when incorrect username is provided
