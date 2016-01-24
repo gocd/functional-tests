@@ -3,5 +3,4 @@ set GEM_HOME=
 set GEM_PATH=
 set PATH=%JRUBY_BASE%\bin;%PATH%
 
-set JRUBY_OPTS='-J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-Djruby.compile.invokedynamic=false -J-Djruby.compile.mode=OFF'
 %JRUBY_BASE%\bin\jruby.bat %*
