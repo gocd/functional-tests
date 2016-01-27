@@ -17,21 +17,30 @@
 
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="78">
   <server artifactsdir="artifacts" serverId="twist">
+      <security>
+      <passwordFile path="$password_properties"/>
+      <roles>
+        <role name="admins">
+        <users>
+          <user>admin</user>
+          </users>
+        </role>
+      </roles>
+      <admins>
+        <role>admins</role>
+      </admins>
+    </security>
   </server>
-   <pipelines group="first">
-    <pipeline name="pipeline1">
-      <materials>
-        <hg url="../manual-testing/ant_hg/dummy" dest="hg-folder"/>
-      </materials>
-      <stage name="defaultStage">
-        <jobs>
-          <job name="defaultJob">
-            <tasks>
-              <exec command="echo" args="'hello'"/>
-            </tasks>
-          </job>
-        </jobs>
-      </stage>
-    </pipeline>
-  </pipelines>
+  <agents>
+    <agent hostname="missing-agent" ipaddress="10.232.3.1" uuid="missing">
+      <resources>
+        <resource>missing</resource>
+      </resources>
+    </agent>
+    <agent hostname="denied-agent" ipaddress="10.232.3.2" uuid="denied" isDisabled="true">
+      <resources>
+        <resource>denied</resource>
+      </resources>
+    </agent>
+  </agents>
 </cruise>
