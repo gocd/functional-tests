@@ -117,7 +117,27 @@
 		    </jobs>
 		  </stage>
 	    </pipeline>
-    </pipelines>
+			<pipeline name="basic-tfs-pipeline">
+				<materials>
+					<tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_1" dest="new_dir" materialName="tfs_mat" autoUpdate="false" >
+						<filter>
+							<ignore pattern="*.ignore.txt"/>
+							<ignore pattern="$/for_twist_tests_1/Folder with space/*" />
+						</filter>
+					</tfs>
+				</materials>
+				<stage name="defaultStage">
+					<approval type="manual"/>
+					<jobs>
+						<job name="defaultJob" runOnAllAgents="true">
+							<tasks>
+								<exec command="echo" args="Hello World"/>
+							</tasks>
+						</job>
+					</jobs>
+				</stage>
+			</pipeline>
+		</pipelines>
     <agents>
         <agent hostname="missing-agent" ipaddress="10.232.3.1" uuid="missing">
             <resources>

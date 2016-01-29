@@ -96,7 +96,7 @@ public class AlreadyOnBuildCauseSection {
             String format = formatter.format(parse);
             username = String.format("%s on %s", split[0], format);
         }
-		assertThat(elementModification(modificationOffset, "modified_by").getText().trim(), containsString(username));
+		assertThat(elementModification(modificationOffset, "modified_by").getText().trim().toLowerCase(), containsString(username.toLowerCase()));
 	}
 	@com.thoughtworks.gauge.Step("Verify tfs modification <modificationOffset> is checked in by authorized user with comment <comment>")
 	public void verifyTfsModificationIsCheckedInByAuthorizedUserWithComment(Integer modificationOffset, String comment) throws Exception {

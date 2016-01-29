@@ -20,7 +20,9 @@ import com.thoughtworks.cruise.context.Configuration;
 import com.thoughtworks.cruise.state.RepositoryState;
 import com.thoughtworks.cruise.state.ScenarioState;
 import com.thoughtworks.cruise.utils.ScenarioHelper;
+import com.thoughtworks.cruise.utils.configfile.CruiseConfigDom;
 import net.sf.sahi.client.Browser;
+import org.apache.commons.lang3.StringUtils;
 
 public class TfsConfiguration extends AbstractConfiguration {
 
@@ -32,6 +34,14 @@ public class TfsConfiguration extends AbstractConfiguration {
 	@com.thoughtworks.gauge.Step("Tfs configuration - setup")
 	public void setUp() throws Exception {
 		super.setUp();
+	}
+
+	protected void postProcess(CruiseConfigDom dom) throws Exception {
+		String tfsPassword = System.getenv("TFS_SERVER_PASSWORD");
+		if (StringUtils.isBlank(tfsPassword)) throw new RuntimeException(String.format("%s is not set", tfsPassword));
+		for(String pipeline : dom.getPipelineNames()){
+			dom.getMaterial(pipeline,"tfs_mat").attribute("password").setValue(tfsPassword);
+		}
 	}
 
 	@com.thoughtworks.gauge.Step("Tfs configuration - teardown")

@@ -47,6 +47,7 @@ tags: tfs, regression, internal
 * Click save - Already on tfs material creation popup
 
 now trigger pipeline again with new material change
+* On Pipeline Dashboard Page
 * Looking at pipeline "tfs-pipeline-with-multiple-stages"
 * Trigger pipeline
 * Verify stage "1" is "Passed" on pipeline with label "2"
@@ -69,6 +70,7 @@ verify second instance built with newer material
 
 
 Teardown of contexts
+____________________
 * Capture go state "TfsMaterialSchedulingAndMaterialModification" - teardown
 * With "1" live agents in directory "TfsMaterialSchedulingAndMaterialModification" - teardown
 * Using pipeline "tfs-pipeline-with-multiple-stages" - teardown
