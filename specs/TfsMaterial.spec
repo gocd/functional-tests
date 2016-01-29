@@ -15,7 +15,7 @@ TfsMaterial
 ===========
 
 Setup of contexts
-* Basic configuration - setup
+* Tfs configuration - setup
 * Using pipeline "basic-tfs-pipeline" - setup
 * With "2" live agents in directory "TfsMaterial" - setup
 * Capture go state "TfsMaterial" - setup
@@ -80,6 +80,7 @@ tags: tfs, 6194, internal
 * Modify file "HelloWorld.txt" as "luser"
 * Checkin as "luser" with message "interesting comment by luser"
 
+* On Pipeline Dashboard Page
 * Trigger pipelines "basic-tfs-pipeline" and wait for labels "2" to pass
 * Open changes section for counter "2"
 
@@ -104,6 +105,7 @@ tags: tfs, 6194, internal
 
 * Verify that material saved successfully
 
+* On Pipeline Dashboard Page
 * Looking at pipeline "basic-tfs-pipeline"
 * Trigger pipeline
 * Verify stage "1" is "Passed" on pipeline with label "3"
@@ -119,6 +121,7 @@ tags: tfs, 6194, internal
 
 * Verify that material saved successfully
 
+* On Pipeline Dashboard Page
 * Looking at pipeline "basic-tfs-pipeline"
 * Trigger pipeline
 * Verify stage "1" is "Passed" on pipeline with label "4"
@@ -133,6 +136,7 @@ tags: tfs, 6194, internal
 * Click save - Already on Edit Stage Page
 * Verify that stage saved successfully - Already on edit stage page
 
+* On Pipeline Dashboard Page
 * Looking at pipeline "basic-tfs-pipeline"
 * Trigger pipeline
 * Verify stage "1" is "Passed" on pipeline with label "5"
@@ -145,6 +149,7 @@ tags: tfs, 6194, internal
 
 
 Teardown of contexts
+_____________________
 * Capture go state "TfsMaterial" - teardown
 * With "2" live agents in directory "TfsMaterial" - teardown
 * Using pipeline "basic-tfs-pipeline" - teardown

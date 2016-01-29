@@ -724,6 +724,15 @@ public class CruiseConfigDom {
 		return pipelineNames;
 	}
 
+	public List<String> getPipelineNames() {
+		List<String> pipelineNames = new ArrayList<String>();
+		List<Element> list = root().selectNodes("/cruise/pipelines/pipeline");
+		for (Element element : list) {
+			pipelineNames.add(element.attribute("name").getText());
+		}
+		return pipelineNames;
+	}
+
 	public Map<String, String> replacePackageRepositoryURIForFileSystemBasedRepos() {
 		Map<String, String> packageURI = new HashMap<String, String>();
 		List<Element> list = root().selectNodes(
@@ -1399,6 +1408,11 @@ public class CruiseConfigDom {
 	private Element material(String pipelineName, String materialName) {
 		return (Element) pipelineElement(pipelineName).selectSingleNode(
 				String.format(".//*[@materialName='%s']", materialName));
+	}
+
+
+	public Element getMaterial(String pipelineName, String materialName) {
+		return material(pipelineName, materialName);
 	}
 
 	public void changeDestinationOfMaterial(String materialName,
