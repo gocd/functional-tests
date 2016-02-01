@@ -166,6 +166,7 @@ task :setup_go do
     system("cmd /c scripts\\setup-go.bat")
   else
     sh "scripts/setup-go.sh"
+    sh "mvn dependency:resolve dependency:copy-dependencies -DoutputDirectory=libs/"
   end
 end
 

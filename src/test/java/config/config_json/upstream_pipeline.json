@@ -1,0 +1,95 @@
+{
+  "group": "group1",
+  "pipeline": {
+    "label_template": "${COUNT}",
+    "enable_pipeline_locking": false,
+    "name": "upstream",
+    "template": null,
+    "parameters": [
+      {
+        "name": "go-functional-tests",
+        "value": "go_functional_tests"
+      }
+    ],
+    "environment_variables": [
+      {
+        "secure": false,
+        "name": "GO_VERSION",
+        "value": "15.3.0"
+      }
+    ],
+    "materials": [
+      {
+        "type": "hg",
+        "attributes": {
+          "url": "file:///Users/rajieshn/workspace/functional-tests/test-repos/real_connectfour.hgbundle",
+          "destination": "dest",
+          "filter": null,
+          "name": null,
+          "auto_update": true
+        }
+      }
+    ],
+    "stages": [
+      {
+        "name": "upstream_stage",
+        "fetch_materials": true,
+        "clean_working_directory": false,
+        "never_cleanup_artifacts": false,
+        "approval": {
+          "type": "success",
+          "authorization": {
+            "roles": [],
+            "users": []
+          }
+        },
+        "environment_variables": [],
+        "jobs": [
+          {
+            "name": "upstream-job",
+            "run_instance_count": 1,
+            "timeout": null,
+            "environment_variables": [
+
+            ],
+            "resources": [
+              "gauge",
+              "linux"
+            ],
+            "tasks": [
+              {
+                "type": "exec",
+                "attributes": {
+                  "run_if": [
+                    "passed"
+                  ],
+                  "command": "mvn",
+                  "arguments": [
+                    "-version"
+                  ],
+                  "working_directory": "#{go-functional-tests}"
+                }
+              }
+            ],
+            "tabs": [
+              {
+                "name": "Report",
+                "path": "Reports/reports/html-report/index.html"
+              }
+            ],
+            "artifacts": [
+              {
+                "source": "#{go-functional-tests}/reports",
+                "destination": "Reports",
+                "type": "build"
+              }
+            ],
+            "properties": null
+          }
+        ]
+      }
+    ],
+    "tracking_tool": null,
+    "timer": null
+  }
+}

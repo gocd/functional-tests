@@ -1,0 +1,298 @@
+{
+  "group": "group1",
+  "pipeline": {
+    "label_template": "${COUNT}",
+    "enable_pipeline_locking": false,
+    "name": "complete_pipeline",
+    "template": null,
+    "parameters": [
+      {
+        "name": "tests",
+        "value": "tests"
+      }
+    ],
+    "environment_variables": [
+      {
+        "secure": false,
+        "name": "GO_VERSION",
+        "value": "15.3.0"
+      },
+      {
+        "secure": true,
+        "name": "SECURE",
+        "value": "value"
+      }
+    ],
+    "materials": [
+      {
+        "type": "hg",
+        "attributes": {
+          "url": "file:///tmp/test-repos/real_connectfour.hgbundle",
+          "destination": "hg_dest",
+          "filter": null,
+          "name": null,
+          "auto_update": true
+        }
+      },
+      {
+        "type": "git",
+        "attributes": {
+          "name": "gitrepo",
+          "url": "https://github.com/gocd/api.go.cd",
+          "branch": "master",
+          "destination": "api.go.cd",
+          "auto_update": true,
+          "filter": {
+            "ignore": [
+              "**/*.xml",
+              "**/*.html"
+            ]
+          },
+          "submodule_folder": null
+        }
+      },
+      {
+        "type": "svn",
+        "attributes": {
+          "name": "svn",
+          "url": "svn://svn.example.com/myProject/trunk",
+          "username": "admin",
+          "password": "badger",
+          "destination": "myProject",
+          "filter": null,
+          "auto_update": true,
+          "check_externals": true
+        }
+      },
+      {
+        "type": "p4",
+        "attributes": {
+          "name": "api-docs",
+          "port": "p4.example.com:8080",
+          "use_tickets": true,
+          "view": "sample_view",
+          "username": "admin",
+          "password": "badger",
+          "destination": "api-docs",
+          "filter": null,
+          "auto_update": true
+        }
+      },
+      {
+        "type": "tfs",
+        "attributes": {
+          "name": "tfs",
+          "url": "http://tfs.exampe.com:8000/tfs",
+          "project_path": "$/",
+          "domain": "corporate/domain",
+          "username": "admin",
+          "password": "badger",
+          "destination": "tfs_destination",
+          "auto_update": true,
+          "filter": null
+        }
+      },
+      {
+        "type": "dependency",
+        "attributes": {
+          "name": "dependency",
+          "pipeline": "upstream",
+          "stage": "upstream_stage",
+          "auto_update": true
+        }
+      },
+      {
+        "type": "package",
+        "attributes": {
+          "ref": "package-id"
+        }
+      },
+      {
+        "type": "plugin",
+        "attributes": {
+          "ref": "5e3612f7-6aa1-4d75-a9b7-6aeb52d98012",
+          "filter": {
+            "ignore": [
+              "README.md",
+              "docs/**.html"
+            ]
+          }
+        }
+      }
+    ],
+    "stages": [
+      {
+        "name": "downstream",
+        "fetch_materials": true,
+        "clean_working_directory": false,
+        "never_cleanup_artifacts": false,
+        "approval": {
+          "type": "success",
+          "authorization": {
+            "roles": ["admins"],
+            "users": ["user.admin"]
+          }
+        },
+        "environment_variables": [
+          {
+          "secure": false,
+          "name": "GO_VERSION",
+          "value": "15.3.0"
+          },
+          {
+            "secure": true,
+            "name": "SECURE",
+            "value": "value"
+          }
+        ],
+        "jobs": [
+          {
+            "name": "tests",
+            "run_instance_count": 12,
+            "timeout": null,
+            "environment_variables": [
+              {
+                "secure": false,
+                "name": "TAGS",
+                "value": "manual"
+              },
+              {
+                "secure": false,
+                "name": "LOAD_BALANCE",
+                "value": "Y"
+              }
+            ],
+            "resources": [
+              "maven",
+              "linux"
+            ],
+            "tasks": [
+              {
+                "type": "exec",
+                "attributes": {
+                  "run_if": [
+                    "passed"
+                  ],
+                  "command": "mvn",
+                  "arguments": [
+                    "--version"
+                  ],
+                  "working_directory": "#{tests}"
+                }
+              },
+              {
+                "type": "ant",
+                "attributes": {
+                  "run_if": [
+                    "passed"
+                  ],
+                  "working_directory": "script/build",
+                  "build_file": null,
+                  "target": null
+                }
+              },
+              {
+                "type": "nant",
+                "attributes": {
+                  "run_if": [
+                    "passed"
+                  ],
+                  "working_directory": "script/build/123",
+                  "build_file": null,
+                  "target": null,
+                  "nant_path": null
+                }
+              },
+              {
+                "type": "rake",
+                "attributes": {
+                  "run_if": [
+                    "passed"
+                  ],
+                  "working_directory": "sample-project",
+                  "build_file": null,
+                  "target": null
+                }
+              },
+              {
+                "type": "fetch",
+                "attributes": {
+                  "run_if": [
+                    "passed"
+                  ],
+                  "pipeline": "upstream",
+                  "stage": "upstream_stage",
+                  "job": "upstream_job",
+                  "is_source_a_file": false,
+                  "source": "result",
+                  "destination": "test"
+                }
+              },
+              {
+                "type": "pluggable_task",
+                "attributes": {
+                  "configuration": [
+                    {
+                      "key": "Url",
+                      "value": "https://www.codeschool.com"
+                    },
+                    {
+                      "key": "SecureConnection",
+                      "value": "yes"
+                    },
+                    {
+                      "key": "RequestType",
+                      "value": "-G"
+                    },
+                    {
+                      "key": "AdditionalOptions",
+                      "value": null
+                    }
+                  ],
+                  "run_if": [
+                    "passed"
+                  ],
+                  "plugin_configuration": {
+                    "id": "curl.task.plugin",
+                    "version": "1.0"
+                  },
+                  "on_cancel": null
+                }
+              }
+            ],
+            "tabs": [
+              {
+                "name": "Report",
+                "path": "Reports/reports/html-report/index.html"
+              }
+            ],
+            "artifacts": [
+              {
+                "source": "#{tests}/reports",
+                "destination": "Reports",
+                "type": "build"
+              },
+              {
+                "source": "#{tests}/reports",
+                "destination": "Reports",
+                "type": "test"
+              }
+            ],
+            "properties": null
+          }
+        ]
+      }
+    ],
+    "tracking_tool": {
+      "type": "generic",
+      "attributes": {
+        "url_pattern": "https://github.com/gocd/api.go.cd/issues/${ID}",
+        "regex": "##(d+)"
+      }
+    },
+    "timer": {
+      "spec": "0 0 22 ? * MON-FRI",
+      "only_on_changes": true
+    }
+  }
+}
