@@ -36,6 +36,8 @@ tags: SPA, webdriver
 Materials test connection
 -------------------------
 
+tags: SPA, webdriver
+
 * Test connection for Git Material
 * Verify Git test connection failed
 

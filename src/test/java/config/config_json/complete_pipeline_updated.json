@@ -1,6 +1,4 @@
 {
-  "group": "group1",
-  "pipeline": {
     "label_template": "${COUNT}",
     "enable_pipeline_locking": false,
     "name": "complete_pipeline",
@@ -15,7 +13,7 @@
       {
         "secure": false,
         "name": "GO_VERSION",
-        "value": "15.3.0"
+        "value": "16.5.0"
       },
       {
         "secure": true,
@@ -118,7 +116,7 @@
     ],
     "stages": [
       {
-        "name": "downstream",
+        "name": "updated_stage",
         "fetch_materials": true,
         "clean_working_directory": false,
         "never_cleanup_artifacts": false,
@@ -131,9 +129,9 @@
         },
         "environment_variables": [
           {
-          "secure": false,
-          "name": "GO_VERSION",
-          "value": "15.3.0"
+            "secure": false,
+            "name": "GO_VERSION",
+            "value": "16.5.0"
           },
           {
             "secure": true,
@@ -291,4 +289,3 @@
       "only_on_changes": true
     }
   }
-}
