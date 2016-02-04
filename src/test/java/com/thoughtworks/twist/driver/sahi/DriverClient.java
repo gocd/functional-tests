@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.thoughtworks.cruise.util.CruiseConstants;
 import net.sf.sahi.client.Browser;
 import net.sf.sahi.config.Configuration;
 
@@ -56,6 +57,7 @@ public class DriverClient {
 
 		server.start();
 		ProxySettings.enableProxy(sahiBasePath);
+
 	}
 
 	/**
@@ -83,7 +85,9 @@ public class DriverClient {
 		browserOption = browserOption.replace(THREADNUMBER, counter());
 		browserOption = handleFFMacPath(browserProcessName, browserOption);
 		SahiDriver driver = new SahiDriver(removeQuotes(browserPath), browserProcessName, browserOption, server);
-		driver.open();
+		if(CruiseConstants.SAHI_TESTS.equals("Y")) {
+			driver.open();
+		}
 		openBrowsers.add(driver);
 		browserInLocalThread.set(driver);
 		return driver;

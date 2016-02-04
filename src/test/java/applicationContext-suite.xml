@@ -59,5 +59,8 @@
     </bean>
     <bean class="com.thoughtworks.twist.core.execution.TwistDataStoreFactory" id="twistDataStoreFactory"/>
     <bean factory-bean="twistDataStoreFactory" factory-method="getSuiteStore" id="twistSuiteStore" scope="singleton"/>
-    <bean class="org.openqa.selenium.firefox.FirefoxDriver" id="driver"/>
+    <!--<bean class="org.openqa.selenium.firefox.FirefoxDriver" id="driver"/>-->
+    <bean class="com.thoughtworks.twist.driver.WebDriverClient" id="driverClient"/>
+    <bean factory-bean="driverClient" factory-method="getFirefoxDriver" id="driver" lazy-init="false"/>
+
 </beans>

@@ -31,6 +31,60 @@
       </admins>
     </security>
   </server>
+
+   <repositories>
+    <repository id="repo-id" name="tw-repo">
+        <pluginConfiguration id="yum" version="1"/>
+        <configuration>
+            <property>
+                <key>REPO_URL</key>
+                <value>http://localhost:8081/${http_repo1}</value>
+            </property>
+            <property>
+                <key>USERNAME</key>
+                <value>user</value>
+            </property>
+            <property>
+                <key>PASSWORD</key>
+                <value>password</value>
+            </property>
+        </configuration>
+        <packages>
+            <package id="package-id" name="go-agent">
+                <configuration>
+                    <property>
+                        <key>PACKAGE_SPEC</key>
+                        <value>go-agent</value>
+                    </property>
+                </configuration>
+            </package>
+        </packages>
+    </repository>
+   </repositories>
+    <scms>
+        <scm id="33001480-9228-4aaf-b9f4-cc08466859da" name="jgitmat">
+            <pluginConfiguration id="jgit" version="1" />
+            <configuration>
+                <property>
+                    <key>url</key>
+                    <value>https://github.com/test/test.git</value>
+                </property>
+                <property>
+                    <key>username</key>
+                    <value>user</value>
+                </property>
+                <property>
+                    <key>password</key>
+                    <value>password</value>
+                </property>
+                <property>
+                    <key>branch</key>
+                    <value>master</value>
+                </property>
+            </configuration>
+        </scm>
+    </scms>
+
   <agents>
     <agent hostname="missing-agent" ipaddress="10.232.3.1" uuid="missing">
       <resources>
