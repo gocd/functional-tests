@@ -73,6 +73,7 @@ make sure group admins don't see autocomplete for group
 
 
 Teardown of contexts
+____________________
 * Capture go state "AddNewPipelineGroupAdmin" - teardown
 * Login as "group1Admin" - teardown
 * Group admin security configuration - teardown

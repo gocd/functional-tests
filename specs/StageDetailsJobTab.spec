@@ -44,6 +44,7 @@ tags: 3609, stage-details, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageDetailsJobTab" - teardown
 * With "3" live agents in directory "StageDetails" - teardown
 * Using pipeline "pipeline-with-3-jobs" - teardown

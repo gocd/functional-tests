@@ -55,6 +55,7 @@ old message: Verify error message "Modification check failed for material: Repos
 
 
 Teardown of contexts
+____________________
 * Capture go state "RPMPackageWithMDUErrors" - teardown
 * Using pipeline "M8,M9" - teardown
 * Package configuration - teardown

@@ -41,6 +41,7 @@ verify test contains "All Tests Passed"
 
 
 Teardown of contexts
+____________________
 * Capture go state "NantTask" - teardown
 * With "1" live agents in directory "NantTask" - teardown
 * Using pipeline "nant-pipeline" - teardown

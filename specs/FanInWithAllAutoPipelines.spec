@@ -108,6 +108,7 @@ tags: diamond dependency, auto, fanin, flaky_fanin_test
 
 
 Teardown of contexts
+____________________
 * Capture go state "FanInWithAllAutoPipelines" - teardown
 * With "4" live agents in directory "StageDetails" - teardown
 * Using pipeline "grandparent-fast, parent-fast, parent-slow, child-fast" - teardown

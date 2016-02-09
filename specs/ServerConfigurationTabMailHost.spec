@@ -39,6 +39,7 @@ tags: 4171, clicky ui, admin-page, configuration
 
 
 Teardown of contexts
+____________________
 * Capture go state "ServerConfigurationTabMailHost" - teardown
 * Basic configuration - teardown
 

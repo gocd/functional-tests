@@ -39,6 +39,7 @@ This is to verify that only the agents associated with an evironment are used to
 
 
 Teardown of contexts
+____________________
 * Capture go state "AssociatingAPipelineWithAnEnvironmentWithNoAgents" - teardown
 * With "2" live agents in directory "AssociatingAPipelineWithAnEnvironmentWithNoAgents" - teardown
 * Using pipeline "environment-pipeline" - teardown

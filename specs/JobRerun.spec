@@ -86,6 +86,7 @@ tags: 4137, stage-details, job-rerun, scheduling, rerun, stage1
 
 
 Teardown of contexts
+____________________
 * Capture go state "JobRerun" - teardown
 * With "2" live agents in directory "StageDetails" - teardown
 * Using pipeline "pipeline-with-3-jobs" - teardown

@@ -88,6 +88,7 @@ Test that the links in the feeds use the siteUrl when set. It will use siteUrl e
 
 
 Teardown of contexts
+____________________
 * Capture go state "GoServerBaseURLConfig" - teardown
 * Using pipeline "basic-pipeline-fast" - teardown
 * Basic configuration - teardown

@@ -54,6 +54,7 @@ tags: 5018, Clicky admin
 
 
 Teardown of contexts
+____________________
 * Capture go state "MaterialCheckConnectivity" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

@@ -143,6 +143,7 @@ tags: 5041, Clicky Admin
 
 
 Teardown of contexts
+____________________
 * Capture go state "AddNewPipeline" - teardown
 * Setup command repo - teardown
 * Login as "admin" - teardown

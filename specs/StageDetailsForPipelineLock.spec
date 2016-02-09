@@ -56,6 +56,7 @@ tags: stage-details, automate, pipeline-locking, 3659
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageDetailsForPipelineLock" - teardown
 * With "1" live agents in directory "StageDetails" - teardown
 * Using pipeline "pipeline-with-lock-all-manual" - teardown

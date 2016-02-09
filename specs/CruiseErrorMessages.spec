@@ -179,14 +179,8 @@ tags: 1996, svn support, diagnostics messages, timer, 2272, automate, failing, l
 * Verify there are no error messages
 
 
-
-
-
-
-
-
-
 Teardown of contexts
+____________________
 * Capture go state "CruiseErrorMessages" - teardown
 * With "1" live agents in directory "CruiseErrorMessages" - teardown
 * Using pipeline "basic-pipeline-with-all-materials" - teardown

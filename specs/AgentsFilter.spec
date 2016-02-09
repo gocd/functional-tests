@@ -143,6 +143,7 @@ Multiple filters (performs OR operation)
 
 
 Teardown of contexts
+____________________
 * Capture go state "AgentsUIScreen" - teardown
 * With "1" live agents in directory "AgentsUIScreen" - teardown
 * Multiple agents configuration - teardown

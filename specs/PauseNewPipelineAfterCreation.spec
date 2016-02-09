@@ -70,6 +70,7 @@ tags: 4812, Clicky Admin, Admin
 
 
 Teardown of contexts
+____________________
 * Capture go state "PauseNewPipelineAfterCreation" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

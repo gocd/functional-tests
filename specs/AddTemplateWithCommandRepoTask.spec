@@ -71,6 +71,7 @@ tags: 6640, task-repository-location, admin-page
 
 
 Teardown of contexts
+____________________
 * Capture go state "AddTemplateCommandRepoTask" - teardown
 * Setup command repo - teardown
 * Basic configuration - teardown

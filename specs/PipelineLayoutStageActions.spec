@@ -136,6 +136,7 @@ this instance has lock
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineLayoutStageActions" - teardown
 * With "1" live agents in directory "PipelineLayout" - teardown
 * Using pipeline "pipeline-with-3-stages" - teardown

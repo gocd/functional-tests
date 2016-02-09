@@ -44,6 +44,7 @@ User pavan is the pipeline Group Admin. He should not see Extract Template.
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineGroupAdminExtractTemplatePermission" - teardown
 * Using pipeline "pipeline-with-group-and-stage-security" - teardown
 * Login as "admin" - teardown

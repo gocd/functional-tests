@@ -59,6 +59,7 @@ tags: pipeline-dashboard, #3740
 
 
 Teardown of contexts
+____________________
 * Capture go state "PIpelineLockingOnDashboard" - teardown
 * With "1" live agents in directory "StageDetails" - teardown
 * Using pipeline "pipeline-with-lock-all-manual" - teardown

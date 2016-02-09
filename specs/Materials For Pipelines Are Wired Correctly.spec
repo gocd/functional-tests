@@ -53,6 +53,7 @@ Smoke test to check if the query to get the users on the changesets that trigger
 
 
 Teardown of contexts
+____________________
 * Capture go state "Materials for pipelines are wired correctly" - teardown
 * With "1" live agents in directory "StageDetailsShineIntegration" - teardown
 * Using pipeline "junit-tests" - teardown

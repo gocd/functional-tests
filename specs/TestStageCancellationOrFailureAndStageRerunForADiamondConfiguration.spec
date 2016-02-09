@@ -155,6 +155,7 @@ Verify Build cause for Downstream1
 
 
 Teardown of contexts
+____________________
 * Capture go state "FanInTestStageCancellationOrFailureAndStageRerunForADiamondConfiguration " - teardown
 * With "2" live agents in directory "StageDetails" - teardown
 * Using pipeline "Upstream1,Upstream2,Downstream1" - teardown

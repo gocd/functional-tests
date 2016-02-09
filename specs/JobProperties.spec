@@ -63,6 +63,7 @@ On Properties Tab
 
 
 Teardown of contexts
+____________________
 * Capture go state "JobProperties" - teardown
 * With "1" live agents in directory "StageDetails" - teardown
 * Using pipeline "basic-pipeline-fast-with-job-properties" - teardown

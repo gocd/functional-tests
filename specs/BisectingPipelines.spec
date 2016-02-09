@@ -93,6 +93,7 @@ tags: shine, bisect, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "BisectingPipelines" - teardown
 * With "1" live agents in directory "BisectPipelines" - teardown
 * Using pipeline "basic-svn-pipeline" - teardown

@@ -91,6 +91,7 @@ tags: 3915, pipeline, automate, failing, stage1
 
 
 Teardown of contexts
+____________________
 * Capture go state "BuildCause" - teardown
 * With "1" live agents in directory "BuildCause" - teardown
 * Using pipeline "up, down" - teardown

@@ -43,6 +43,7 @@ tags: #7411, #7571, Yum repo package, plugins-tests
 
 
 Teardown of contexts
+____________________
 * Capture go state "YumRepoPackageAsMaterialMDUErrors" - teardown
 * With "1" live agents in directory "YumRepoPackageAsMaterialMDUErrors" - teardown
 * Using pipeline "pipeline_with_yum_repo_package_as_material" - teardown

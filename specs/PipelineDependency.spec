@@ -142,6 +142,7 @@ Case of SCM with hop
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineDependency" - teardown
 * With "2" live agents in directory "StageDetails" - teardown
 * Using pipeline "first, second, third, last" - teardown

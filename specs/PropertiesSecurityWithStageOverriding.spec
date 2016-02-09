@@ -99,6 +99,7 @@ commented line verification to be put back after #6827 or #6809 is fixed
 
 
 Teardown of contexts
+____________________
 * Capture go state "PropertiesSecurityWithStagOverriding" - teardown
 * With "1" live agents in directory "StageDetails" - teardown
 * Using pipeline "P3,P5,P6" - teardown

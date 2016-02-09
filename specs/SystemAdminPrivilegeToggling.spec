@@ -72,6 +72,7 @@ tags: 4404, admin, role
 
 
 Teardown of contexts
+____________________
 * Capture go state "SystemAdminPrivilegeToggling" - teardown
 * Login as "admin" - teardown
 * Secure configuration - teardown

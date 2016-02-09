@@ -114,6 +114,7 @@ Verify console of second stage
 
 
 Teardown of contexts
+____________________
 * Capture go state "PassEnvironmentVariablesToAJob" - teardown
 * With "1" live agents in directory "PassEnvironmentVariablesToAJob" - teardown
 * Using pipeline "pipeline-with-environment-variables" - teardown

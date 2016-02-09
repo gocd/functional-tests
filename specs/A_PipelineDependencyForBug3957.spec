@@ -62,7 +62,8 @@ Wait for first stage to pass with pipeline label "3"
 
 
 Teardown of contexts
-Capture go state "PipelineDependencyForBug3957" - teardown
+____________________
+* Capture go state "PipelineDependencyForBug3957" - teardown
 * With "2" live agents in directory "StageDetails" - teardown
 * Using pipeline "fourth, fifth, another-sixth" - teardown
 * Basic configuration - teardown

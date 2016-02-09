@@ -56,6 +56,7 @@ REFER -> SpecificRevisionOfPipelineWithOperateScreenCheck.scn
 
 
 Teardown of contexts
+____________________
 * Capture go state "SpecificRevisionOfPipeline" - teardown
 * With "2" live agents in directory "specific_revision_deployment" - teardown
 * Using pipeline "basic-pipeline-fast, manual-downstream-pipeline" - teardown

@@ -108,6 +108,7 @@ tags: 4137, stage-details, job-rerun, scheduling, rerun, run-on-all
 
 
 Teardown of contexts
+____________________
 * Capture go state "JobRerunRunOnAllAgents" - teardown
 * Using pipeline "pipeline-for-job-rerun-run-on-all" - teardown
 * Basic configuration - teardown

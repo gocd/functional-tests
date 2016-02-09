@@ -125,6 +125,7 @@ Verifying server health message for a directory which does not exist being set a
 
 
 Teardown of contexts
+____________________
 * Capture go state "CommandRepositoryValidations" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Setup command repo - teardown

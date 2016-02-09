@@ -164,6 +164,7 @@ Validations for mingle url using environments. Environment variables should not 
 
 
 Teardown of contexts
+____________________
 * Capture go state "EditPipelineWizardProjectManagementPageValidations" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

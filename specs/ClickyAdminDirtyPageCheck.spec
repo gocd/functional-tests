@@ -53,6 +53,7 @@ Checking for radio group
 
 
 Teardown of contexts
+____________________
 * Capture go state "ClickyAdminDirtyPageCheck" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

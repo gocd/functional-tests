@@ -50,6 +50,7 @@ tags: 5570, administration, backup, 5818, h2db_only
 
 
 Teardown of contexts
+____________________
 * Capture go state "ApiBackupGoServer" - teardown
 * Delete backup history - teardown
 * Using pipeline "basic-pipeline" - teardown

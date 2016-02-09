@@ -125,6 +125,7 @@ variables page
 
 
 Teardown of contexts
+____________________
 * Capture go state "CrudOperationsForEnvironmentVariables" - teardown
 * With "1" live agents in directory "CrudOperationsForEnvironmentVariables" - teardown
 * Using pipeline "different_variable_at_environment_pipeline_stage_job" - teardown

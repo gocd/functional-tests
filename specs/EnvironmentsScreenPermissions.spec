@@ -58,6 +58,7 @@ tags: 2808, environment, UI, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "EnvironmentsScreenPermissions" - teardown
 * Using pipeline "basic-pipeline,admin-pipeline,environment-pipeline,basic-pipeline-slow" - teardown
 * Login as "admin" - teardown

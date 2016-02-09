@@ -58,6 +58,7 @@ Positive scenario
 
 
 Teardown of contexts
+____________________
 * Capture go state "EditAnExistingEnvironment" - teardown
 * Using pipeline "environment-pipeline, environment-pipeline-locked, environment-failing-pipeline,pipeline-with-environment-variables" - teardown
 * Login as "admin" - teardown

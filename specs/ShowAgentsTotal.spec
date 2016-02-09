@@ -35,6 +35,7 @@ We have a denied and missing agent by default. Since we don't have support for r
 
 
 Teardown of contexts
+____________________
 * Capture go state "ShowAgentsTotal" - teardown
 * With "1" live agents in directory "ShowAgentsTotal" - teardown
 * Basic configuration - teardown

@@ -65,6 +65,7 @@ tags: #2408, Agent, Artifacts, MD5, stage1
 
 
 Teardown of contexts
+____________________
 * With "1" live agents in directory "ArtifactsMD5" - teardown
 * Capture go state "ArtifactMD5Verification" - teardown
 * Using pipeline "artifact-md5-up" - teardown

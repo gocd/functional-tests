@@ -216,6 +216,7 @@ tags: 4207, Params, template, stage1, 6820
 
 
 Teardown of contexts
+____________________
 * Capture go state "AdvancedParamSubstitution" - teardown
 * With "2" live agents in directory "ParamSubstitution" - teardown
 * Using pipeline "parent_pipeline" - teardown

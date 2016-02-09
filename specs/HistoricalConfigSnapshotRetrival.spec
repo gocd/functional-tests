@@ -49,6 +49,7 @@ tags: config, api, 1441, versioning
 
 
 Teardown of contexts
+____________________
 * Capture go state "HistoricalConfigSnapshotRetrival" - teardown
 * Using pipeline "basic-pipeline" - teardown
 * Login as "admin" - teardown

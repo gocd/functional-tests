@@ -62,6 +62,7 @@ tags: #7468, Yum repo package, plugins-tests
 
 
 Teardown of contexts
+____________________
 * Capture go state "RPMPackageWithMDUErrors" - teardown
 * With "2" live agents in directory "RPMPackageWithMDUErrors" - teardown
 * Setup file system based yum repos "repo1:go-server-13.1.0-122.noarch.rpm;repo3:go-agent-13.1.0-112.noarch.rpm,go-agent-13.1.0-112.x86_64.rpm" - teardown

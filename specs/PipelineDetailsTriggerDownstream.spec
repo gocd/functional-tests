@@ -77,6 +77,7 @@ tags: 3785, dependency pipeline, trigger with options, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineDetailsTriggerDownstream" - teardown
 * With "1" live agents in directory "StageDetails" - teardown
 * Using pipeline "up-with-2-stages,down-depend-on-1,down-depend-on-2" - teardown

@@ -80,6 +80,7 @@ force logging out session for hostname. Other tests use hostname in url. Was cau
 
 
 Teardown of contexts
+____________________
 * Capture go state "AccessingAUrlAsAnOAuthClient" - teardown
 * Using pipeline "basic-pipeline" - teardown
 * Login as "admin" - teardown

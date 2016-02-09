@@ -109,6 +109,7 @@ Include server and angular validation on onCancel
 
 
 Teardown of contexts
+____________________
 * Capture go state "CurlTaskPlugin" - teardown
 * With "1" live agents in directory "PluginAgents" - teardown
 * Using pipeline "curl-task-pass,curl-task-fail" - teardown

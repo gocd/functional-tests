@@ -48,6 +48,7 @@ tags: 4600, Clicky Admin
 
 
 Teardown of contexts
+____________________
 * Capture go state "TemplatesViewerAndEditor" - teardown
 * Using pipeline "pipeline1,pipeline2,pipeline3,pipeline-down,pipeline-without-template" - teardown
 * Login as "admin" - teardown

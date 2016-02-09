@@ -51,6 +51,7 @@ tags: Clicky Admin, 4894
 
 
 Teardown of contexts
+____________________
 * Capture go state "TaskReordering" - teardown
 * Using pipeline "edit-pipeline-with-tasks" - teardown
 * Basic configuration - teardown

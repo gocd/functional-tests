@@ -112,6 +112,7 @@ verify cctray feed is not accessible
 
 
 Teardown of contexts
+____________________
 * Capture go state "CCTrayFeed" - teardown
 * With "1" live agents in directory "CCTrayFeed" - teardown
 * Using pipeline "basic-pipeline-for-cctray, admin-pipeline" - teardown

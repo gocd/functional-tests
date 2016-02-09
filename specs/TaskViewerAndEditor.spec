@@ -56,6 +56,7 @@ tags: 4700, 4702, Clicky Admin
 
 
 Teardown of contexts
+____________________
 * Capture go state "TaskViewerAndEditor" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

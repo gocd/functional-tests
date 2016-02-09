@@ -76,6 +76,7 @@ tags: Clicky Admin, 4595, 5005
 
 
 Teardown of contexts
+____________________
 * Capture go state "EditJob" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Login as "admin" - teardown

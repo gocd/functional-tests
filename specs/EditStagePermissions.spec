@@ -51,11 +51,8 @@ Verify the happy path of authorizing a user and role to operate on a stage
 * Verify that role "operator" is authorized to operate on the stage
 
 
-
-
-
-
 Teardown of contexts
+____________________
 * Capture go state "EditStagePermissions" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Login as "admin" - teardown

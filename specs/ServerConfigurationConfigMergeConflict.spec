@@ -53,6 +53,7 @@ tags: 7294, enterprise
 
 
 Teardown of contexts
+____________________
 * Capture go state "ServerConfigurationConfigMergeConflict" - teardown
 * Login as "Admin" - teardown
 * Secure configuration - teardown

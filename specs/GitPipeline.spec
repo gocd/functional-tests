@@ -90,6 +90,7 @@ tags: git, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "GitPipeline" - teardown
 * With "1" live agents in directory "git_pipeline" - teardown
 * Using pipeline "git-pipeline" - teardown

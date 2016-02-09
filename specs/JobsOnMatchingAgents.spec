@@ -66,6 +66,7 @@ tags: 3102, job template, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "JobsOnMatchingAgents" - teardown
 * With "2" live agents in directory "JobsOnMatchingAgents" - teardown
 * Using pipeline "basic-pipeline-run-till-file-exists" - teardown

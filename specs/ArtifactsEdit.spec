@@ -51,6 +51,7 @@ ArtifactsEdit
 
 
 Teardown of contexts
+____________________
 * Capture go state "ArtifactsEdit" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

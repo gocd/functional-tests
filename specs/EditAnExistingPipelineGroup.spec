@@ -86,19 +86,8 @@ tags: 4369, Clicky Admin, pipeline group
 * Verify pipeline group "group5" does not have "role" "viewer" with "view" permissions
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 Teardown of contexts
+____________________
 * Capture go state "EditPipelineGroups" - teardown
 * Using pipeline "pipeline1,pipeline5" - teardown
 * Login as "admin" - teardown

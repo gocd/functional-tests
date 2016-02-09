@@ -107,6 +107,7 @@ Pipeline with one material scm and a dependency material
 
 
 Teardown of contexts
+____________________
 * Capture go state "JobEnvironmentVariables" - teardown
 * With "1" live agents in directory "AgentsUIScreen" - teardown
 * Using pipeline "pipeline-with-all-materials, pipeline-with-all-materials-downstream" - teardown

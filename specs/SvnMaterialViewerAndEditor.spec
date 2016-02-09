@@ -63,6 +63,7 @@ tags: Clicky Admin, 4598
 
 
 Teardown of contexts
+____________________
 * Capture go state "SvnMaterialViewerAndEditor" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

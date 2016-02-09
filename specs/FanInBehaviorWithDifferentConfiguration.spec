@@ -110,6 +110,7 @@ tags: diamond dependency, fanin, auto, 6201
 
 
 Teardown of contexts
+____________________
 * Capture go state "FanInBehaviorWithDifferentConfiguration" - teardown
 * With "1" live agents in directory "StageDetails" - teardown
 * Using pipeline "C1, c2, c3, c4-man, c5, c6-auto-s" - teardown

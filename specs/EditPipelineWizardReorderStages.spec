@@ -40,6 +40,7 @@ tags: Clicky Admin, 4742
 
 
 Teardown of contexts
+____________________
 * Capture go state "EditPipelineWizardReorderStages" - teardown
 * Using pipeline "edit-pipeline-with-3-stages" - teardown
 * Basic configuration - teardown

@@ -48,6 +48,7 @@ Successful Merge
 
 
 Teardown of contexts
+____________________
 * Capture go state "PackageDefinitionConfigMergeFlow" - teardown
 * Using pipeline "pipeline_with_yum_repo_package_as_material,pipeline_repo_user_has_special_password" - teardown
 * Package configuration - teardown

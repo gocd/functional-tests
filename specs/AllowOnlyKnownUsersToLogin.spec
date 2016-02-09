@@ -42,6 +42,7 @@ tags: 4168
 
 
 Teardown of contexts
+____________________
 * Capture go state "AllowOnlyKnownUsersToLogin" - teardown
 * Using pipeline "basic-pipeline" - teardown
 * Login as "admin" - teardown

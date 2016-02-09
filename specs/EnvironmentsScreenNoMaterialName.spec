@@ -79,6 +79,7 @@ Verify that all materials can be deployed.
 
 
 Teardown of contexts
+____________________
 * Capture go state "EnvironmentsScreenNoMaterialName" - teardown
 * With "1" live agents in directory "UIAutoRefreshForEnvironments" - teardown
 * Using pipeline "multiple-same-materials" - teardown

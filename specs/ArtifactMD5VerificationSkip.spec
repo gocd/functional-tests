@@ -58,15 +58,9 @@ tags: #2408, Agent, Artifacts, MD5
 * Verify console does not contain "new_artifact.txt] after verifying the integrity of its contents."
 
 
-
-
-
-
-
-
-
-
 Teardown of contexts
+
+____________________
 * With "1" live agents in directory "ArtifactsMD5Skip" - teardown
 * Capture go state "ArtifactMD5VerificationSkip" - teardown
 * Using pipeline "artifact-md5-skip" - teardown

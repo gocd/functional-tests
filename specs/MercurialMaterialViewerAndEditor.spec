@@ -57,6 +57,7 @@ tags: Clicky Admin, 4598
 
 
 Teardown of contexts
+____________________
 * Capture go state "MercurialMaterialViewerAndEditor" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

@@ -85,6 +85,7 @@ tags: Clicky Admin, template, #5785, 6821
 
 
 Teardown of contexts
+____________________
 * Capture go state "ExtractTemplateFromPipeline" - teardown
 * Using pipeline "simple-pipeline,template-params-pipeline-trunk" - teardown
 * Basic configuration - teardown

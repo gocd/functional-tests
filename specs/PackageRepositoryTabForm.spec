@@ -112,6 +112,7 @@ tags: 4171, clicky ui, admin-page, configuration, plugins-tests, 7488, 7487, 735
 
 
 Teardown of contexts
+____________________
 * Capture go state "PackageRepositoryTabForm" - teardown
 * Using pipeline "pipeline1" - teardown
 * Login as "admin" - teardown

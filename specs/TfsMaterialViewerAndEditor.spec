@@ -102,6 +102,7 @@ tags: Clicky Admin, #5775, 6191, tfs, internal
 
 
 Teardown of contexts
+____________________
 * Capture go state "TfsMaterialViewerAndEditor" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

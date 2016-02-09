@@ -45,14 +45,8 @@ Verify if user is admin
 * Verify users "raghu,pavan,admin" are enabled
 
 
-
-
-
-
-
-
-
 Teardown of contexts
+____________________
 * Capture go state "AdminPermissionsNewUsers" - teardown
 * Logout on exit - teardown
 * Basic configuration - teardown

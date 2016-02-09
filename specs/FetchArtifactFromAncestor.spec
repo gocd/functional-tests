@@ -60,6 +60,7 @@ Successful fetch from direct parent
 
 
 Teardown of contexts
+____________________
 * Capture go state "FetchMaterialFromAncestor" - teardown
 * With "2" live agents in directory "FetchMaterialFromAncestor" - teardown
 * Using pipeline "uppest_pipeline, upper_pipeline, upper_peer_pipeline, up_pipeline, down_pipeline" - teardown

@@ -48,6 +48,7 @@ tags: 4137, stage-details, job-rerun, scheduling, rerun
 
 
 Teardown of contexts
+____________________
 * Capture go state "JobRerunConfigDeletion" - teardown
 * Using pipeline "pipeline-with-3-jobs" - teardown
 * Basic configuration - teardown

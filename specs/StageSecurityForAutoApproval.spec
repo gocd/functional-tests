@@ -72,6 +72,7 @@ tags: 2400, passwordfile support, authorisation, authentication, svn support, 15
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageSecurityForAutoApproval" - teardown
 * With "1" live agents in directory "StageSecurity" - teardown
 * Using pipeline "pipeline-with-auto-stage-security" - teardown

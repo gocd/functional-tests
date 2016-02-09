@@ -48,6 +48,7 @@ tags: 1995, 2126, 2126, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "RescheduleJob" - teardown
 * With "1" live agents in directory "RescheduleJob" - teardown
 * Using pipeline "basic-pipeline" - teardown

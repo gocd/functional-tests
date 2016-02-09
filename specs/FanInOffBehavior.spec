@@ -94,6 +94,7 @@ tags: diamond dependency, fanin, auto, server_restart_needed
 
 
 Teardown of contexts
+____________________
 * Capture go state "FanInOffBehavior" - teardown
 * With "2" live agents in directory "StageDetails" - teardown
 * Using pipeline "C1, c2, c3, c4-auto-new, c5" - teardown

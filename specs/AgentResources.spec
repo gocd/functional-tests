@@ -38,6 +38,7 @@ tags: agent management, svn support, scheduling, agent auto-discover, agents, au
 
 
 Teardown of contexts
+____________________
 * Capture go state "AgentResources" - teardown
 * With "1" live agents in directory "AgentsResources" - teardown
 * Using pipeline "basic-pipeline-with-job-resources" - teardown

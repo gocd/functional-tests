@@ -74,6 +74,7 @@ tags: #3238, Admin, Security, stage1
 
 
 Teardown of contexts
+____________________
 * Capture go state "EnableDisableUsers" - teardown
 * Login as "admin" - teardown
 * Secure configuration - teardown

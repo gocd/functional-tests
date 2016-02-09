@@ -120,6 +120,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687, 6786
 
 
 Teardown of contexts
+____________________
 * Capture go state "ComparePipelinesWithDifferentPermissions" - teardown
 * With "1" live agents in directory "compare_pipelines" - teardown
 * Using pipeline "first-pipeline,down-pipeline" - teardown

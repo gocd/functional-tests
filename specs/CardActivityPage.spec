@@ -56,7 +56,8 @@ tags: 4521, card_activity, automate, 4520, mingle
 
 
 
-Teardown of contexts 
+Teardown of contexts
+____________________
 * Capture go state "CardActivityPage" - teardown
 * With "1" live agents in directory "card_activity" - teardown
 * Using pipeline "mingle-config-parent, pipeline-with-mingle-config" - teardown

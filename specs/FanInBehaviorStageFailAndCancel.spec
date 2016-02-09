@@ -135,6 +135,7 @@ tags: diamond dependency, fanin, auto, 6437, 6368
 
 
 Teardown of contexts
+____________________
 * Capture go state "FanInBehaviorStageFailAndCancel" - teardown
 * With "2" live agents in directory "FanInBehaviorStageFailAndCancel" - teardown
 * Using pipeline "FS1, fS2, fS3" - teardown

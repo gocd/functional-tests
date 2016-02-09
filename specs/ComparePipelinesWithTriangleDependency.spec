@@ -43,6 +43,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk
 
 
 Teardown of contexts
+____________________
 * Capture go state "ComparePipelinesWithTriangleDependency" - teardown
 * With "1" live agents in directory "compare_pipelines" - teardown
 * Using pipeline "fourth, fifth, another-sixth-manual" - teardown

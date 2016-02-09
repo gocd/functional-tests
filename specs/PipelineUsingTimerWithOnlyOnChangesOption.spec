@@ -93,6 +93,7 @@ Changing pipeline config appropriately to use in this test
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineUsingTimerWithOnlyOnChangesOption" - teardown
 * With "1" live agents in directory "PipelinesUsingTimer" - teardown
 * Using pipeline "basic-pipeline-fast,downstream-pipeline" - teardown

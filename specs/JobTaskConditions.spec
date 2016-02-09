@@ -43,6 +43,7 @@ First task fails, second task is runif pass, third task is runif failed and the 
 
 
 Teardown of contexts
+____________________
 * Capture go state "JobTaskConditions" - teardown
 * With "1" live agents in directory "AgentsUIScreen" - teardown
 * Using pipeline "pipeline-with-runif" - teardown

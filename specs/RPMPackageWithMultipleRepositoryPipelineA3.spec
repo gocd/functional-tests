@@ -164,7 +164,8 @@ tags: #7467, Yum repo package, plugins-tests
 
 
 
-Teardown of contexts 
+Teardown of contexts
+____________________
 * Capture go state "RPMPackageWithMultipleRepositories" - teardown
 * With "1" live agents in directory "RPMPackageWithMultipleRepositories" - teardown
 * Setup file system based yum repos "repo1;repo2" - teardown

@@ -91,6 +91,7 @@ Move pipeline  from one group to another
 
 
 Teardown of contexts
+____________________
 * Capture go state "EditPipelineGroups" - teardown
 * Using pipeline "pipeline1,pipeline2,pipeline4,pipeline5,pipeline-with-group-and-stage-security,pipeline-down" - teardown
 * Login as "admin" - teardown

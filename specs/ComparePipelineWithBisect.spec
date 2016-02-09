@@ -69,6 +69,7 @@ tags: 4688, compare_pipeline, 5789
 
 
 Teardown of contexts
+____________________
 * Capture go state "ComparePipelineWithBisect" - teardown
 * Using pipeline "up" - teardown
 * Basic configuration - teardown

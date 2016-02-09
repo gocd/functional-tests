@@ -81,16 +81,8 @@ tags: 7302
 * Verify error message is valid "Failed to update environment 'EV1'. Environment 'EV1' refers to an unknown pipeline ${runtime_name:abyss}"
 
 
-
-
-
-
-
-
-
-
-
 Teardown of contexts
+____________________
 * Capture go state "EnvironmentsConfigMergeConflict" - teardown
 * Login as "admin" - teardown
 * Secure configuration - teardown

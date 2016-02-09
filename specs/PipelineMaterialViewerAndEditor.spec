@@ -55,6 +55,7 @@ tags: Clicky Admin, 4598
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineMaterialViewerAndEditor" - teardown
 * Using pipeline "up, edit-pipeline" - teardown
 * Basic configuration - teardown

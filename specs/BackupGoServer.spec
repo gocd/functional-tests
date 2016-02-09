@@ -49,6 +49,7 @@ tags: 5570, administration, backup, 5818, stage1, h2db_only
 
 
 Teardown of contexts
+____________________
 * Capture go state "BackupGoServer" - teardown
 * Delete backup history - teardown
 * Using pipeline "basic-pipeline" - teardown

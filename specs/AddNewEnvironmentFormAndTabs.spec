@@ -90,6 +90,7 @@ cancel button action
 
 
 Teardown of contexts
+____________________
 * Capture go state "AddNewEnvironmentFormAndTabs" - teardown
 * Using pipeline "basic-pipeline, basic-pipeline-slow, pipeline-with-failing-stage" - teardown
 * Login as "admin" - teardown

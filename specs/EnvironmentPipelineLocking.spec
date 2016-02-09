@@ -94,6 +94,7 @@ Verify a pipeline with a failed stage can be unlocked
 
 
 Teardown of contexts
+____________________
 * Capture go state "EnvironmentPipelineLocking" - teardown
 * With "1" live agents in directory "pipeline-locking" - teardown
 * Using pipeline "environment-pipeline, environment-failing-pipeline, environment-pipeline-locked" - teardown

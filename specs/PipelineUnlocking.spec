@@ -106,6 +106,7 @@ Verify a pipeline with a failed stage can be unlocked
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineUnlocking" - teardown
 * With "1" live agents in directory "pipeline-unlocking" - teardown
 * Using pipeline "pipeline-2-manual-stages-that-run-till-file-exists, pipeline-with-failing-stage" - teardown

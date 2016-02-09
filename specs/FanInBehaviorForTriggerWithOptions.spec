@@ -142,6 +142,7 @@ tags: diamond dependency, fanin, auto, 6450
 
 
 Teardown of contexts
+____________________
 * Capture go state "FanInBehaviorForTriggerWithOptions" - teardown
 * With "2" live agents in directory "FanInBehaviorForTriggerWithOptions" - teardown
 * Using pipeline "FTO1, fTO2, fTO3, fTO4, fTO5" - teardown

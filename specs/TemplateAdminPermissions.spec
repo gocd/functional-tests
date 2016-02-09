@@ -72,6 +72,7 @@ tags: Clicky Admin, 7876
 
 
 Teardown of contexts
+____________________
 * Capture go state "TemplatesAdminPermissions" - teardown
 * Using pipeline "pipeline1,pipeline2,pipeline3,pipeline-without-template" - teardown
 * Login as "admin" - teardown

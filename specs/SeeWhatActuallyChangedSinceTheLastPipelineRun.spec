@@ -50,6 +50,7 @@ Marked as changed is verified by looking at the css class "highlight-true"
 
 
 Teardown of contexts
+____________________
 * Capture go state "SeeWhatActuallyChangedSinceTheLastPipelineRun" - teardown
 * With "1" live agents in directory "SeeWhatActuallyChangedSinceLastPipelineRun" - teardown
 * Using pipeline "svn-pipeline" - teardown

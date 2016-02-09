@@ -124,6 +124,7 @@ tags: 7752, clicky ui, admin-page, configuration, plugins-tests
 
 
 Teardown of contexts
+____________________
 * Capture go state "SearchInPackageRepositoryTab" - teardown
 * Setup http based yum repo - teardown
 * Using pipeline "pipeline1" - teardown

@@ -65,6 +65,7 @@ tags: 2248, 3153, fetch artifact, svn support, diagnostics messages, publish art
 
 
 Teardown of contexts
+____________________
 * Capture go state "ArtifactUploadFetch" - teardown
 * With "1" live agents in directory "Artifacts" - teardown
 * Using pipeline "pipeline-artifacts" - teardown

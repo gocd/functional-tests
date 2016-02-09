@@ -107,6 +107,7 @@ Check we can see the Job Details page...
 
 
 Teardown of contexts
+____________________
 * Capture go state "SmokeTest" - teardown
 * With "2" live agents in directory "SmokeTest" - teardown
 * Using pipeline "basic-pipeline-fast, downstream-pipeline, environment-pipeline, run.till.file.exists" - teardown

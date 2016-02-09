@@ -90,6 +90,7 @@ add new material with new package definition
 
 
 Teardown of contexts
+____________________
 * Capture go state "PackageMaterialConfiguration" - teardown
 * Setup http based yum repo - teardown
 * Using pipeline "pipeline-for-test" - teardown

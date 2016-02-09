@@ -119,6 +119,7 @@ tags: 3843, UI, 5424, linux
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineSelectorWithSecurity" - teardown
 * Using group "basic, admin-only, viewable, group.with.dot,operable" - teardown
 * Login as "admin" - teardown

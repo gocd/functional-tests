@@ -61,6 +61,7 @@ Basic functionality
 
 
 Teardown of contexts
+____________________
 * Capture go state "ComparePipelineTimelineView" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

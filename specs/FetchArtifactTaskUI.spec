@@ -157,7 +157,8 @@ Fetch Artifact from previous stage of same pipeline
 
 * Verify task "2" is "Fetch Artifact" task without on cancel and properties "Stage Name: uppest-stage1, Job Name: uppest-job1, Source Directory: source_dir" that runs if state is "Passed"
 
-Teardown of contexts 
+Teardown of contexts
+____________________
 * Capture go state "FetchArtifactTask" - teardown
 * Using pipeline "upper_pipeline,uppest_pipeline" - teardown
 * Basic configuration - teardown

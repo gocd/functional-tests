@@ -75,6 +75,7 @@ tags: 3688, pipeline, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageDetailPipelineDependenciesTab" - teardown
 * With "3" live agents in directory "StageDetails" - teardown
 * Using pipeline "pipeline-with-2-stages-run-till-file-exists, up, down1, down2, down3, down4, abyss" - teardown

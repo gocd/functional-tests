@@ -164,6 +164,7 @@ tags: 7321
 
 
 Teardown of contexts
+____________________
 * Capture go state "MD5VerificationOnAllPages" - teardown
 * Login as "admin" - teardown
 * Secure configuration - teardown

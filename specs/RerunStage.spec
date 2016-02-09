@@ -67,6 +67,7 @@ tags: 1646, rerun, job-detail, automate, stage1
 
 
 Teardown of contexts
+____________________
 * Capture go state "RerunStage" - teardown
 * With "1" live agents in directory "RerunStage" - teardown
 * Using pipeline "basic-pipeline, pipeline-with-runif" - teardown
