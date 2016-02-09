@@ -131,8 +131,8 @@ public abstract class CruisePage {
         ElementStub elementServerDetails = browser.link("Server Details");
         assertThat(elementServerDetails.fetch("href"), StringContains.containsString("/go/about"));
 
-        ElementStub elementHelp = browser.link("Help");
-        assertThat(elementHelp.fetch("href"), StringContains.containsString("http://www.go.cd/documentation/user/current"));
+        ElementStub elementHelp = browser.link("Need Help?");
+        assertThat(elementHelp.fetch("href"), StringContains.containsString("https://go.cd/help"));
     }
 
     protected String stageDetailsUrl(String pipelineName, String pipelineCounter, String stageName, String stageCounter) {
