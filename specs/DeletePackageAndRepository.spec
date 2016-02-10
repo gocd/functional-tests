@@ -98,6 +98,7 @@ Super-admin sees all pipelines as links
 
 
 Teardown of contexts
+____________________
 * Capture go state "DeletePackage" - teardown
 * Using pipeline "one,two" - teardown
 * Login as "admin" - teardown

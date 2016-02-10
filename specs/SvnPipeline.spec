@@ -100,6 +100,7 @@ SVN External tests
 
 
 Teardown of contexts
+____________________
 * Capture go state "SvnPipeline" - teardown
 * With "1" live agents in directory "AgentsUIScreen" - teardown
 * Using pipeline "svn-pipeline, svn-pipeline-with-external" - teardown

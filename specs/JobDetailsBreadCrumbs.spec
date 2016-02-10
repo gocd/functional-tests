@@ -62,6 +62,7 @@ tags: 4147, breadcrumbs, job-detail
 
 
 Teardown of contexts
+____________________
 * Capture go state "JobDetailsBreadCrumbs" - teardown
 * Using pipeline "basic-pipeline-fast" - teardown
 * Basic configuration - teardown

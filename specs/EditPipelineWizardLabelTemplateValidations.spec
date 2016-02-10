@@ -92,6 +92,7 @@ label template validations with material name
 
 
 Teardown of contexts
+____________________
 * Capture go state "EditPipelineWizardLabelTemplateValidations" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

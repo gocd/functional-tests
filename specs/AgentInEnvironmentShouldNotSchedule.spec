@@ -43,6 +43,7 @@ tags: agent management, svn support, agent auto-discover, 3093, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "AgentInEnvironmentShouldNotSchedule" - teardown
 * With "1" live agents in directory "AgentInEnvironmentShouldNotSchedule" - teardown
 * Using pipeline "basic-pipeline-fast" - teardown

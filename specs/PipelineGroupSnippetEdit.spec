@@ -48,6 +48,7 @@ Validations
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineGroupSnippetEdit" - teardown
 * Login as "group1Admin" - teardown
 * Group admin security configuration - teardown

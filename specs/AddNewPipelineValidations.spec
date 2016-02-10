@@ -170,6 +170,7 @@ template validations
 
 
 Teardown of contexts
+____________________
 * Capture go state "AddNewPipelineValidations" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Login as "admin" - teardown

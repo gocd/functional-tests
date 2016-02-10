@@ -61,6 +61,7 @@ tags: #4584, Clicky Admin
 
 
 Teardown of contexts
+____________________
 * Capture go state "HungJobTermination" - teardown
 * With "1" live agents in directory "HungJobTermination" - teardown
 * Using pipeline "hung-job-pipeline" - teardown

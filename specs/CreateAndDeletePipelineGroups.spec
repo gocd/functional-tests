@@ -47,11 +47,8 @@ tags: Clicky Admin, pipeline group, 4944, stage1
 * Verify groups "groupWithStageSecurity" is not visible
 
 
-
-
-
-
 Teardown of contexts
+____________________
 * Capture go state "CreateAndDeletePipelineGroups" - teardown
 * Using pipeline "pipeline1,pipeline2,pipeline4,pipeline-with-group-and-stage-security,pipeline-down" - teardown
 * Login as "admin" - teardown

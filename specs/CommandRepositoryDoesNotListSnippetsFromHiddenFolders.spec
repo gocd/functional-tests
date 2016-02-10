@@ -59,6 +59,7 @@ verify that invalid files from hidden folder do not get listed as invalid
 
 
 Teardown of contexts
+____________________
 * Capture go state "CommandRepositoryDoesNotListSnippetsFromHiddenFolders" - teardown
 * Using pipeline "basic-auto-pipeline" - teardown
 * Setup command repo - teardown

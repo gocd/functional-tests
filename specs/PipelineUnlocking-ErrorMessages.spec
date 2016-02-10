@@ -40,6 +40,7 @@ tags: 3378, 3411, feeds, restful api, shine, 3426, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineUnlocking-ErrorMessages" - teardown
 * Using pipeline "basic-pipeline-slow, basic-pipeline-fast, viewable-pipeline, admin-pipeline, environment-pipeline, environment-pipeline-locked" - teardown
 * Login as "admin" - teardown

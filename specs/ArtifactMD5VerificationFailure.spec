@@ -60,14 +60,8 @@ Failure Scenario - MD5 Mismatch
 * Verify console contains "[ERROR] Verification of the integrity of the artifact [new_artifact.txt] failed. The artifact file on the server may have changed since its original upload."
 
 
-
-
-
-
-
-
-
 Teardown of contexts
+____________________
 * With "1" live agents in directory "ArtifactsMD5Failure" - teardown
 * Capture go state "ArtifactMD5VerificationFailure" - teardown
 * Using pipeline "artifact-md5-mismatch" - teardown

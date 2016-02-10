@@ -208,6 +208,7 @@ verify that even if 1 pipeline is deselected the group checkbox appears deselect
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineSelector" - teardown
 * Logout on exit - teardown
 * Using pipeline "up, edit-pipeline, autoFirst, child-of-autoFirst, artifact-md5-up, artifact-md5-skip" - teardown

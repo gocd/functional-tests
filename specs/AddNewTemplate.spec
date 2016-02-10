@@ -102,6 +102,7 @@ Story: 5105 -  Create template from an existing pipeline
 
 
 Teardown of contexts
+____________________
 * Capture go state "AddNewTemplate" - teardown
 * Using pipeline "pipeline-ls, simple-pipeline,template-params-pipeline-trunk" - teardown
 * Basic configuration - teardown

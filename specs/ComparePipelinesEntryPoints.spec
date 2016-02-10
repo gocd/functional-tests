@@ -62,6 +62,7 @@ Simple case of comparison
 
 
 Teardown of contexts
+____________________
 * Capture go state "ComparePipelinesEntryPoints" - teardown
 * With "1" live agents in directory "card_activity" - teardown
 * Using pipeline "basic-environment-pipeline" - teardown

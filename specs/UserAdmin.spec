@@ -60,6 +60,7 @@ Create users in DB
 
 
 Teardown of contexts
+____________________
 * Capture go state "UserAdmin" - teardown
 * Using pipeline "basic-pipeline" - teardown
 * Login as "admin" - teardown

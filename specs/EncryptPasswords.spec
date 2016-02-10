@@ -59,6 +59,7 @@ Encryption of Svn and P4 passwords taken care of in relavent tests
 
 
 Teardown of contexts
+____________________
 * Capture go state "EncryptPasswords" - teardown
 * Login as "admin" - teardown
 * Secure configuration - teardown

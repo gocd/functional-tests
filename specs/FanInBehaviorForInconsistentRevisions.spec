@@ -106,6 +106,7 @@ tags: diamond dependency, fanin, auto, 6451
 
 
 Teardown of contexts
+____________________
 * Capture go state "FanInBehaviorForInconsistentRevisions" - teardown
 * With "2" live agents in directory "FanInBehaviorForInconsistentRevisions" - teardown
 * Using pipeline "FIR1, fIR2, fIR3" - teardown

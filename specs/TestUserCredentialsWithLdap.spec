@@ -39,6 +39,7 @@ user should see error message when incorrect password is provided
 
 
 Teardown of contexts
+____________________
 * Capture go state "TestUserCredentialsWithLdap" - teardown
 * Valid ldap configuration - teardown
 

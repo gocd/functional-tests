@@ -74,6 +74,7 @@ verify "New Agent" link is not present
 
 
 Teardown of contexts
+____________________
 * Capture go state "AgentsApi" - teardown
 * With "3" live agents in directory "AgentsApi" - teardown
 * Using pipeline "basic-pipeline-fast, admin-pipeline" - teardown

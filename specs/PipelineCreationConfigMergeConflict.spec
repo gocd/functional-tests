@@ -96,21 +96,8 @@ tags: 7280
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Teardown of contexts
+____________________
 * Capture go state "PipelineCreationConfigMergeConflict" - teardown
 * Login as "Admin" - teardown
 * Secure configuration - teardown

@@ -85,6 +85,7 @@ Verify Build cause for Acceptance
 
 
 Teardown of contexts
+____________________
 * Capture go state "FaninOffBehaviorBlacklistingForTriangleConfiguration" - teardown
 * With "1" live agents in directory "StageDetails" - teardown
 * Using pipeline "cruise, acceptance" - teardown

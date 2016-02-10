@@ -114,6 +114,7 @@ tags: 6664, admin-page, configuration, task-repository-location, 6640, stage1
 
 
 Teardown of contexts
+____________________
 * Capture go state "ServerConfigurationCommandRepository" - teardown
 * Using pipeline "basic-auto-pipeline" - teardown
 * Setup command repo - teardown

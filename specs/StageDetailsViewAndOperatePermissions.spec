@@ -109,6 +109,7 @@ tags: 6786, stage-details
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageDetailsViewAndOperatePermissions" - teardown
 * Using pipeline "p1, p2, p3, p4" - teardown
 * Login as "admin" - teardown

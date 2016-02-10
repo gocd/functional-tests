@@ -83,6 +83,7 @@ Testing autocomplete on Resources
 
 
 Teardown of contexts
+____________________
 * Capture go state "EditStageAddNewJobFlow" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

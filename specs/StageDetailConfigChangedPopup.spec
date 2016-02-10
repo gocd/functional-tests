@@ -77,6 +77,7 @@ tags: 6715
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageDetailConfigChangedPopup" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Login as "Admin" - teardown

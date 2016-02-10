@@ -100,6 +100,7 @@ tags: 3609, stage-details, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageDetailsMaterialInfo" - teardown
 * With "1" live agents in directory "StageDetails" - teardown
 * Using pipeline "first,second,third" - teardown

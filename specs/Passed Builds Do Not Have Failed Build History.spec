@@ -38,6 +38,7 @@ Smoke test/happy path to check that passed stages do not get a failed stage hist
 
 
 Teardown of contexts
+____________________
 * Capture go state "Passed builds do not have failed build history" - teardown
 * With "1" live agents in directory "StageDetailsShineIntegration" - teardown
 * Using pipeline "junit-tests" - teardown

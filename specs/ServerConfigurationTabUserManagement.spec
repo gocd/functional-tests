@@ -54,6 +54,7 @@ LDAP Settings
 
 
 Teardown of contexts
+____________________
 * Capture go state "ServerConfigurationTabUserManagement" - teardown
 * Login as "admin" - teardown
 * Secure configuration - teardown

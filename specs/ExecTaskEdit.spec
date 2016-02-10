@@ -65,6 +65,7 @@ tags: 4597, task, clicky, admin, exec, stage1
 
 
 Teardown of contexts
+____________________
 * Capture go state "ExecTaskEdit" - teardown
 * Using pipeline "pipeline-ls" - teardown
 * Basic configuration - teardown

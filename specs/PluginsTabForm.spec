@@ -57,6 +57,7 @@ tags: 7735, 7777, admin-page, configuration, plugins-tests
 
 
 Teardown of contexts
+____________________
 * Capture go state "PluginsTabForm" - teardown
 * Login as "admin" - teardown
 * Group admin security configuration - teardown

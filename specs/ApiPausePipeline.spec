@@ -58,6 +58,7 @@ Admins: admin
 
 
 Teardown of contexts
+____________________
 * Capture go state "ApiPausePipeline" - teardown
 * Using pipeline "pipeline1" - teardown
 * Login as "admin" - teardown

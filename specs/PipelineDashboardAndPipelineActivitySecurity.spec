@@ -132,6 +132,7 @@ Pipeline Visibility
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineDashboardAndPipelineActivitySecurity" - teardown
 * With "2" live agents in directory "PipelineDashboardSecurity" - teardown
 * Using pipeline "P1, p2, p3, p4" - teardown

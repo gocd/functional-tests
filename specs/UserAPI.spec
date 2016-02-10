@@ -50,6 +50,7 @@ tags: 7478, api, users
 
 
 Teardown of contexts
+____________________
 * Capture go state "UserAPI" - teardown
 * Login as "admin" - teardown
 * Secure configuration - teardown

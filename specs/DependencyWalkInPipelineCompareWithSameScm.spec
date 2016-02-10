@@ -55,6 +55,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk
 
 
 Teardown of contexts
+____________________
 * Capture go state "DependencyWalkInPipelineCompareWithSameScm" - teardown
 * With "1" live agents in directory "dependency_walk" - teardown
 * Using pipeline "first, child-of-first,grandchild-of-first" - teardown

@@ -63,6 +63,7 @@ Tests navigation from Environment page to different pages.
 
 
 Teardown of contexts
+____________________
 * Capture go state "EnvironmentsScreenNavigation" - teardown
 * With "2" live agents in directory "UINavigationForEnvironments" - teardown
 * Using pipeline "environment-pipeline" - teardown

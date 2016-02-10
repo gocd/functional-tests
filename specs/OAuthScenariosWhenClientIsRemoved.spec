@@ -85,6 +85,7 @@ Populate OAuth Clients
 
 
 Teardown of contexts
+____________________
 * Capture go state "OAuthScenariosWhenClientIsRemoved" - teardown
 * Using pipeline "pipeline1, pipeline2" - teardown
 * Login as "admin" - teardown

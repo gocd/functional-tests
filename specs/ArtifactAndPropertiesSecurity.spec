@@ -106,6 +106,7 @@ View user cannot add properties using UI
 
 
 Teardown of contexts
+____________________
 * Capture go state "ArtifactAndPropertiesSecurity" - teardown
 * With "1" live agents in directory "pipeline_security" - teardown
 * Using pipeline "viewable-pipeline, 2-stage-viewable" - teardown

@@ -94,6 +94,7 @@ Cron time specifier validation with environment variables
 
 
 Teardown of contexts
+____________________
 * Capture go state "EditPipelineWizardCronFieldValidations" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

@@ -31,6 +31,7 @@ DNS error for Ldap server
 
 
 Teardown of contexts
+____________________
 * Capture go state "AuthenticationProviderError" - teardown
 * Invalid ldap configuration - teardown
 

@@ -78,6 +78,7 @@ there is a bug here below statement should have been verify defaultstage has typ
 
 
 Teardown of contexts
+____________________
 * Capture go state "EditPipelineWizardPagesAndTabs" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

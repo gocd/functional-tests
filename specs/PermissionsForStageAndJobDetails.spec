@@ -77,6 +77,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687
 
 
 Teardown of contexts
+____________________
 * Capture go state "PermissionsForStageAndJobDetails" - teardown
 * With "1" live agents in directory "stage_details_with_permission" - teardown
 * Using pipeline "first-pipeline,down-pipeline" - teardown

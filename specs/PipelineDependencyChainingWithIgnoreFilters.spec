@@ -91,6 +91,7 @@ Verify dependency chaining after scm does not trigger both autoFirst and child-o
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineDependencyChainingWithIgnoreFilters" - teardown
 * With "2" live agents in directory "StageDetails" - teardown
 * Using pipeline "autoFirst, child-of-autoFirst, grandchild-of-autoFirst" - teardown

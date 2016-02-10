@@ -144,6 +144,7 @@ verify pipeline is at label "1" and does not get triggered
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineDependencyDiamond" - teardown
 * With "2" live agents in directory "StageDetails" - teardown
 * Using pipeline "d-up-left, d-up-right, d-down" - teardown

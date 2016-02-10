@@ -76,6 +76,7 @@ Automatic pipeline scheduling for pipeline using template
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineApprovalConfigurations" - teardown
 * Using pipeline "edit-pipeline, autoFirst" - teardown
 * Basic configuration - teardown

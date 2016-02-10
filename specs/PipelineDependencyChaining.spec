@@ -66,6 +66,7 @@ Verify dependency chaining after scm triggers autoFirst pipeline
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineDependencyChaining" - teardown
 * With "2" live agents in directory "StageDetails" - teardown
 * Using pipeline "autoFirst, child-of-autoFirst, grandchild-of-autoFirst" - teardown

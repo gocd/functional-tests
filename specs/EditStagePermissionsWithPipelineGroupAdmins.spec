@@ -51,11 +51,8 @@ Verify that an admin or a pipeline group admin can be explicitly added as an ope
 * Verify that user "admin" is authorized to operate on the stage
 
 
-
-
-
-
 Teardown of contexts
+____________________
 * Capture go state "EditStagePermissionsWithPipelineGroupAdmins" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Login as "admin" - teardown

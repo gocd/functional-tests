@@ -44,6 +44,7 @@ tags: 3609, stage-details, automate, shine, failing
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageDetailsShineIntegrationWithoutSecurity" - teardown
 * With "1" live agents in directory "StageDetailsShineIntegration" - teardown
 * Using pipeline "junit-failures, shine-message" - teardown

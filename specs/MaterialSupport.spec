@@ -84,7 +84,8 @@ Check autoscheduling svn pipeline
 
 
 
-Teardown of contexts 
+Teardown of contexts
+____________________
 * Capture go state "MaterialSupport" - teardown
 * With "1" live agents in directory "AgentsUIScreen" - teardown
 * Using pipeline "p4-pipeline,basic-svn-pipeline" - teardown

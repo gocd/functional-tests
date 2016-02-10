@@ -76,6 +76,7 @@ User with password containing special characters
 
 
 Teardown of contexts
+____________________
 * Capture go state "YumRepoPackageAsMaterial" - teardown
 * With "2" live agents in directory "YumRepoPackageAsMaterial" - teardown
 * Using pipeline "pipeline_with_yum_repo_package_as_material, pipeline_repo_user_has_special_password" - teardown

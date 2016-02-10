@@ -79,6 +79,7 @@ verify the save was successful
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineGroupPermissionsForUserWithOperateViewAndAdmin" - teardown
 * With "1" live agents in directory "StageDetails" - teardown
 * Using pipeline "pipeline1, pipeline2, pipeline3" - teardown

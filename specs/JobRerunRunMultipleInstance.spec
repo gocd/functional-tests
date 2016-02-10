@@ -107,6 +107,7 @@ tags: stage-details, job-rerun, scheduling, rerun, run-multiple-instance, rails4
 
 
 Teardown of contexts
+____________________
 * Capture go state "JobRerunRunOnAllAgents" - teardown
 * With "1" live agents in directory "JobRerunRunMultipleInstance" - teardown
 * Using pipeline "pipeline-for-job-rerun-run-multiple-instance" - teardown

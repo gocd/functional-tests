@@ -40,6 +40,7 @@ tags: 3609, stage-details, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageDetailsHistoryPagination" - teardown
 * Using pipeline "pipeline-ls" - teardown
 * Basic configuration - teardown

@@ -46,6 +46,7 @@ tags: 3249, stage-locking, timer, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageLocking" - teardown
 * With "1" live agents in directory "StageLocking" - teardown
 * Using pipeline "pipeline-with-lock" - teardown

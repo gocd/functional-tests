@@ -120,6 +120,7 @@ force logging out session for hostname. Other tests use hostname in url. Was cau
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineStatusGadget" - teardown
 * Gadget rendering server is running - teardown
 * Using pipeline "admin-pipeline, viewable-pipeline" - teardown

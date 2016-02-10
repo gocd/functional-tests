@@ -130,6 +130,7 @@ Verify non-admin cannot add environments
 
 
 Teardown of contexts
+____________________
 * Capture go state "AddNewEnvironmentValidationsAndShow" - teardown
 * Using pipeline "basic-pipeline, basic-pipeline-slow, pipeline-with-failing-stage" - teardown
 * Login as "admin" - teardown

@@ -56,6 +56,7 @@ Adding a invalid param for working directory
 
 
 Teardown of contexts
+____________________
 * Capture go state "TaskViewerAndEditorValidations" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

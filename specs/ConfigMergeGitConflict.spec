@@ -66,6 +66,7 @@ Post validation failure
 
 
 Teardown of contexts
+____________________
 * Using pipeline "basic-pipeline, upstream-pipeline,middle-pipeline" - teardown
 * Capture go state "ConfigMergeGitConflict" - teardown
 * Login as "admin" - teardown

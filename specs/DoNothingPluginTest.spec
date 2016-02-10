@@ -35,6 +35,7 @@ tags: plugins-tests
 
 
 Teardown of contexts
+____________________
 * Capture go state "DoNothingPluginTest" - teardown
 * Basic configuration - teardown
 

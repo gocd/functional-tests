@@ -92,6 +92,7 @@ Environment Variables Section
 
 
 Teardown of contexts
+____________________
 * Capture go state "EditAnExistingEnvironmentNegativeCase" - teardown
 * Using pipeline "environment-pipeline, environment-pipeline-locked, environment-failing-pipeline,pipeline-with-environment-variables" - teardown
 * Login as "admin" - teardown

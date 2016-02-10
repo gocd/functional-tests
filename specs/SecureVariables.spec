@@ -134,6 +134,7 @@ HACK: testing value for secure variable by reversing the value within rake task
 
 
 Teardown of contexts
+____________________
 * Capture go state "SecureVariables" - teardown
 * With "1" live agents in directory "SecureVariables" - teardown
 * Using pipeline "edit-pipeline" - teardown

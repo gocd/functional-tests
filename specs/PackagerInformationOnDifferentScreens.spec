@@ -96,6 +96,7 @@ tags: #7808, plugins-tests
 
 
 Teardown of contexts
+____________________
 * Capture go state "PackagerInformationOnDifferentScreens" - teardown
 * With "1" live agents in directory "PackagerInformationOnDifferentScreens" - teardown
 * Setup file system based yum repos "repo3" - teardown

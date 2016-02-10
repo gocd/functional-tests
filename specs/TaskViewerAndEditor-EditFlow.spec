@@ -64,6 +64,7 @@ Edit preconfigured task and add the same task type as an oncancel task
 
 
 Teardown of contexts
+____________________
 * Capture go state "TaskViewerAndEditor-EditFlow" - teardown
 * Using pipeline "edit-pipeline-with-tasks" - teardown
 * Basic configuration - teardown

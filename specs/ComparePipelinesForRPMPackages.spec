@@ -93,7 +93,8 @@ tags: #7469, Yum repo package, plugins-tests
 
 
 
-Teardown of contexts 
+Teardown of contexts
+____________________
 * Capture go state "ComparePipelinesForRPMPackages" - teardown
 * With "2" live agents in directory "ComparePipelinesForRPMPackages" - teardown
 * Setup file system based yum repos "repo3" - teardown

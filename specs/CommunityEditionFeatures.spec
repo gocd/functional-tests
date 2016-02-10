@@ -95,6 +95,7 @@ tags: community, 6316, 6321
 
 
 Teardown of contexts
+____________________
 * Capture go state "CommunityEditionFeatures" - teardown
 * Logout on exit - teardown
 * Using pipeline "pipeline1" - teardown

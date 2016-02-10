@@ -96,6 +96,7 @@ Populate OAuth Clients
 
 
 Teardown of contexts
+____________________
 * Capture go state "OAuthAccessTokenShouldBeTiedToTheUser" - teardown
 * Using pipeline "pipeline1, pipeline2" - teardown
 * Login as "admin" - teardown

@@ -127,6 +127,7 @@ verify that a groupadmin cannot see job history tab
 
 
 Teardown of contexts
+____________________
 * Capture go state "AgentDetails" - teardown
 * With "1" live agents in directory "AgentDetails" - teardown
 * Using pipeline "normal-pipeline, basic,failing-pipeline" - teardown

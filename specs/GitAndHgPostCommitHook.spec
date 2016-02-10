@@ -158,6 +158,7 @@ Verify hg post commit hook
 
 
 Teardown of contexts
+____________________
 * Capture go state "GitAndHgPostCommitHook" - teardown
 * With "2" live agents in directory "StageDetails" - teardown
 * Using pipeline "hg-postcommithook-pipeline, another-hg-postcommithook-pipeline, git-postcommithook-pipeline, another-git-postcommithook-pipeline" - teardown

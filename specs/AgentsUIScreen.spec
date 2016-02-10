@@ -157,6 +157,7 @@ Delete agent
 
 
 Teardown of contexts
+____________________
 * Capture go state "AgentsUIScreen" - teardown
 * With "4" live agents in directory "AgentsUIScreen" - teardown
 * Using pipeline "basic-pipeline-run-till-file-exists,basic-pipeline-slow" - teardown

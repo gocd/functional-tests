@@ -112,6 +112,7 @@ port needs to be correct, we do not discover our port while honoring hostname us
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageDetailsShineIntegration" - teardown
 * With "1" live agents in directory "StageDetailsShineIntegration" - teardown
 * Using pipeline "junit-failures, shine-message" - teardown

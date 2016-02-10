@@ -34,6 +34,7 @@ Removing this step as its not relevent for this scenario: Select agent "2" - On 
 
 
 Teardown of contexts
+____________________
 * Capture go state "Agent uI auto refresh" - teardown
 * With "1" live agents in directory "AgentsUIWithAutoRefresh" - teardown
 * Using pipeline "basic-pipeline-slow" - teardown

@@ -68,6 +68,7 @@ MAKE THIS SCENARIO RUN IN WINDOWS ONCE THE BUG https://mingle05.thoughtworks.com
 
 
 Teardown of contexts
+____________________
 * Capture go state "AgentsWithSameUUID" - teardown
 * Using pipeline "basic-pipeline-fast" - teardown
 * Basic configuration - teardown

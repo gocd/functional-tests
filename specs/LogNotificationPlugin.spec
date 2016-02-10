@@ -64,6 +64,7 @@ tags: plugins-tests
 
 
 Teardown of contexts
+____________________
 * Capture go state "LogNotificationPlugin" - teardown
 * With "1" live agents in directory "PluginAgents" - teardown
 * Using pipeline "basic-pipeline-fast,basic-pipeline-fail,basic-pipeline-run-till-file-exists" - teardown

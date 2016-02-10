@@ -56,6 +56,7 @@ tags: 3540, global messages, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "GlobalMessages" - teardown
 * Using pipeline "basic-pipeline-fast" - teardown
 * Basic configuration - teardown

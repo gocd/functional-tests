@@ -70,6 +70,7 @@ Verify if user is admin
 
 
 Teardown of contexts
+____________________
 * Capture go state "AdminRolesAndUsers" - teardown
 * With "1" live agents in directory "StageDetails" - teardown
 * Using pipeline "viewable-pipeline" - teardown

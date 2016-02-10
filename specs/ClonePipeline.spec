@@ -60,15 +60,8 @@ tags: Clone, #5164, Clicky Admin
 * Verify "defaultGroup" has pipelines "another-cloned-pipeline"
 
 
-
-
-
-
-
-
-
-
 Teardown of contexts
+____________________
 * Capture go state "ClonePipeline" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Login as "admin" - teardown

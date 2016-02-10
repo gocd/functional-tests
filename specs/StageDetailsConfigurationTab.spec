@@ -129,6 +129,7 @@ manually trigger the second stage
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageDetailsConfigurationTab" - teardown
 * With "1" live agents in directory "StageDetailsConfigurationTab" - teardown
 * Using pipeline "edit-pipeline" - teardown

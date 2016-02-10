@@ -88,6 +88,7 @@ tags: 4521, card_activity, automate, 4520, mingle, 4523, checkins, linux
 
 
 Teardown of contexts
+____________________
 * Capture go state "ModificationsBetweenPipelines" - teardown
 * With "1" live agents in directory "card_activity" - teardown
 * Using pipeline "mingle-config-parent, pipeline-with-mingle-config" - teardown

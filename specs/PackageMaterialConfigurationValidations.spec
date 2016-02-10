@@ -94,6 +94,7 @@ label template validations with material name
 
 
 Teardown of contexts
+____________________
 * Capture go state "PackageMaterialConfigurationValidations" - teardown
 * Using pipeline "pipeline_with_yum_repo_package_as_material" - teardown
 * Package configuration - teardown

@@ -100,6 +100,7 @@ left [l1(g1), l2(g3), l3(g5), l3(g7)                  V                         
 
 
 Teardown of contexts
+____________________
 * Capture go state "FanInBehaviorOnChangeOfMaterials" - teardown
 * With "1" live agents in directory "Stage details" - teardown
 * Using pipeline "d-up-left, d-up-right, d-down, basic-auto-pipeline" - teardown

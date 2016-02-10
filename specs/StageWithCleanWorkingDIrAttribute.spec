@@ -70,6 +70,7 @@ tags: 4232
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageWithCleanWorkingDIrAttribute" - teardown
 * With "1" live agents in directory "CleanDir" - teardown
 * Using pipeline "pipeline-clean-working-dir" - teardown

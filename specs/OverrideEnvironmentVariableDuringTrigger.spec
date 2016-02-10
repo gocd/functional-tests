@@ -67,6 +67,7 @@ Verify variables value as echoed as part of task
 
 
 Teardown of contexts
+____________________
 * Capture go state "OverrideEnvironmentVariableDuringTrigger" - teardown
 * With "1" live agents in directory "OverrideEnvironmentVariableDuringTrigger" - teardown
 * Using pipeline "pipeline-with-environment-variables" - teardown

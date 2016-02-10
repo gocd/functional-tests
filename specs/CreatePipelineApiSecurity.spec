@@ -67,6 +67,7 @@ response should return code "401" (currently returning "403")
 
 
 Teardown of contexts
+____________________
 * Capture go state "CreatePipelineApiSecurity" - teardown
 * Using pipeline "pipeline1, pipeline2" - teardown
 * Login as "admin" - teardown

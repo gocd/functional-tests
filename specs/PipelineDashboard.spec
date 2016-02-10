@@ -126,6 +126,7 @@ tags: UI, automate, pipeline-dashboard, #3700, 3820, failing, stage1
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineDashboard" - teardown
 * With "4" live agents in directory "PipelineDashboard" - teardown
 * Using pipeline "pipeline-2-manual-stages-that-run-till-file-exists, admin-pipeline" - teardown

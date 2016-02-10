@@ -67,6 +67,7 @@ tags: 3246, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "PageFooterAndHelp" - teardown
 * Using pipeline "basic-pipeline" - teardown
 * Login as "admin" - teardown

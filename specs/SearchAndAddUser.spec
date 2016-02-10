@@ -83,6 +83,7 @@ YOU NEED TO RESTORE PASSWORD FILE PATH NOW, IF YOU WANT TO CONTINUE AFTER THIS. 
 
 
 Teardown of contexts
+____________________
 * Capture go state "SearchAndAddUser" - teardown
 * With "0" live agents in directory "null" - teardown
 * Using pipeline "basic-pipeline" - teardown

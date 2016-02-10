@@ -61,6 +61,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687
 
 
 Teardown of contexts
+____________________
 * Capture go state "ComparePipelinesWithDifferentTrackingTool" - teardown
 * With "1" live agents in directory "compare_pipelines" - teardown
 * Using pipeline "pipeline-with-tracking-tool,down-pipeline-with-tracking-tool" - teardown

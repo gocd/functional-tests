@@ -58,6 +58,7 @@ Material Form Validations
 
 
 Teardown of contexts
+____________________
 * Capture go state "MaterialEditorNameAndFolderValidations" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Basic configuration - teardown

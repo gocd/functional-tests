@@ -87,6 +87,7 @@ Because of bug "On Success" message is being shown as success
 
 
 Teardown of contexts
+____________________
 * Capture go state "EditPipelineWizardStageListing" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Setup command repo - teardown

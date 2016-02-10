@@ -54,6 +54,7 @@ tags: #7451, #7806, plugins-tests
 
 
 Teardown of contexts
+____________________
 * Capture go state "PackageRepositoryTestsTabVerification" - teardown
 * With "1" live agents in directory "PackageRepositoryTestsTabVerification" - teardown
 * Setup file system based yum repos "repo3" - teardown

@@ -82,6 +82,7 @@ Make sure that only users who operate permissions (and not view users) on the pi
 
 
 Teardown of contexts
+____________________
 * Capture go state "EditStagePermissionsWithPipelineGroupPermissions" - teardown
 * Using pipeline "edit-pipeline" - teardown
 * Login as "admin" - teardown

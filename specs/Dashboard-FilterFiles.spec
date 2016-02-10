@@ -78,6 +78,7 @@ This test should work once bug #3656 is fixed.
 
 
 Teardown of contexts
+____________________
 * Capture go state "Dashboard-FilterFiles" - teardown
 * With "1" live agents in directory "Dashboard-FilterFiles" - teardown
 * Using pipeline "basic-pipeline-with-filter" - teardown

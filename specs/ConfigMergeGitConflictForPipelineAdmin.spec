@@ -66,6 +66,7 @@ Successful Merge
 
 
 Teardown of contexts
+____________________
 * Capture go state "ConfigMergeGitConflictForPipelineAdmin" - teardown
 * Login as "group1Admin" - teardown
 * ConflictingConfigurationForPipelineAdmin - teardown

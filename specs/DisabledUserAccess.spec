@@ -63,6 +63,7 @@ tags: #3238, Admin, Security
 
 
 Teardown of contexts
+____________________
 * Capture go state "DisabledUserAccess" - teardown
 * With "1" live agents in directory "disabled_users" - teardown
 * Using pipeline "basic-pipeline" - teardown

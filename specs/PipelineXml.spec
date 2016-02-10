@@ -58,6 +58,7 @@ tags: 3378, 3411, feeds, shine, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineXml" - teardown
 * With "1" live agents in directory "NOT-USED" - teardown
 * Using pipeline "basic-pipeline-fast, admin-pipeline" - teardown

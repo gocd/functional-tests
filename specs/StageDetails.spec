@@ -91,6 +91,7 @@ tags: 3609, stage-details, automate, failing
 
 
 Teardown of contexts
+____________________
 * Capture go state "StageDetails" - teardown
 * Logout on exit - teardown
 * With "2" live agents in directory "StageDetails" - teardown

@@ -47,6 +47,7 @@ tags: 2808, environment, UI, automate, 3574, 3513
 
 
 Teardown of contexts
+____________________
 * Capture go state "EnvironmentsScreen" - teardown
 * With "2" live agents in directory "AgentsUIScreen" - teardown
 * Using pipeline "basic-environment-pipeline, basic-pipeline-run-till-file-exists" - teardown

@@ -104,6 +104,7 @@ tags: diamond dependency, fanin, material-change
 
 
 Teardown of contexts
+____________________
 * Capture go state "FanInBehaviorOnAdditionAndDeletionOfMaterials" - teardown
 * With "1" live agents in directory "StageDetails" - teardown
 * Using pipeline "basic-auto-pipeline, grandparent, parent-left, parent-right, child-down" - teardown

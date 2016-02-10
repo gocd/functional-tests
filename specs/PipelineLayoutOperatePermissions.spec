@@ -60,6 +60,7 @@ tags: 3657, pipeline layout, automate
 
 
 Teardown of contexts
+____________________
 * Capture go state "PipelineLayoutOperatePermissions" - teardown
 * With "1" live agents in directory "PipelineLayout" - teardown
 * Using pipeline "2-stage-viewable" - teardown
