@@ -1,5 +1,5 @@
 /*************************GO-LICENSE-START*********************************
- * Copyright 2015 ThoughtWorks, Inc.
+ * Copyright 2016 ThoughtWorks, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import com.thoughtworks.cruise.context.WithNoUsers;
 import com.thoughtworks.cruise.page.OnAnyPage;
 import com.thoughtworks.cruise.state.RepositoryState;
 import com.thoughtworks.cruise.state.ScenarioState;
+import com.thoughtworks.cruise.util.CruiseConstants;
 import com.thoughtworks.cruise.util.FileUtil;
 import com.thoughtworks.cruise.utils.ScenarioHelper;
 import com.thoughtworks.cruise.utils.configfile.CruiseConfigDom;
@@ -54,7 +55,7 @@ public abstract class AbstractConfiguration {
 
 	public void setUp() throws Exception {
 	    if (deleteAllUsersOnSetup()) {
-			new OnAnyPage(state, scenarioHelper, browser).logout();
+			if(usingSahi()) new OnAnyPage(state, scenarioHelper, browser).logout();
 	        new WithNoUsers(new TalkToCruise(this.state)).setUp();
 	    }
 		loadDom(configFilePath);
@@ -63,6 +64,10 @@ public abstract class AbstractConfiguration {
 	protected boolean deleteAllUsersOnSetup() {
         return true;
     }
+
+	protected boolean usingSahi(){
+		return CruiseConstants.SAHI_TESTS == "Y";
+	}
 
     public void tearDown() throws Exception {
 		repositoryState.cleanupRepos();
