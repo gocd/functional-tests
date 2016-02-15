@@ -15,6 +15,7 @@ Materials
 
 * Basic configuration - setup
 * Using pipeline "parent_pipeline" - setup
+* Enable feature "pipeline_config_single_page_app_key"
 
 Materials listing
 -----------------

@@ -21,6 +21,7 @@ General Settings Configuration
 
 tags: SPA, webdriver
 
+* Enable feature "pipeline_config_single_page_app_key"
 * Go to "parent_pipeline" edit page
 * Verify pipeline locking is disabled
 * Verify label template
