@@ -15,6 +15,7 @@ Materials
 
 * Basic configuration - setup
 * Using pipeline "parent_pipeline" - setup
+* Capture go state "Materials" - setup
 * Enable feature "pipeline_config_single_page_app_key"
 
 Materials listing
@@ -47,3 +48,4 @@ _______________
 
 * Basic configuration - teardown
 * Using pipeline "parent_pipeline" - teardown
+* Capture go state "Materials" - teardown
