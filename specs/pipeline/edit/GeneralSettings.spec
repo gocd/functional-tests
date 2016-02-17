@@ -15,6 +15,7 @@ GeneralSettings
 
 * Basic configuration - setup
 * Using pipeline "parent_pipeline" - setup
+* Capture go state "GeneralSettings" - setup
 
 General Settings Configuration
 ------------------------------
@@ -31,3 +32,4 @@ _______________
 
 * Basic configuration - teardown
 * Using pipeline "parent_pipeline" - teardown
+* Capture go state "GeneralSettings" - teardown
