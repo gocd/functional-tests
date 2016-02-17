@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- *************************GO-LICENSE-START******************************
- * Copyright 2015 ThoughtWorks, Inc.
+ * Copyright 2016 ThoughtWorks, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -61,6 +61,8 @@
     <bean factory-bean="twistDataStoreFactory" factory-method="getSuiteStore" id="twistSuiteStore" scope="singleton"/>
     <!--<bean class="org.openqa.selenium.firefox.FirefoxDriver" id="driver"/>-->
     <bean class="com.thoughtworks.twist.driver.WebDriverClient" id="driverClient"/>
-    <bean factory-bean="driverClient" factory-method="getFirefoxDriver" id="driver" lazy-init="false"/>
+    <bean factory-bean="driverClient" factory-method="getFirefoxDriver" id="driver" lazy-init="false">
+        <constructor-arg value="${webdriver.firefox.bin}"/>
+    </bean>
 
 </beans>

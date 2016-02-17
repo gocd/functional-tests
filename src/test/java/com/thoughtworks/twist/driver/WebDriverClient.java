@@ -19,15 +19,17 @@ package com.thoughtworks.twist.driver;
 
 import com.thoughtworks.cruise.util.CruiseConstants;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverClient {
 
     private WebDriver driver=null;
 
-    public WebDriver getFirefoxDriver(){
+    public WebDriver getFirefoxDriver(String firefox_bin){
         if(driver == null) {
             if (CruiseConstants.WEBDRIVER_TESTS.equals("Y") ){
-                driver = new org.openqa.selenium.firefox.FirefoxDriver();
+                System.setProperty("webdriver.firefox.bin", firefox_bin);
+                driver = new FirefoxDriver();
             }
         }
         return driver;
