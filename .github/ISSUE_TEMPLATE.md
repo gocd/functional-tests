@@ -1,11 +1,9 @@
 ###Issue Description
 
 ###Environment
-**Go Server Verion**
+*Go Version*
 
-**Go Agent Version**
-
-**JAVA Version**
+*JAVA Version*
 
 ###Additional Environment details
 
