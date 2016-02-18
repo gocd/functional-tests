@@ -1,45 +1,40 @@
 #####Issue Type
-> Please sepcify the issue type to help us bucketize the issue, mention any of the below type,
-
-> -Bug Report
-
-> -Feature proposal
-
-> -Feature enhancement
-
-> -Documentation Report
+Please sepcify the issue type to help us bucketize the issue, mention any of the below type,
+- Bug Report
+- Feature proposal
+- Feature enhancement
+- Documentation Report
 
 #####Summary
-> Provide a brief summary of the issue
+Provide a brief summary of the issue
 
 #####Environment
-> Describe the environment in which you encountered this issue. Details of the environment GoCD is running in can be fetched from the GoCD support api - http://<go-server-host>/api/go/support
+Describe the environment in which you encountered this issue. Details of the environment GoCD is running in can be fetched from the GoCD support api - http://<go-server-host>/api/go/support
+Basic environment details - below 3 info we recommend to be provided for us to quickly access the issue
 
-> Basic environment details - below 3 info we recommend to be provided for us to quickly access the issue
+Go Version
 
-*Go Version*
+JAVA Version
 
-*JAVA Version*
+OS
 
-*OS*
-
-> More environment details captured from the support API or other sources can be shared here
+More environment details captured from the support API or other sources can be shared here
 
 #####Steps to Reproduce
-> Provide steps to reproduce - How you encountered this issue?
+Provide steps to reproduce - How you encountered this issue?
 
 #####Expected Results
-> From the steps mentioned above what did you expect to happen?
+From the steps mentioned above what did you expect to happen?
 
 #####Actual Results
-> What actually happened?
+What actually happened?
 
 
 #####Log snippets
-> If you could find any information/exceptions from the logs do provide it here. Do mask any confidential information which you don't want to be shared
+If you could find any information/exceptions from the logs do provide it here. Do mask any confidential information which you don't want to be shared
 
 #####Code snippets/Screenshots
-> if you would like to share any code/screenshots please add it here. Do mask any confidential information which you don't want to be shared
+if you would like to share any code/screenshots please add it here. Do mask any confidential information which you don't want to be shared
 
 #####Any other info
-> Provide any other information you would like to share to explain this issue more better
+Provide any other information you would like to share to explain this issue more better
