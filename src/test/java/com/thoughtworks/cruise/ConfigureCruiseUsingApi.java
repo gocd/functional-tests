@@ -49,6 +49,7 @@ public class ConfigureCruiseUsingApi {
 	private String templateName;
 	private String stageName;
 	private String jobName;
+    private boolean useCurrentUser = false;
 	private interface PipelineGroupEditAction {
 		public void applyEdit(Document group);
 	}
@@ -100,13 +101,25 @@ public class ConfigureCruiseUsingApi {
 
     private CruiseResponse postConfigXML(NameValuePair... nameValuepairs){
 
-        return new TalkToCruise(new CurrentUsernameProvider() {
+        if(this.useCurrentUser){
+            this.useCurrentUser=false;
+            return new TalkToCruise(new CurrentUsernameProvider() {
 
-            @Override
-            public String loggedInUser() {
-                return scenarioState.loggedInUser() != null ? "admin" : null;
-            }
-        }).post(Urls.urlFor("/admin/configuration/file.xml"), nameValuepairs);
+                @Override
+                public String loggedInUser() {
+                    return scenarioState.loggedInUser();
+                }
+            }).post(Urls.urlFor("/admin/configuration/file.xml"), nameValuepairs);
+        }else {
+
+            return new TalkToCruise(new CurrentUsernameProvider() {
+
+                @Override
+                public String loggedInUser() {
+                    return scenarioState.loggedInUser() != null ? "admin" : null;
+                }
+            }).post(Urls.urlFor("/admin/configuration/file.xml"), nameValuepairs);
+        }
     }
 
     private CruiseResponse getConfigXML() throws DocumentException, SAXException, URISyntaxException {
@@ -305,5 +318,11 @@ public class ConfigureCruiseUsingApi {
 		CruiseConfigDom dom = configuration.provideDom();
         dom.addPackageMaterialToPipeline(packageId, scenarioState.pipelineNamed(pipelineName));
 		configuration.setDom(dom);
-	}	
+	}
+
+    @com.thoughtworks.gauge.Step("As current User")
+    public void setUseCurrentUser(){
+        this.useCurrentUser=true;
+
+    }
 }
