@@ -20,10 +20,13 @@ package com.thoughtworks.cruise;
 
 import com.thoughtworks.cruise.client.TalkToCruise;
 import com.thoughtworks.cruise.client.TalkToCruise.CruiseResponse;
+import com.thoughtworks.cruise.state.CurrentUsernameProvider;
 import com.thoughtworks.cruise.state.ScenarioState;
+import com.thoughtworks.cruise.util.CruiseConstants;
 import com.thoughtworks.cruise.util.XmlUtil;
 import com.thoughtworks.cruise.utils.configfile.CruiseConfigDom;
 import org.apache.commons.httpclient.NameValuePair;
+import org.bouncycastle.util.encoders.Base64;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -70,28 +73,53 @@ public class ConfigureCruiseUsingApi {
 				addUserAsAdmin(group, username);			}
 		});
 	}
-	
-	private void editPipelineGroup(PipelineGroupEditAction action) throws DocumentException, SAXException,
-			URISyntaxException {
-		NameValuePair groupNameValue = new NameValuePair("pipelineGroup", groupName);
-		CruiseResponse response = getGroupXML(groupNameValue);
-		
-		if (!response.isSuccess())
+
+
+    private void editPipelineGroup(PipelineGroupEditAction action) throws DocumentException, SAXException,
+            URISyntaxException {
+
+        CruiseResponse response  = getConfigXML();
+
+        if (!response.isSuccess())
 		{
-			responseStatus =  response.getStatus();	
+			responseStatus =  response.getStatus();
 			return;
 		}
-		
-		String md5 = response.getResponseHeader("X-CRUISE-CONFIG-MD5");
-		Document group = XmlUtil.parse(response.getBody());
-		
-		action.applyEdit(group);
 
-		NameValuePair partialXML = new NameValuePair("xmlPartial", group.asXML());
-		NameValuePair md5Pair = new NameValuePair("md5", md5);
-		response = talkToCruise.post(Urls.adminGroup("POST"), groupNameValue, partialXML, md5Pair);
-		responseStatus =  response.getStatus();		
-	}
+        String md5 = response.getResponseHeader("X-CRUISE-CONFIG-MD5");
+        Document group = XmlUtil.parse(response.getBody());
+
+        action.applyEdit(group);
+
+        NameValuePair XMLFile = new NameValuePair("xmlFile", group.asXML());
+        NameValuePair md5Pair = new NameValuePair("md5", md5);
+        response = postConfigXML(XMLFile, md5Pair);
+        responseStatus =  response.getStatus();
+
+    }
+
+    private CruiseResponse postConfigXML(NameValuePair... nameValuepairs){
+
+        return new TalkToCruise(new CurrentUsernameProvider() {
+
+            @Override
+            public String loggedInUser() {
+                return scenarioState.loggedInUser() != null ? "admin" : null;
+            }
+        }).post(Urls.urlFor("/admin/configuration/file.xml"), nameValuepairs);
+    }
+
+    private CruiseResponse getConfigXML() throws DocumentException, SAXException, URISyntaxException {
+
+        return new TalkToCruise(new CurrentUsernameProvider() {
+
+            @Override
+            public String loggedInUser() {
+                return scenarioState.loggedInUser() != null ? "admin" : null;
+            }
+        }).get(Urls.urlFor("/admin/configuration/file.xml"));
+
+    }
 
 	private void addUserAsAdmin(Document group, String username) {
 		Element auth = (Element) group.selectSingleNode("//authorization");
