@@ -195,3 +195,36 @@ end
 task "start_server" do
   sh "cd scripts; ./start-server.sh"
 end
+
+task 'bump-schema' do
+  version = ENV['VERSION'].to_s
+
+  raise "Please provide VERSION" if version.empty?
+  # sh("curl --fail --location --silent https://raw.githubusercontent.com/gocd/gocd/master/config/config-server/resources/cruise-config.xsd > src/test/java/cruise-config.xsd")
+
+  Dir["./src/test/java/config/*.xml"].each do |path|
+    content = File.read(path)
+    if content =~ /xsi:noNamespaceSchemaLocation="cruise-config.xsd"/
+      puts "Replacing content in #{path}"
+      content = content.gsub(/schemaVersion="\d+"/, %Q{schemaVersion="#{version}"})
+      open(path, 'w') {|f| f.write(content)}
+    end
+  end
+
+  java_file = 'src/test/java/com/thoughtworks/cruise/util/CruiseConstants.java'
+  cruiseconstants_contents = File.read(java_file)
+
+  new_contents = []
+  cruiseconstants_contents.each_line do |line|
+    if line =~ /CONFIG_SCHEMA_VERSION/
+      line = "    public static final int CONFIG_SCHEMA_VERSION = #{version};\n"
+    else
+      line
+    end
+    new_contents << line
+  end
+
+  open(java_file, 'w') do |f|
+     f.write(new_contents.join)
+   end
+end
