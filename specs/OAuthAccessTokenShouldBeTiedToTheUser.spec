@@ -80,15 +80,16 @@ Populate OAuth Clients
 
 * Logout - On Any Page
 
-* For client "client"
-* For user "group1Admin"
-* Using "HTTPS"
-* Gadget page for pipeline "pipeline1" should contain "pipeline_pipeline1"
+Commenting below steps as gadgets rendering service removed from Go
+For client "client"
+For user "group1Admin"
+Using "HTTPS"
+Gadget page for pipeline "pipeline1" should contain "pipeline_pipeline1"
 
-* For client "client"
-* For user "group2Admin"
-* Using "HTTPS"
-* Gadget page for pipeline "pipeline2" should contain "pipeline_pipeline2"
+For client "client"
+For user "group2Admin"
+Using "HTTPS"
+Gadget page for pipeline "pipeline2" should contain "pipeline_pipeline2"
 
 * Logout - On Any Page Over Hostname Ssl
 
