@@ -44,6 +44,7 @@ public class TalkToCruise {
 	public CruiseResponse post(String url, NameValuePair... nameValuePairs) {
 		HttpClient client = client();
 		PostMethod post = new PostMethod(url);
+		post.setRequestHeader("Accept","application/vnd.go.cd.v1+text");
 		post.addParameters(nameValuePairs);
 		return execute(url, client, post);
 	}
@@ -58,9 +59,10 @@ public class TalkToCruise {
 		}
 	}
 
-	public CruiseResponse post(String url, File file, String partName) throws HttpException, IOException {
+	public CruiseResponse post(String url, File file, String partName) throws IOException {
 		HttpClient client = client();
 		PostMethod filePost = new PostMethod(url);
+		filePost.setRequestHeader("Accept","application/vnd.go.cd.v1+text");
 		filePost.setRequestEntity(new MultipartRequestEntity(new Part[]{new FilePart(partName, file)}, filePost.getParams()));
 		return execute(url, client, filePost);
 	}
