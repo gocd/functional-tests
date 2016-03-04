@@ -32,7 +32,7 @@ public class OnAdministrationPage extends CruisePage {
 
 	@Override
 	protected String url() {
-		return Urls.urlFor("/tab/admin");
+		return Urls.urlFor("/admin/config_xml");
 	}
 
 }
