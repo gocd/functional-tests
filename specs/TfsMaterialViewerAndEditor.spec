@@ -48,18 +48,18 @@ tags: Clicky Admin, #5775, 6191, tfs, internal
 * Enter material name "tfs_material" - Already on Tfs Material Creation Popup
 * Enter url "incorrect_url" - Already on tfs material creation popup
 * Click check connection
-* Verify message "Access denied connecting to TFS server"
+* Verify message "There was an error with the material configuration!"
 * Enter url "#{invalid_tfs_url}" - Already on tfs material creation popup
 * Click check connection
-* Verify message "Access denied connecting to TFS server"
+* Verify message "There was an error with the material configuration!"
 * Enter url "#{valid_tfs_url}" - Already on tfs material creation popup
 * Enter username "invalidUser" - Already on Tfs Material Creation Popup
 * Click check connection
-* Verify message "Access denied connecting to TFS server"
+* Verify message "There was an error with the material configuration!"
 * Enter url "integration_tests" - Already on tfs material creation popup
 * Enter username "#{invalid_username}" - Already on Tfs Material Creation Popup
 * Click check connection
-* Verify message "Access denied connecting to TFS server"
+* Verify message "There was an error with the material configuration!"
 * Enter username "#{username}" - Already on Tfs Material Creation Popup
 * Enter valid password - Already on Tfs Material Creation Popup
 * Enter project path as "$/invalid_project_path"
