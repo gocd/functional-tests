@@ -52,7 +52,7 @@ Include server and angular validation on onCancel
 * Set url as "task[Url](url_field): /api/pipelines/curl-task-fail/schedule"
 * Select secureConnection as "No"
 * Select requestType as "POST"
-* Set "task[AdditionalOptions](text_field): -u admin:badger" - Already on Task edit popup
+* Set "task[AdditionalOptions](text_field): -u admin:badger -H 'Accept:application/vnd.go.cd.v1+text'" - Already on Task edit popup
 * Set "task[hasCancelTask](check_box): true" - Already on Task edit popup
 * Select task "Curl"
 * Set "task[onCancelConfig][pluggable_task_curl_task_pluginOnCancel][Url](url_field): http://www.google.co.in" - Already on Task edit popup
