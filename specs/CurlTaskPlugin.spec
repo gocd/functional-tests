@@ -52,7 +52,7 @@ Include server and angular validation on onCancel
 * Set url as "task[Url](url_field): /api/pipelines/curl-task-fail/schedule"
 * Select secureConnection as "No"
 * Select requestType as "POST"
-* Set "task[AdditionalOptions](text_field): -u admin:badger -H 'Accept:application/vnd.go.cd.v1+text'" - Already on Task edit popup
+* Set "task[AdditionalOptions](text_field): -u admin:badger -H Accept:application/vnd.go.cd.v1+text" - Already on Task edit popup
 * Set "task[hasCancelTask](check_box): true" - Already on Task edit popup
 * Select task "Curl"
 * Set "task[onCancelConfig][pluggable_task_curl_task_pluginOnCancel][Url](url_field): http://www.google.co.in" - Already on Task edit popup
@@ -60,7 +60,7 @@ Include server and angular validation on onCancel
 
 
 * Verify task "1" is "Curl " task without on cancel and properties "Url: https://www.codeschool.com, SecureConnection: yes, RequestType: -G" that runs if state is "Passed"
-* Verify task "2" is "Curl" task with cancel "Curl" and properties "SecureConnection: no, RequestType: -d, AdditionalOptions: -u admin:badger -H 'Accept:application/vnd.go.cd.v1+text'" that runs if state is "Passed"
+* Verify task "2" is "Curl" task with cancel "Curl" and properties "SecureConnection: no, RequestType: -d, AdditionalOptions: -u admin:badger -H Accept:application/vnd.go.cd.v1+text" that runs if state is "Passed"
 
 * Looking at pipeline "curl-task-pass"
 * Trigger pipeline
