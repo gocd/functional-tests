@@ -41,6 +41,7 @@ import static org.junit.Assert.assertThat;
 
 public class ConfigureCruiseUsingApi {
 
+	public static final String GO_CONFIG_API_URL = Urls.urlFor("/api/admin/config.xml");
 	private String groupName;
 	private final TalkToCruise talkToCruise;
 	private final ScenarioState scenarioState;
@@ -50,6 +51,7 @@ public class ConfigureCruiseUsingApi {
 	private String stageName;
 	private String jobName;
     private boolean useCurrentUser = false;
+
 	private interface PipelineGroupEditAction {
 		public void applyEdit(Document group);
 	}
@@ -109,7 +111,7 @@ public class ConfigureCruiseUsingApi {
                 public String loggedInUser() {
                     return scenarioState.loggedInUser();
                 }
-            }).post(Urls.urlFor("/admin/configuration/file.xml"), nameValuepairs);
+            }).post(GO_CONFIG_API_URL, nameValuepairs);
         }else {
 
             return new TalkToCruise(new CurrentUsernameProvider() {
@@ -118,7 +120,7 @@ public class ConfigureCruiseUsingApi {
                 public String loggedInUser() {
                     return scenarioState.loggedInUser() != null ? "admin" : null;
                 }
-            }).post(Urls.urlFor("/admin/configuration/file.xml"), nameValuepairs);
+            }).post(GO_CONFIG_API_URL, nameValuepairs);
         }
     }
 
@@ -130,7 +132,7 @@ public class ConfigureCruiseUsingApi {
             public String loggedInUser() {
                 return scenarioState.loggedInUser() != null ? "admin" : null;
             }
-        }).get(Urls.urlFor("/admin/configuration/file.xml"));
+        }).get(GO_CONFIG_API_URL);
 
     }
 

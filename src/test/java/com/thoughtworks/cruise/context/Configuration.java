@@ -16,6 +16,7 @@
 
 package com.thoughtworks.cruise.context;
 
+import com.thoughtworks.cruise.ConfigureCruiseUsingApi;
 import com.thoughtworks.cruise.RuntimePath;
 import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.client.TalkToCruise;
@@ -74,7 +75,7 @@ public class Configuration {
     public void setDom(final CruiseConfigDom dom) {
     	CurrentConfigState currentConfigState = currentConfigState();
     	dom.replaceServerId(currentConfigState.serverId);
-        String url = Urls.urlFor("/admin/configuration/file.xml");
+        String url = ConfigureCruiseUsingApi.GO_CONFIG_API_URL;
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
         nameValuePairs.add(new NameValuePair("xmlFile", dom.asXml()));
 		nameValuePairs.add(new NameValuePair("md5", currentConfigState.md5));
@@ -109,7 +110,7 @@ public class Configuration {
     }
 
     private CruiseResponse getConfigContent() {
-        return new TalkToCruise(scenarioState).get(Urls.urlFor("/admin/configuration/file.xml"));
+        return new TalkToCruise(scenarioState).get(ConfigureCruiseUsingApi.GO_CONFIG_API_URL);
     }
 
     private CruiseResponse getConfigContentAsAdmin() {
@@ -119,7 +120,7 @@ public class Configuration {
             public String loggedInUser() {
                 return scenarioState.loggedInUser() != null ? "admin" : null;
             }
-        }).get(Urls.urlFor("/admin/configuration/file.xml"));
+        }).get(ConfigureCruiseUsingApi.GO_CONFIG_API_URL);
     }
 
     public File copyPasswordFile(URL url) {

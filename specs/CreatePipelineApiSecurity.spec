@@ -23,7 +23,10 @@ Setup of contexts
 CreatePipelineApiSecurity
 -------------------------
 
-tags: 4141, group admin, api
+tags: 4141, group admin, api, manual
+
+THIS TEST CASE IS INVALIDATED SINCE THE API FOR CREATE PIPELINE GROUP IS REMOVED - /admin/restful/configuration/group/<METHOD>/xml
+THE TEST CASE TO BE REVISITED WHEN JSON BASED PIPELINE GROUP API IS DEVELOPED
 
 The users in the system
 
@@ -51,7 +54,6 @@ Admins: admin
 * Verify pipeline "newpipeline" is not visible
 
 * For pipeline group "group2"
-* As current User
 * Create pipeline "newpipeline" using template "simple-pass"
 * Response should return code "401"
 
