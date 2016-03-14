@@ -42,7 +42,7 @@ tags: 4521, card_activity, automate, 4520, mingle
 * Verify stage "2" is "Building" on pipeline with label "2"
 * Click compare link
 
-Verify that page has gadget for url "https://some.mingle.machine:1000/mingle/gadgets/card_activity.xml" project named "some-go-branch" and criteria "foo != not(foo)"
+* Verify that page has gadget for url "https://some.mingle.machine:1000/mingle/gadgets/card_activity.xml" project named "some-go-branch" and criteria "foo != not(foo)"
 * Verify that page displays stages "defaultStage (Passed),secondStage (Cancelled)" in pipeline dropdown "from" with pipeline counter "1"
 * Verify that page displays stages "defaultStage (Passed),secondStage (Building)" in pipeline dropdown "to" with pipeline counter "2"
 * Click "${runtime_name:pipeline-with-mingle-config}" in breadcrumbs
