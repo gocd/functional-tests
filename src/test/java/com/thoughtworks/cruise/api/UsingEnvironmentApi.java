@@ -18,6 +18,7 @@ package com.thoughtworks.cruise.api;
 
 // JUnit Assert framework can be used for verification
 
+import com.thoughtworks.cruise.ConfigureCruiseUsingApi;
 import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.client.TalkToCruise;
 import com.thoughtworks.cruise.client.TalkToCruise.CruiseResponse;
@@ -45,7 +46,7 @@ public class UsingEnvironmentApi {
 	}
 	
 	private String getMD5() {
-	    String url = Urls.urlFor("/admin/configuration/file.xml");
+	    String url = ConfigureCruiseUsingApi.GO_CONFIG_API_URL;
 	    CruiseResponse response = talkToCruise.get(url);
 	    return response.getResponseHeader("X-CRUISE-CONFIG-MD5");
 	}

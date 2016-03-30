@@ -16,6 +16,7 @@
 
 package com.thoughtworks.cruise.context;
 
+import com.thoughtworks.cruise.ConfigureCruiseUsingApi;
 import com.thoughtworks.cruise.RuntimePath;
 import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.client.TalkToCruise;
@@ -201,7 +202,7 @@ public class CaptureGoState {
     }
 
     private CruiseResponse configContentFromServer(TalkToCruise asUser) {
-        return asUser.get(Urls.urlFor("/admin/configuration/file.xml"));
+        return asUser.get(ConfigureCruiseUsingApi.GO_CONFIG_API_URL);
     }
 
     private static void writeTo(File file, String message) throws IOException {
