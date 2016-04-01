@@ -141,10 +141,10 @@ public class ServerIsRunning extends ProcessIsRunning {
             String addRails4JVMArg = env.get("GO_SERVER_SYSTEM_PROPERTIES") + " -Duse.new.rails=N";
             env.put("GO_SERVER_SYSTEM_PROPERTIES", addRails4JVMArg);
         }
-        String heapDumpOnOOM = System.getenv("HEAP_DUMP_ON_OOM");
-        if (heapDumpOnOOM != null && heapDumpOnOOM.equals("Y")) {
-            String getHeapDumpOnOOM = env.get("GO_SERVER_SYSTEM_PROPERTIES") + " -XX:+HeapDumpOnOutOfMemoryError";
-            env.put("GO_SERVER_SYSTEM_PROPERTIES", getHeapDumpOnOOM);
+        String startUpArgs = System.getenv("ADDITIONAL_STARTUP_ARGS");
+        if (startUpArgs != null && !startUpArgs.equals("")) {
+            String additionalStartupArgs = env.get("GO_SERVER_SYSTEM_PROPERTIES") + " " + startUpArgs;
+            env.put("GO_SERVER_SYSTEM_PROPERTIES", additionalStartupArgs);
         }
         return env;
     }
