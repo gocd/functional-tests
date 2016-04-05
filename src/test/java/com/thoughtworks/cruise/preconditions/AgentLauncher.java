@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AgentLauncher extends ProcessIsRunning {
-	public static final File TWIST_AGENTS_DIR = new File(RuntimePath.pathFor("../target/twist-agents"));
+	public static final File TWIST_AGENTS_DIR = new File(RuntimePath.pathFor("target/twist-agents"));
 
     private static int agentCounter = 0;
 
