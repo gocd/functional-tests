@@ -251,7 +251,7 @@ public class AlreadyOnPipelineHistoryPage extends CruisePage {
 	
 	@com.thoughtworks.gauge.Step("Verify pipeline cannot be paused")
 	public void verifyPipelineCannotBePaused() throws Exception {
-		Assert.assertThat(browser.byId("pause-"+scenarioState.currentRuntimePipelineName()).fetch("className").contains("disabled"),Is.is(true));	    
+		Assert.assertThat(!browser.byId("pause-"+scenarioState.currentRuntimePipelineName()).exists(),Is.is(true));
 	}
 
 	@com.thoughtworks.gauge.Step("Verify <stageName> can be approved")
