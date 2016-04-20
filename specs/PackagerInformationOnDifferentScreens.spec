@@ -72,7 +72,7 @@ tags: #7808, plugins-tests
 * Looking at pipeline "K2"
 * Click compare link
 
-* Verify displays package with uri "file://${runtime_package_repo_uri:repo3}" having spec "go-server" with revision "go-server-12.4.0-1234.noarch" published by "Thoughtworks Studios <;twstudios@thoughtworks.com>"
+* Verify displays package with uri "file://${runtime_package_repo_uri:repo3}" having spec "go-server" with revision "go-server-12.4.0-1234.noarch" published by "Thoughtworks Studios <twstudios@thoughtworks.com>"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "K2"
