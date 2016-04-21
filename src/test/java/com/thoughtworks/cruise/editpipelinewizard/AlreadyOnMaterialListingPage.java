@@ -224,7 +224,7 @@ public class AlreadyOnMaterialListingPage extends AlreadyOnEditPipelineWizardPag
 	}
     
     private ElementStub deleteIconWithClass(String materialName, String deleteIconClassName) {
-        List<ElementStub> materialNamelinks = browserWrapper.collect("link", "material_name");
+        List<ElementStub> materialNamelinks = browserWrapper.collect("link", "material_name wrapped_word");
         ElementStub deleteIcon = null;
         for(int i=0 ; i < materialNamelinks.size(); i++) {
             if(materialNamelinks.get(i).getText().equals(scenarioState.expand(materialName))){

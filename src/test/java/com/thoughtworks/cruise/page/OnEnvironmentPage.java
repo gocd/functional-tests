@@ -330,7 +330,7 @@ public class OnEnvironmentPage extends CruisePage {
     	final String revision = repo.latestRevision().revisionNumber();
     	 Assertions.waitUntil(Timeout.TWENTY_SECONDS, new Predicate() {
              public boolean call() throws Exception {
-                 ElementStub revisionElement = browser.cell("revision_number").in(browser.row(materialIndex).in(browser.table("/materials/").in(elementPipeline())));
+                 ElementStub revisionElement = browser.cell("revision_number wrapped_word").in(browser.row(materialIndex).in(browser.table("/materials/").in(elementPipeline())));
                  return revisionElement.fetch("title").equals(revision);
                 // return revisionElement.getText().trim().equals(revision);
              }
@@ -434,11 +434,11 @@ public class OnEnvironmentPage extends CruisePage {
 	}
 	
 	private String materialName(Integer materialNumber) {
-		return browser.cell(String.format("material_name[%d]", materialNumber-1)).in(elementPipeline()).getText();
+		return browser.cell(String.format("material_name wrapped_word[%d]", materialNumber-1)).in(elementPipeline()).getText();
 	}
 
 	private String materialRevision(Integer materialNumber) {
-		return browser.cell(String.format("revision_number[%d]", materialNumber - 1)).in(elementPipeline()).fetch("title");
+		return browser.cell(String.format("revision_number wrapped_word[%d]", materialNumber - 1)).in(elementPipeline()).fetch("title");
 	}
 	
 	@com.thoughtworks.gauge.Step("Verify material number <materialNumber> has revision <revisionAlias> deployed")

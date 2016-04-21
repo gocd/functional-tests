@@ -590,7 +590,7 @@ public class OnAgentsPage extends CruisePage {
 			String ipAddress = browser.cell("ip_address").in(agentRow)
 					.getText();
 			String status = browser.cell("status").in(agentRow).getText();
-			String sandbox = browser.cell("location").in(agentRow).getText();
+			String sandbox = browser.cell("location wrapped_word").in(agentRow).getText();
 			String os = browser.cell("operating_system").in(agentRow).getText();
 			String free_space = browser.cell("usable_space").in(agentRow)
 					.getText();

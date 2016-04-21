@@ -37,7 +37,7 @@ tags: #7469, Yum repo package, plugins-tests
 * Search for "go-agent" on "to" textbox
 * Click on label "1" in the dropdown
 * Verify that "to" textbox is populated with "1"
-* Verify displays package with uri "file://${runtime_package_repo_uri:repo3}" having spec "go-server" with revision "go-server-12.4.0-1234.noarch" published by "Thoughtworks Studios <;twstudios@thoughtworks.com>"
+* Verify displays package with uri "file://${runtime_package_repo_uri:repo3}" having spec "go-server" with revision "go-server-12.4.0-1234.noarch" published by "Thoughtworks Studios <twstudios@thoughtworks.com>"
 * Verify displays package with uri "file://${runtime_package_repo_uri:repo3}" having spec "go-agent" with revision "go-agent-13.1.0-112.noarch" published by "anonymous"
 
 * Publish artifacts "go-server-13.1.0-122.noarch.rpm" to "repo3"

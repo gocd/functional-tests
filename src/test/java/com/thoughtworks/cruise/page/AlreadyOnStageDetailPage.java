@@ -616,7 +616,7 @@ public class AlreadyOnStageDetailPage extends CruisePage {
 	public void clickCompareLinkForPipelineCounter(String pipelineCounter) throws Exception {
 		List<ElementStub> entries = browserWrapper.collectIn("div", "/^stage/", browser.div("stage_history").in(browser.div("/overview_widget/")));
 		for (ElementStub entry : entries) {
-			if (pipelineCounter.equals(browser.span("pipeline_label").in(entry).text())) {
+			if (pipelineCounter.equals(browser.span("pipeline_label wrapped_word").in(entry).text())) {
 				browser.link(1).in(entry).click();
 				currentPageState.currentPageIs(Page.COMPARE_PAGE);
 				return;
