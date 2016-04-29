@@ -24,7 +24,7 @@ Setup of contexts
 PipelineDashboardAndPipelineActivitySecurity
 --------------------------------------------
 
-tags: 6786, Permissions
+tags: 6786, Permissions, long_running
 
 Verify that super-admin has all view and operate permissions
 

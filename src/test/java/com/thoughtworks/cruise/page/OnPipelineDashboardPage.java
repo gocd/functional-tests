@@ -612,7 +612,7 @@ public class OnPipelineDashboardPage extends CruisePage {
 
     @com.thoughtworks.gauge.Step("Verify pipeline is at label <label> and does not get triggered")
 	public void verifyPipelineIsAtLabelAndDoesNotGetTriggered(final int label) throws Exception {
-        Assertions.assertOverTime(Timeout.TWO_MINUTES, new Function<Boolean>() {
+        Assertions.assertOverTime(Timeout.TEN_SECONDS, new Function<Boolean>() {
             public Boolean call() {
                 return elementPipelineLabel(String.valueOf(label)).exists();
             }
