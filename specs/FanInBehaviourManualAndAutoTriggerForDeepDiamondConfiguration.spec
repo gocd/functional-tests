@@ -23,7 +23,7 @@ Setup of contexts
 FanInBehaviourManualAndAutoTriggerForDeepDiamondConfiguration
 -------------------------------------------------------------
 
-tags: Deep Diamond, Fanin, #6434, 6434
+tags: Deep Diamond, fanin, #6434, 6434
 
 * Trigger pipelines "P1" and wait for labels "1" to pass
 * Trigger pipelines "P2" and wait for labels "1" to pass

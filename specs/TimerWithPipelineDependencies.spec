@@ -23,7 +23,7 @@ Setup of contexts
 TimerWithPipelineDependencies
 -----------------------------
 
-tags: 2272, timer, automate
+tags: 2272, timer, automate, long_running
 
 
 * Setting first stage of "downstream-pipeline" to auto approval

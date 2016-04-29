@@ -23,7 +23,7 @@ Setup of contexts
 PipelineUsingTimerWithOnlyOnChangesOption
 -----------------------------------------
 
-tags: 7079, timer, automate, onlyOnChanges
+tags: 7079, timer, automate, onlyOnChanges, long_running
 
 
 Changing pipeline config appropriately to use in this test

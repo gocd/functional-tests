@@ -23,7 +23,7 @@ Setup of contexts
 TestStageCancellationOrFailureAndStageRerunForADiamondConfiguration
 -------------------------------------------------------------------
 
-tags: Stage Cancellation, Stage Rerun, Fanin, #6438, 6438, Diamond Configuration
+tags: Stage Cancellation, Stage Rerun, Fanin, #6438, 6438, Diamond Configuration, long_running
 
 Let all pipelines run once
 * Trigger stage "1" of pipeline "Upstream1" with a _ run _ till _ file _ exists _ job "1" and wait for label "1" to be "Passed"
