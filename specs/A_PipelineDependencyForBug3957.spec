@@ -23,7 +23,7 @@ Setup of contexts
 A_PipelineDependencyForBug3957
 ----------------------------
 
-tags: dependency pipeline, 3695, 3957, automate
+tags: dependency pipeline, 3695, 3957, automate, long_running
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "fourth"

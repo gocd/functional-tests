@@ -24,7 +24,7 @@ Setup of contexts
 PipelineDashboardAndPipelineActivitySecurityAtStageLevel
 --------------------------------------------------------
 
-tags: 6786, Permissions
+tags: 6786, Permissions, long_running
 
 * Trigger pipelines "P5" and wait for labels "1" to pass
 * Trigger pipelines "P6" and wait for labels "1" to pass
