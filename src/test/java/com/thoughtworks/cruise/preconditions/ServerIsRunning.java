@@ -112,8 +112,12 @@ public class ServerIsRunning extends ProcessIsRunning {
         HashMap<String, String> env = new HashMap<String, String>();
         env.put("GO_SERVER_SYSTEM_PROPERTIES",
                 "-Dalways.reload.config.file=true " +
-                        "-Dcruise.buildCause.producer.interval=10000 " +
-                        "-Dmaterial.update.idle.interval=10000 " +
+                        "-Dcruise.buildCause.producer.interval=1000 " +
+                        "-Dcruise.material.update.interval=3000 " +
+                        "-Dcruise.material.update.delay=1000 " +
+                        "-Dcruise.produce.build.cause.interval=1000 " +
+                        "-Dcruise.produce.build.cause.delay=1000 " +
+                        "-Dmaterial.update.idle.interval=1000 " +
                         "-Dcruise.xmpp.port=61221 " +
                         "-Dcruise.agent.service.refresh.interval=5000 " +
                         "-Dcruise.shine.sparql.url=http://localhost:8253/go/shine/sparql.xml " +
