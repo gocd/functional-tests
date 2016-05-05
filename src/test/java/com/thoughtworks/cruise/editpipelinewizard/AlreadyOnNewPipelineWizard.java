@@ -55,6 +55,11 @@ public class AlreadyOnNewPipelineWizard extends AlreadyOnEditPipelineWizardPage 
         return expectedFields;
     }
 
+	@com.thoughtworks.gauge.Step("Mark stage manual - On new pipeline wizard")
+	public void markStageManual() {
+		browser.radio("manual").click();
+	}
+
     @com.thoughtworks.gauge.Step("Set <formFieldValues>")
 	public void set(String formFieldValues) throws Exception {
         for(FormField formField : formFields(formFieldValues)) {

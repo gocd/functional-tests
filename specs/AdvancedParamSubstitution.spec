@@ -33,6 +33,7 @@ tags: 4207, Params, template, stage1, 6820
 * Set pipeline and stage "parent_pipeline" "second_stage"
 * Go next from materials
 * Set "pipeline_group[pipeline][stage][name](text_field): stage_for_ant_target"
+* Mark stage manual - On new pipeline wizard
 * Set "pipeline_group[pipeline][stage][jobs][][name](text_field): job_for_ant_target"
 * Select task type as "Ant"
 * Set "pipeline_group[pipeline][stage][jobs][][tasks][ant][buildFile](text_field): hg/dev/build.xml"
