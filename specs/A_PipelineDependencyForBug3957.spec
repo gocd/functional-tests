@@ -37,11 +37,22 @@ tags: dependency pipeline, 3695, 3957, automate, long_running
 * Looking at pipeline "fourth"
 * Trigger pipeline
 * Verify stage "1" is "Passed" on pipeline with label "2"
+* Looking at pipeline "another-sixth"
+* Verify stage "1" is "Passed" on pipeline with label "2"
 * Looking at pipeline "fifth"
 * Trigger pipeline
 * Verify stage "1" is "Passed" on pipeline with label "2"
 * Looking at pipeline "another-sixth"
-* Verify stage "1" is "Passed" on pipeline with label "2"
+* Verify stage "1" is "Passed" on pipeline with label "3"
+
+* Commit file "new_artifact.txt" to directory "new-folder"
+* Looking at pipeline "fourth"
+* Trigger pipeline
+* Verify stage "1" is "Passed" on pipeline with label "3"
+
+* Looking at pipeline "another-sixth"
+* Verify pipeline is not getting triggered and stays at run "3"
+
 * Looking at pipeline "fifth"
 * Open trigger with options
 
@@ -52,12 +63,7 @@ tags: dependency pipeline, 3695, 3957, automate, long_running
 * Looking at pipeline "fifth"
 * Verify stage "1" is "Passed" on pipeline with label "3"
 * Looking at pipeline "another-sixth"
-* Verify stage "1" is "Passed" on pipeline with label "3"
-
-Looking at pipeline "another-sixth"
-Wait for first stage to pass with pipeline label "3"
-* Verify pipeline is not getting triggered and stays at run "3"
-Wait for first stage to pass with pipeline label "3"
+* Verify stage "1" is "Passed" on pipeline with label "4"
 
 
 
