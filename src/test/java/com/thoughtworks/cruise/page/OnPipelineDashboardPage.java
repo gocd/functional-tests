@@ -635,7 +635,7 @@ public class OnPipelineDashboardPage extends CruisePage {
     @com.thoughtworks.gauge.Step("Verify pipeline does not get triggered even once")
 	public void verifyPipelineDoesNotGetTriggeredEvenOnce() {
         Assert.assertThat(pipelineStatusMessage(), Is.is("No historical data"));
-        Assertions.assertOverTime(Timeout.TWO_MINUTES, new Function<Boolean>() {
+        Assertions.assertOverTime(Timeout.TEN_SECONDS, new Function<Boolean>() {
             public Boolean call() {
                 if ("No historical data".equals(pipelineStatusMessage())) {
                     return true;
@@ -652,7 +652,7 @@ public class OnPipelineDashboardPage extends CruisePage {
 
 	@com.thoughtworks.gauge.Step("Verify pipeline is not getting triggered and stays at run <initialPipelineLabel>")
 	public void verifyPipelineIsNotGettingTriggeredAndStaysAtRun(final String initialPipelineLabel) throws Exception {
-        Assertions.assertOverTime(Timeout.TWO_MINUTES, new Function<Boolean>() {
+        Assertions.assertOverTime(Timeout.TEN_SECONDS, new Function<Boolean>() {
             public Boolean call() {
             	reloadPage();
             	boolean stageIsPassed = cssClassOfStageBar(1, initialPipelineLabel).contains("Passed");

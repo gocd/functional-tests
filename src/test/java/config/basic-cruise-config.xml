@@ -1687,6 +1687,17 @@
                 </jobs>
             </stage>
         </pipeline>
+        <pipeline name="seventh" template="autoStagePipelineTemplate">
+            <materials>
+                <hg url="$hgurl-four" materialName="hg-first" autoUpdate="true"/>
+            </materials>
+        </pipeline>
+        <pipeline name="eigth" template="autoStagePipelineTemplate">
+            <materials>
+                <pipeline pipelineName="seventh" stageName="defaultStage"/>
+                <hg url="$hgurl-four" materialName="hg-first" autoUpdate="true"/>
+            </materials>
+        </pipeline>
         <!-- d stands for diamond -->
         <pipeline name="d-up-left" template="dependency-pipeline-template">
             <materials>
