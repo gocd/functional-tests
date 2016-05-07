@@ -473,6 +473,84 @@
     </pipeline>
   </pipelines>
 
+
+    <pipelines group="fanin-VSM">
+        <pipeline name="VSMO1">
+            <materials>
+                <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
+            </materials>
+            <stage name="stage1">
+                <jobs>
+                    <job name="job1">
+                        <tasks>
+                            <exec command="ls" />
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+        </pipeline>
+        <pipeline name="VSMO2" isLocked="false">
+            <materials>
+                <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
+            </materials>
+            <stage name="stage1">
+                <jobs>
+                    <job name="job1">
+                        <tasks>
+                            <exec command="ls" />
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+        </pipeline>
+        <pipeline name="VSMO3">
+            <materials>
+                <pipeline pipelineName="VSMO1" stageName="stage1" />
+                <pipeline pipelineName="VSMO2" stageName="stage1" />
+                <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
+            </materials>
+            <stage name="stage1">
+                <jobs>
+                    <job name="job1">
+                        <tasks>
+                            <exec command="ls" />
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+        </pipeline>
+        <pipeline name="VSMO4">
+            <materials>
+                <pipeline pipelineName="VSMO1" stageName="stage1" />
+                <pipeline pipelineName="VSMO2" stageName="stage1" />
+                <pipeline pipelineName="VSMO3" stageName="stage1" />
+            </materials>
+            <stage name="stage1">
+                <jobs>
+                    <job name="job1">
+                        <tasks>
+                            <exec command="ls" />
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+        </pipeline>
+        <pipeline name="VSMO5" isLocked="false">
+            <materials>
+                <pipeline pipelineName="VSMO4" stageName="stage1" />
+            </materials>
+            <stage name="stage1">
+                <jobs>
+                    <job name="job1">
+                        <tasks>
+                            <exec command="ls" />
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+        </pipeline>
+    </pipelines>
+
 <pipelines group="stage_rerun_for_a_diamond_configuration">
      <pipeline name="Upstream1">
             <materials>
@@ -550,7 +628,7 @@
           		<job name="defaultJob">
             		<tasks>
               			<exec command="sleep">
-                       	 <arg>90</arg>
+                       	 <arg>30</arg>
                        </exec>
                    </tasks>
                </job>
