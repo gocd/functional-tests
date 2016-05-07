@@ -16,7 +16,7 @@ A_PipelineDependencyForBug3957
 
 Setup of contexts
 * Basic configuration - setup
-* Using pipeline "fourth, fifth, another-sixth" - setup
+* Using pipeline "seventh, eigth" - setup
 * With "2" live agents in directory "StageDetails" - setup
 * Capture go state "PipelineDependencyForBug3957" - setup
 
@@ -26,38 +26,26 @@ A_PipelineDependencyForBug3957
 tags: dependency pipeline, 3695, 3957, automate, long_running
 
 * On Pipeline Dashboard Page
-* Looking at pipeline "fourth"
-* Trigger pipeline
+* Looking at pipeline "seventh"
 * Verify stage "1" is "Passed" on pipeline with label "1"
-* Looking at pipeline "fifth"
-* Trigger pipeline
+* Looking at pipeline "eigth"
 * Verify stage "1" is "Passed" on pipeline with label "1"
-* Looking at pipeline "another-sixth"
-* Verify stage "1" is "Passed" on pipeline with label "1"
-* Looking at pipeline "fourth"
-* Trigger pipeline
+
+* Commit file "new_artifact.txt" to directory "new-folder"
+* Looking at pipeline "seventh"
 * Verify stage "1" is "Passed" on pipeline with label "2"
-* Looking at pipeline "fifth"
-* Trigger pipeline
+* Looking at pipeline "eigth"
 * Verify stage "1" is "Passed" on pipeline with label "2"
-* Looking at pipeline "another-sixth"
-* Verify stage "1" is "Passed" on pipeline with label "2"
-* Looking at pipeline "fifth"
+
+* Looking at pipeline "seventh"
 * Open trigger with options
 
 * Select revision "2" in search box for material number "1"
 * Deploy
 
 * On Pipeline Dashboard Page
-* Looking at pipeline "fifth"
+* Looking at pipeline "eigth"
 * Verify stage "1" is "Passed" on pipeline with label "3"
-* Looking at pipeline "another-sixth"
-* Verify stage "1" is "Passed" on pipeline with label "3"
-
-Looking at pipeline "another-sixth"
-Wait for first stage to pass with pipeline label "3"
-* Verify pipeline is not getting triggered and stays at run "3"
-Wait for first stage to pass with pipeline label "3"
 
 
 
@@ -65,7 +53,7 @@ Teardown of contexts
 ____________________
 * Capture go state "PipelineDependencyForBug3957" - teardown
 * With "2" live agents in directory "StageDetails" - teardown
-* Using pipeline "fourth, fifth, another-sixth" - teardown
+* Using pipeline "seventh, eigth" - teardown
 * Basic configuration - teardown
 
 
