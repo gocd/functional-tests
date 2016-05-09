@@ -23,7 +23,7 @@ Setup of contexts
 FanInWithAllAutoPipelines
 -------------------------
 
-tags: diamond dependency, auto, fanin, flaky_fanin_test
+tags: diamond dependency, auto, fanin, flaky_fanin_test, long_running
 
 * Looking at pipeline "grandparent-fast"
 * Verify stage "1" is "Passed" on pipeline with label "1"
@@ -60,8 +60,8 @@ tags: diamond dependency, auto, fanin, flaky_fanin_test
 * Verify stage "1" is "Passed" on pipeline with label "3"
 
 
-* Looking at pipeline "parent-slow"
-* Verify stage "1" is "Passed" on pipeline with label "2"
+ Looking at pipeline "parent-slow"
+ Verify stage "1" is "Passed" on pipeline with label "2"
 
 
 * Looking at pipeline "child-fast"
