@@ -23,7 +23,7 @@ Setup of contexts
 StageWithFetchMaterialsAttribute
 --------------------------------
 
-tags: 4199
+tags: 4199, OOM
 
 * Add resource "first" to agent "2"
 * Add resource "second" to agent "3"

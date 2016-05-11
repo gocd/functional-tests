@@ -23,7 +23,7 @@ Setup of contexts
 StageDetailsJobTab
 ------------------
 
-tags: 3609, stage-details, automate
+tags: 3609, stage-details, automate, OOM
 
 * Looking at pipeline "pipeline-with-3-jobs"
 * Trigger pipeline

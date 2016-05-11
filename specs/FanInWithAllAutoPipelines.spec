@@ -23,7 +23,7 @@ Setup of contexts
 FanInWithAllAutoPipelines
 -------------------------
 
-tags: diamond dependency, auto, fanin, flaky_fanin_test, long_running
+tags: diamond dependency, auto, OOM
 
 * Looking at pipeline "grandparent-fast"
 * Verify stage "1" is "Passed" on pipeline with label "1"

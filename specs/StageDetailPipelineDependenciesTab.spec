@@ -24,7 +24,7 @@ Setup of contexts
 StageDetailPipelineDependenciesTab
 ----------------------------------
 
-tags: 3688, pipeline, automate
+tags: 3688, pipeline, automate, OOM
 
 * Looking at pipeline "pipeline-with-2-stages-run-till-file-exists"
 * Trigger pipeline
