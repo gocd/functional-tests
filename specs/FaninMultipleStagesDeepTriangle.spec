@@ -23,7 +23,7 @@ Setup of contexts
 FaninMultipleStagesDeepTriangle
 -------------------------------
 
-tags: diamond dependency, fanin, multiple stages, deep triangle, #6435
+tags: diamond dependency, multiple stages, deep triangle, #6435, OOM
 
 * Trigger pipelines "DeepC1, DeepC5, DeepC6" and wait for labels "1" to pass
 * Navigate to pipeline dependencies for "DeepC1" "1" "first_stage" "1"

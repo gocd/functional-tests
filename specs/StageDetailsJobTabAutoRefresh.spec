@@ -23,7 +23,7 @@ Setup of contexts
 StageDetailsJobTabAutoRefresh
 -----------------------------
 
-tags: 3609, stage-details, automate, failing, stage1
+tags: 3609, stage-details, automate, failing, stage1, OOM
 
 * Looking at pipeline "pipeline-with-3-jobs"
 * Trigger pipeline

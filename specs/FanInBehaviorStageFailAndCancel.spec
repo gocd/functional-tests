@@ -23,7 +23,7 @@ Setup of contexts
 FanInBehaviorStageFailAndCancel
 -------------------------------
 
-tags: diamond dependency, fanin, auto, 6437, 6368
+tags: diamond dependency, fanin, auto, 6437, 6368, long_running
 
 * With material "git-one" for pipeline "FS1"
 * Checkin file "new-file-1" as user "go <go@po.com>" with message "Added new-file 1"
@@ -94,7 +94,7 @@ tags: diamond dependency, fanin, auto, 6437, 6368
 
 * Open task "1"
 
-* Set "task[command](text_field): ls" - Already on Task edit popup
+* Set "task[command](text_field): sleep" - Already on Task edit popup
 * Save and verify saved successfully
 
 * On Pipeline Dashboard Page

@@ -307,7 +307,7 @@
         <jobs>
           <job name="job2">
             <tasks>
-              <exec command="ls" />
+                <exec command="sleep" args="10" />
             </tasks>
           </job>
         </jobs>
