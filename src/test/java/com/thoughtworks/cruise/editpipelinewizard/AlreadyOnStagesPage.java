@@ -157,9 +157,9 @@ public class AlreadyOnStagesPage extends AlreadyOnEditPipelineWizardPage {
         super.proceedWithConfirmPrompt();
     }
 
-    @com.thoughtworks.gauge.Step("Verify global error message <errorMessage> for pipeline <pipelineName> shows up")
-	public void verifyGlobalErrorMessageForPipelineShowsUp(String errorMessage, String pipelineName) throws Exception {
-        String completeErrorMessage = errorMessage + scenarioState.expand(pipelineName);
+    @com.thoughtworks.gauge.Step("Verify global error message <errorMessage> shows up")
+	public void verifyGlobalErrorMessageForPipelineShowsUp(String errorMessage) throws Exception {
+        String completeErrorMessage = scenarioState.expand(errorMessage);
         verifyGlobalErrorsContain(completeErrorMessage);
     }
 
