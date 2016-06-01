@@ -135,7 +135,8 @@ Rerun stage for Upstream2|4, Verify pipeline Downstream1|3 gets triggered
 * Rerun stage "defaultStage"
 
 * On Pipeline Dashboard Page
-* Trigger pipelines "Upstream2" and wait for labels "4" to pass
+* Looking at pipeline "Upstream2"
+* Wait for labels "4" to pass
 * Looking at pipeline "Downstream1"
 * Verify stage "1" is "Passed" on pipeline with label "3"
 * Open changes section for counter "3"
