@@ -78,7 +78,7 @@ Verify completing a pipeline will unlock it
 * Looking at pipeline "environment-pipeline-locked"
 * Wait for stage "lastStage" status to be "Passed" with label "2"
 * Trigger pipeline
-* Verify stage "1" is "Building" on pipeline with label "3"
+* Verify stage "1" is "Passed" on pipeline with label "3"
 
 Verify a pipeline with a failed stage can be unlocked
 
