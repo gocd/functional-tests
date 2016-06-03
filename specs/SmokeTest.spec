@@ -24,7 +24,7 @@ Setup of contexts
 SmokeTest
 ---------
 
-tags: automate, smoke, #3303
+tags: automate, smoke, #3303, ignore_on_ie
 
 
 * Setting first stage of "downstream-pipeline" to auto approval
