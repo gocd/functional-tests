@@ -86,6 +86,12 @@ public class OnPipelineDashboardPage extends CruisePage {
         open();
     }
 
+    @com.thoughtworks.gauge.Step("Turn off autoRefresh - On Pipeline Dashboard Page")
+    public void turnOffAutoRefresh() throws Exception {
+        autoRefresh = false;
+        open();
+    }
+
     @com.thoughtworks.gauge.Step("On Pipeline Dashboard Page")
     public void goToPipelineDashboradPage() throws Exception {
         navigateToURL();
