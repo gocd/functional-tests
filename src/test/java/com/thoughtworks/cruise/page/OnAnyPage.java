@@ -59,7 +59,9 @@ public class OnAnyPage extends CruisePage {
 		Assertions.waitUntil(Timeout.THREE_MINUTES, new Predicate() {
 			@Override
 			public boolean call() throws Exception {
-				reloadPage();
+				if (!autoRefresh) {
+					reloadPage();
+				}
 				ElementStub errors = errorCountElement();
 				if (!errors.exists()) {
 					return false;
@@ -75,7 +77,9 @@ public class OnAnyPage extends CruisePage {
 		Assertions.waitUntil(Timeout.FIVE_MINUTES, new Predicate() {
 			@Override
 			public boolean call() throws Exception {
-				reloadPage();
+				if (!autoRefresh) {
+					reloadPage();
+				}
 				ElementStub warnings = warningCountElement();
 				if (!warnings.exists()) {
 					return false;
@@ -133,7 +137,9 @@ public class OnAnyPage extends CruisePage {
 		Assertions.waitUntil(Timeout.ONE_MINUTE, new Predicate() {
 			@Override
 			public boolean call() {
-				reloadPage();
+				if (!autoRefresh) {
+					reloadPage();
+				}
 				return !errorCountElement().exists();
 			}			
 		});		
@@ -156,9 +162,17 @@ public class OnAnyPage extends CruisePage {
 			}
 		});
     }
+
+	@com.thoughtworks.gauge.Step("Turn on autoRefresh - On Any Page")
 	public void turnOnAutoRefresh() throws Exception {
 		this.autoRefresh = true;
 		browser.navigateTo(browserWrapper.getCurrentUrl() + "?autoRefresh=", true);
+	}
+
+	@com.thoughtworks.gauge.Step("Turn off autoRefresh - On Any Page")
+	public void turnOffAutoRefresh() throws Exception {
+		this.autoRefresh = false;
+		browser.navigateTo(browserWrapper.getCurrentUrl() + "?autoRefresh=", false);
 	}
     
     @com.thoughtworks.gauge.Step("Stop <numberOfJobs> jobs waiting for file")

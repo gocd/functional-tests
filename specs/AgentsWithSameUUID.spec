@@ -37,11 +37,15 @@ MAKE THIS SCENARIO RUN IN WINDOWS ONCE THE BUG https://mingle05.thoughtworks.com
 
 * Start "1" agents with uUID "raghu420-4jj2-jake-gogo-pavan840yogi"
 
+* Turn on autoRefresh - On Any Page
+
 * Verify there are "2" warnings
 * Open error and warning messages popup
 
 * Verify warning "message" contains "has duplicate unique identifier"
 * Verify warning "description" contains "Please check the agent installation."
+
+* Turn off autoRefresh - On Any Page
 
 
 * Verify has "1" idle agents
@@ -58,7 +62,10 @@ MAKE THIS SCENARIO RUN IN WINDOWS ONCE THE BUG https://mingle05.thoughtworks.com
 
 * Verify has "3" idle agents
 
+* Turn on autoRefresh - On Any Page
+
 * Wait for warnings to disappear
+* Turn off autoRefresh - On Any Page
 
 * On Pipeline Dashboard Page
 * Trigger pipelines "basic-pipeline-fast" and wait for labels "1" to pass

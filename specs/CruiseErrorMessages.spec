@@ -36,6 +36,7 @@ tags: 1996, svn support, diagnostics messages, timer, 2272, automate, failing, l
 
 * Looking at pipeline "basic-pipeline-with-all-materials"
 * Trigger pipeline
+* Turn on autoRefresh - On Pipeline Dashboard Page
 * Verify there are at least "5" errors
 * Open error and warning messages popup
 
@@ -177,6 +178,8 @@ tags: 1996, svn support, diagnostics messages, timer, 2272, automate, failing, l
 * Verify there are no error messages
 
 * Verify there are no error messages
+
+* Turn off autoRefresh - On Pipeline Dashboard Page
 
 
 Teardown of contexts
