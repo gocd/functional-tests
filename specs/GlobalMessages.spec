@@ -29,6 +29,8 @@ tags: 3540, global messages, automate
 
 * Trigger pipeline
 
+* Turn on autoRefresh - On Pipeline Dashboard Page
+
 * Verify there are at least "1" errors
 * Verify there are "1" warnings
 
@@ -51,6 +53,8 @@ tags: 3540, global messages, automate
 
 * Verify warning "message" do not contain "The change in the artifacts directory location will not take effect until the Go Server is restarted"
 * Close
+
+* Turn off autoRefresh - On Pipeline Dashboard Page
 
 
 
