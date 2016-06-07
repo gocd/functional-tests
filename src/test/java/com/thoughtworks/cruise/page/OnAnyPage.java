@@ -114,7 +114,9 @@ public class OnAnyPage extends CruisePage {
 		Assertions.waitUntil(Timeout.ONE_MINUTE, new Predicate() {
 			@Override
 			public boolean call() {
-				reloadPage();
+				if (!autoRefresh) {
+					reloadPage();
+				}
 				ElementStub messagesLink = browser.link(0).in(messagesElement());
 				if (messagesLink.exists()) {
 					messagesLink.click();
