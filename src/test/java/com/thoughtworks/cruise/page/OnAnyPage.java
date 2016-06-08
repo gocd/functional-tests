@@ -166,13 +166,25 @@ public class OnAnyPage extends CruisePage {
 	@com.thoughtworks.gauge.Step("Turn on autoRefresh - On Any Page")
 	public void turnOnAutoRefresh() throws Exception {
 		this.autoRefresh = true;
-		browser.navigateTo(browserWrapper.getCurrentUrl() + "?autoRefresh=", true);
+		String url = browserWrapper.getCurrentUrl();
+		if(!url.contains("autoRefresh")) {
+			url = url + "?autoRefresh=true";
+		} else {
+			url = url.replaceAll("autoRefresh=false", "autoRefresh=true");
+		}
+		browser.navigateTo(url, true);
 	}
 
 	@com.thoughtworks.gauge.Step("Turn off autoRefresh - On Any Page")
 	public void turnOffAutoRefresh() throws Exception {
 		this.autoRefresh = false;
-		browser.navigateTo(browserWrapper.getCurrentUrl() + "?autoRefresh=", false);
+		String url = browserWrapper.getCurrentUrl();
+		if(!url.contains("autoRefresh")) {
+			url = url + "?autoRefresh=false";
+		} else {
+			url = url.replaceAll("autoRefresh=true", "autoRefresh=false");
+		}
+		browser.navigateTo(url, true);
 	}
     
     @com.thoughtworks.gauge.Step("Stop <numberOfJobs> jobs waiting for file")

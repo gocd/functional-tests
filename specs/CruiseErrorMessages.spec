@@ -113,6 +113,7 @@ tags: 1996, svn support, diagnostics messages, timer, 2272, automate, failing, l
 * On Pipeline Dashboard Page
 * Navigate to stage "defaultStage" of run "1"
 
+* Turn on autoRefresh - On Any Page
 * Verify there are at least "5" errors
 * Open error and warning messages popup
 
@@ -146,6 +147,7 @@ tags: 1996, svn support, diagnostics messages, timer, 2272, automate, failing, l
 
 * Make cruise config file invalid
 
+* Turn on autoRefresh - On Pipeline Dashboard Page
 * Verify there are at least "5" errors
 * Open error and warning messages popup
 
@@ -157,6 +159,7 @@ tags: 1996, svn support, diagnostics messages, timer, 2272, automate, failing, l
 
 * Restore config by name "LastValid"
 
+* Turn on autoRefresh - On Pipeline Dashboard Page
 * Verify there are no error messages
 
 * Verify there are no error messages
@@ -170,16 +173,19 @@ tags: 1996, svn support, diagnostics messages, timer, 2272, automate, failing, l
 * On Pipeline Dashboard Page
 * Navigate to pipeline dependencies for "basic-pipeline-with-all-materials" "1" "defaultStage" "1"
 
+* Turn on autoRefresh - On Pipeline Dashboard Page
 * Verify there are no error messages
 
 * On Pipeline Dashboard Page
 * Navigate to stage "defaultStage" of run "1"
 
-* Verify there are no error messages
+* Turn on autoRefresh - On Any Page
 
 * Verify there are no error messages
 
-* Turn off autoRefresh - On Pipeline Dashboard Page
+* Verify there are no error messages
+
+* Turn off autoRefresh - On Any Page
 
 
 Teardown of contexts
