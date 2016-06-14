@@ -52,7 +52,7 @@ tags: 4600, Clicky Admin, 7862
 * Verify the stages are "defaultStage,defaultStage2,defaultStage3"
 * Delete stage "defaultStage2" and confirm deletion
 * Delete stage "defaultStage"
-* Verify global error message "Stage with name 'defaultStage' does not exist on pipeline " for pipeline "'${runtime_name:pipeline1}'" shows up
+* Verify global error message "Stage with name 'defaultStage' does not exist on pipeline '${runtime_name:pipeline1}', it is being referred to from pipeline '${runtime_name:pipeline-without-template}' (cruise-config.xml)" shows up
 
 * Open stage "defaultStage3"
 
