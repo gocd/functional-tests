@@ -331,7 +331,7 @@ public class OnAgentsPage extends CruisePage {
 
 	@com.thoughtworks.gauge.Step("Verify has <count> idle agents")
 	public void verifyHasIdleAgents(final Integer count) throws Exception {
-		Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Assertion<Integer>() {
+		Assertions.waitUntil(Timeout.ONE_MINUTE, new Assertion<Integer>() {
 			public Integer actual() {
 				try {
 					reloadPage();
