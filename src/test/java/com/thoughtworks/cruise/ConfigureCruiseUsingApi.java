@@ -322,6 +322,14 @@ public class ConfigureCruiseUsingApi {
 		configuration.setDom(dom);
 	}
 
+	@com.thoughtworks.gauge.Step("Invert file filter for pipeline <pipelineName>")
+	public void invertFileFilterForPipeline(final String pipelineName){
+		CruiseConfigDom dom = configuration.provideDom();
+		dom.invertFileFilter(scenarioState.pipelineNamed(pipelineName));
+		System.out.println("this is the xml posted:" + dom.asXml().toString());
+		configuration.setDom(dom);
+	}
+
     @com.thoughtworks.gauge.Step("As current User")
     public void setUseCurrentUser(){
         this.useCurrentUser=true;

@@ -1537,6 +1537,36 @@
                 </jobs>
             </stage>
         </pipeline>
+        <pipeline name="whitelist_pipeline">
+            <materials>
+                <hg url="$hgurl-whitelist-pipeline-with-filter" dest="hg" autoUpdate="true" materialName="hg">
+                    <filter>
+                        <ignore pattern="*.txt"/>
+                    </filter>
+                </hg>
+                <svn url="svn-url-whitelist-pipeline" dest="svn" autoUpdate="true" materialName="svn">
+                    <filter>
+                        <ignore pattern="*.txt"/>
+                    </filter>
+                </svn>
+                <git url="$git-on-whitelist-pipeline" dest="git" autoUpdate="true" materialName="git">
+                    <filter>
+                        <ignore pattern="*.txt"/>
+                    </filter>
+                </git>
+            </materials>
+            <stage name="first_stage">
+                <jobs>
+                    <job name="defaultJob">
+                        <tasks>
+                            <exec command="ls">
+                                <runif status="passed" />
+                            </exec>
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+        </pipeline>
     </pipelines>
     <pipelines group="dependency-group">
 
