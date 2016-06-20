@@ -1892,4 +1892,16 @@ public class CruiseConfigDom {
 		Element materials = (Element) pipeline.selectSingleNode("materials");
 		materials.addElement("package").addAttribute("ref", packageId);
 	}
+
+	public void invertFileFilter(String pipelineName) {
+		List<Element> materials = materialsForPipeline(pipelineName);
+		for (Element material : materials) {
+			Attribute invertFile = material.attribute("invertFilter");
+			if (invertFile == null) {
+				material.add(new DefaultAttribute("invertFilter", "true"));
+			} else {
+				invertFile.setValue("true");
+			}
+		}
+	}
 }
