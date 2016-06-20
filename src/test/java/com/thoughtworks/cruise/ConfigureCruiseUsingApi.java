@@ -326,7 +326,6 @@ public class ConfigureCruiseUsingApi {
 	public void invertFileFilterForPipeline(final String pipelineName){
 		CruiseConfigDom dom = configuration.provideDom();
 		dom.invertFileFilter(scenarioState.pipelineNamed(pipelineName));
-		System.out.println("this is the xml posted:" + dom.asXml().toString());
 		configuration.setDom(dom);
 	}
 
