@@ -44,11 +44,6 @@ public class PipelineConfigAPI {
     private String auth = "Basic "+new String(Base64.encode("admin:badger".getBytes())); //"Basic YWRtaW46YmFkZ2Vy";
     private String apiv1 = "application/vnd.go.cd.v1+json";
     private String contentType = "application/json";
-    protected final ScenarioState scenarioState;
-
-    public PipelineConfigAPI(ScenarioState scenarioState){
-        this.scenarioState = scenarioState;
-    }
 
     @com.thoughtworks.gauge.Step("Using Pipeline Config API")
     public void useConfigAPI() throws IOException {
@@ -131,7 +126,7 @@ public class PipelineConfigAPI {
     public void deletePipelineAsAdminUser(String pipeline, String user, String element, String value) throws Exception {
 
         Response response = deletePipeline(pipeline,"admin");
-        response.then().statusCode(200).and().body(element,Matchers.containsString(scenarioState.expand(value)));
+        response.then().statusCode(200).and().body(element,Matchers.containsString(value));
 
     }
 
