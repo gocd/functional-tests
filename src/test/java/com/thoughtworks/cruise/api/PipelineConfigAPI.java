@@ -19,6 +19,7 @@ package com.thoughtworks.cruise.api;
 import com.jayway.restassured.*;
 import com.jayway.restassured.response.Response;
 import com.thoughtworks.cruise.Urls;
+import com.thoughtworks.cruise.state.ScenarioState;
 import com.thoughtworks.xstream.core.util.Base64Encoder;
 import org.bouncycastle.util.encoders.Base64;
 import org.hamcrest.Matchers;
@@ -113,6 +114,23 @@ public class PipelineConfigAPI {
 
     }
 
+    @com.thoughtworks.gauge.Step("Delete pipeline <pipeline> as <user> user should return access denied error")
+    public void deletePipelineAsViewUser(String pipeline, String user) throws Exception {
+
+        Response response = deletePipeline(pipeline,"view");
+        response.then().statusCode(403);
+
+    }
+
+    @com.thoughtworks.gauge.Step("Delete pipeline <pipeline> as <user> user should have <element> as <value>")
+    public void deletePipelineAsAdminUser(String pipeline, String user, String element, String value) throws Exception {
+
+        Response response = deletePipeline(pipeline,"admin");
+        response.then().statusCode(200).and().body(element,Matchers.containsString(value));
+
+    }
+
+
     @com.thoughtworks.gauge.Step("Get pipeline <pipelineName>")
     public Response getPipeline(String pipeline) throws IOException {
 
@@ -143,6 +161,19 @@ public class PipelineConfigAPI {
                 headers(headers).
                 body(getFileAsString(getClass().getResourceAsStream("/config/config_json/" + file))).
                 when().put(Urls.urlFor("/go/api/admin/pipelines/"+pipeline));
+    }
+
+    private Response deletePipeline(String pipeline, String user) throws Exception {
+
+        HashMap<String, String> headers = new HashMap<String, String>();
+
+        headers.put("Authorization", "Basic "+new String(Base64.encode((user+":badger").getBytes())));
+        headers.put("Accept", apiv1);
+        headers.put("Content-Type", contentType);
+
+        return RestAssured.given().
+                headers(headers).
+                when().delete(Urls.urlFor("/go/api/admin/pipelines/"+pipeline));
     }
 
     private String getFileAsString(InputStream in) throws IOException {
