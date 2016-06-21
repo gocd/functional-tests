@@ -33,6 +33,9 @@ tags: configAPI, pipeline_config
 * Update pipeline "complete_pipeline" with "complete_pipeline_updated.json"
 * Verify pipeline "complete_pipeline" has "stages.name" has item "updated_stage"
 
+* Delete pipeline "complete_pipeline" as "view" user should return access denied error
+* Delete pipeline "complete_pipeline" as "admin" user should have "message" as "Pipeline '${runtime_name:complete_pipeline}' was deleted successfully"
+
 tear downs
 ___________
 
