@@ -67,6 +67,24 @@ tags: tfs, 6194, internal
 
 * Verify pipeline is at label "1" and does not get triggered
 
+Check the whitelist feature
+
+* Invert file filter for pipeline "basic-tfs-pipeline"
+
+* With material named "tfs_mat" in pipeline "basic-tfs-pipeline"
+* Modify file "IgnoredFile.ignore.txt" as "ignoreuser"
+* Checkin as "ignoreuser" with message "should NOT be ignored"
+
+* Verify stage "1" is "Passed" on pipeline with label "2"
+
+* With material named "tfs_mat" in pipeline "basic-tfs-pipeline"
+* Modify file "Folder with space/tobeignored.txt" as "ignoreuser"
+* Checkin as "ignoreuser" with message "should NOT be ignored again"
+
+* Verify stage "1" is "Passed" on pipeline with label "3"
+
+Whitelist steps ends here
+
 * Click on pipeline "basic-tfs-pipeline" for editing
 
 * Open material listing page
@@ -81,14 +99,14 @@ tags: tfs, 6194, internal
 * Checkin as "luser" with message "interesting comment by luser"
 
 * On Pipeline Dashboard Page
-* Trigger pipelines "basic-tfs-pipeline" and wait for labels "2" to pass
-* Open changes section for counter "2"
+* Trigger pipelines "basic-tfs-pipeline" and wait for labels "4" to pass
+* Open changes section for counter "4"
 
-* Looking at material of type "Team Foundation Server" named "tfs_mat" for pipeline "basic-tfs-pipeline" with counter "2"
+* Looking at material of type "Team Foundation Server" named "tfs_mat" for pipeline "basic-tfs-pipeline" with counter "4"
 * Verify modification "0" has comment containing "interesting comment by luser"
 
 * Looking at pipeline "basic-tfs-pipeline"
-* Navigate to materials for "basic-tfs-pipeline" "2" "defaultStage" "1"
+* Navigate to materials for "basic-tfs-pipeline" "4" "defaultStage" "1"
 
 * Looking at material of type "Tfs" named "tfs_mat"
 * Verify material has changed - Already On Build Cause Section
@@ -108,7 +126,7 @@ tags: tfs, 6194, internal
 * On Pipeline Dashboard Page
 * Looking at pipeline "basic-tfs-pipeline"
 * Trigger pipeline
-* Verify stage "1" is "Passed" on pipeline with label "3"
+* Verify stage "1" is "Passed" on pipeline with label "5"
 
 * Click on pipeline "basic-tfs-pipeline" for editing
 
@@ -124,7 +142,7 @@ tags: tfs, 6194, internal
 * On Pipeline Dashboard Page
 * Looking at pipeline "basic-tfs-pipeline"
 * Trigger pipeline
-* Verify stage "1" is "Passed" on pipeline with label "4"
+* Verify stage "1" is "Passed" on pipeline with label "6"
 
 * Click on pipeline "basic-tfs-pipeline" for editing
 
@@ -139,8 +157,8 @@ tags: tfs, 6194, internal
 * On Pipeline Dashboard Page
 * Looking at pipeline "basic-tfs-pipeline"
 * Trigger pipeline
-* Verify stage "1" is "Passed" on pipeline with label "5"
-* Navigate to stage "defaultStage" of run "5" having counter "1"
+* Verify stage "1" is "Passed" on pipeline with label "7"
+* Navigate to stage "defaultStage" of run "7" having counter "1"
 * Navigate to job "defaultJob-runOnAll-1"
 * Open console tab
 * Verify console contains "Cleaning working directory"
