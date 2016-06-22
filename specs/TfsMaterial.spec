@@ -70,6 +70,9 @@ tags: tfs, 6194, internal
 Check the whitelist feature
 
 * Invert file filter for pipeline "basic-tfs-pipeline"
+* Enable material autoupdate for "basic-tfs-pipeline"
+* Change approval type to "success" for "basic-tfs-pipeline" stage "defaultStage"
+
 
 * With material named "tfs_mat" in pipeline "basic-tfs-pipeline"
 * Modify file "IgnoredFile.ignore.txt" as "ignoreuser"
@@ -84,6 +87,8 @@ Check the whitelist feature
 * Verify stage "1" is "Passed" on pipeline with label "3"
 
 Whitelist steps ends here
+
+* Change approval type to "manual" for "basic-tfs-pipeline" stage "defaultStage"
 
 * Click on pipeline "basic-tfs-pipeline" for editing
 
