@@ -329,6 +329,20 @@ public class ConfigureCruiseUsingApi {
 		configuration.setDom(dom);
 	}
 
+	@com.thoughtworks.gauge.Step("Enable material autoupdate for <pipelineName>")
+	public void enableAutoUpdateForPipeline(final String pipelineName){
+		CruiseConfigDom dom = configuration.provideDom();
+		dom.enableAutoUpdate(scenarioState.pipelineNamed(pipelineName));
+		configuration.setDom(dom);
+	}
+
+	@com.thoughtworks.gauge.Step("Change approval type to <type> for <pipelineName> stage <stage>")
+	public void changeStageApprovalForPipeline(final String type, final String pipelineName, final String stage){
+		CruiseConfigDom dom = configuration.provideDom();
+		dom.setApprovalTypeForStage(scenarioState.pipelineNamed(pipelineName),stage,type);
+		configuration.setDom(dom);
+	}
+
     @com.thoughtworks.gauge.Step("As current User")
     public void setUseCurrentUser(){
         this.useCurrentUser=true;
