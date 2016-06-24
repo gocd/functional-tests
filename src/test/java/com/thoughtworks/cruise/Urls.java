@@ -21,7 +21,7 @@ import java.net.URLEncoder;
 import java.net.UnknownHostException;
 
 public class Urls {
-	
+
 	public static final String SERVER_PORT = System.getenv("TWIST_CRUISE_PORT") != null ? System.getenv("TWIST_CRUISE_PORT") : "8253";
 	public static final String SSL_PORT = System.getenv("TWIST_CRUISE_SSL_PORT") != null ? System.getenv("TWIST_CRUISE_SSL_PORT") : "8254";
 	private static final String SERVER_HOST = getHostName();
@@ -29,7 +29,7 @@ public class Urls {
 	private static final String HTTPS_URL_BASE = "https://" + SERVER_HOST + ":" + SSL_PORT;
 	private static final String LOCALHOST_SSL_URL_BASE = "https://localhost:" + SSL_PORT;
 	private static final String LOCALHOST_URL_BASE = "http://localhost:" + SERVER_PORT;
-	
+
 	public static String urlFor(String url) {
 		if (url.matches("^http[s]?://.*")) {
 			return url;
@@ -37,11 +37,11 @@ public class Urls {
 		url = pathFor(url);
 		return URL_BASE + url;
 	}
-	
+
 	public static String sslUrlFor(String url) {
 		return HTTPS_URL_BASE + pathFor(url);
 	}
-	
+
 	public static String localhostSslUrlFor(String url) {
 		return LOCALHOST_SSL_URL_BASE + pathFor(url);
 	}
@@ -60,7 +60,7 @@ public class Urls {
 	}
 
 	private static String pathFor(String url) {
-		if (!url.startsWith("/go")) {	
+		if (!url.startsWith("/go")) {
 			url = "/go" + url;
 		}
 		return url;
@@ -73,7 +73,7 @@ public class Urls {
 	public static String jobFeedUrl() {
 		return urlFor("/api/feeds/jobs.xml");
 	}
-	
+
 	public static String stageFeedUrl(String pipelineName) {
 		return urlFor(String.format("/api/pipelines/%s/stages.xml", pipelineName));
 	}
@@ -86,7 +86,7 @@ public class Urls {
 	public static String stageDetailUrlfor(String stageIdentifier) {
 		return urlFor("/pipelines/" + stageIdentifier);
 	}
-	
+
 	public static String ccTrayUrl() {
 		return urlFor("/cctray.xml");
 	}
@@ -100,7 +100,7 @@ public class Urls {
 	}
 
 	public static String oauthAuthorize(String id, String redirectURI, boolean shouldEscape) {
-		String pathAndQuery = String .format("%s?redirect_uri=%s&client_id=%s&response_type=code", 
+		String pathAndQuery = String .format("%s?redirect_uri=%s&client_id=%s&response_type=code",
 				"/oauth/authorize", redirectURI, id);
 		try {
 			return localhostSslUrlFor(shouldEscape ? URLEncoder.encode(pathAndQuery, "UTF-8") : pathAndQuery);
@@ -112,23 +112,23 @@ public class Urls {
 	public static String gadgetUrl(String gadgetName) {
 		return "https://localhost:" + SSL_PORT + "/go/gadgets/" + gadgetName;
 	}
-	
+
 	public static String gadgetUrlForPipeline(String pipelineName) {
 		return sslUrlFor("/gadgets/pipeline/content?pipeline_name=" + pipelineName);
 	}
 
 	public static String deleteAllBackupExtries() {
-		return urlFor("/admin/backup/delete_all");
+		return urlFor("/add-on/test-addon/admin/backups/delete");
 	}
 
     public static String svnPostCommitHook() {
         return urlFor("/go/api/material/notify/svn");
     }
-    
+
     public static String gitPostCommitHook() {
         return urlFor("/go/api/material/notify/git");
     }
-    
+
     public static String hgPostCommitHook() {
         return urlFor("/go/api/material/notify/hg");
     }

@@ -26,8 +26,18 @@ UNZIP -o target/zip/go-server*.zip -d target
 UNZIP -o target/zip/go-agent*.zip -d target
 REGEDIT /S /C WindowsSupport/ie-securitysettings.reg
 
-echo  modify twist properties
+echo copying the test addon
+rmdir /s /q target\go-server-%GO_VERSION%\addons
+mkdir target\go-server-%GO_VERSION%\addons
+copy target\test-addon\test-addon-*.jar target\go-server-%GO_VERSION%\addons
+dir target\go-server-%GO_VERSION%\addons
 
+echo copying the example plugins, except yum repo poller, because it is bundled
+del target\go-plugins-dist\yum-repo-exec-poller.jar
+mkdir target\go-server-%GO_VERSION%\plugins\external
+copy target\go-plugins-dist\*.jar target\go-server-%GO_VERSION%\plugins\external
+
+echo  modify twist properties
 ren src\\test\\java\\twist.properties twist.firefox.properties
 ren src\\test\\java\\twist.win.properties twist.properties
 
