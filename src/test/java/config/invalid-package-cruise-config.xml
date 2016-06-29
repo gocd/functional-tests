@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- *************************GO-LICENSE-START******************************
+ * Copyright 2016 ThoughtWorks, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *************************GO-LICENSE-END******************************* -->
+
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="82">
+    <server artifactsdir="artifacts" serverId="twist">
+    </server>
+
+    <repositories>
+
+        <repository id="repo-with-dup-and-invalid-keys" name="repo-with-dup-and-invalid-keys">
+            <pluginConfiguration id="yum" version="1"/>
+            <configuration>
+                <property>
+                    <key>REPO_URL</key>
+                    <value>$repo3</value>
+                </property>
+                <property>
+                    <key>REPO_URL_DUP</key>
+                    <value>$repo3</value>
+                </property>
+            </configuration>
+            <packages>
+                <package id="pkg-dup-and-invalid-keys" name="pkg-dup-and-invalid-keys">
+                    <configuration>
+                        <property>
+                            <key>PACKAGE_SPEC</key>
+                            <value>go-server</value>
+                        </property>
+                        <property>
+                            <key>PACKAGE_SPEC_DUP</key>
+                            <value>go-server</value>
+                        </property>
+                    </configuration>
+                </package>
+            </packages>
+        </repository>
+        <repository id="repo-with-empty-key-value" name="repo-with-empty-key-value">
+            <pluginConfiguration id="yum" version="1"/>
+            <configuration>
+                <property>
+                    <key>REPO_URL</key>
+                    <value/>
+                </property>
+            </configuration>
+            <packages>
+                <package id="pkg-with-empty-key-value" name="pkg-with-empty-key-value">
+                    <configuration>
+                        <property>
+                            <key>PACKAGE_SPEC</key>
+                            <value/>
+                        </property>
+                    </configuration>
+                </package>
+            </packages>
+        </repository>
+    </repositories>
+
+    <pipelines group="mduErrors">
+
+
+        <pipeline name="M8" template="A-series">
+            <materials>
+                <package ref="pkg-dup-and-invalid-keys" />
+            </materials>
+        </pipeline>
+
+        <pipeline name="M9" template="A-series">
+            <materials>
+                <package ref="pkg-with-empty-key-value" />
+            </materials>
+        </pipeline>
+
+    </pipelines>
+
+
+    <templates>
+
+
+
+        <pipeline name="A-series">
+            <stage name="defaultStage">
+                <jobs>
+                    <job name="defaultJob">
+                        <tasks>
+                            <exec command="ls" />
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+        </pipeline>
+
+
+    </templates>
+
+    <agents>
+        <agent hostname="missing-agent" ipaddress="10.232.3.1" uuid="missing">
+            <resources>
+                <resource>missing</resource>
+            </resources>
+        </agent>
+        <agent hostname="denied-agent" ipaddress="10.232.3.2" uuid="denied" isDisabled="true">
+            <resources>
+                <resource>denied</resource>
+            </resources>
+        </agent>
+    </agents>
+</cruise>

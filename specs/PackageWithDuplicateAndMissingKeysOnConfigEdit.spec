@@ -1,5 +1,5 @@
 // --GO-LICENSE-START--
-// Copyright 2015 ThoughtWorks, Inc.
+// Copyright 2016 ThoughtWorks, Inc.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -15,7 +15,7 @@ PackageWithDuplicateAndMissingKeysOnConfigEdit
 ==============================================
 
 Setup of contexts
-* Package configuration - setup
+* Invalid Package configuration - setup
 * Using pipeline "M8,M9" - setup
 * Capture go state "RPMPackageWithMDUErrors" - setup
 
@@ -54,14 +54,10 @@ old message: Verify error message "Modification check failed for material: Repos
 * Verify error message "Duplicate key 'PACKAGE_SPEC' found for Package 'pkg-dup-and-invalid-keys'" is shown - Already on Source Xml Tab
 
 
-
-
-
-
 Teardown of contexts
 ____________________
 * Capture go state "RPMPackageWithMDUErrors" - teardown
 * Using pipeline "M8,M9" - teardown
-* Package configuration - teardown
+* Invalid Package configuration - teardown
 
 
