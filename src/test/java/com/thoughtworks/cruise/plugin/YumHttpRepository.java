@@ -73,8 +73,7 @@ public class YumHttpRepository {
         File[] cacheFiles = new File("/var/tmp/").listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
-                String currentUser = System.getProperty("user.name") != null ? System.getProperty("user.name") : "go";
-                return name.startsWith(String.format("yum-%s-", currentUser));
+                return name.startsWith("go-yum-plugin-");
             }
         });
         for (File cacheFile : cacheFiles) {

@@ -56,7 +56,7 @@ public class AlreadyOnDeploymentLightBox implements DisposableBean {
 
 		public boolean call() throws Exception {
 			action.performAction();
-			Thread.sleep(200);//because animation takes 150 mills
+			Thread.sleep(1000);//because animation takes 150 mills
 			ElementStub autoCompleteContent = browser.byId(autocompleteContentId());
 			if (!autoCompleteContent.isVisible() && shouldBeShown()) {
 				throw new RuntimeException("Material revision suggestion should have been shown");
