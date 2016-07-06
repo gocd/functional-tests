@@ -73,4 +73,8 @@ public class CruiseConstants {
     public static final String I18N_CACHE_LIFE = "cruise.i18n.cache.life";
     public static final String SAHI_TESTS = System.getenv("SAHI_TESTS") != null ? System.getenv("SAHI_TESTS") : "Y";
     public static final String WEBDRIVER_TESTS = System.getenv("WEBDRIVER_TESTS") != null ? System.getenv("WEBDRIVER_TESTS") : "N";
+
+    public static final String apiV1 = "application/vnd.go.cd.v1+json";
+    public static final String apiV2 = "application/vnd.go.cd.v2+json";
+
 }

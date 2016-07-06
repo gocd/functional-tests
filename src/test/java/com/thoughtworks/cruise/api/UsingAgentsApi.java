@@ -17,6 +17,8 @@
 package com.thoughtworks.cruise.api;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.api.response.AgentInformation;
 import com.thoughtworks.cruise.api.response.AgentJobRunHistory;
@@ -24,7 +26,14 @@ import com.thoughtworks.cruise.api.response.JobInstance;
 import com.thoughtworks.cruise.client.TalkToCruise;
 import com.thoughtworks.cruise.client.TalkToCruise.CruiseResponse;
 import com.thoughtworks.cruise.state.ScenarioState;
+import com.thoughtworks.cruise.util.CruiseConstants;
+import com.thoughtworks.cruise.utils.Assertions;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.Assert;
+
+import java.util.HashMap;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -33,6 +42,8 @@ public class UsingAgentsApi {
 	private CruiseResponse cruiseResponse;
 	private final ScenarioState state;
 	private final TalkToCruise talkToCruise;
+	private String apiv2 = "application/vnd.go.cd.v2+json";
+	private String contentType = "application/json";
 	
 	public UsingAgentsApi(ScenarioState state, TalkToCruise talkToCruise) {
 		this.state = state;
@@ -41,16 +52,21 @@ public class UsingAgentsApi {
 
 	@com.thoughtworks.gauge.Step("Enable <uuid>")
 	public void enable(String uuid) {		
-		operating(uuid, "enable");
+		operating(uuid, "Enabled");
 	}
 
 	private void operating(String uuid, String action) {
-		String url = Urls.urlFor(String.format("/api/agents/%s/%s",uuid,action));
-		this.cruiseResponse = talkToCruise.post(url);
+		String url = Urls.urlFor(String.format("/api/agents/%s",uuid));
+		if(action == "delete"){
+			this.cruiseResponse = talkToCruise.delete(url, true, CruiseConstants.apiV2);
+		}else {
+			String body = "{\"agent_config_state\": \"" + action + "\"}";
+			this.cruiseResponse = talkToCruise.patch(url, body);
+		}
 	}
 
 	public void disable(String uuid) {		 
-		operating(uuid, "disable");
+		operating(uuid, "Disabled");
 	}
 
 	@com.thoughtworks.gauge.Step("Verify return code is <status>")
@@ -65,12 +81,14 @@ public class UsingAgentsApi {
 		operating(uuid, "delete");
 	}
 
-	public AgentInformation[] listInformationOfAllAgents() {
+	public AgentInformation[] listInformationOfAllAgents() throws JSONException {
 		String url = Urls.urlFor("/api/agents");
 		this.cruiseResponse = talkToCruise.get(url);
 		String jsonResponse = this.cruiseResponse.getBody();
-		
-		return new Gson().fromJson(jsonResponse, AgentInformation[].class);
+		JSONObject jsonObj = new JSONObject(jsonResponse);
+		JSONArray agents = jsonObj.getJSONObject("_embedded").getJSONArray("agents");
+
+		return new Gson().fromJson(agents.toString(), AgentInformation[].class);
 	}
 
 	@com.thoughtworks.gauge.Step("Verify <count> instances of <pipelineName> <stageName> <jobName> <status> - Using Agents Api")
@@ -94,13 +112,17 @@ public class UsingAgentsApi {
 
 	private String getAgentUUIDForTheOnlyIdleAgent() {
 		String agentUUID = null;
-		AgentInformation[] agents = listInformationOfAllAgents();
+
+		try {
+			AgentInformation[] agents = listInformationOfAllAgents();
+
 		for (AgentInformation agent : agents) {
 			if (!(agent.getStatus().equals("Missing") || agent.getStatus().equals("Disabled"))) {
 				agentUUID = agent.getUuid();
 				break;
 			}
 		}
+		}catch(Exception e){e.printStackTrace();}
 
 		if (agentUUID == null) {
 			throw new RuntimeException("could not find idle agent");

@@ -16,7 +16,9 @@
 
 package com.thoughtworks.cruise.client;
 
+import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.state.CurrentUsernameProvider;
+import com.thoughtworks.cruise.util.CruiseConstants;
 import org.apache.commons.httpclient.*;
 import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.commons.httpclient.methods.*;
@@ -24,15 +26,20 @@ import org.apache.commons.httpclient.methods.multipart.FilePart;
 import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
+import com.jayway.restassured.*;
+import com.jayway.restassured.response.Response;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class TalkToCruise {
 
     private final CurrentUsernameProvider currentUserNameProvider;
+
 
     public TalkToCruise(CurrentUsernameProvider state) {
         this.currentUserNameProvider = state;
@@ -49,6 +56,24 @@ public class TalkToCruise {
         PostMethod post = new PostMethod(url);
         post.addParameters(nameValuePairs);
         return execute(url, client, post);
+    }
+
+    public CruiseResponse patch(String url, String body, NameValuePair... nameValuePairs) {
+
+        HttpClient client = client();
+        PostMethod post = createPatch(url + "?_HttpMethod=PATCH");
+        post.addParameters(nameValuePairs);
+        post.setRequestBody(body);
+        return execute(url, client, post);
+    }
+
+    private PostMethod createPatch(String uri) {
+        PostMethod post = new PostMethod(uri){
+            @Override public String getName() { return "PATCH"; }
+        };
+        post.setRequestHeader("Accept", CruiseConstants.apiV2);
+        post.setRequestHeader("Content-Type", "application/json");
+        return post;
     }
 
 
@@ -94,19 +119,20 @@ public class TalkToCruise {
 
     public CruiseResponse get(String url, boolean shouldFollowRedirect, NameValuePair... nameValuePairs) {
         GetMethod get = new GetMethod(url);
+        get.setRequestHeader("Accept", CruiseConstants.apiV2);
         get.setQueryString(nameValuePairs);
         get.setFollowRedirects(shouldFollowRedirect);
         return execute(url, get, true);
     }
 
     public CruiseResponse delete(String url) {
-        return delete(url, false);
+        return delete(url, false, "");
     }
 
-    public CruiseResponse delete(String url, boolean newApi) {
+    public CruiseResponse delete(String url, boolean newApi, String accept) {
         DeleteMethod del = new DeleteMethod(url);
         if (newApi) {
-            del.addRequestHeader("Accept", "application/vnd.go.cd.v1+json");
+            del.addRequestHeader("Accept", accept);
         }
         return execute(url, del, true);
     }
