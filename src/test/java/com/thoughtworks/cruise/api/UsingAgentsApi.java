@@ -117,7 +117,7 @@ public class UsingAgentsApi {
 			AgentInformation[] agents = listInformationOfAllAgents();
 
 		for (AgentInformation agent : agents) {
-			if (!(agent.getStatus().equals("Missing") || agent.getStatus().equals("Disabled"))) {
+			if (!(agent.getAgent_state().equals("Missing") || agent.getAgent_state().equals("Disabled"))) {
 				agentUUID = agent.getUuid();
 				break;
 			}

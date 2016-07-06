@@ -1051,7 +1051,7 @@ public class OnAgentsPage extends CruisePage {
 		for(AgentInformation info : agentListOnUI) {
 			System.err.println(String.format("%20s %20s %20s %20s %20s %20s",
 					info.getAgent_name(),
-					info.getStatus(),
+					info.getAgent_state(),
 					info.getEnvironments(),
 					info.getFree_space(),
 					info.getResources(),

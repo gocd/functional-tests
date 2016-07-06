@@ -23,7 +23,7 @@ public class AgentInformation {
 	private String build_locator;
 	private String agent_name;
 	private String ip_address;
-	private String status;
+	private String agent_state;
 	private String sandbox;
 	private String os;
 	private String free_space;
@@ -39,7 +39,7 @@ public class AgentInformation {
 		this.build_locator = build_locator;
 		this.agent_name = agent_name;
 		this.ip_address = ip_address;
-		this.status = status;
+		this.agent_state = status;
 		this.sandbox = sandbox;
 		this.os = os;
 		this.free_space = free_space;
@@ -79,12 +79,12 @@ public class AgentInformation {
 		this.ip_address = ip_address;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getAgent_state() {
+		return agent_state;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setAgent_state(String status) {
+		this.agent_state = status;
 	}
 
 	public String getSandbox() {
@@ -131,7 +131,7 @@ public class AgentInformation {
 	public String toString() {
 		return "AgentInformation [uuid=" + uuid + ", buildLocator="
 				+ build_locator + ", agent_name=" + agent_name + ", ipAddress="
-				+ ip_address + ", status=" + status + ", sandbox=" + sandbox
+				+ ip_address + ", status=" + agent_state + ", sandbox=" + sandbox
 				+ ", os=" + os + ", free_space=" + free_space + ", resources="
 				+ resources + ", environments=" + environments + "]";
 	}
@@ -152,7 +152,7 @@ public class AgentInformation {
 		result = prime * result
 				+ ((resources == null) ? 0 : resources.hashCode());
 		result = prime * result + ((sandbox == null) ? 0 : sandbox.hashCode());
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((agent_state == null) ? 0 : agent_state.hashCode());
 		result = prime * result + ((uuid == null) ? 0 : uuid.hashCode());
 		return result;
 	}
@@ -201,10 +201,10 @@ public class AgentInformation {
 				return false;
 		} else if (!sandbox.equalsIgnoreCase(other.sandbox))
 			return false;
-		if (status == null) {
-			if (other.status != null)
+		if (agent_state == null) {
+			if (other.agent_state != null)
 				return false;
-		} else if (!status.equalsIgnoreCase(other.status))
+		} else if (!agent_state.equalsIgnoreCase(other.agent_state))
 			return false;
 		if (uuid == null) {
 			if (other.uuid != null)
