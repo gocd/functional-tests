@@ -45,7 +45,7 @@ Pipeline with all 4 materials
 
 * Open console tab
 * Remember latest revision for material with destination folder "hg" as "hg-latest-revision"
-* Verify console has environment variable "GO_SERVER_URL" with value "https://127.0.0.1:8254/go/"
+* Verify console has environment variable "GO_SERVER_URL" with value "https://127.0.0.1:8254/go"
 * Verify console has environment variable "GO_PIPELINE_NAME" with value "${runtime_name:pipeline-with-all-materials}"
 * Verify console has environment variable "GO_PIPELINE_LABEL" with value "2"
 * Verify console has environment variable "GO_STAGE_NAME" with value "defaultStage"
