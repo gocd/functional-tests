@@ -55,6 +55,10 @@ public class TalkToCruise {
         HttpClient client = client();
         PostMethod post = new PostMethod(url);
         post.addParameters(nameValuePairs);
+        if(url.contains("api/backups")){
+            post.setRequestHeader("Accept", CruiseConstants.apiV1);
+            post.setRequestHeader("Content-Type", "application/json");
+        }
         return execute(url, client, post);
     }
 
@@ -184,6 +188,10 @@ public class TalkToCruise {
 
         public boolean isForbidden() {
             return status == HttpStatus.SC_FORBIDDEN;
+        }
+
+        public boolean isUnAuthorized() {
+            return status == HttpStatus.SC_UNAUTHORIZED;
         }
 
         @Override
