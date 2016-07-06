@@ -94,31 +94,21 @@ public class AgentLauncher extends ProcessIsRunning {
 
     private static AgentLauncher create(String directory, String srcDir) throws IOException {
         File dir = new File(TWIST_AGENTS_DIR, newAgentDirectoryName(directory));
-		if (SystemUtil.isWindows()) {
-			if (!dir.exists()) {
-				System.err.println("Agent not found. Copying across the agent installation");
-				FileUtils.copyDirectory(new File(RuntimePath.getAgentRoot()), dir, new FileFilter() {
-					public boolean accept(File pathname) {
-						String path = pathname.getPath();
-						return !path.endsWith("agent-bootstrapper.running") && 
-								!path.endsWith("process.pid") && 
-								!path.endsWith("guid.txt") &&
-								!path.endsWith(".log");
-					}
-				});
-				copyAgentLog4jProperties(dir);
-			}
-		} else {
-			if (!dir.exists() || !new File(dir, "start-twist-agent.sh").exists()) {
-				System.err.println("Agent not found. Copying across the agent installation into: " + dir);
+        if (dir.exists() ) {
+            FileUtils.deleteQuietly(new File(dir, "*"));
+        }
 
-				dir.mkdir();
-				FileUtils.copyFileToDirectory(new File(srcDir, "agent-bootstrapper.jar"), dir);
-				FileUtils.copyURLToFile(AgentLauncher.class.getResource("start-twist-agent.sh"), new File(dir, "start-twist-agent.sh"));
-				FileUtils.copyURLToFile(AgentLauncher.class.getResource("stop-twist-agent.sh"), new File(dir, "stop-twist-agent.sh"));
-				copyAgentLog4jProperties(dir);
-			}
-		}
+       FileUtils.copyDirectory(new File(RuntimePath.getAgentRoot()), dir, new FileFilter() {
+                public boolean accept(File pathname) {
+                        String path = pathname.getPath();
+                        return !path.endsWith("agent-bootstrapper.running") &&
+                                        !path.endsWith("process.pid") &&
+                                        !path.endsWith("guid.txt") &&
+                                        !path.endsWith(".log");
+                    }
+            });
+        copyAgentLog4jProperties(dir);
+
 		if (new File(dir, ".agent-bootstrapper.running").exists()) {
 			throw new RuntimeException("Agent already running in " + dir.getPath());
 		}
@@ -164,11 +154,11 @@ public class AgentLauncher extends ProcessIsRunning {
     }
 
     protected String startCommand() {
-        return SystemUtil.isWindows() ? "start-agent.bat" : "./start-twist-agent.sh"; 
+        return SystemUtil.isWindows() ? "start-agent.bat" : "./agent.sh";
     }
     
     protected String stopCommand() {
-        return SystemUtil.isWindows() ? "stop-agent.bat" : "./stop-twist-agent.sh"; 
+        return SystemUtil.isWindows() ? "stop-agent.bat" : "./stop-agent.sh";
     }
 
     protected String getWorkingDir() {

@@ -19,6 +19,7 @@ package com.thoughtworks.cruise.api;
 import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.client.TalkToCruise;
 import com.thoughtworks.cruise.client.TalkToCruise.CruiseResponse;
+import com.thoughtworks.cruise.util.CruiseConstants;
 import org.apache.commons.httpclient.NameValuePair;
 
 import static org.hamcrest.core.Is.is;
@@ -40,7 +41,7 @@ public class UsingUserApi {
 
 	@com.thoughtworks.gauge.Step("Attempt to delete <username> user and should return <httpStatus>")
 	public void attemptToDeleteUserAndShouldReturn(String username, String httpStatus) throws Exception {
-		CruiseResponse response = talkToCruise.delete(Urls.urlFor(String.format("/api/users/%s", username)), true);
+		CruiseResponse response = talkToCruise.delete(Urls.urlFor(String.format("/api/users/%s", username)), true, CruiseConstants.apiV1);
 		assertThat(response.getStatus(), is(Integer.parseInt(httpStatus)));
 	}
 }

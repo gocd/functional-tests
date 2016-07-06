@@ -469,16 +469,10 @@ public class OnAgentsPage extends CruisePage {
 				Matchers.hasItem(System.getProperty("os.name")));
 	}
 
-	/**
-	 * @deprecated Move this to AgentsAPI when we have a RESTful API for Agents
-	 */
 	private void enableUsingApi(String id) {
 		agentsApi.enable(id);
 	}
 
-	/**
-	 * @deprecated Move this to AgentsAPI when we have a RESTful API for Agents
-	 */
 	@com.thoughtworks.gauge.Step("Disabling a <status> agent should return <returnCode>")
 	public void disablingAAgentShouldReturn(String status, Integer returnCode)
 			throws Exception {

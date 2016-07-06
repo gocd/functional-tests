@@ -31,7 +31,7 @@ Developer Note: We should move the following 'verfy' methods to the 'Using Agent
 when we have a proper API for agents. Going through the web UI here because we don't have a
 better API yet.
 
-* Verify data in agent listing api is same as data on agents tab
+ Verify data in agent listing api is same as data on agents tab - This needs relook
 * Disabling a "Idle" agent should return "200"
 * Disabling a "Disabled" agent should return "200"
 * Enabling a "Idle" agent should return "200"
