@@ -168,17 +168,18 @@ public class AgentLauncher extends ProcessIsRunning {
     protected Map<String, String> getStartEnvVariables() {
         Map<String, String> env = new HashMap<String, String>();
         env.put("GO_SERVER", "127.0.0.1");
+        env.put("GO_SERVER_URL", "https://127.0.0.1:"+Urls.SSL_PORT+"/go");
         env.put("VNC", "N");
         env.put("STOP_BEFORE_STARTUP", "N"); //else when test agent start it will kill "real" agent
         env.put("PRODUCTION_MODE", "N");
         env.put("GO_SERVER_PORT", Urls.SERVER_PORT);
         env.put("GO_SERVER_SSH_PORT", Urls.SSL_PORT);
         //env.put("JVM_DEBUG", "Y"); //uncomment to debug(use deligently, as second agent will not get a bind)
-        env.put("GO_AGENT_SYSTEM_PROPERTIES", 
-        		" -Dagent.get.work.delay=500" +
-        		" -Dagent.get.work.interval=500" +
-        		" -Dagent.ping.delay=500" +
-        		" -Dagent.ping.interval=500");
+        env.put("GO_AGENT_SYSTEM_PROPERTIES",
+                " -Dagent.get.work.delay=500" +
+                        " -Dagent.get.work.interval=500" +
+                        " -Dagent.ping.delay=500" +
+                        " -Dagent.ping.interval=500");
         return env;
     }
 
