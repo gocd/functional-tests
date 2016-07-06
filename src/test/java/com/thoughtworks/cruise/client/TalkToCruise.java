@@ -119,7 +119,8 @@ public class TalkToCruise {
 
     public CruiseResponse get(String url, boolean shouldFollowRedirect, NameValuePair... nameValuePairs) {
         GetMethod get = new GetMethod(url);
-        get.setRequestHeader("Accept", CruiseConstants.apiV2);
+        if(url.contains("api/agents"))
+            get.setRequestHeader("Accept", CruiseConstants.apiV2);
         get.setQueryString(nameValuePairs);
         get.setFollowRedirects(shouldFollowRedirect);
         return execute(url, get, true);
