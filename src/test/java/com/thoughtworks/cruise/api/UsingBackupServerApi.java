@@ -36,7 +36,7 @@ public class UsingBackupServerApi {
 
 	@com.thoughtworks.gauge.Step("Take backup as <userName>")
 	public void takeBackupAs(final String userName) throws Exception {
-		String url = Urls.urlFor(String.format("/api/admin/start_backup"));
+		String url = Urls.urlFor(String.format("/api/backups"));
 		System.err.println("posting to " + url);
 		
 		TalkToCruise talkToCruise = new TalkToCruise(new CurrentUsernameProvider() {
@@ -56,7 +56,7 @@ public class UsingBackupServerApi {
 	
 	@com.thoughtworks.gauge.Step("Verify user is not authorized to take backups")
 	public void verifyUserIsNotAuthorizedToTakeBackups(){
-		Assert.assertThat(cruiseResponse.isForbidden(), Is.is(true));
+		Assert.assertThat(cruiseResponse.isUnAuthorized(), Is.is(true));
 	}
 
 }
