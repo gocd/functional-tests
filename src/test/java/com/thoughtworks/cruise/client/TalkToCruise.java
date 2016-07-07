@@ -31,14 +31,16 @@ import com.jayway.restassured.response.Response;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public class TalkToCruise {
 
     private final CurrentUsernameProvider currentUserNameProvider;
+    private final List<String> apiV2Urls = Arrays.asList("/api/agents");
+    private final List<String> apiV1Urls = Arrays.asList("/api/backups");
+    private final List<String> ancientUrls = Arrays.asList("/job_run_history");
+
 
 
     public TalkToCruise(CurrentUsernameProvider state) {
@@ -55,7 +57,7 @@ public class TalkToCruise {
         HttpClient client = client();
         PostMethod post = new PostMethod(url);
         post.addParameters(nameValuePairs);
-        if(url.contains("api/backups")){
+        if(supportApiV1(url)){
             post.setRequestHeader("Accept", CruiseConstants.apiV1);
             post.setRequestHeader("Content-Type", "application/json");
         }
@@ -123,7 +125,7 @@ public class TalkToCruise {
 
     public CruiseResponse get(String url, boolean shouldFollowRedirect, NameValuePair... nameValuePairs) {
         GetMethod get = new GetMethod(url);
-        if(url.contains("api/agents"))
+        if(supportApiV2(url) && !isAncient(url))
             get.setRequestHeader("Accept", CruiseConstants.apiV2);
         get.setQueryString(nameValuePairs);
         get.setFollowRedirects(shouldFollowRedirect);
@@ -221,6 +223,27 @@ public class TalkToCruise {
             httpClient.getState().setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(userName, "badger"));
         }
         return httpClient;
+    }
+
+    private boolean supportApiV1(String url){
+        for(String subUrl: apiV1Urls){
+            return url.contains(subUrl);
+        }
+        return false;
+    }
+
+    private boolean supportApiV2(String url){
+        for(String subUrl: apiV2Urls){
+            return url.contains(subUrl);
+        }
+        return false;
+    }
+
+    private boolean isAncient(String url){
+        for(String subUrl: ancientUrls){
+            return url.contains(subUrl);
+        }
+        return false;
     }
 
 }
