@@ -30,12 +30,16 @@ echo "unzipping the agent and server installers"
 unzip -o target/zip/go-server*.zip -d target
 unzip -o target/zip/go-agent*.zip -d target
 
-echo "grant execute permissions for start stop scripts"
-chmod +x target/go-server-$GO_VERSION/server.sh
-chmod +x target/go-server-$GO_VERSION/stop-server.sh
+echo "copying the test addon"
+rm -rf target/go-server-${GO_VERSION}/addons
+mkdir -p target/go-server-${GO_VERSION}/addons
+cp target/test-addon/test-addon-*.jar target/go-server-${GO_VERSION}/addons
+ls -al target/go-server-${GO_VERSION}/addons
 
-chmod +x target/go-agent-$GO_VERSION/agent.sh
-chmod +x target/go-agent-$GO_VERSION/stop-agent.sh
+echo "copying the example plugins, except yum repo poller, because it is bundled"
+rm -rf target/go-plugins-dist/yum-repo-exec-poller.jar
+mkdir -p target/go-server-${GO_VERSION}/plugins/external
+cp target/go-plugins-dist/*.jar target/go-server-${GO_VERSION}/plugins/external
 
 echo "go setup done"
 exit 0

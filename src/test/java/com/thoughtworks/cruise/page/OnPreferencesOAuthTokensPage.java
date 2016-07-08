@@ -29,7 +29,7 @@ public class OnPreferencesOAuthTokensPage extends CruisePage {
 
 	@Override
 	protected String url() {
-		return Urls.localhostUrlFor("/oauth/user_tokens");
+		return Urls.localhostSslUrlFor("/oauth/user_tokens");
 	}
 
 	@com.thoughtworks.gauge.Step("Verify token <expectedToken> exists")

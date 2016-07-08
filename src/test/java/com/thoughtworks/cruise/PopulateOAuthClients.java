@@ -48,7 +48,7 @@ public class PopulateOAuthClients {
 	}
 
 	public void setRedirectUrl(String redirectUrl) throws Exception {
-		this.redirectUrl = Urls.localhostUrlFor(redirectUrl);
+		this.redirectUrl = Urls.localhostSslUrlFor(redirectUrl);
 		form.usingRedirectUrl(this.redirectUrl);
 		form.addNewAuthClient();
 	}

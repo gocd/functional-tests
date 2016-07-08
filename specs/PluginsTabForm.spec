@@ -32,10 +32,10 @@ tags: 7735, 7777, admin-page, configuration, plugins-tests
 * Verify more information for plugin with id "yum" has path "/plugins/bundled/yum-repo-exec-poller.jar" target os "Linux" target go version "15.2.0" and bundled status as "Yes"
 * Verify plugin named "test-donothing-plugin.jar" with id "test-donothing-plugin.jar" is valid
 * Verify plugin with id "test-donothing-plugin.jar" has version "" name "test-donothing-plugin.jar" description "No description available." author "Unknown" with disabled link
-* Verify more information for plugin with id "test-donothing-plugin.jar" has path "/test-donothing-plugin.jar" target os "No restrictions" target go version "Unknown" and bundled status as "Yes"
+* Verify more information for plugin with id "test-donothing-plugin.jar" has path "/test-donothing-plugin.jar" target os "No restrictions" target go version "Unknown" and bundled status as "No"
 * Verify plugin named "test-plugin-xml" with id "test-plugin-xml" is marked as invalid with message "Plugin with ID (test-plugin-xml) is not valid: Incompatible with current operating system 'Linux'. Valid operating systems are: [Windows]."
 * Verify plugin with id "test-plugin-xml" has version "1.0.0" name "test-plugin-xml" description "Plugin that has only some fields in its plugin.xml" author "Unknown" with enabled link to "http://www.mdaliejaz.com/"
-* Verify more information for plugin with id "test-plugin-xml" has path "test-with-some-plugin-xml-values.jar" target os "Windows" target go version "Unknown" and bundled status as "Yes"
+* Verify more information for plugin with id "test-plugin-xml" has path "test-with-some-plugin-xml-values.jar" target os "Windows" target go version "Unknown" and bundled status as "No"
 
 * Logout and login as "group1Admin"
 
@@ -47,10 +47,10 @@ tags: 7735, 7777, admin-page, configuration, plugins-tests
 * Verify more information for plugin with id "yum" has path "/plugins/bundled/yum-repo-exec-poller.jar" target os "Linux" target go version "15.2.0" and bundled status as "Yes"
 * Verify plugin named "test-donothing-plugin.jar" with id "test-donothing-plugin.jar" is valid
 * Verify plugin with id "test-donothing-plugin.jar" has version "" name "test-donothing-plugin.jar" description "No description available." author "Unknown" with disabled link
-* Verify more information for plugin with id "test-donothing-plugin.jar" has path "/test-donothing-plugin.jar" target os "No restrictions" target go version "Unknown" and bundled status as "Yes"
+* Verify more information for plugin with id "test-donothing-plugin.jar" has path "/test-donothing-plugin.jar" target os "No restrictions" target go version "Unknown" and bundled status as "No"
 * Verify plugin named "test-plugin-xml" with id "test-plugin-xml" is marked as invalid with message "Plugin with ID (test-plugin-xml) is not valid: Incompatible with current operating system 'Linux'. Valid operating systems are: [Windows]."
 * Verify plugin with id "test-plugin-xml" has version "1.0.0" name "test-plugin-xml" description "Plugin that has only some fields in its plugin.xml" author "Unknown" with enabled link to "http://www.mdaliejaz.com/"
-* Verify more information for plugin with id "test-plugin-xml" has path "/test-with-some-plugin-xml-values.jar" target os "Windows" target go version "Unknown" and bundled status as "Yes"
+* Verify more information for plugin with id "test-plugin-xml" has path "/test-with-some-plugin-xml-values.jar" target os "Windows" target go version "Unknown" and bundled status as "No"
 
 
 

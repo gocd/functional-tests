@@ -39,7 +39,7 @@ public class DeleteBackupHistory {
 	}
 
 	private void deleteAllBackups() {
-		CruiseResponse response = new TalkToCruise(state).delete(Urls.deleteAllBackupExtries());
+		CruiseResponse response = new TalkToCruise(state).get(Urls.deleteAllBackupExtries());
 		Assert.assertThat(response.isSuccess(), Is.is(true));
 	}
 

@@ -32,7 +32,7 @@ public class WithNoUsers {
 
 	@com.thoughtworks.gauge.Step("With no users - setup")
 	public void setUp() throws Exception {
-	    CruiseResponse response = talkToCruise.delete(Urls.urlFor("/admin/users/delete_all"));
+	    CruiseResponse response = talkToCruise.get(Urls.urlFor("/add-on/test-addon/admin/users/delete"));
 	    Assert.assertThat(response.getStatus(), Is.is(200));
 	}
 
