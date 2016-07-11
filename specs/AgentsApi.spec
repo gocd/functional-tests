@@ -24,7 +24,7 @@ Setup of contexts
 AgentsApi
 ---------
 
-tags: 1621, agents, restful api, automate, 3450, 6996, 7033
+tags: 1621, agents, restful api, automate, 3450, 6996, 7033, OOM
 
 
 Developer Note: We should move the following 'verfy' methods to the 'Using Agents API' fixture
