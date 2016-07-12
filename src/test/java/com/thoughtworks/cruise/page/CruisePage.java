@@ -102,7 +102,7 @@ public abstract class CruisePage {
     }
 
     public void verifyCruiseFooter() throws Exception {
-        ElementStub footerText = browser.listItem("Copyright © 2016 ThoughtWorks, Inc. Licensed under Apache License, Version 2.0. Go includes third-party software.");
+        ElementStub footerText = browser.paragraph("copyright");
 		assertTrue(footerText.isVisible());
 
         ElementStub elementTWLink = browser.link("/ThoughtWorks/").in(footerText);
@@ -113,26 +113,34 @@ public abstract class CruisePage {
         assertTrue(licenseLink.exists());
         assertThat(licenseLink.fetch("href"), StringContains.containsString("http://www.apache.org/licenses/LICENSE-2.0"));
 
-        ElementStub elementVersion = browser.listItem("last").in(browser.div("footer"));
-        assertThat(elementVersion.getText(), Matchers.containsString("Go Version: " + CruiseConstants.CURRENT_REVISION));
+        //ElementStub elementVersion = browser.listItem("last").in(browser.div("footer"));
+        assertThat(footerText.getText(), Matchers.containsString("Go Version: " + CruiseConstants.CURRENT_REVISION));
 
-        ElementStub elementCCTrayFeed = browser.link("(cc) CCTray Feed");
+        ElementStub elementCCTrayFeed = browser.link("cctray");
         assertThat(elementCCTrayFeed.fetch("href"), StringContains.containsString("/go/cctray.xml"));
 
-        ElementStub elementAPIs = browser.link("APIs");
-        assertThat(elementAPIs.fetch("href"), StringContains.containsString("http://api.go.cd/"));
+        ElementStub elementAPIs = browser.link("api");
+        assertThat(elementAPIs.fetch("href"), StringContains.containsString("https://api.go.cd/"));
 
-        ElementStub elementPlugins = browser.link("Plugins").in(browser.div("footer"));
-        assertThat(elementPlugins.fetch("href"), StringContains.containsString("http://www.go.cd/community/plugins.html"));
+        ElementStub elementPlugins = browser.link("plugins");
+        assertThat(elementPlugins.fetch("href"), StringContains.containsString("https://www.go.cd/community/plugins.html"));
 
-        ElementStub elementCommunity = browser.link("Community");
-        assertThat(elementCommunity.fetch("href"), StringContains.containsString("http://www.go.cd/community/resources.html"));
-
-        ElementStub elementServerDetails = browser.link("Server Details");
+        ElementStub elementServerDetails = browser.link("server-details");
         assertThat(elementServerDetails.fetch("href"), StringContains.containsString("/go/about"));
 
-        ElementStub elementHelp = browser.link("Need Help?");
-        assertThat(elementHelp.fetch("href"), StringContains.containsString("https://go.cd/help"));
+        ElementStub elementDoc = browser.link("documentation");
+        assertThat(elementDoc.fetch("href"), StringContains.containsString("https://go.cd/current/documentation"));
+
+        ElementStub elementForum = browser.link("forums");
+        assertThat(elementForum.fetch("href"), StringContains.containsString("https://groups.google.com/d/forum/go-cd"));
+
+        ElementStub elementGit = browser.link("github");
+        assertThat(elementGit.fetch("href"), StringContains.containsString("https://github.com/gocd/gocd"));
+
+        ElementStub elementTwitter = browser.link("twitter");
+        assertThat(elementTwitter.fetch("href"), StringContains.containsString("http://twitter.com/goforcd"));
+
+
     }
 
     protected String stageDetailsUrl(String pipelineName, String pipelineCounter, String stageName, String stageCounter) {
