@@ -70,9 +70,9 @@ public class WithinArtifactRepository {
 
 	@com.thoughtworks.gauge.Step("Verify the <directory> directory contains file named <backupName> which has running go version")
 	public void verifyTheDirectoryContainsFileNamedWhichHasRunningGoVersion(String directory, String backupName) throws Exception {
-		String runningGoVersion = browser.listItem("last").in(browser.list("copyright").in(browser.byId("footer"))).getText();
+		String runningGoVersion = browser.paragraph("copyright").getText().split("software.")[1].trim();
 		Pattern versionPattern = Pattern.compile("Go Version: (.+?)");
-		Matcher matcher = versionPattern.matcher(runningGoVersion);
+		Matcher matcher = versionPattern.matcher(runningGoVersion.substring(0, runningGoVersion.length() - 1));
 		if (matcher.matches()) {
 			String backedUpVersion = FileUtils.readFileToString(getBackupFile(directory, backupName));
 			Assert.assertThat(backedUpVersion, is(matcher.group(1)));
