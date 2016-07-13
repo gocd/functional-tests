@@ -22,7 +22,7 @@ Setup of contexts
 AgentsWithSameUUID
 ------------------
 
-tags: agent management, same uuid issue, #3088, linux, 4378
+tags: agent management, same uuid issue, #3088, linux, 4378, OOM
 
 MAKE THIS SCENARIO RUN IN WINDOWS ONCE THE BUG https://mingle05.thoughtworks.com/projects/cruise/cards/4378 is FIXED
 
