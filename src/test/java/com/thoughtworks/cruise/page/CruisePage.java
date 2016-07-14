@@ -120,7 +120,7 @@ public abstract class CruisePage {
         assertThat(elementCCTrayFeed.fetch("href"), StringContains.containsString("/go/cctray.xml"));
 
         ElementStub elementAPIs = browser.link("api");
-        assertThat(elementAPIs.fetch("href"), StringContains.containsString("https://api.go.cd/"));
+        assertThat(elementAPIs.fetch("href"), StringContains.containsString("https://api.go.cd/current"));
 
         ElementStub elementPlugins = browser.link("plugins");
         assertThat(elementPlugins.fetch("href"), StringContains.containsString("https://www.go.cd/community/plugins.html"));
@@ -129,7 +129,7 @@ public abstract class CruisePage {
         assertThat(elementServerDetails.fetch("href"), StringContains.containsString("/go/about"));
 
         ElementStub elementDoc = browser.link("documentation");
-        assertThat(elementDoc.fetch("href"), StringContains.containsString("https://go.cd/current/documentation"));
+        assertThat(elementDoc.fetch("href"), StringContains.containsString("https://docs.go.cd/current"));
 
         ElementStub elementForum = browser.link("forums");
         assertThat(elementForum.fetch("href"), StringContains.containsString("https://groups.google.com/d/forum/go-cd"));
@@ -138,7 +138,7 @@ public abstract class CruisePage {
         assertThat(elementGit.fetch("href"), StringContains.containsString("https://github.com/gocd/gocd"));
 
         ElementStub elementTwitter = browser.link("twitter");
-        assertThat(elementTwitter.fetch("href"), StringContains.containsString("http://twitter.com/goforcd"));
+        assertThat(elementTwitter.fetch("href"), StringContains.containsString("https://twitter.com/goforcd"));
 
 
     }
