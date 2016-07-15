@@ -107,11 +107,11 @@ public abstract class CruisePage {
 
         ElementStub elementTWLink = browser.link("/ThoughtWorks/").in(footerText);
         assertTrue(elementTWLink.exists());
-        assertThat(elementTWLink.fetch("href"), StringContains.containsString("http://www.thoughtworks.com/products"));
+        assertThat(elementTWLink.fetch("href"), StringContains.containsString("https://www.thoughtworks.com/products"));
 
         ElementStub licenseLink = browser.link("/Apache License, Version 2.0/").in(footerText);
         assertTrue(licenseLink.exists());
-        assertThat(licenseLink.fetch("href"), StringContains.containsString("http://www.apache.org/licenses/LICENSE-2.0"));
+        assertThat(licenseLink.fetch("href"), StringContains.containsString("https://www.apache.org/licenses/LICENSE-2.0"));
 
         //ElementStub elementVersion = browser.listItem("last").in(browser.div("footer"));
         assertThat(footerText.getText(), Matchers.containsString("Go Version: " + CruiseConstants.CURRENT_REVISION));
