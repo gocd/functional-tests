@@ -27,14 +27,12 @@ GROUP = "cruise"
 
 GO_TRUNK_DIRNAME = ENV['GO_TRUNK_DIR'] || 'gocd'
 GO_PLUGINS_DIRNAME = ENV['GO_PLUGINS_DIR'] || 'go-plugins'
-GO_JOB_RUN_COUNT = ENV['GO_JOB_RUN_COUNT']|| '1'
-GO_JOB_RUN_INDEX = ENV['GO_JOB_RUN_INDEX']|| '1'
+GO_JOB_RUN_COUNT = ENV['GO_JOB_RUN_COUNT']
+GO_JOB_RUN_INDEX = ENV['GO_JOB_RUN_INDEX']
 
 GAUGE_TAGS = ENV["GAUGE_TAGS"]||'smoke,\!manual'
-LOAD_BALANCED = ENV["LOAD_BALANCE"]|| 'N'
+LOAD_BALANCED = GO_JOB_RUN_COUNT && GO_JOB_RUN_INDEX
 FIREFOX_BROWSER = ENV['twist_in_firefox'] || 'N'
-
-$USE_TLB = (ENV['load_balance'] == 'yes')
 
 #discover the revision and commit digest
 def stdout_of command
@@ -80,7 +78,6 @@ define "cruise" do |project|
   project.group = GROUP
 
 
-  $USE_TLB && enable_tlb
 
 # if (Util.win_os?)
 #		if (FIREFOX_BROWSER == 'N')
