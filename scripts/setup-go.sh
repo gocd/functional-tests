@@ -36,10 +36,15 @@ mkdir -p target/go-server-${GO_VERSION}/addons
 cp target/test-addon/test-addon-*.jar target/go-server-${GO_VERSION}/addons
 ls -al target/go-server-${GO_VERSION}/addons
 
-echo "copying the example plugins, except yum repo poller, because it is bundled"
-rm -rf target/go-plugins-dist/yum-repo-exec-poller.jar
-mkdir -p target/go-server-${GO_VERSION}/plugins/external
-cp target/go-plugins-dist/*.jar target/go-server-${GO_VERSION}/plugins/external
+
+if [ -d 'target/go-plugins-dist' ]; then
+  echo "copying the example plugins, except yum repo poller, because it is bundled"
+  rm -rf target/go-plugins-dist/yum-repo-exec-poller.jar
+  mkdir -p target/go-server-${GO_VERSION}/plugins/external
+  cp target/go-plugins-dist/*.jar target/go-server-${GO_VERSION}/plugins/external
+else
+  echo "example plugins not found, skipping over"
+fi
 
 echo "go setup done"
 exit 0
