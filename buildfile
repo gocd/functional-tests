@@ -174,7 +174,7 @@ task :gauge_specs do
     system("cmd /c scripts\\enable_ie_proxy.bat enable ")
  end
 
- if (LOAD_BALANCED == 'Y')
+ if LOAD_BALANCED
   sh "gauge --tags=#{GAUGE_TAGS} -n=#{GO_JOB_RUN_COUNT} -g=#{GO_JOB_RUN_INDEX} specs"
  else
   sh "gauge --tags=#{GAUGE_TAGS} specs"
