@@ -59,7 +59,7 @@ Add environment with pipelines, agents and environment variables
 * Verify error "Failed to add environment." message shows up
 * Enter name "foo_!_bar"
 * Finish "env-name"
-* Verify error "Failed to add environment. failed to save : Environment name is invalid. \"foo_!_bar\" should conform to the pattern - [a-zA-Z0-9_\-]{1}[a-zA-Z0-9_\-.]*" message shows up
+* Verify error "Failed to add environment. failed to save : Environment name is invalid. \"foo_!_bar\" should conform to the pattern - [a-zA-Z0-9_\\-]{1}[a-zA-Z0-9_\\-.]*" message shows up
 * Enter name "fooEnvironment"
 
 * Select tab "env-pipelines"
