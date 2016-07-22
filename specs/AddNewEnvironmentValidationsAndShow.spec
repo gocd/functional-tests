@@ -82,33 +82,18 @@ Add environment with pipelines, agents and environment variables
 * For variable "1" name "name with space" value "other-value"
 * Finish
 
-* Verify error "Failed to add environment." message shows up
-* Verify name is "fooEnvironment"
-* Select tab "env-pipelines"
-* Verify pipelines "basic-pipeline,basic-pipeline-slow" are selected
-* Select tab "env-agents"
-* Verify agent "missing-agent" is selected
-* Select tab "env-vars"
-
-* Verify variable "0" has name "name" and value "value"
-* Verify variable "1" has name "name with space" and value "other-value"
-
-* Select tab "env-name"
-* Enter name "second"
-* Finish "env-name"
-
-* For environment "second"
+* For environment "fooEnvironment"
 * Verify breadcrumbs has environment name
 * Verify values "${runtime_name:basic-pipeline},${runtime_name:basic-pipeline-slow}" are shown in section "added_pipelines"
 * Verify values "missing-agent (10.232.3.1)" are shown in section "added_agents"
 * Verify values "name = value,name with space = other-value" are shown in section "added_environment_variables"
 
-* Verify agent "1" has environments "second"
+* Verify agent "1" has environments "fooEnvironment"
 
 * Open "Config XML" tab
 
-* Config xml should have an environment "second" with environment variable "name" "value"
-* Config xml should have an environment "second" with environment variable "name with space" "other-value"
+* Config xml should have an environment "fooEnvironment" with environment variable "name" "value"
+* Config xml should have an environment "fooEnvironment" with environment variable "name with space" "other-value"
 
 * On Environments Page
 * Click add new environment link
@@ -118,7 +103,7 @@ Add environment with pipelines, agents and environment variables
 * Verify pipelines "pipeline-with-failing-stage" is visible
 * Verify pipelines "basic-pipeline,basic-pipeline-slow" are hidden
 * Click to see unavailable pipelines
-* Verify pipelines "basic-pipeline,basic-pipeline-slow" belongs to environment "second"
+* Verify pipelines "basic-pipeline,basic-pipeline-slow" belongs to environment "fooEnvironment"
 
 
 Verify non-admin cannot add environments
