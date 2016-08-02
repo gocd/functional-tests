@@ -56,7 +56,7 @@ public class AlreadyOnDeploymentLightBox implements DisposableBean {
 
 		public boolean call() throws Exception {
 			action.performAction();
-			Thread.sleep(1000);//because animation takes 150 mills
+			Thread.sleep(5000);//tests doing this operation has turned flaky from 16.6 release, increasing the animation wait time to 5 secs from 150 mills initially
 			ElementStub autoCompleteContent = browser.byId(autocompleteContentId());
 			if (!autoCompleteContent.isVisible() && shouldBeShown()) {
 				throw new RuntimeException("Material revision suggestion should have been shown");
