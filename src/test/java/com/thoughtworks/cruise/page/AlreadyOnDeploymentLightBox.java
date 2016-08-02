@@ -171,9 +171,9 @@ public class AlreadyOnDeploymentLightBox implements DisposableBean {
 		Action action = new Action() {
 			public void performAction() throws Exception {
 				ElementStub elementToDeployTextbox = elementToDeployTextbox();
-				browser.execute("Sahi.BLUR_TIMEOUT = 15000");
+				browser.execute("Sahi.BLUR_TIMEOUT = 30000");
 				elementToDeployTextbox.setValue(msg);
-				browser.execute("Sahi.BLUR_TIMEOUT = 5000");
+				browser.execute("Sahi.BLUR_TIMEOUT = 30000");
 			}
 		};
 		Assertions.waitUntil(Timeout.FIVE_SECONDS, new SuggestedRevVerifier(action, shouldBeShown));
