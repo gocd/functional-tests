@@ -179,7 +179,8 @@ public class AgentLauncher extends ProcessIsRunning {
                 " -Dagent.get.work.delay=500" +
                         " -Dagent.get.work.interval=500" +
                         " -Dagent.ping.delay=500" +
-                        " -Dagent.ping.interval=500");
+                        " -Dagent.ping.interval=500" +
+                        " -Dgo.gauge.agent=true");
         return env;
     }
 
