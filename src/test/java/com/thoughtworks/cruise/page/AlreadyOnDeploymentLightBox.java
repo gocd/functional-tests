@@ -214,6 +214,9 @@ public class AlreadyOnDeploymentLightBox implements DisposableBean {
 			Assert.fail("short revision not found");
 		}
 		listItem.click();
+		//just a temporary fix to check if this delay is needed to get rid of the flaky behavior of tests.
+		//If YES then need to add a check to confirm if the revision clicked is shown on the revisions list
+		Thread.sleep(5000);
 	}
 
     @com.thoughtworks.gauge.Step("Select revision <revision> for material <materialName>")
