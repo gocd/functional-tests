@@ -112,6 +112,8 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
         /* We need to unset all environment variables that the parent agent is setting while running twist jobs. Else, all environment variables are reported as overridden. */
         builder.environment().remove("GO_SERVER_URL");
         builder.environment().remove("AGENT_DIR");
+        builder.environment().remove("AGENT_MEM");
+        builder.environment().remove("AGENT_MAX_MEM");
         builder.environment().remove("GO_ENVIRONMENT_NAME");
         builder.environment().remove("GO_PIPELINE_NAME");
         builder.environment().remove("GO_PIPELINE_COUNTER");
