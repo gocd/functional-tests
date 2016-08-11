@@ -131,8 +131,8 @@ public class ServerIsRunning extends ProcessIsRunning {
                         extraParams.toString());
         env.put("GO_SERVER_PORT", Urls.SERVER_PORT);
         env.put("GO_SERVER_SSL_PORT", Urls.SSL_PORT);
-        String serverMem = System.getenv("TWIST_GO_SERVER_MEM") != null ? System.getenv("TWIST_GO_SERVER_MEM") : "256m";
-        String serverMaxMem = System.getenv("TWIST_GO_SERVER_MAX_MEM") != null ? System.getenv("TWIST_GO_SERVER_MAX_MEM") : "512m";
+        String serverMem = System.getenv("TWIST_GO_SERVER_MEM") != null ? System.getenv("TWIST_GO_SERVER_MEM") : "512m";
+        String serverMaxMem = System.getenv("TWIST_GO_SERVER_MAX_MEM") != null ? System.getenv("TWIST_GO_SERVER_MAX_MEM") : "1024m";
         env.put("SERVER_MEM", serverMem);
         env.put("SERVER_MAX_MEM", serverMaxMem);
         env.put("JVM_DEBUG", "true");
