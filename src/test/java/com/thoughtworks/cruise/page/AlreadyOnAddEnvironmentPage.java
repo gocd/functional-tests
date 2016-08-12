@@ -16,8 +16,10 @@
 
 package com.thoughtworks.cruise.page;
 
+import com.jayway.restassured.config.Config;
 import com.thoughtworks.cruise.Regex;
 import com.thoughtworks.cruise.SahiBrowserWrapper;
+import com.thoughtworks.cruise.context.Configuration;
 import com.thoughtworks.cruise.state.ConfigState;
 import com.thoughtworks.cruise.state.CurrentPageState;
 import com.thoughtworks.cruise.state.CurrentPageState.Page;
@@ -40,6 +42,7 @@ import static org.junit.Assert.assertThat;
 public class AlreadyOnAddEnvironmentPage extends CruisePage {
 
 	private final CurrentPageState currentPageState;
+	private final Configuration config;
 	private String md5key= "md5_form";
 	
 	
@@ -48,6 +51,7 @@ public class AlreadyOnAddEnvironmentPage extends CruisePage {
 	public AlreadyOnAddEnvironmentPage(Browser browser, ScenarioState scenarioState, CurrentPageState currentPageState) {
 		super(scenarioState, true, browser);
 		this.currentPageState = currentPageState;
+		this.config = new Configuration(scenarioState);
 		
 	}
 
@@ -331,18 +335,19 @@ public class AlreadyOnAddEnvironmentPage extends CruisePage {
 	
 	@com.thoughtworks.gauge.Step("Remember md5")
 	public void rememberMd5() throws Exception {
-		scenarioState.putValueToStore(md5key,browser.getValue(browser.hidden("cruise_config_md5")));
+		//browser.getValue(browser.hidden("cruise_config_md5"))
+		scenarioState.putValueToStore(md5key,config.provideCurrentConfigmd5());
 	}
 
 	@com.thoughtworks.gauge.Step("Verify md5 is same")
 	public void verifyMd5IsSame() throws Exception {
 		String md5value = scenarioState.getValueFromStore(md5key);
-		assertEquals(browser.hidden("cruise_config_md5").getValue(), md5value);
+		assertEquals(config.provideCurrentConfigmd5(), md5value);
 	}
 		
 	public void verifyMd5IsNotSame() throws Exception {
 		String md5value = scenarioState.getValueFromStore(md5key);
-		String md5check = browser.hidden("cruise_config_md5").getValue();
+		String md5check = config.provideCurrentConfigmd5();
 		Assert.assertThat(md5check.equalsIgnoreCase(md5value), Is.is(false));
 	}
 	
@@ -360,7 +365,7 @@ public class AlreadyOnAddEnvironmentPage extends CruisePage {
 	@com.thoughtworks.gauge.Step("Assert mD5 - Already on Add Environment Page")
 	public void assertMD5() throws Exception {
     	String md5value = scenarioState.getValueFromStore(ConfigState.md5key);
-    	assertEquals(browser.hidden("cruise_config_md5").getValue(), md5value);
+    	assertEquals(config.provideCurrentConfigmd5(), md5value);
     }
 	
 	@com.thoughtworks.gauge.Step("Close popup - Already on Add Environment Page")

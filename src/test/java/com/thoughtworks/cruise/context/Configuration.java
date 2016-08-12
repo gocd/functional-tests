@@ -58,6 +58,10 @@ public class Configuration {
         return getDom(func);
     }
 
+    public String provideCurrentConfigmd5(){
+        return currentConfigState().md5;
+    }
+
     public CruiseConfigDom provideDomAsAdmin() {
         return getDom(new GetConfigUsingAsAdmin());
     }
