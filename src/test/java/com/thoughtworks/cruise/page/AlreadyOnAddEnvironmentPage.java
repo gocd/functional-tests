@@ -335,7 +335,6 @@ public class AlreadyOnAddEnvironmentPage extends CruisePage {
 	
 	@com.thoughtworks.gauge.Step("Remember md5")
 	public void rememberMd5() throws Exception {
-		//browser.getValue(browser.hidden("cruise_config_md5"))
 		scenarioState.putValueToStore(md5key,config.provideCurrentConfigmd5());
 	}
 

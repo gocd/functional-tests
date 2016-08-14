@@ -205,7 +205,7 @@ public class OnAnyPage extends CruisePage {
 	@com.thoughtworks.gauge.Step("Verify <url> returns <httpCode>")
 	public void verifyReturns(String url, Integer httpCode) throws Exception {
 		browser.navigateTo(Urls.urlFor(url));
-		ElementStub error = browser.heading2("HTTP ERROR " + httpCode);
+		ElementStub error = browser.heading1(Integer.toString(httpCode));
 		Assert.assertThat(error.isVisible(), Is.is(true));
 	}
 
