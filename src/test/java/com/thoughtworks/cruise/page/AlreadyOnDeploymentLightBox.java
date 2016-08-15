@@ -166,6 +166,14 @@ public class AlreadyOnDeploymentLightBox implements DisposableBean {
         searchFor(msg, true);
 	}
 
+
+    @com.thoughtworks.gauge.Step("Set revision to trigger with as <commit>")
+    public void setRevision(final String commit) throws Exception {
+        ElementStub elementToDeployTextbox = elementToDeployTextbox();
+        elementToDeployTextbox.setValue(repoState.getRevisionFromAlias(commit));
+
+    }
+
 	private void searchFor(final String msg, boolean shouldBeShown) {
 
 		Action action = new Action() {

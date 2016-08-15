@@ -97,8 +97,7 @@ tags: UI, automate, pipeline-dashboard, #3700, 3820, failing, stage1, OOM
 * Open trigger with options
 
 * Using material "hgMaterial"
-* Search for "something"
-* Select revision "1" in search box
+* Set revision to trigger with as "hg-commit1"
 * Trigger
 
 * On Pipeline Dashboard Page
