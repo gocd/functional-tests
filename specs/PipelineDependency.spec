@@ -23,7 +23,7 @@ Setup of contexts
 PipelineDependency
 ------------------
 
-tags: dependency pipeline, 3695, automate, stage1
+tags: dependency pipeline, 3695, automate, stage1, OOM
 
 Get to a sane state
 
