@@ -59,8 +59,7 @@ tags: shine, bisect, automate
 * Open trigger with options
 
 * Using material "svn"
-* Search for "Comment c"
-* Select revision "1" in search box
+* Set revision to trigger with as "rev-6"
 * Trigger
 
 * Looking at pipeline "basic-svn-pipeline"
