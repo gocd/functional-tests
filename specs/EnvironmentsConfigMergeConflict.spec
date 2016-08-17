@@ -49,7 +49,7 @@ tags: 7302
 * Select pipelines "basic-pipeline-fast"
 * UnSelect pipelines "basic-pipeline"
 * Click on save - Already on Add Environment Page
-* Verify error message "Failed to update environment 'EV1'. Configuration file has been modified by someone else. " is present - Already on Add Environment Page
+* Verify error message "Someone has modified the configuration for Environment 'EV1'. Please update your copy of the config with the changes." is present - Already on Add Environment Page
 * Verify md5 is same
 
 * On Environments Page
@@ -58,18 +58,10 @@ tags: 7302
 * Click edit environment link for "EV1"
 
 * Verify values "${runtime_name:basic-pipeline-run-till-file-exists}" are shown in section "added_pipelines"
-* Click on edit agents
 
-* Verify title of modal box is "Agents"
-* Select agent "denied-agent"
+Below scenario is removed by the PR https://github.com/gocd/gocd/pull/2560 so removing steps related to that
+Scenario: Concurrent modification of environment pipeline, agents or environment_variables should be merged automatically
 
-* Adding pipeline "downstream-pipeline" to "EV1" environment - Configure cruise Using Api
-
-* Click on save - Already on Add Environment Page
-
-* Verify message "Updated environment 'EV1'. The configuration was modified by someone else, but your changes were merged successfully." is present
-* Verify values "${runtime_name:basic-pipeline-run-till-file-exists},${runtime_name:downstream-pipeline}" are shown in section "added_pipelines"
-* Verify values "denied-agent (10.232.3.2), missing-agent (10.232.3.1)" are shown in section "added_agents"
 * Click on edit pipelines
 
 * Select pipelines "abyss"

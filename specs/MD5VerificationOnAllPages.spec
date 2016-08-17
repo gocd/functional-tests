@@ -137,13 +137,17 @@ tags: 7321
 * Click edit
 * Assert mD5 - Already on Source Xml Tab
 
+* On Admin page
+* Open "Package Repositories" tab
+
+* Assert mD5 - Already on package repositories tab
+
 * On Environments Page
 * Click edit environment link for "uat"
 
 * Click on edit pipelines
 
-* Assert mD5 - Already on Add Environment Page
-* Close popup - Already on Add Environment Page
+* Remember md5
 
 * Click on edit agents
 
@@ -154,11 +158,6 @@ tags: 7321
 
 * Assert mD5 - Already on Add Environment Page
 * Close popup - Already on Add Environment Page
-
-* On Admin page
-* Open "Package Repositories" tab
-
-* Assert mD5 - Already on package repositories tab
 
 
 

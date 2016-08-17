@@ -18,20 +18,35 @@ package com.thoughtworks.cruise.api;
 
 // JUnit Assert framework can be used for verification
 
+import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.response.Response;
 import com.thoughtworks.cruise.ConfigureCruiseUsingApi;
 import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.client.TalkToCruise;
 import com.thoughtworks.cruise.client.TalkToCruise.CruiseResponse;
 import net.sf.sahi.client.Browser;
 import org.apache.commons.httpclient.methods.StringRequestEntity;
+import org.bouncycastle.util.encoders.Base64;
+import org.codehaus.jettison.json.JSONObject;
 import org.hamcrest.core.Is;
 import org.junit.Assert;
+
+import java.io.IOException;
+import java.util.HashMap;
+
+import static com.jayway.restassured.RestAssured.given;
+import static com.jayway.restassured.RestAssured.when;
+import static org.hamcrest.Matchers.equalTo;
 
 public class UsingEnvironmentApi {
 
 	private Browser browser;
 	private TalkToCruise talkToCruise;
 	private String environmentUpdateUrl;
+	private String envName;
+	private String auth = "Basic "+new String(Base64.encode("admin:badger".getBytes()));
+	private String apiv1 = "application/vnd.go.cd.v1+json";
+	private String contentType = "application/json";
 
 	public UsingEnvironmentApi(Browser browser, TalkToCruise talkToCruise) {
 		this.browser = browser;
@@ -40,19 +55,44 @@ public class UsingEnvironmentApi {
 
 	@com.thoughtworks.gauge.Step("Change environment name to <newEnvName>")
 	public void changeEnvironmentNameTo(String newEnvName) throws Exception {
-	    StringRequestEntity reqEntity = new StringRequestEntity(String.format("cruise_config_md5=%s&environment[name]=%s", getMD5(), newEnvName), "application/x-www-form-urlencoded", "UTF-8");
-		CruiseResponse response = talkToCruise.put(environmentUpdateUrl, reqEntity);
-		Assert.assertThat(response.getStatus(), Is.is(200));
+		Response response = getEnvironment(this.envName);
+		HashMap<String, String> headers = new HashMap<String, String>();
+
+		headers.put("Authorization", auth);
+		headers.put("Accept", apiv1);
+		headers.put("Content-Type", contentType);
+		headers.put("If-Match", response.getHeader("Etag"));
+
+		JSONObject jsonObj = new JSONObject(response.body().asString());
+		String requestBody = jsonObj.putOpt("name",newEnvName).toString();
+
+		Response updateResponse =  RestAssured.given().
+				headers(headers).
+				body(requestBody).
+				when().put(environmentUpdateUrl);
+
+		updateResponse.then().statusCode(200).and().body("name",equalTo(newEnvName));
 	}
-	
-	private String getMD5() {
-	    String url = ConfigureCruiseUsingApi.GO_CONFIG_API_URL;
-	    CruiseResponse response = talkToCruise.get(url);
-	    return response.getResponseHeader("X-CRUISE-CONFIG-MD5");
+
+	public Response getEnvironment(String envName) throws IOException {
+
+		HashMap<String, String> headers = new HashMap<String, String>();
+		headers.put("Authorization", auth);
+		headers.put("Accept", apiv1);
+		headers.put("Content-Type", contentType);
+
+		Response response = given().
+				headers(headers).
+				when().get(environmentUpdateUrl);
+
+		response.then().statusCode(200).and().body("name", equalTo(envName));
+
+		return response;
 	}
 	
 	@com.thoughtworks.gauge.Step("For environment named <envName>")
 	public void forEnvironmentNamed(String envName) throws Exception {
-		this.environmentUpdateUrl = Urls.urlFor(String.format("/environments/%s",envName));
+		this.environmentUpdateUrl = Urls.urlFor(String.format("/go/api/admin/environments/%s",envName));
+		this.envName = envName;
 	}
 }
