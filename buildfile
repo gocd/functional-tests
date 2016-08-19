@@ -100,24 +100,61 @@ task :resolve_dependencies do
   cp _cruise.compile.dependencies.collect { |t| t.to_s }, _cruise.path_to('tempo')
 end
 
-task :copy_plugins do
-  mkdir_p "target/go-server-#{VERSION_NUMBER}/plugins/external"
-  cp_r "../#{GO_PLUGINS_DIRNAME}/target/go-plugins-dist/.", "target/go-server-#{VERSION_NUMBER}/plugins/external"
-  rm "target/go-server-#{VERSION_NUMBER}/plugins/external/yum-repo-exec-poller.jar"
+task :dependencies do
+  sh 'mvn clean install -q'
 end
 
-task :copy_server do
+task :build_plugins do
+  cd "../#{GO_PLUGINS_DIRNAME}" do
+    sh './gradlew assemble -q'
+  end
+end
+
+task :build_server do
+  cd "../#{GO_TRUNK_DIRNAME}" do
+    sh './gradlew serverGenericZip -q'
+  end
+end
+
+task :build_agent do
+  cd "../#{GO_TRUNK_DIRNAME}" do
+    sh './gradlew agentGenericZip -q'
+  end
+end
+
+task :copy_plugins => [:build_plugins] do
+  Dir.glob('target/go-server-*') { |server_dir|
+    plugin_dir = "#{server_dir}/plugins/external"
+    mkdir_p plugin_dir
+
+    Dir.glob("../#{GO_PLUGINS_DIRNAME}/**/*1.0.jar").each { |plugin_jar|
+      cp plugin_jar, plugin_dir
+    }
+  }
+
+  Dir.glob('target/go-server-*/plugins/external/yum-repo-exec-poller.jar') { |poller_jar|
+    rm poller_jar
+  }
+end
+
+task :copy_server => [:build_server] do
   mkdir_p "target"
-  cp_r "../#{GO_TRUNK_DIRNAME}/target/go-server-#{VERSION_NUMBER}", "target"
+  sh "unzip ../#{GO_TRUNK_DIRNAME}/installers/target/distributions/zip/go-server-*.zip -d ./target"
 end
 
-task :copy_agent do
+task :copy_agent => [:build_agent]do
   mkdir_p "target"
-  cp_r "../#{GO_TRUNK_DIRNAME}/target/go-agent-#{VERSION_NUMBER}", "target"
-  cp "target/go-agent-#{VERSION_NUMBER}/agent.sh", "src/test/java/com/thoughtworks/cruise/preconditions/start-twist-agent.sh"
+  sh "unzip ../#{GO_TRUNK_DIRNAME}/installers/target/distributions/zip/go-agent-*.zip -d ./target"
+    Dir.glob('target/go-agent-*/agent.sh').each { |script|
+    cp script, 'src/test/java/com/thoughtworks/cruise/preconditions/start-twist-agent.sh'
+  }
 end
 
-task :setup => [:copy_agent, :copy_server, :copy_plugins] do
+task :clean do
+  rm_rf './target'
+end
+
+task :setup => [:clean, :dependencies, :copy_agent, :copy_server, :copy_plugins] do
 end
 
 
@@ -142,9 +179,9 @@ end
 task :agent_cleanup do
   if Util.win_os?
     system("cmd /c target\\go-server-#{VERSION_NUMBER}\\stop-server.bat")
-    system("cmd /c scripts\\kill_all_go_instances.bat")
+      system("cmd /c scripts\\kill_all_go_instances.bat")
     kill_gauge
- else
+  else
     sh "scripts/kill_all_go_instances.sh"
     sh "scripts/cleanup-agents.sh"
     rm_rf "target"
@@ -153,9 +190,9 @@ task :agent_cleanup do
 end
 
 task :cleanup_test_agents do
-   if !Util.win_os?
-     sh "scripts/cleanup-agents.sh"
-   end
+  if !Util.win_os?
+    sh "scripts/cleanup-agents.sh"
+  end
 end
 
 task :setup_go do
@@ -170,19 +207,19 @@ end
 
 task :gauge_specs do
 
- if Util.win_os?
+  if Util.win_os?
     system("cmd /c scripts\\enable_ie_proxy.bat enable ")
- end
+  end
 
- if LOAD_BALANCED
-  sh "gauge --tags=#{GAUGE_TAGS} -n=#{GO_JOB_RUN_COUNT} -g=#{GO_JOB_RUN_INDEX} specs"
- else
-  sh "gauge --tags=#{GAUGE_TAGS} specs"
- end
+  if LOAD_BALANCED
+    sh "gauge --tags=#{GAUGE_TAGS} -n=#{GO_JOB_RUN_COUNT} -g=#{GO_JOB_RUN_INDEX} specs"
+  else
+    sh "gauge --tags=#{GAUGE_TAGS} specs"
+  end
 
- if Util.win_os?
+  if Util.win_os?
     system("cmd /c scripts\\enable_ie_proxy.bat disable ")
- end
+  end
 end
 
 task "no-test" do

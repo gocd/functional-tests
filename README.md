@@ -8,21 +8,21 @@ Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg
 * [Gauge](http://getgauge.io)
 
 ## Setup
-* ``` git clone``` as a sibling directory to
-  [go.cd](https://github.com/gocd/gocd)
-* ```$ cd gocd-functional-tests```
-* ```$ gauge --install-all```
-
-## Prepare
-* cd to ```gocd-plugins``` codebase, run : ```$ mvn clean install -DskipTests```
-* cd to ```gocd``` codebase, run : ```$ ./bn clean
-  cruise:prepare dist ALLOW_NON_PRODUCTION_CODE=yes```
-* cd to ```gocd-functional-tests``` and run : ```$ ./b clean setup```
-* ```./b start_server``` 
+```
+$ git clone https://github.com/gocd/gocd
+$ git clone https://github.com/gocd/go-plugins
+$ git clone https://github.com/gocd/functional-tests
+$ cd functional-tests
+$ ./b setup
+$ ./b start_server
+```
 
 ## Running tests
 
-* ```gauge specs/AdminTaskListing.spec```
+```
+$ gauge install-all
+$ gauge specs/AdminTaskListing.spec
+```
 
 ## Contributing
 
