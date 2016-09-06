@@ -465,8 +465,7 @@ public class OnAgentsPage extends CruisePage {
 
 	@com.thoughtworks.gauge.Step("Verify agents show operating system")
 	public void verifyAgentsShowOperatingSystem() throws Exception {
-		Assert.assertThat(getColumnValues("OS"),
-				Matchers.hasItem(System.getProperty("os.name")));
+		Assert.assertThat(getColumnValues("OS"), Matchers.hasItem("CentOS 6.7 Final"));
 	}
 
 	private void enableUsingApi(String id) {
