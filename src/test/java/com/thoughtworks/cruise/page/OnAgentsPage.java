@@ -42,6 +42,7 @@ import org.junit.Assert;
 
 import java.net.InetAddress;
 import java.util.*;
+import java.util.regex.Pattern;
 
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
@@ -465,7 +466,13 @@ public class OnAgentsPage extends CruisePage {
 
 	@com.thoughtworks.gauge.Step("Verify agents show operating system")
 	public void verifyAgentsShowOperatingSystem() throws Exception {
-		Assert.assertThat(getColumnValues("OS"), Matchers.hasItem("CentOS 6.7 Final"));
+		boolean showOS = false;
+		for(String os : getColumnValues("OS")){
+				if(os.matches("CentOS (\\d+\\.?)+ Final"))
+					showOS = true;
+		}
+
+		Assert.assertTrue(showOS);
 	}
 
 	private void enableUsingApi(String id) {

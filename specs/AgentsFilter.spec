@@ -115,15 +115,15 @@ Resource based search
 
 
 OS based search
-* Enter filter value "os: CentOS 6.7 Final"
-* Auto completes should show suggestions "CentOS 6.7 Final"
+* Enter filter value "os: CentOS"
+* Auto completes should show suggestions "CentOS"
 * Perform filter
 * Verify total agent count is "1"
-* Enter filter value "os: \"CentOS 6.7 Final\""
-* Perform filter
-* Verify total agent count is "1"
+Enter filter value "os: \"CentOS\""
+Perform filter
+Verify total agent count is "1"
 * Enter filter value "os:"
-* Auto completes should show suggestions "CentOS 6.7 Final"
+* Auto completes should show suggestions "CentOS"
 * Perform filter
 * Verify total agent count is "6"
 * Enter filter value "os: \"centos\""

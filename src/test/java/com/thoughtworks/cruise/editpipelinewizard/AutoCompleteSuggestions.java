@@ -105,7 +105,7 @@ public class AutoCompleteSuggestions {
         }
 
         public boolean matches(String givenSuggestion) {
-            return suggestion.equals(givenSuggestion);
+            return givenSuggestion.contains(suggestion);
         }
 
         @Override
