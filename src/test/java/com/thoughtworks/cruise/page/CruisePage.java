@@ -123,7 +123,7 @@ public abstract class CruisePage {
         assertThat(elementAPIs.fetch("href"), StringContains.containsString("https://api.go.cd/"));
 
         ElementStub elementPlugins = browser.link("plugins");
-        assertThat(elementPlugins.fetch("href"), StringContains.containsString("https://www.go.cd/community/plugins.html"));
+        assertThat(elementPlugins.fetch("href"), StringContains.containsString("https://www.go.cd/plugins/"));
 
         ElementStub elementServerDetails = browser.link("server-details");
         assertThat(elementServerDetails.fetch("href"), StringContains.containsString("/go/about"));
