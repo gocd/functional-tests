@@ -42,7 +42,7 @@ public class PipelineConfigAPI {
 
     private boolean useConfigAPI = false;
     private String auth = "Basic "+new String(Base64.encode("admin:badger".getBytes())); //"Basic YWRtaW46YmFkZ2Vy";
-    private String apiv1 = "application/vnd.go.cd.v1+json";
+    private String apiv3 = "application/vnd.go.cd.v3+json";
     private String contentType = "application/json";
 
     @com.thoughtworks.gauge.Step("Using Pipeline Config API")
@@ -56,7 +56,7 @@ public class PipelineConfigAPI {
 
         HashMap<String, String> headers = new HashMap<String, String>();
         headers.put("Authorization", auth);
-        headers.put("Accept", apiv1);
+        headers.put("Accept", apiv3);
         headers.put("Content-Type", contentType);
 
         RestAssured.given().
@@ -136,7 +136,7 @@ public class PipelineConfigAPI {
 
         HashMap<String, String> headers = new HashMap<String, String>();
         headers.put("Authorization", auth);
-        headers.put("Accept", apiv1);
+        headers.put("Accept", apiv3);
         headers.put("Content-Type", contentType);
 
         Response response = RestAssured.given().
@@ -153,7 +153,7 @@ public class PipelineConfigAPI {
         HashMap<String, String> headers = new HashMap<String, String>();
 
         headers.put("Authorization", auth);
-        headers.put("Accept", apiv1);
+        headers.put("Accept", apiv3);
         headers.put("Content-Type", contentType);
         headers.put("If-Match", getPipeline(pipeline).getHeader("Etag"));
 
@@ -168,7 +168,7 @@ public class PipelineConfigAPI {
         HashMap<String, String> headers = new HashMap<String, String>();
 
         headers.put("Authorization", "Basic "+new String(Base64.encode((user+":badger").getBytes())));
-        headers.put("Accept", apiv1);
+        headers.put("Accept", apiv3);
         headers.put("Content-Type", contentType);
 
         return RestAssured.given().
