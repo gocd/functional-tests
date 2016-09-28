@@ -5,18 +5,6 @@
    <artifactId>functional-tests</artifactId>
    <version>16.2.0</version>
    <name>Go functional tests</name>
-   <repositories>
-      <repository>
-         <id>repository.jboss.org-public</id>
-         <name>JBoss.org Maven repository</name>
-         <url>https://repository.jboss.org/nexus/content/groups/public</url>
-      </repository>
-      <repository>
-         <id>repository.spring-public</id>
-         <name>Spring Maven repository</name>
-         <url>http://repo.spring.io/release</url>
-      </repository>
-   </repositories>
    <dependencies>
       <dependency>
          <groupId>com.google.code.gson</groupId>
