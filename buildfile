@@ -161,10 +161,10 @@ end
 task :setup_go do
   if Util.win_os?
     system("cmd /c scripts\\setup-go.bat")
-    system("mvn dependency:resolve dependency:copy-dependencies -DoutputDirectory=libs/")
+    system("mvn -B -V dependency:resolve dependency:copy-dependencies -DoutputDirectory=libs/")
   else
     sh "scripts/setup-go.sh"
-    sh "mvn dependency:resolve dependency:copy-dependencies -DoutputDirectory=libs/"
+    sh "mvn -B -V dependency:resolve dependency:copy-dependencies -DoutputDirectory=libs/"
   end
 end
 
