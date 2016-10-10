@@ -2,7 +2,7 @@
 #--
 # set.rb - defines the Set class
 #++
-# Copyright (c) 2002 Akinori MUSHA <knu@iDaemons.org>
+# Copyright (c) 2002-2008 Akinori MUSHA <knu@iDaemons.org>
 #
 # Documentation by Akinori MUSHA and Gavin Sinclair. 
 #
@@ -20,7 +20,7 @@
 #
 # The method +to_set+ is added to Enumerable for convenience.
 #
-# See the Set class for an example of usage.
+# See the Set and SortedSet documentation for examples of usage.
 
 
 #
@@ -47,6 +47,10 @@
 #   s1.merge([2, 6])                      # -> #<Set: {6, 1, 2, "foo"}>
 #   s1.subset? s2                         # -> false
 #   s2.subset? s1                         # -> true
+#
+# == Contact
+#
+#   - Akinori MUSHA <knu@iDaemons.org> (current maintainer)
 #
 class Set
   include Enumerable
@@ -184,8 +188,10 @@ class Set
   end
 
   # Calls the given block once for each element in the set, passing
-  # the element as parameter.
+  # the element as parameter.  Returns an enumerator if no block is
+  # given.
   def each
+    block_given? or return enum_for(__method__)
     @hash.each_key { |o| yield(o) }
     self
   end
@@ -251,8 +257,8 @@ class Set
   # Merges the elements of the given enumerable object to the set and
   # returns self.
   def merge(enum)
-    if enum.is_a?(Set)
-      @hash.update(enum.instance_eval { @hash })
+    if enum.instance_of?(self.class)
+      @hash.update(enum.instance_variable_get(:@hash))
     else
       enum.is_a?(Enumerable) or raise ArgumentError, "value must be enumerable"
       enum.each { |o| add(o) }
@@ -428,7 +434,35 @@ class Set
   end
 end
 
-# SortedSet implements a set which elements are sorted in order.  See Set.
+# 
+# SortedSet implements a Set that guarantees that it's element are
+# yielded in sorted order (according to the return values of their
+# #<=> methods) when iterating over them.
+# 
+# All elements that are added to a SortedSet must respond to the <=>
+# method for comparison.
+# 
+# Also, all elements must be <em>mutually comparable</em>: <tt>el1 <=>
+# el2</tt> must not return <tt>nil</tt> for any elements <tt>el1</tt>
+# and <tt>el2</tt>, else an ArgumentError will be raised when
+# iterating over the SortedSet.
+#
+# == Example
+# 
+#   require "set"
+#   
+#   set = SortedSet.new(2, 1, 5, 6, 4, 5, 3, 3, 3)
+#   ary = []
+#   
+#   set.each do |obj|
+#     ary << obj
+#   end
+#   
+#   p ary # => [1, 2, 3, 4, 5, 6]
+#   
+#   set2 = SortedSet.new(1, 2, "3")
+#   set2.each { |obj| } # => raises ArgumentError: comparison of Fixnum with String failed
+#   
 class SortedSet < Set
   @@setup = false
 
@@ -453,6 +487,12 @@ class SortedSet < Set
 	    @hash = RBTree.new
 	    super
 	  end
+	  
+	  def add(o)
+	    o.respond_to?(:<=>) or raise ArgumentError, "value must repond to <=>"
+	    super
+	  end
+	  alias << add
 	}
       rescue LoadError
 	module_eval %{
@@ -472,9 +512,9 @@ class SortedSet < Set
 	  end
 
 	  def add(o)
+	    o.respond_to?(:<=>) or raise ArgumentError, "value must respond to <=>"
 	    @keys = nil
-	    @hash[o] = true
-	    self
+	    super
 	  end
 	  alias << add
 
@@ -497,6 +537,7 @@ class SortedSet < Set
 	  end
 
 	  def each
+	    block_given? or return enum_for(__method__)
 	    to_a.each { |o| yield(o) }
 	    self
 	  end
@@ -915,9 +956,11 @@ class TC_Set < Test::Unit::TestCase
     ary = [1,3,5,7,10,20]
     set = Set.new(ary)
 
-    assert_raises(LocalJumpError) {
-      set.each
-    }
+    ret = set.each { |o| }
+    assert_same(set, ret)
+
+    e = set.each
+    assert_instance_of(Enumerable::Enumerator, e)
 
     assert_nothing_raised {
       set.each { |o|
@@ -1171,14 +1214,14 @@ class TC_SortedSet < Test::Unit::TestCase
 
     s = SortedSet.new(['one', 'two', 'three', 'four'])
     a = []
-    ret = s.delete_if { |o| a << o; o[0] == ?t }
+    ret = s.delete_if { |o| a << o; o.start_with?('t') }
     assert_same(s, ret)
     assert_equal(['four', 'one'], s.to_a)
     assert_equal(['four', 'one', 'three', 'two'], a)
 
     s = SortedSet.new(['one', 'two', 'three', 'four'])
     a = []
-    ret = s.reject! { |o| a << o; o[0] == ?t }
+    ret = s.reject! { |o| a << o; o.start_with?('t') }
     assert_same(s, ret)
     assert_equal(['four', 'one'], s.to_a)
     assert_equal(['four', 'one', 'three', 'two'], a)
