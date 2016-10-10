@@ -9,9 +9,9 @@
 # *  this ensures that only one instance of Klass lets call it
 #    ``the instance'' can be created.
 #
-#    a,b  = Klass.instance, Klass.instance
-#    a == b   # => true
-#    a.new    #  NoMethodError - new is private ...
+#      a,b  = Klass.instance, Klass.instance
+#      a == b    # => true
+#      Klass.new #  NoMethodError - new is private ...
 #
 # *  ``The instance'' is created at instantiation time, in other
 #    words the first call of Klass.instance(), thus
@@ -30,7 +30,7 @@
 # *  Klass.new and Klass.allocate - as private
 #
 # Providing (or modifying) the class methods
-# *  Klass.inherited(sub_klass) and Klass.clone()  - 
+# *  Klass.inherited(sub_klass) and Klass.clone()  -
 #    to ensure that the Singleton pattern is properly
 #    inherited and cloned.
 #
@@ -39,10 +39,16 @@
 #    method body is a simple:
 #
 #       def Klass.instance()
-#         return @__instance__
+#         return @singleton__instance__
 #       end
 #
 # *  Klass._load(str)  -  calling Klass.instance()
+#
+# *  Klass._instantiate?()  -  returning ``the instance'' or
+#    nil. This hook method puts a second (or nth) thread calling
+#    Klass.instance() on a waiting loop. The return value
+#    signifies the successful completion or premature termination
+#    of the first, or more generally, current "instantiation thread".
 #
 #
 # The instance method of Singleton are
@@ -64,103 +70,85 @@ module Singleton
   def dup
     raise TypeError, "can't dup instance of singleton #{self.class}"
   end
-  
-  private 
+
   #  default marshalling strategy
-  def _dump(depth=-1) 
+  def _dump(depth = -1)
     ''
   end
-end
 
-
-class << Singleton
-  module SingletonClassMethods  
+  module SingletonClassMethods
     # properly clone the Singleton pattern - did you know
-    # that duping doesn't copy class methods?  
+    # that duping doesn't copy class methods?
     def clone
       Singleton.__init__(super)
     end
-    
+
+    def _load(str)
+      instance
+    end
+
     private
-    
-    #  ensure that the Singleton pattern is properly inherited   
+
+    #  ensure that the Singleton pattern is properly inherited
     def inherited(sub_klass)
       super
       Singleton.__init__(sub_klass)
     end
-    
-    def _load(str) 
-      instance 
-    end
   end
-  
-  def __init__(klass)
-    klass.instance_eval { @__instance__ = nil }
 
-    # the mutex can get GCed once "instance" is redefined
-    mutex = Mutex.new
-
-    (class << klass ; self ; end).instance_eval do
-      define_method(:instance) do ||
-
-        # note that there is no good way to support the _instantiate? hook
-        # in a backwards-compatible way without forcing the use of
-        # Thread.critical, which is the very thing we are trying to avoid
-        # with this rewrite
-
-        mutex.synchronize do
-          unless @__instance__
-            @__instance__ = new
-
-            # redefining the method establishes a happens-before edge to
-            # callers of the redefined method, so that they will see a
-            # properly initialized @__instance__ without needing to
-            # synchronize on the mutex
-            class << self
-              def instance ; @__instance__ ; end
-            end
-          end
-          @__instance__
-        end
+  class << Singleton
+    def __init__(klass)
+      klass.instance_eval {
+        @singleton__instance__ = nil
+        @singleton__mutex__ = Mutex.new
+      }
+      def klass.instance
+        return @singleton__instance__ if @singleton__instance__
+        @singleton__mutex__.synchronize {
+          return @singleton__instance__ if @singleton__instance__
+          @singleton__instance__ = new()
+        }
+        @singleton__instance__
       end
+      klass
     end
-    klass
-  end
-  
-  private
-  #  extending an object with Singleton is a bad idea
-  undef_method :extend_object
-  
-  def append_features(mod)
-    #  help out people counting on transitive mixins
-    unless mod.instance_of?(Class)
-      raise TypeError, "Inclusion of the OO-Singleton module in module #{mod}"
+
+    private
+
+    #  extending an object with Singleton is a bad idea
+    undef_method :extend_object
+
+    def append_features(mod)
+      #  help out people counting on transitive mixins
+      unless mod.instance_of?(Class)
+        raise TypeError, "Inclusion of the OO-Singleton module in module #{mod}"
+      end
+      super
     end
-    super
+
+    def included(klass)
+      super
+      klass.private_class_method  :new, :allocate
+      klass.extend SingletonClassMethods
+      Singleton.__init__(klass)
+    end
   end
-  
-  def included(klass)
-    super
-    klass.private_class_method  :new, :allocate
-    klass.extend SingletonClassMethods
-    Singleton.__init__(klass)
-  end
+
 end
- 
 
 
 if __FILE__ == $0
 
 def num_of_instances(klass)
     "#{ObjectSpace.each_object(klass){}} #{klass} instance(s)"
-end 
+end
 
 # The basic and most important example.
 
 class SomeSingletonClass
   include Singleton
 end
-puts "There are #{num_of_instances(SomeSingletonClass)}" 
+puts "There are #{num_of_instances(SomeSingletonClass)}"
 
 a = SomeSingletonClass.instance
 b = SomeSingletonClass.instance # a and b are same object
@@ -174,7 +162,7 @@ end
 
 
 
-puts "\nThreaded example with exception"; p
+puts "\nThreaded example with exception and customized #_instantiate?() hook"; p
 Thread.abort_on_exception = false
 
 class Ups < SomeSingletonClass
@@ -183,12 +171,23 @@ class Ups < SomeSingletonClass
     puts "initialize called by thread ##{Thread.current[:i]}"
   end
 end
-  
+
 class << Ups
+  def _instantiate?
+    @enter.push Thread.current[:i]
+    while false.equal?(@singleton__instance__)
+      @singleton__mutex__.unlock
+      sleep 0.08
+      @singleton__mutex__.lock
+    end
+    @leave.push Thread.current[:i]
+    @singleton__instance__
+  end
+
   def __sleep
     sleep(rand(0.08))
   end
-  
+
   def new
     begin
       __sleep
@@ -200,10 +199,12 @@ class << Ups
       end
     end
   end
-  
+
   def instantiate_all
-    1.upto(9) {|i|  
-      Thread.new { 
+    @enter = []
+    @leave = []
+    1.upto(9) {|i|
+      Thread.new {
         begin
           Thread.current[:i] = i
           __sleep
@@ -216,6 +217,8 @@ class << Ups
     puts "Before there were #{num_of_instances(self)}"
     sleep 3
     puts "Now there is #{num_of_instances(self)}"
+    puts "#{@enter.join '; '} was the order of threads entering the waiting loop"
+    puts "#{@leave.join '; '} was the order of threads leaving the waiting loop"
   end
 end
 
@@ -291,7 +294,7 @@ end
 class Down < Middle; end
 
 puts  "and basic \"Down test\" is #{Down.instance == Down.instance}\n
-Various exceptions"  
+Various exceptions"
 
 begin
   module AModule
