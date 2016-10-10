@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>list_directory (Rack::Directory)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rack/directory.rb, line 78</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list_directory</span>
+      <span class="ruby-ivar">@files</span> = [[<span class="ruby-value str">'../'</span>,<span class="ruby-value str">'Parent Directory'</span>,<span class="ruby-value str">''</span>,<span class="ruby-value str">''</span>,<span class="ruby-value str">''</span>]]
+      <span class="ruby-identifier">glob</span> = <span class="ruby-constant">F</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@path</span>, <span class="ruby-value str">'*'</span>)
+
+      <span class="ruby-constant">Dir</span>[<span class="ruby-identifier">glob</span>].<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">stat</span> = <span class="ruby-identifier">stat</span>(<span class="ruby-identifier">node</span>)
+        <span class="ruby-keyword kw">next</span>  <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">stat</span>
+        <span class="ruby-identifier">basename</span> = <span class="ruby-constant">F</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">node</span>)
+        <span class="ruby-identifier">ext</span> = <span class="ruby-constant">F</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">node</span>)
+
+        <span class="ruby-identifier">url</span> = <span class="ruby-constant">F</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@script_name</span>, <span class="ruby-ivar">@path_info</span>, <span class="ruby-identifier">basename</span>)
+        <span class="ruby-identifier">size</span> = <span class="ruby-identifier">stat</span>.<span class="ruby-identifier">size</span>
+        <span class="ruby-identifier">type</span> = <span class="ruby-identifier">stat</span>.<span class="ruby-identifier">directory?</span> <span class="ruby-value">? </span><span class="ruby-value str">'directory'</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Mime</span>.<span class="ruby-identifier">mime_type</span>(<span class="ruby-identifier">ext</span>)
+        <span class="ruby-identifier">size</span> = <span class="ruby-identifier">stat</span>.<span class="ruby-identifier">directory?</span> <span class="ruby-value">? </span><span class="ruby-value str">'-'</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">filesize_format</span>(<span class="ruby-identifier">size</span>)
+        <span class="ruby-identifier">mtime</span> = <span class="ruby-identifier">stat</span>.<span class="ruby-identifier">mtime</span>.<span class="ruby-identifier">httpdate</span>
+        <span class="ruby-identifier">url</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'/'</span>  <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">stat</span>.<span class="ruby-identifier">directory?</span>
+        <span class="ruby-identifier">basename</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'/'</span>  <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">stat</span>.<span class="ruby-identifier">directory?</span>
+
+        <span class="ruby-ivar">@files</span> <span class="ruby-operator">&lt;&lt;</span> [ <span class="ruby-identifier">url</span>, <span class="ruby-identifier">basename</span>, <span class="ruby-identifier">size</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">mtime</span> ]
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">return</span> [ <span class="ruby-value">200</span>, {<span class="ruby-value str">'Content-Type'</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value str">'text/html; charset=utf-8'</span>}, <span class="ruby-keyword kw">self</span> ]
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

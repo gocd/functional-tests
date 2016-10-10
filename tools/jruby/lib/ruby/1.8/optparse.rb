@@ -203,8 +203,7 @@
 #
 class OptionParser
   # :stopdoc:
-  # This is faked to avoid revision changes on every update
-  RCSID = %w[Id: optparse.rb 99999 2009-02-20 11:43:35Z shyouhei ][1..-1].each {|s| s.freeze}.freeze
+  RCSID = %w$Id$[1..-1].each {|s| s.freeze}.freeze
   Version = (RCSID[1].split('.').collect {|s| s.to_i}.extend(Comparable).freeze if RCSID[1])
   LastModified = (Time.gm(*RCSID[2, 2].join('-').scan(/\d+/).collect {|s| s.to_i}) if RCSID[2])
   Release = RCSID[2]
@@ -631,21 +630,15 @@ class OptionParser
     # method which is called on every option.
     #
     def summarize(*args, &block)
-      sum = []
-      list.reverse_each do |opt|
+      list.each do |opt|
         if opt.respond_to?(:summarize) # perhaps OptionParser::Switch
-          s = []
-          opt.summarize(*args) {|l| s << l}
-          sum.concat(s.reverse)
+          opt.summarize(*args, &block)
         elsif !opt or opt.empty?
-          sum << ""
-        elsif opt.respond_to?(:each_line)
-          sum.concat([*opt.each_line].reverse)
+          yield("")
         else
-          sum.concat([*opt.each].reverse)
+          opt.each(&block)
         end
       end
-      sum.reverse_each(&block)
     end
 
     def add_banner(to)  # :nodoc:
@@ -831,7 +824,7 @@ class OptionParser
   #
   # Directs to reject specified class argument.
   #
-  # +t+:: Argument class specifier, any object including Class.
+  # +t+:: Argument class speficier, any object including Class.
   #
   #   reject(t)
   #
@@ -967,8 +960,7 @@ class OptionParser
   # +indent+:: Indentation, defaults to @summary_indent.
   #
   def summarize(to = [], width = @summary_width, max = width - 1, indent = @summary_indent, &blk)
-    blk ||= proc {|l| to << (l.index($/, -1) ? l : l + $/)}
-    visit(:summarize, {}, {}, width, max, indent, &blk)
+    visit(:summarize, {}, {}, width, max, indent, &(blk || proc {|l| to << l + $/}))
     to
   end
 
@@ -1043,13 +1035,13 @@ class OptionParser
   #     "-x[OPTIONAL]"
   #     "-x"
   #   There is also a special form which matches character range (not full
-  #   set of regular expression):
+  #   set of regural expression):
   #     "-[a-z]MANDATORY"
   #     "-[a-z][OPTIONAL]" 
   #     "-[a-z]"
   #
   # [Argument style and description:]
-  #   Instead of specifying mandatory or optional arguments directly in the
+  #   Instead of specifying mandatory or optional orguments directly in the
   #   switch parameter, this separate parameter can be used.
   #     "=MANDATORY"
   #     "=[OPTIONAL]"
@@ -1085,7 +1077,7 @@ class OptionParser
       # directly specified pattern(any object possible to match)
       if !(String === o) and o.respond_to?(:match)
         pattern = notwice(o, pattern, 'pattern')
-        conv = pattern.method(:convert).to_proc if pattern.respond_to?(:convert)
+        conv = (pattern.method(:convert).to_proc if pattern.respond_to?(:convert))
         next
       end
 
@@ -1098,7 +1090,7 @@ class OptionParser
         when CompletingHash
         when nil
           pattern = CompletingHash.new
-          conv = pattern.method(:convert).to_proc if pattern.respond_to?(:convert)
+          conv = (pattern.method(:convert).to_proc if pattern.respond_to?(:convert))
         else
           raise ArgumentError, "argument pattern given twice"
         end

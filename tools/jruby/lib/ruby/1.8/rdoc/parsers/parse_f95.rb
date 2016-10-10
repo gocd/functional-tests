@@ -201,7 +201,7 @@ module RDoc
       @progress = $stderr unless options.quiet
     end
 
-    # define code constructs
+    # devine code constructs
     def scan
 
       # remove private comment
@@ -1065,7 +1065,7 @@ module RDoc
     #
     # If "all" argument is true, information of all arguments are returned.
     # If "modified_params" is true, list of arguments are decorated,
-    # for example, optional arguments are parenthetic as "[arg]".
+    # for exameple, optional arguments are parenthetic as "[arg]".
     #
     def find_arguments(args, text, all=nil, indent=nil, modified_params=nil)
       return unless args || all
@@ -1143,8 +1143,8 @@ EOF
 
     #
     # Comments just after module or subprogram, or arguments are
-    # returned. If "COMMENTS_ARE_UPPER" is true, comments just before
-    # modules or subprograms are returned
+    # returnd. If "COMMENTS_ARE_UPPER" is true, comments just before
+    # modules or subprograms are returnd
     #
     def find_comments text
       return "" unless text

@@ -261,13 +261,12 @@ module Test # :nodoc:
   #
 
   module Unit
-    # Set true when Test::Unit has run.  If set to true Test::Unit
-    # will not automatically run at exit.
+    # If set to false Test::Unit will not automatically run at exit.
     def self.run=(flag)
       @run = flag
     end
 
-    # Already tests have run?
+    # Automatically run tests at exit?
     def self.run?
       @run ||= false
     end
@@ -276,6 +275,6 @@ end
 
 at_exit do
   unless $! || Test::Unit.run?
-    Kernel.exit Test::Unit::AutoRunner.run
+    exit Test::Unit::AutoRunner.run
   end
 end

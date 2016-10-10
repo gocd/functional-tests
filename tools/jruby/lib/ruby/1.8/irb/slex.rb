@@ -1,5 +1,5 @@
 #
-#   irb/slex.rb - simple lex analyzer
+#   irb/slex.rb - symple lex analizer
 #   	$Release Version: 0.9.5$
 #   	$Revision$
 #   	$Date$

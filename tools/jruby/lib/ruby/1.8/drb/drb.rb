@@ -54,7 +54,6 @@
 require 'socket'
 require 'thread'
 require 'fcntl'
-require 'weakref'
 require 'drb/eq'
 
 #
@@ -366,63 +365,23 @@ module DRb
   #
   # For alternative mechanisms, see DRb::TimerIdConv in rdb/timeridconv.rb
   # and DRbNameIdConv in sample/name.rb in the full drb distribution.
-  #
-  # JRuby Notes:
-  #
-  # In JRuby, id2ref is tracked manually in a weak hashing structure,
-  # which causes it to have a large performance hit and often minor
-  # behavioral differences from MRI. As a result, it is normally not
-  # enabled unless ObjectSpace is enabled.
-  #
-  # Instead of using _id2ref directly, we implement a similar mechanism
-  # here to localize the performance hit to only those objects being
-  # tracked for DRb purposes.
   class DRbIdConv
-    def initialize
-      @id2ref = {}
-    end
 
     # Convert an object reference id to an object.
     #
     # This implementation looks up the reference id in the local object
     # space and returns the object it refers to.
     def to_obj(ref)
-      _get(ref)
+      ObjectSpace._id2ref(ref)
     end
-
+    
     # Convert an object into a reference id.
     #
     # This implementation returns the object's __id__ in the local
     # object space.
     def to_id(obj)
-      obj.nil? ? nil : _put(obj)
+      obj.nil? ? nil : obj.__id__
     end
-
-    def _clean
-      dead = []
-      @id2ref.each {|id,weakref| dead << id unless weakref.weakref_alive?}
-      dead.each {|id| @id2ref.delete(id)}
-    end
-
-    def _put(obj)
-      _clean
-      @id2ref[obj.__id__] = WeakRef.new(obj)
-      obj.__id__
-    end
-
-    def _get(id)
-      weakref = @id2ref[id]
-      if weakref
-        result = weakref.__getobj__ rescue nil
-        if result
-          return result
-        else
-          @id2ref.delete id
-        end
-      end
-      nil
-    end
-    private :_clean, :_put, :_get
   end
 
   # Mixin module making an object undumpable or unmarshallable.
@@ -619,7 +578,7 @@ module DRb
       end
       raise(DRbConnError, 'connection closed') if str.nil?
       raise(DRbConnError, 'premature marshal format(can\'t read)') if str.size < sz
-      DRb.mutex.synchronize do
+      Thread.exclusive do
         begin
           save = Thread.current[:drb_untaint]
           Thread.current[:drb_untaint] = []
@@ -899,7 +858,6 @@ module DRb
     def self.open_server(uri, config)
       uri = 'druby://:0' unless uri
       host, port, opt = parse_uri(uri)
-      config = {:tcp_original_host => host}.update(config)
       if host.size == 0
         host = getservername
         soc = open_server_inaddr_any(host, port)
@@ -907,7 +865,6 @@ module DRb
 	soc = TCPServer.open(host, port)
       end
       port = soc.addr[1] if port == 0
-      config[:tcp_port] = port
       uri = "druby://#{host}:#{port}"
       self.new(uri, soc, config)
     end
@@ -925,6 +882,7 @@ module DRb
     # configuration.
     def initialize(uri, soc, config={})
       @uri = uri
+      @lock = Mutex.new
       @socket = soc
       @config = config
       @acl = config[:tcp_acl]
@@ -938,11 +896,11 @@ module DRb
     # Get the address of our TCP peer (the other end of the socket
     # we are bound to.
     def peeraddr
-      @socket.peeraddr
+      @lock.synchronize { @socket.peeraddr }
     end
     
     # Get the socket.
-    def stream; @socket; end
+    def stream; @lock.synchronize { @socket }; end
 
     # On the client side, send a request to the server.
     def send_request(ref, msg_id, arg, b)
@@ -973,9 +931,11 @@ module DRb
     # returned by #open or by #accept, then it closes this particular
     # client-server session.
     def close
-      if @socket
-	@socket.close
-	@socket = nil
+      @lock.synchronize do
+        if @socket
+          @socket.close
+	  @socket = nil
+        end
       end
     end
     
@@ -983,23 +943,20 @@ module DRb
     # accept a client connection and return a new instance to handle
     # the server's side of this client-server session.
     def accept
+      socket = stream
       while true
-	s = @socket.accept
-	break if (@acl ? @acl.allow_socket?(s) : true) 
+	s = socket.accept
+	break if not @acl or @acl.allow_socket?(s)
 	s.close
       end
-      if @config[:tcp_original_host].to_s.size == 0
-        uri = "druby://#{s.addr[3]}:#{@config[:tcp_port]}"
-      else
-        uri = @uri
-      end
-      self.class.new(uri, s, @config)
+      self.class.new(nil, s, @config)
     end
 
     # Check to see if this connection is alive.
     def alive?
-      return false unless @socket
-      if IO.select([@socket], nil, nil, 0)
+      socket = stream
+      return false unless socket
+      if IO.select([socket], nil, nil, 0)
 	close
 	return false
       end
@@ -1249,7 +1206,6 @@ module DRb
     end
 
     def alive?  # :nodoc:
-      return false unless @protocol
       @protocol.alive?
     end
   end
@@ -1392,9 +1348,10 @@ module DRb
       @idconv = @config[:idconv]
       @safe_level = @config[:safe_level]
 
-      @grp = ThreadGroup.new
-      @thread = run
+      @lock = Mutex.new
+      @stopped = false
 
+      @thread = run
       DRb.regist_server(self)
     end
 
@@ -1431,17 +1388,14 @@ module DRb
 
     # Is this server alive?
     def alive?
-      @thread.alive?
+      @lock.synchronize { not @stopped }
     end
 
     # Stop this server.
     def stop_service
       DRb.remove_server(self)
-      if  Thread.current['DRb'] && Thread.current['DRb']['server'] == self
-        Thread.current['DRb']['stop_service'] = true
-      else
-        @thread.kill
-      end
+      shutdown
+      self
     end
 
     # Convert a dRuby reference to the local object it refers to.
@@ -1458,18 +1412,9 @@ module DRb
     end
 
     private
-    def kill_sub_thread
-      Thread.new do
-	grp = ThreadGroup.new
-	grp.add(Thread.current)
-	list = @grp.list
-	while list.size > 0
-	  list.each do |th|
-	    th.kill if th.alive?
-	  end
-	  list = @grp.list
-	end
-      end
+    def shutdown
+      @lock.synchronize { @stopped = true }
+      @protocol.close if @protocol
     end
 
     def run
@@ -1479,8 +1424,7 @@ module DRb
 	    main_loop
 	  end
 	ensure
-	  @protocol.close if @protocol
-	  kill_sub_thread
+          shutdown
 	end
       end
     end
@@ -1628,33 +1572,33 @@ module DRb
     # or a local method call fails.
     def main_loop
       Thread.start(@protocol.accept) do |client|
-	@grp.add Thread.current
 	Thread.current['DRb'] = { 'client' => client ,
 	                          'server' => self }
-	loop do
-	  begin
-	    succ = false
-	    invoke_method = InvokeMethod.new(self, client)
-	    succ, result = invoke_method.perform
-	    if !succ && verbose
-	      p result
-	      result.backtrace.each do |x|
-		puts x
+        begin
+	  until @lock.synchronize { @stopped }
+	    begin
+	      succ = false
+	      invoke_method = InvokeMethod.new(self, client)
+	      succ, result = invoke_method.perform
+	      if !succ && verbose
+	        p result
+	        result.backtrace.each do |x|
+		  puts x
+	        end
 	      end
+	      client.send_reply(succ, result) rescue nil
+	    ensure
+              break unless succ
 	    end
-	    client.send_reply(succ, result) rescue nil
-	  ensure
-            client.close unless succ
-            if Thread.current['DRb']['stop_service']
-              Thread.new { stop_service }
-            end
-            break unless succ
-	  end
+          end
+        ensure
+          client.close
 	end
       end
     end
   end
 
+  @drb_lock = Mutex.new
   @primary_server = nil
 
   # Start a dRuby server locally.
@@ -1673,14 +1617,19 @@ module DRb
   #
   # See DRbServer::new.
   def start_service(uri=nil, front=nil, config=nil)
-    @primary_server = DRbServer.new(uri, front, config)
+    self.primary_server = DRbServer.new(uri, front, config)
   end
   module_function :start_service
 
   # The primary local dRuby server.
   #
   # This is the server created by the #start_service call.  
-  attr_accessor :primary_server
+  def primary_server
+    @drb_lock.synchronize { @primary_server }
+  end
+  def primary_server=(server)
+    @drb_lock.synchronize { @primary_server = server }
+  end
   module_function :primary_server=, :primary_server
 
   # Get the 'current' server.
@@ -1695,7 +1644,11 @@ module DRb
   # error is raised.
   def current_server
     drb = Thread.current['DRb'] 
-    server = (drb && drb['server']) ? drb['server'] : @primary_server 
+    if drb
+      server = drb['server'] || primary_server
+    else
+      server = primary_server
+    end
     raise DRbServerNotFound unless server
     return server
   end
@@ -1706,8 +1659,11 @@ module DRb
   # This operates on the primary server.  If there is no primary
   # server currently running, it is a noop.
   def stop_service
-    @primary_server.stop_service if @primary_server
-    @primary_server = nil
+    old_primary_server = nil
+    @drb_lock.synchronize do
+      old_primary_server, @primary_server = @primary_server, nil
+    end
+    old_primary_server.stop_service if old_primary_server
   end
   module_function :stop_service
 
@@ -1715,12 +1671,6 @@ module DRb
   #
   # This is the URI of the current server.  See #current_server.
   def uri
-    drb = Thread.current['DRb']
-    client = (drb && drb['client'])
-    if client
-      uri = client.uri
-      return uri if uri
-    end
     current_server.uri
   end
   module_function :uri
@@ -1773,7 +1723,9 @@ module DRb
   #
   # This returns nil if there is no primary server.  See #primary_server.
   def thread
-    @primary_server ? @primary_server.thread : nil
+    @drb_lock.synchronize do
+      @primary_server ? @primary_server.thread : nil
+    end
   end
   module_function :thread
 
@@ -1793,28 +1745,24 @@ module DRb
   end
   module_function :install_acl
 
-  @mutex = Mutex.new
-  def mutex
-    @mutex
-  end
-  module_function :mutex
-
   @server = {}
   def regist_server(server)
-    @server[server.uri] = server
-    mutex.synchronize do
+    @drb_lock.synchronize do
+      @server[server.uri] = server
       @primary_server = server unless @primary_server
     end
   end
   module_function :regist_server
 
   def remove_server(server)
-    @server.delete(server.uri)
+    @drb_lock.synchronize do
+      @server.delete(server.uri)
+    end
   end
   module_function :remove_server
   
   def fetch_server(uri)
-    @server[uri]
+    @drb_lock.synchronize { @server[uri] }
   end
   module_function :fetch_server
 end

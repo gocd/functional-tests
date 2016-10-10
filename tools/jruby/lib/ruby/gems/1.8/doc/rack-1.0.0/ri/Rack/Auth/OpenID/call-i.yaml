@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets up and uses session data at <tt>:openid</tt> within the session. Errors
+    in this setup will raise a NoSession exception.
+- !ruby/struct:SM::Flow::P 
+  body: 'If the parameter ''openid.mode'' is set, which implies a followup from the
+    openid server, processing is passed to #finish and the result is returned. However,
+    if there is no appropriate openid information in the session, a 400 error is returned.'
+- !ruby/struct:SM::Flow::P 
+  body: 'If the parameter specified by <tt>options[:openid_param]</tt> is present,
+    processing is passed to #check and the result is returned.'
+- !ruby/struct:SM::Flow::P 
+  body: 'If neither of these conditions are met, #unauthorized is called.'
+full_name: Rack::Auth::OpenID#call
+params: (env)
+name: call
+is_singleton: false
+aliases: []
+

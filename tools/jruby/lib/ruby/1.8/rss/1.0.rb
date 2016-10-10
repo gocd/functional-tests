@@ -45,10 +45,10 @@ module RSS
       __send__("install_have_#{type}_element", tag, ::RSS::URI, occurs)
     end
 
-    alias_method(:rss_version, :feed_version)
+    attr_accessor :rss_version, :version, :encoding, :standalone
+    
     def initialize(version=nil, encoding=nil, standalone=nil)
       super('1.0', version, encoding, standalone)
-      @feed_type = "rss"
     end
 
     def full_name
@@ -430,22 +430,21 @@ module RSS
   end
 
   RSS10::ELEMENTS.each do |name|
-    BaseListener.install_get_text_element(URI, name, name)
+    BaseListener.install_get_text_element(URI, name, "#{name}=")
   end
 
   module ListenerMixin
     private
-    def initial_start_RDF(tag_name, prefix, attrs, ns)
+    def start_RDF(tag_name, prefix, attrs, ns)
       check_ns(tag_name, prefix, ns, RDF::URI)
 
       @rss = RDF.new(@version, @encoding, @standalone)
       @rss.do_validate = @do_validate
       @rss.xml_stylesheets = @xml_stylesheets
       @last_element = @rss
-      pr = Proc.new do |text, tags|
+      @proc_stack.push Proc.new { |text, tags|
         @rss.validate_for_stream(tags, @ignore_unknown_element) if @do_validate
-      end
-      @proc_stack.push(pr)
+      }
     end
   end
 

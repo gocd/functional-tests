@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>normalize_params (Rack::Utils)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rack/utils.rb, line 65</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">normalize_params</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">v</span> = <span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">%r([\[\]]*([^\[\]]+)\]*)</span>
+      <span class="ruby-identifier">k</span> = <span class="ruby-identifier">$1</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>
+      <span class="ruby-identifier">after</span> = <span class="ruby-identifier">$'</span> <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>
+
+      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">empty?</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">after</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">after</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;[]&quot;</span>
+        <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">||=</span> []
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;expected Array (got #{params[k].class.name}) for param `#{k}'&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">after</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">%r(^\[\]\[([^\[\]]+)\]$)</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">after</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">%r(^\[\](.+)$)</span>
+        <span class="ruby-identifier">child_key</span> = <span class="ruby-identifier">$1</span>
+        <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">||=</span> []
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;expected Array (got #{params[k].class.name}) for param `#{k}'&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">last</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">child_key</span>)
+          <span class="ruby-identifier">normalize_params</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">last</span>, <span class="ruby-identifier">child_key</span>, <span class="ruby-identifier">v</span>)
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">normalize_params</span>({}, <span class="ruby-identifier">child_key</span>, <span class="ruby-identifier">v</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">||=</span> {}
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;expected Hash (got #{params[k].class.name}) for param `#{k}'&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+        <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">normalize_params</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>], <span class="ruby-identifier">after</span>, <span class="ruby-identifier">v</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">params</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

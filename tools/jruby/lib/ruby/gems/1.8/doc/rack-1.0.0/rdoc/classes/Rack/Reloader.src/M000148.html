@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Rack::Reloader)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rack/reloader.rb, line 22</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">cooldown</span> = <span class="ruby-value">10</span>, <span class="ruby-identifier">backend</span> = <span class="ruby-constant">Stat</span>)
+      <span class="ruby-ivar">@app</span> = <span class="ruby-identifier">app</span>
+      <span class="ruby-ivar">@cooldown</span> = <span class="ruby-identifier">cooldown</span>
+      <span class="ruby-ivar">@last</span> = (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">cooldown</span>)
+      <span class="ruby-ivar">@cache</span> = {}
+      <span class="ruby-ivar">@mtimes</span> = {}
+
+      <span class="ruby-identifier">extend</span> <span class="ruby-identifier">backend</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

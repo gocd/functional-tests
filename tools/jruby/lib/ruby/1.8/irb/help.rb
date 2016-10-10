@@ -1,5 +1,5 @@
 #
-#   irb/help.rb - print usage module
+#   irb/help.rb - print usase module
 #   	$Release Version: 0.9.5$
 #   	$Revision$
 #   	$Date$

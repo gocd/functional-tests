@@ -1,4 +1,4 @@
-warn "DL: This is only a partial implementation, and it's likely broken" if $VERBOSE
+warn "DL: This is only a partial implementation, and it's likely broken"
 
 require 'ffi'
 
@@ -44,21 +44,17 @@ module DL
     'A' => '[]',
     'a' => '[]',
   }
-
-  FFITypes = {
-    'c' => FFI::Type::INT8,
-    'h' => FFI::Type::INT16,
-    'i' => FFI::Type::INT32,
-    'l' => FFI::Type::LONG,
-    'f' => FFI::Type::FLOAT32,
-    'd' => FFI::Type::FLOAT64,
-    'p' => FFI::Type::POINTER,
-    's' => FFI::Type::STRING,
-  }
-
+  
   RTLD_LAZY = FFI::DynamicLibrary::RTLD_LAZY
   RTLD_GLOBAL = FFI::DynamicLibrary::RTLD_GLOBAL
   RTLD_NOW = FFI::DynamicLibrary::RTLD_NOW
+
+  ALIGN_SHORT = 2
+  ALIGN_INT = 4
+  ALIGN_LONG = FFI::Platform::ARCH =~ /sparc/ ? 8 : (FFI::Platform::LONG_SIZE / 8)
+  ALIGN_VOIDP = FFI::Platform::ARCH =~ /sparc/ ? 8 : (FFI::Platform::ADDRESS_SIZE / 8)
+  ALIGN_FLOAT = FFI::Platform::ARCH =~ /sparc/ ? 8 : 4
+  ALIGN_DOUBLE = FFI::Platform::ARCH =~ /sparc/ ? 8 : (FFI::Platform::LONG_SIZE / 8)
 
   class DLError < StandardError
 
@@ -87,18 +83,41 @@ module DL
     while i < type.length
       t = type[i]
       i += 1
-      count = String.new
+      count = []
       while i < type.length && type[i] =~ /[0123456789]/
         count << type[i]
         i += 1
       end
-      n = count.empty? ? 1 : count.to_i
-      ffi_type = FFITypes[t.downcase]
-      raise DLTypeError.new("unexpected type '#{t}'") unless ffi_type
-      if t.upcase == t
-        size = align(size, ffi_type.alignment) + n * ffi_type.size
+      n = count.empty? ? 1 : count.join("").to_i
+      case t
+      when 'I'
+        size = align(size, ALIGN_INT) + n * 4
+      when 'i'
+        size += n * 4
+      when 'L'
+        size = align(size, ALIGN_LONG) + n * FFI::Platform::LONG_SIZE / 8
+      when 'l'
+        size += n * FFI::Platform::LONG_SIZE / 8
+      when 'F'
+        size = align(size, ALIGN_FLOAT) + n * 4
+      when 'f'
+        size += n * 4
+      when 'D'
+        size = align(size, ALIGN_DOUBLE) + n * 8
+      when 'd'
+        size += n * 8
+      when 'C', 'c'
+        size += n * 1
+      when 'H'
+        size = align(size, ALIGN_SHORT) + n * 4
+      when 'h'
+        size += n * 2
+      when 'P', 'S'
+        size = align(size, ALIGN_VOIDP) + n * FFI::Platform::ADDRESS_SIZE / 8
+      when 'p', 's'
+        size += n * FFI::Platform::ADDRESS_SIZE / 8
       else
-        size += n * ffi_type.size
+        raise DLTypeError.new("unexpected type '#{t}'")
       end
     end
     size
@@ -145,14 +164,14 @@ module DL
 
   def self.find_return_type(type)
     # Restrict types to the known-supported ones
-    raise "Unsupported return type '#{type}'" unless type =~ /[0CHILFDPS]/
+    raise "Unsupported type '#{type}" unless type =~ /[CHILFDPS]/
     DL.find_type(type)
   end
 
   def self.find_param_type(type)
     # Restrict types to the known-supported ones
-    raise "Unsupported parameter type '#{type}'" unless type =~ /[CHILFDPS]/
-    DL.find_type(type)
+    raise "Unsupported type '#{type}" unless type =~ /[CHILFDPS]/
+    DL.find_type(types)
   end
 
   class Symbol

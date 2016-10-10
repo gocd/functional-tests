@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: protected
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns a 303 redirect with the destination of that provided by the argument.
+full_name: Rack::Auth::OpenID#redirect
+params: (uri)
+name: redirect
+is_singleton: false
+aliases: []
+

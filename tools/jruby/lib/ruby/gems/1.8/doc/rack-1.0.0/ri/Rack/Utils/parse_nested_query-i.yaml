@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+full_name: Rack::Utils#parse_nested_query
+params: (qs, d = '&;')
+name: parse_nested_query
+is_singleton: false
+aliases: []
+

@@ -2,8 +2,6 @@ require 'monitor'
 require 'thread'
 require 'drb/drb'
 require 'rinda/rinda'
-require 'enumerator'
-require 'forwardable'
 
 module Rinda
 
@@ -288,70 +286,45 @@ module Rinda
   # of Tuplespace.
 
   class TupleBag
-    class TupleBin
-      extend Forwardable
-      def_delegators '@bin', :find_all, :delete_if, :each, :empty?
-
-      def initialize
-        @bin = []
-      end
-      
-      def add(tuple)
-        @bin.push(tuple)
-      end
-      
-      def delete(tuple)
-        idx = @bin.rindex(tuple)
-        @bin.delete_at(idx) if idx
-      end
-      
-      def find(&blk)
-        @bin.reverse_each do |x|
-          return x if yield(x)
-        end
-        nil
-      end
-    end
 
     def initialize # :nodoc:
       @hash = {}
-      @enum = Enumerable::Enumerator.new(self, :each_entry)
     end
 
     ##
     # +true+ if the TupleBag to see if it has any expired entries.
 
     def has_expires?
-      @enum.find do |tuple|
-        tuple.expires
+      @hash.each do |k, v|
+        v.each do |tuple|
+          return true if tuple.expires
+        end
       end
+      false
     end
 
     ##
-    # Add +tuple+ to the TupleBag.
+    # Add +ary+ to the TupleBag.
 
-    def push(tuple)
-      key = bin_key(tuple)
-      @hash[key] ||= TupleBin.new
-      @hash[key].add(tuple)
+    def push(ary)
+      size = ary.size
+      @hash[size] ||= []
+      @hash[size].push(ary)
     end
 
     ##
-    # Removes +tuple+ from the TupleBag.
+    # Removes +ary+ from the TupleBag.
 
-    def delete(tuple)
-      key = bin_key(tuple)
-      bin = @hash[key]
-      return nil unless bin
-      bin.delete(tuple)
-      @hash.delete(key) if bin.empty?
-      tuple
+    def delete(ary)
+      size = ary.size
+      @hash.fetch(size, []).delete(ary)
     end
 
     ##
     # Finds all live tuples that match +template+.
+
     def find_all(template)
-      bin_for_find(template).find_all do |tuple|
+      @hash.fetch(template.size, []).find_all do |tuple|
         tuple.alive? && template.match(tuple)
       end
     end
@@ -360,7 +333,7 @@ module Rinda
     # Finds a live tuple that matches +template+.
 
     def find(template)
-      bin_for_find(template).find do |tuple|
+      @hash.fetch(template.size, []).find do |tuple|
         tuple.alive? && template.match(tuple)
       end
     end
@@ -370,7 +343,7 @@ module Rinda
     # +tuple+ and are alive.
 
     def find_all_template(tuple)
-      @enum.find_all do |template|
+      @hash.fetch(tuple.size, []).find_all do |template|
         template.alive? && template.match(tuple)
       end
     end
@@ -381,39 +354,20 @@ module Rinda
 
     def delete_unless_alive
       deleted = []
-      @hash.each do |key, bin|
-        bin.delete_if do |tuple|
+      @hash.keys.each do |size|
+        ary = []
+        @hash[size].each do |tuple|
           if tuple.alive?
-            false
+            ary.push(tuple)
           else
             deleted.push(tuple)
-            true
           end
         end
+        @hash[size] = ary
       end
       deleted
     end
 
-    private
-    def each_entry(&blk)
-      @hash.each do |k, v|
-        v.each(&blk)
-      end
-    end
-
-    def bin_key(tuple)
-      head = tuple[0]
-      if head.class == Symbol
-        return head
-      else
-        false
-      end
-    end
-
-    def bin_for_find(template)
-      key = bin_key(template)
-      key ? @hash.fetch(key, []) : @enum
-    end
   end
 
   ##
@@ -449,7 +403,7 @@ module Rinda
     # Adds +tuple+
 
     def write(tuple, sec=nil)
-      entry = create_entry(tuple, sec)
+      entry = TupleEntry.new(tuple, sec)
       synchronize do
         if entry.expired?
           @read_waiter.find_all_template(entry).each do |template|
@@ -575,10 +529,6 @@ module Rinda
 
     private
 
-    def create_entry(tuple, sec)
-      TupleEntry.new(tuple, sec)
-    end
-
     ##
     # Removes dead tuples.
 
@@ -617,11 +567,11 @@ module Rinda
       return if @keeper && @keeper.alive?
       @keeper = Thread.new do
         while true
-          sleep(@period)
           synchronize do
             break unless need_keeper?
             keep_clean
           end
+          sleep(@period)
         end
       end
     end

@@ -22,13 +22,10 @@ module RSS
       install_have_child_element(name, "", nil)
     end
 
-    attr_writer :feed_version
-    alias_method(:rss_version, :feed_version)
-    alias_method(:rss_version=, :feed_version=)
-
-    def initialize(feed_version, version=nil, encoding=nil, standalone=nil)
+    attr_accessor :rss_version, :version, :encoding, :standalone
+    
+    def initialize(rss_version, version=nil, encoding=nil, standalone=nil)
       super
-      @feed_type = "rss"
     end
 
     def items
@@ -60,14 +57,12 @@ module RSS
       items.each do |item|
         item.setup_maker(maker.items)
       end
-      image.setup_maker(maker) if image
-      textinput.setup_maker(maker) if textinput
     end
 
     private
     def _attrs
       [
-        ["version", true, "feed_version"],
+        ["version", true, "rss_version"],
       ]
     end
 
@@ -405,22 +400,21 @@ module RSS
   end
 
   RSS09::ELEMENTS.each do |name|
-    BaseListener.install_get_text_element("", name, name)
+    BaseListener.install_get_text_element("", name, "#{name}=")
   end
 
   module ListenerMixin
     private
-    def initial_start_rss(tag_name, prefix, attrs, ns)
+    def start_rss(tag_name, prefix, attrs, ns)
       check_ns(tag_name, prefix, ns, "")
       
       @rss = Rss.new(attrs['version'], @version, @encoding, @standalone)
       @rss.do_validate = @do_validate
       @rss.xml_stylesheets = @xml_stylesheets
       @last_element = @rss
-      pr = Proc.new do |text, tags|
+      @proc_stack.push Proc.new { |text, tags|
         @rss.validate_for_stream(tags, @ignore_unknown_element) if @do_validate
-      end
-      @proc_stack.push(pr)
+      }
     end
     
   end

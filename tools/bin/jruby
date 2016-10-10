@@ -18,5 +18,4 @@
 JRUBY_BASE="$(dirname $0)/../jruby"
 unset GEM_HOME GEM_PATH
 export PATH=$JRUBY_BASE/bin:$PATH
-export JRUBY_OPTS="${JRUBY_OPTS} --2.0 -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-Djruby.compile.invokedynamic=false -J-Djruby.compile.mode=OFF"
 exec $JRUBY_BASE/bin/jruby "$@"

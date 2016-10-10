@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+full_name: Rack::Response#redirect
+params: (target, status=302)
+name: redirect
+is_singleton: false
+aliases: []
+

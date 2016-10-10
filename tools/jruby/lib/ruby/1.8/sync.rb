@@ -1,9 +1,7 @@
 #
 #   sync.rb - 2 phase lock with counter
-#   	$Release Version: 1.0$
-#   	$Revision$
-#   	$Date$
-#   	by Keiju ISHITSUKA(keiju@ishitsuka.com)
+#           by Keiju ISHITSUKA(keiju@ishitsuka.com)
+#           reworked by MenTaLguY
 #
 # --
 #  Sync_m, Synchronizer_m
@@ -11,8 +9,8 @@
 #   obj.extend(Sync_m)
 #   or
 #   class Foo
-#	include Sync_m
-#	:
+#        include Sync_m
+#        :
 #   end
 #
 #   Sync_m#sync_mode
@@ -24,7 +22,7 @@
 #   Sync_m#sync_unlock, unlock
 #
 #   Sync, Synchronicer:
-#	include Sync_m
+#        include Sync_m
 #   Usage:
 #   sync = Sync.new
 #
@@ -56,24 +54,23 @@ module Sync_m
   # exceptions
   class Err < StandardError
     def Err.Fail(*opt)
-      Thread.critical = false
       fail self, sprintf(self::Message, *opt)
     end
     
     class UnknownLocker < Err
       Message = "Thread(%s) not locked."
       def UnknownLocker.Fail(th)
-	super(th.inspect)
+        super(th.inspect)
       end
     end
     
     class LockModeFailer < Err
       Message = "Unknown lock mode(%s)"
       def LockModeFailer.Fail(mode)
-	if mode.id2name
-	  mode = id2name
-	end
-	super(mode)
+        if mode.id2name
+          mode = id2name
+        end
+        super(mode)
       end
     end
   end
@@ -106,12 +103,12 @@ module Sync_m
 
   def sync_extended
     unless (defined? locked? and
-	    defined? shared? and
-	    defined? exclusive? and
-	    defined? lock and
-	    defined? unlock and
-	    defined? try_lock and
-	    defined? synchronize)
+            defined? shared? and
+            defined? exclusive? and
+            defined? lock and
+            defined? unlock and
+            defined? try_lock and
+            defined? synchronize)
       Sync_m.define_aliases(class<<self;self;end)
     end
     sync_initialize
