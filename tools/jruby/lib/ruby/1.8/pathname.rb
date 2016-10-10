@@ -194,6 +194,13 @@ class Pathname
     # to_path is implemented so Pathname objects are usable with File.open, etc.
     TO_PATH = :to_path
   end
+
+  SAME_PATHS = if File::FNM_SYSCASE.nonzero?
+    proc {|a, b| a.casecmp(b).zero?}
+  else
+    proc {|a, b| a == b}
+  end
+
   # :startdoc:
 
   #
@@ -251,7 +258,21 @@ class Pathname
 
   # Return a pathname which is substituted by String#sub.
   def sub(pattern, *rest, &block)
-    self.class.new(@path.sub(pattern, *rest, &block))
+    if block
+      path = @path.sub(pattern, *rest) {|*args|
+        begin
+          old = Thread.current[:pathname_sub_matchdata]
+          Thread.current[:pathname_sub_matchdata] = $~
+          eval("$~ = Thread.current[:pathname_sub_matchdata]", block.binding)
+        ensure
+          Thread.current[:pathname_sub_matchdata] = old
+        end
+        yield(*args)
+      }
+    else
+      path = @path.sub(pattern, *rest)
+    end
+    self.class.new(path)
   end
 
   if File::ALT_SEPARATOR
@@ -417,6 +438,7 @@ class Pathname
             prefix, *resolved = h[path]
           end
         else
+          # This check is JRuby-specific for accessing files inside a jar
           if File.symlink?(path)
             h[path] = :resolving
             link_prefix, link_names = split_names(File.readlink(path))
@@ -707,12 +729,12 @@ class Pathname
       base_prefix, basename = r
       base_names.unshift basename if basename != '.'
     end
-    if dest_prefix != base_prefix
+    unless SAME_PATHS[dest_prefix, base_prefix]
       raise ArgumentError, "different prefix: #{dest_prefix.inspect} and #{base_directory.inspect}"
     end
     while !dest_names.empty? &&
           !base_names.empty? &&
-          dest_names.first == base_names.first
+          SAME_PATHS[dest_names.first, base_names.first]
       dest_names.shift
       base_names.shift
     end

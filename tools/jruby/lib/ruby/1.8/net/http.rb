@@ -278,7 +278,7 @@ module Net   #:nodoc:
   class HTTP < Protocol
 
     # :stopdoc:
-    Revision = %q$Revision$.split[1]
+    Revision = %q$Revision: 25851 $.split[1]
     HTTPVersion = '1.1'
     @newimpl = true
     # :startdoc:
@@ -470,7 +470,6 @@ module Net   #:nodoc:
       @debug_output = nil
       @use_ssl = false
       @ssl_context = nil
-      @enable_post_connection_check = false
     end
 
     def inspect
@@ -526,9 +525,6 @@ module Net   #:nodoc:
     def use_ssl?
       false   # redefined in net/https
     end
-
-    # specify enabling SSL server certificate and hostname checking.
-    attr_accessor :enable_post_connection_check
 
     # Opens TCP connection and HTTP session.
     # 
@@ -589,12 +585,7 @@ module Net   #:nodoc:
         end
         s.connect
         if @ssl_context.verify_mode != OpenSSL::SSL::VERIFY_NONE
-          begin
-            s.post_connection_check(@address)
-          rescue OpenSSL::SSL::SSLError => ex
-            raise ex if @enable_post_connection_check
-            warn ex.message
-          end
+          s.post_connection_check(@address)
         end
       end
       on_connect
@@ -646,8 +637,16 @@ module Net   #:nodoc:
     #       # connecting proxy.foo.org:8080
     #                     :
     #     }
+    #
+    # In JRuby, this will default to the JSE proxy settings provided in the
+    # 'http.proxyHost' and 'http.proxyPort' Java system properties, if they
+    # are set and no alternative proxy has been provided.
     # 
     def HTTP.Proxy(p_addr, p_port = nil, p_user = nil, p_pass = nil)
+      j_addr = ENV_JAVA['http.proxyHost']
+      j_port = ENV_JAVA['http.proxyPort']
+      p_addr = p_addr || j_addr
+      p_port = p_port || j_port
       return self unless p_addr
       delta = ProxyDelta
       proxyclass = Class.new(self)
@@ -1053,7 +1052,8 @@ module Net   #:nodoc:
       end
 
       req.set_body_internal body
-      begin_transport req
+      begin
+        begin_transport req
         req.exec @socket, @curr_http_version, edit_path(req.path)
         begin
           res = HTTPResponse.read_new(@socket)
@@ -1061,7 +1061,12 @@ module Net   #:nodoc:
         res.reading_body(@socket, req.response_body_permitted?) {
           yield res if block_given?
         }
-      end_transport req, res
+        end_transport req, res
+      rescue => exception
+        D "Conn close because of error #{exception}"
+        @socket.close if @socket and not @socket.closed?
+        raise exception
+      end
 
       res
     end
@@ -1369,13 +1374,13 @@ module Net   #:nodoc:
       return nil unless @header['content-range']
       m = %r<bytes\s+(\d+)-(\d+)/(\d+|\*)>i.match(self['Content-Range']) or
           raise HTTPHeaderSyntaxError, 'wrong Content-Range format'
-      m[1].to_i .. m[2].to_i + 1
+      m[1].to_i .. m[2].to_i
     end
 
     # The length of the range represented in Content-Range: header.
     def range_length
       r = content_range() or return nil
-      r.end - r.begin
+      r.end - r.begin + 1
     end
 
     # Returns a content type string such as "text/html".
@@ -1480,8 +1485,6 @@ module Net   #:nodoc:
       @path = path
       initialize_http_header initheader
       self['Accept'] ||= '*/*'
-      # http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/12107
-      self['User-Agent'] ||= 'Ruby'
       @body = nil
       @body_stream = nil
     end
