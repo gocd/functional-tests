@@ -616,65 +616,65 @@ module URI
     private :split_path
 
     def merge_path(base, rel)
-
       # RFC2396, Section 5.2, 5)
-      # RFC2396, Section 5.2, 6)
-      base_path = split_path(base)
-      rel_path  = split_path(rel)
+      if rel[0] == ?/ #/
+        # RFC2396, Section 5.2, 5)
+        return rel
 
-      # RFC2396, Section 5.2, 6), a)
-      base_path << '' if base_path.last == '..'
-      while i = base_path.index('..')
-        base_path.slice!(i - 1, 2)
-      end
+      else
+        # RFC2396, Section 5.2, 6)
+        base_path = split_path(base)
+        rel_path  = split_path(rel)
 
-      if (first = rel_path.first) and first.empty?
-        base_path.clear
-        rel_path.shift
-      end
-
-      # RFC2396, Section 5.2, 6), c)
-      # RFC2396, Section 5.2, 6), d)
-      rel_path.push('') if rel_path.last == '.' || rel_path.last == '..'
-      rel_path.delete('.')
-
-      # RFC2396, Section 5.2, 6), e)
-      tmp = []
-      rel_path.each do |x|
-        if x == '..' &&
-            !(tmp.empty? || tmp.last == '..')
-          tmp.pop
-        else
-          tmp << x
+        # RFC2396, Section 5.2, 6), a)
+	base_path << '' if base_path.last == '..'
+	while i = base_path.index('..')
+	  base_path.slice!(i - 1, 2)
         end
-      end
-
-      add_trailer_slash = !tmp.empty?
-      if base_path.empty?
-        base_path = [''] # keep '/' for root directory
-      elsif add_trailer_slash
-        base_path.pop
-      end
-      while x = tmp.shift
-        if x == '..'
-          # RFC2396, Section 4
-          # a .. or . in an absolute path has no special meaning
-          base_path.pop if base_path.size > 1
+        if base_path.empty?
+          base_path = [''] # keep '/' for root directory
         else
-          # if x == '..'
-          #   valid absolute (but abnormal) path "/../..."
-          # else
-          #   valid absolute path
-          # end
-          base_path << x
-          tmp.each {|t| base_path << t}
-          add_trailer_slash = false
-          break
+	  base_path.pop
         end
-      end
-      base_path.push('') if add_trailer_slash
 
-      return base_path.join('/')
+        # RFC2396, Section 5.2, 6), c)
+        # RFC2396, Section 5.2, 6), d)
+        rel_path.push('') if rel_path.last == '.' || rel_path.last == '..'
+        rel_path.delete('.')
+
+        # RFC2396, Section 5.2, 6), e)
+        tmp = []
+        rel_path.each do |x|
+          if x == '..' &&
+              !(tmp.empty? || tmp.last == '..')
+            tmp.pop
+          else
+            tmp << x
+          end
+        end
+
+        add_trailer_slash = true
+        while x = tmp.shift
+          if x == '..' && base_path.size > 1
+            # RFC2396, Section 4
+            # a .. or . in an absolute path has no special meaning
+            base_path.pop
+          else
+            # if x == '..'
+            #   valid absolute (but abnormal) path "/../..."
+            # else
+            #   valid absolute path
+            # end
+            base_path << x
+            tmp.each {|t| base_path << t}
+            add_trailer_slash = false
+            break
+          end
+        end
+        base_path.push('') if add_trailer_slash
+
+        return base_path.join('/')
+      end
     end
     private :merge_path
 
@@ -799,26 +799,30 @@ module URI
     private :merge0
 
     def route_from_path(src, dst)
-      case dst
-      when src
-        # RFC2396, Section 4.2
-        return ''
-      when %r{(?:\A|/)\.\.?(?:/|\z)}
-        # dst has abnormal absolute path,
-        # like "/./", "/../", "/x/../", ...
+      # RFC2396, Section 4.2
+      return '' if src == dst
+
+      src_path = split_path(src)
+      dst_path = split_path(dst)
+
+      # hmm... dst has abnormal absolute path, 
+      # like "/./", "/../", "/x/../", ...
+      if dst_path.include?('..') ||
+          dst_path.include?('.')
         return dst.dup
       end
 
-      src_path = src.scan(%r{(?:\A|[^/]+)/})
-      dst_path = dst.scan(%r{(?:\A|[^/]+)/?})
+      src_path.pop
 
       # discard same parts
-      while !dst_path.empty? && dst_path.first == src_path.first
+      while dst_path.first == src_path.first
+        break if dst_path.empty?
+
         src_path.shift
         dst_path.shift
       end
 
-      tmp = dst_path.join
+      tmp = dst_path.join('/')
 
       # calculate
       if src_path.empty?
@@ -1050,7 +1054,6 @@ module URI
     end
 
     def eql?(oth)
-      self.class == oth.class &&
       self.component_ary.eql?(oth.component_ary)
     end
 
@@ -1100,9 +1103,8 @@ module URI
       end
     end
 
-    @@to_s = Kernel.instance_method(:to_s)
     def inspect
-      @@to_s.bind(self).call.sub!(/>\z/) {" URL:#{self}>"}
+      sprintf("#<%s:%#0x URL:%s>", self.class.to_s, self.object_id, self.to_s)
     end
 
     def coerce(oth)

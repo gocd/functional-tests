@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+full_name: Rack::Utils::HeaderHash#include?
+params: (k)
+name: include?
+is_singleton: false
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: has_key?
+- !ruby/object:RI::AliasName 
+  name: member?
+- !ruby/object:RI::AliasName 
+  name: key?

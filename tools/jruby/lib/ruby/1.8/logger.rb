@@ -1,4 +1,4 @@
-# logger.rb - simple logging utility
+# logger.rb - saimple logging utility
 # Copyright (C) 2000-2003, 2005  NAKAMURA, Hiroshi <nakahiro@sarion.co.jp>.
 
 require 'monitor'
@@ -170,7 +170,8 @@ require 'monitor'
 
 class Logger
   VERSION = "1.2.6"
-  ProgName = "#{File.basename(__FILE__)}/#{VERSION}"
+  /: (\S+),v (\S+)/ =~ %q$Id$
+  ProgName = "#{$1}/#{$2}"
 
   class Error < RuntimeError; end
   class ShiftingError < Error; end

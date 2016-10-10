@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+full_name: "::Informix::adapter_matcher"
+params: (name, *)
+name: adapter_matcher
+is_singleton: true
+aliases: []
+

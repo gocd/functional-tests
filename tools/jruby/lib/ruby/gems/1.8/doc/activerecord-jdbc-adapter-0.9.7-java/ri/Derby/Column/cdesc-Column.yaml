@@ -1,0 +1,18 @@
+--- !ruby/object:RI::ClassDescription 
+includes: []
+
+comment: 
+attributes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: default_value
+- !ruby/object:RI::MethodSummary 
+  name: simplified_type
+class_methods: []
+
+full_name: "::Derby::Column"
+constants: []
+
+superclass: 
+name: Column

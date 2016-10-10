@@ -10,7 +10,7 @@ class IO
       e_pat = pat
     end
     while true
-      if !IO.select([self],nil,nil,timeout) or eof? then
+      if IO.select([self],nil,nil,timeout).nil? then
         result = nil
         break
       end

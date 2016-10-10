@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Checks the provided uri to ensure it'd be considered within the realm. is
+    currently not compatible with wildcard realms.
+full_name: Rack::Auth::OpenID#within_realm?
+params: (uri)
+name: within_realm?
+is_singleton: false
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: include?

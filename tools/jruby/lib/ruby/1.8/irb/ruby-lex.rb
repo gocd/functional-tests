@@ -1,5 +1,5 @@
 #
-#   irb/ruby-lex.rb - ruby lexcal analyzer
+#   irb/ruby-lex.rb - ruby lexcal analizer
 #   	$Release Version: 0.9.5$
 #   	$Revision$
 #   	$Date$

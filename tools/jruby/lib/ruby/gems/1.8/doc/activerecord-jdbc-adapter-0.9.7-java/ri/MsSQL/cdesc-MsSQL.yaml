@@ -1,0 +1,70 @@
+--- !ruby/object:RI::ClassDescription 
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: TSqlMethods
+comment: 
+attributes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: _execute
+- !ruby/object:RI::MethodSummary 
+  name: add_column
+- !ruby/object:RI::MethodSummary 
+  name: add_lock!
+- !ruby/object:RI::MethodSummary 
+  name: add_version_specific_add_limit_offset
+- !ruby/object:RI::MethodSummary 
+  name: after_save_with_mssql_lob
+- !ruby/object:RI::MethodSummary 
+  name: change_order_direction
+- !ruby/object:RI::MethodSummary 
+  name: columns
+- !ruby/object:RI::MethodSummary 
+  name: create_database
+- !ruby/object:RI::MethodSummary 
+  name: drop_database
+- !ruby/object:RI::MethodSummary 
+  name: quote
+- !ruby/object:RI::MethodSummary 
+  name: quote_column_name
+- !ruby/object:RI::MethodSummary 
+  name: quote_string
+- !ruby/object:RI::MethodSummary 
+  name: quote_table_name
+- !ruby/object:RI::MethodSummary 
+  name: quoted_false
+- !ruby/object:RI::MethodSummary 
+  name: quoted_true
+- !ruby/object:RI::MethodSummary 
+  name: recreate_database
+- !ruby/object:RI::MethodSummary 
+  name: remove_check_constraints
+- !ruby/object:RI::MethodSummary 
+  name: remove_column
+- !ruby/object:RI::MethodSummary 
+  name: remove_default_constraint
+- !ruby/object:RI::MethodSummary 
+  name: remove_index
+- !ruby/object:RI::MethodSummary 
+  name: rename_column
+- !ruby/object:RI::MethodSummary 
+  name: rename_table
+- !ruby/object:RI::MethodSummary 
+  name: sqlserver_version
+- !ruby/object:RI::MethodSummary 
+  name: supports_ddl_transactions?
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: adapter_matcher
+- !ruby/object:RI::MethodSummary 
+  name: column_selector
+- !ruby/object:RI::MethodSummary 
+  name: extended
+- !ruby/object:RI::MethodSummary 
+  name: jdbc_connection_class
+full_name: "::MsSQL"
+constants: []
+
+superclass: 
+name: MsSQL

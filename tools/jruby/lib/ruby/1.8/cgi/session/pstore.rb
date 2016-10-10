@@ -30,7 +30,7 @@ class CGI
       # characters; automatically generated session ids observe
       # this requirement.
       # 
-      # +option+ is a hash of options for the initializer.  The
+      # +option+ is a hash of options for the initialiser.  The
       # following options are recognised:
       #
       # tmpdir:: the directory to use for storing the PStore

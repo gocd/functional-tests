@@ -1,0 +1,90 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  text: Arguments
+  level: 1
+- !ruby/struct:SM::Flow::P 
+  body: The first argument is the realm, identifying the site they are trusting with
+    their identity. This is required, also treated as the trust_root in OpenID 1.x
+    exchanges.
+- !ruby/struct:SM::Flow::P 
+  body: The optional second argument is a hash of options.
+- !ruby/struct:SM::Flow::H 
+  text: Options
+  level: 2
+- !ruby/struct:SM::Flow::P 
+  body: <tt>:return_to</tt> defines the url to return to after the client authenticates
+    with the openid service provider. This url should point to where Rack::Auth::OpenID
+    is mounted. If <tt>:return_to</tt> is not provided, return_to will be the current
+    url which allows flexibility with caveats.
+- !ruby/struct:SM::Flow::P 
+  body: <tt>:session_key</tt> defines the key to the session hash in the env. It defaults
+    to 'rack.session'.
+- !ruby/struct:SM::Flow::P 
+  body: <tt>:openid_param</tt> defines at what key in the request parameters to find
+    the identifier to resolve. As per the 2.0 spec, the default is 'openid_identifier'.
+- !ruby/struct:SM::Flow::P 
+  body: <tt>:store</tt> defined what OpenID Store to use for persistant information.
+    By default a Store::Memory will be used.
+- !ruby/struct:SM::Flow::P 
+  body: <tt>:immediate</tt> as true will make initial requests to be of an immediate
+    type. This is false by default. See OpenID specification documentation.
+- !ruby/struct:SM::Flow::P 
+  body: '<tt>:extensions</tt> should be a hash of openid extension implementations.
+    The key should be the extension main module, the value should be an array of arguments
+    for extension::Request.new. The hash is iterated over and passed to #add_extension
+    for processing. Please see #add_extension for further documentation.'
+- !ruby/struct:SM::Flow::H 
+  text: Examples
+  level: 2
+- !ruby/struct:SM::Flow::VERB 
+  body: "  simple_oid = OpenID.new('http://mysite.com/')\n\n  return_oid = OpenID.new('http://mysite.com/', \
+    {\n    :return_to =&gt; 'http://mysite.com/openid'\n  })\n\n  complex_oid = OpenID.new('http://mysite.com/',\n\
+    \    :immediate =&gt; true,\n    :extensions =&gt; {\n      ::OpenID::SReg =&gt; \
+    [['email'],['nickname']]\n    }\n  )\n"
+- !ruby/struct:SM::Flow::H 
+  text: Advanced
+  level: 1
+- !ruby/struct:SM::Flow::P 
+  body: 'Most of the functionality of this library is encapsulated such that expansion
+    and overriding functions isn''t difficult nor tricky. Alternately, to avoid opening
+    up singleton objects or subclassing, a wrapper rack middleware can be composed
+    to act upon Auth::OpenID''s responses. See #check and #finish for locations of
+    pertinent data.'
+- !ruby/struct:SM::Flow::H 
+  text: Responses
+  level: 2
+- !ruby/struct:SM::Flow::P 
+  body: 'To change the responses that Auth::OpenID returns, override the methods #redirect,
+    #bad_request, #unauthorized, #access_denied, and #foreign_server_failure.'
+- !ruby/struct:SM::Flow::P 
+  body: 'Additionally #confirm_post_params is used when the URI would exceed length
+    limits on a GET request when doing the initial verification request.'
+- !ruby/struct:SM::Flow::H 
+  text: Processing
+  level: 2
+- !ruby/struct:SM::Flow::P 
+  body: 'To change methods of processing completed transactions, override the methods
+    #success, #setup_needed, #cancel, and #failure. Please ensure the returned object
+    is a rack compatible response.'
+- !ruby/struct:SM::Flow::P 
+  body: The first argument is an OpenID::Response, the second is a Rack::Request of
+    the current request, the last is the hash used in ruby-openid handling, which
+    can be found manually at env['rack.session'][:openid].
+- !ruby/struct:SM::Flow::P 
+  body: This is useful if you wanted to expand the processing done, such as setting
+    up user accounts.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  oid_app = Rack::Auth::OpenID.new realm, :return_to =&gt; return_to\n  def \
+    oid_app.success oid, request, session\n    user = Models::User[oid.identity_url]\n\
+    \    user ||= Models::User.create_from_openid oid\n    request['rack.session'][:user] \
+    = user.id\n    redirect MyApp.site_home\n  end\n\n  site_map['/openid'] = oid_app\n\
+    \  map = Rack::URLMap.new site_map\n  ...\n"
+full_name: Rack::Auth::OpenID::new
+params: (realm, options={})
+name: new
+is_singleton: true
+aliases: []
+

@@ -1,0 +1,38 @@
+--- !ruby/object:RI::ClassDescription 
+includes: []
+
+comment: 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  rw: RW
+  name: identity
+- !ruby/object:RI::Attribute 
+  comment: 
+  rw: RW
+  name: is_special
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: cast_to_date
+- !ruby/object:RI::MethodSummary 
+  name: cast_to_datetime
+- !ruby/object:RI::MethodSummary 
+  name: cast_to_time
+- !ruby/object:RI::MethodSummary 
+  name: default_value
+- !ruby/object:RI::MethodSummary 
+  name: is_utf8?
+- !ruby/object:RI::MethodSummary 
+  name: simplified_type
+- !ruby/object:RI::MethodSummary 
+  name: type_cast
+- !ruby/object:RI::MethodSummary 
+  name: unquote
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: string_to_binary
+full_name: "::MsSQL::Column"
+constants: []
+
+superclass: 
+name: Column

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+full_name: Rack::Directory#filesize_format
+params: (int)
+name: filesize_format
+is_singleton: false
+aliases: []
+

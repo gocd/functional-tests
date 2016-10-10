@@ -41,7 +41,6 @@ require 'rdoc/template'
 require 'rdoc/markup/simple_markup'
 require 'rdoc/markup/simple_markup/to_html'
 require 'cgi'
-require 'rbconfig'
 
 module Generators
 
@@ -783,29 +782,20 @@ module Generators
         @path = http_url(file_dir)
       end
 
-      @name = file_relative_name
+      @name = @context.file_relative_name
 
       collect_methods
       AllReferences.add(name, self)
       context.viewer = self
     end
 
-    def file_relative_name
-      name = @context.file_relative_name
-      # Strip drive letter off on windows since ':' is illegal char for 
-      # filenames on windows.
-      if RbConfig::CONFIG['host_os'] =~ /mingw|mswin/
-	name = name.sub(/^[a-zA-Z]:/, '') 
-      end
-      name
-    end
-
     def http_url(file_dir)
-      File.join(file_dir, file_relative_name.tr('.', '_')) + ".html"
+      File.join(file_dir, @context.file_relative_name.tr('.', '_')) +
+        ".html"
     end
 
     def filename_to_label
-      file_relative_name.gsub(/%|\/|\?|\#/) {|s| '%' + ("%x" % s[0]) }
+      @context.file_relative_name.gsub(/%|\/|\?|\#/) {|s| '%' + ("%x" % s[0]) }
     end
 
     def index_name
@@ -1071,16 +1061,16 @@ module Generators
         #    p t.class
 #        style = STYLE_MAP[t.class]
         style = case t
-                when RDoc::RubyToken::TkCONSTANT then "ruby-constant"
-                when RDoc::RubyToken::TkKW       then "ruby-keyword kw"
-                when RDoc::RubyToken::TkIVAR     then "ruby-ivar"
-                when RDoc::RubyToken::TkOp       then "ruby-operator"
-                when RDoc::RubyToken::TkId       then "ruby-identifier"
-                when RDoc::RubyToken::TkNode     then "ruby-node"
-                when RDoc::RubyToken::TkCOMMENT  then "ruby-comment cmt"
-                when RDoc::RubyToken::TkREGEXP   then "ruby-regexp re"
-                when RDoc::RubyToken::TkSTRING   then "ruby-value str"
-                when RDoc::RubyToken::TkVal      then "ruby-value"
+                when RubyToken::TkCONSTANT then "ruby-constant"
+                when RubyToken::TkKW       then "ruby-keyword kw"
+                when RubyToken::TkIVAR     then "ruby-ivar"
+                when RubyToken::TkOp       then "ruby-operator"
+                when RubyToken::TkId       then "ruby-identifier"
+                when RubyToken::TkNode     then "ruby-node"
+                when RubyToken::TkCOMMENT  then "ruby-comment cmt"
+                when RubyToken::TkREGEXP   then "ruby-regexp re"
+                when RubyToken::TkSTRING   then "ruby-value str"
+                when RubyToken::TkVal      then "ruby-value"
                 else
                     nil
                 end

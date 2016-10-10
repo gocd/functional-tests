@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+full_name: "::PostgreSQL#create_schema"
+params: (schema_name, pg_username)
+name: create_schema
+is_singleton: false
+aliases: []
+

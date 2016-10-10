@@ -1,0 +1,27 @@
+--- !ruby/object:RI::MethodDescription 
+visibility: public
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns String with mime type if found, otherwise use <tt>fallback</tt>. <tt>ext</tt>
+    should be filename extension in the '.ext' format that
+- !ruby/struct:SM::Flow::VERB 
+  body: "      File.extname(file) returns.\n"
+- !ruby/struct:SM::Flow::P 
+  body: <tt>fallback</tt> may be any object
+- !ruby/struct:SM::Flow::P 
+  body: Also see the documentation for MIME_TYPES
+- !ruby/struct:SM::Flow::P 
+  body: 'Usage:'
+- !ruby/struct:SM::Flow::VERB 
+  body: "    Rack::Mime.mime_type('.foo')\n"
+- !ruby/struct:SM::Flow::P 
+  body: 'This is a shortcut for:'
+- !ruby/struct:SM::Flow::VERB 
+  body: "    Rack::Mime::MIME_TYPES.fetch('.foo', 'application/octet-stream')\n"
+full_name: Rack::Mime#mime_type
+params: (ext, fallback='application/octet-stream')
+name: mime_type
+is_singleton: false
+aliases: []
+

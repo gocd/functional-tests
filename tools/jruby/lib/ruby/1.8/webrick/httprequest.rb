@@ -225,7 +225,7 @@ module WEBrick
       @request_line = read_line(socket) if socket
       @request_time = Time.now
       raise HTTPStatus::EOFError unless @request_line
-      if /^(\S+)\s+(\S+?)(?:\s+HTTP\/(\d+\.\d+))?\r?\n/mo =~ @request_line
+      if /^(\S+)\s+(\S+)(?:\s+HTTP\/(\d+\.\d+))?\r?\n/mo =~ @request_line
         @request_method = $1
         @unparsed_uri   = $2
         @http_version   = HTTPVersion.new($3 ? $3 : "0.9")
@@ -242,14 +242,17 @@ module WEBrick
           @raw_header << line
         end
       end
-      @header = HTTPUtils::parse_header(@raw_header.join)
+      begin
+        @header = HTTPUtils::parse_header(@raw_header)
+      rescue => ex
+        raise  HTTPStatus::BadRequest, ex.message
+      end
     end
 
     def parse_uri(str, scheme="http")
       if @config[:Escape8bitURI]
         str = HTTPUtils::escape8bit(str)
       end
-      str.sub!(%r{\A/+}o, '/')
       uri = URI::parse(str)
       return uri if uri.absolute?
       if self["host"]

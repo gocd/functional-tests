@@ -44,7 +44,7 @@ module REXML
 			@pairs.keys.include? key
 		end
 
-		# Iterate over the key/value pairs:
+		# Itterate over the key/value pairs:
 		#  attlist_decl.each { |attribute_name, attribute_value| ... }
 		def each(&block)
 			@pairs.each(&block)

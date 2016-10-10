@@ -47,7 +47,7 @@ module WEBrick
       req.header.delete("proxy-authorization")
     end
 
-    # Some header fields should not be transferred.
+    # Some header fields shuold not be transfered.
     HopByHop = %w( connection keep-alive proxy-authenticate upgrade
                    proxy-authorization te trailers transfer-encoding )
     ShouldNotTransfer = %w( set-cookie proxy-connection )

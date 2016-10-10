@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>extended (JdbcSpec::ActiveRecordExtensions)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/active_record/connection_adapters/jdbc_adapter_spec.rb, line 8</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">extended</span>(<span class="ruby-identifier">klass</span>)
+      (<span class="ruby-ivar">@methods</span> <span class="ruby-operator">||</span> []).<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> (<span class="ruby-keyword kw">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">klass</span>; <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">end</span>).<span class="ruby-identifier">instance_eval</span> { <span class="ruby-identifier">remove_method</span>(<span class="ruby-identifier">m</span>) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span> } }
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

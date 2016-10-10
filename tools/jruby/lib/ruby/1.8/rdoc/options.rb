@@ -544,7 +544,7 @@ class Options
   # so we'll bypass the test under Windows
 
   def check_diagram
-    return if RUBY_PLATFORM =~ /mswin|cygwin|mingw|bccwin/
+    return if RUBY_PLATFORM =~ /win/
 
     ok = false
     ver = nil
