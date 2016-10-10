@@ -77,17 +77,6 @@ define "cruise" do |project|
   project.version = VERSION_NUMBER
   project.group = GROUP
 
-
-
-# if (Util.win_os?)
-#		if (FIREFOX_BROWSER == 'N')
-#			cp(_('src','test','java', 'twist.win.properties'), _('target', 'twist.properties'))
-#		end
-#		if (FIREFOX_BROWSER == 'Y')
-#			cp(_('src','test','java', 'twist.firefox.win.properties'), _('target', 'twist.properties'))
-#		end
- #end
-
   clean do
     mkpath TMP_DIR
   end
@@ -123,7 +112,7 @@ end
 
 task :kill_server do
   if Util.win_os?
-    system("target\go-server-#{VERSION_NUMBER}\stop-server.bat")
+    system("target\\go-server-#{VERSION_NUMBER}\\stop-server.bat")
   else
     system("pkill -f cruise.jar")
   end
@@ -161,15 +150,13 @@ end
 task :setup_go do
   if Util.win_os?
     system("cmd /c scripts\\setup-go.bat")
-    system("mvn -B -V dependency:resolve dependency:copy-dependencies -DoutputDirectory=libs/")
   else
     sh "scripts/setup-go.sh"
-    sh "mvn -B -V dependency:resolve dependency:copy-dependencies -DoutputDirectory=libs/"
   end
+  sh "mvn -B -V dependency:resolve dependency:copy-dependencies -DoutputDirectory=libs/"
 end
 
 task :gauge_specs do
-
  if Util.win_os?
     system("cmd /c scripts\\enable_ie_proxy.bat enable ")
  end
