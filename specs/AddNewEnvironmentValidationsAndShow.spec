@@ -50,10 +50,10 @@ Add environment with pipelines, agents and environment variables
 
 * Enter name "first.env.name"
 * Finish "env-name"
-* Verify error "Failed to add environment. Environment 'first.env.name' already exists." message shows up
+* Verify error "Failed to add environment. The environment 'first.env.name' already exists." message shows up
 * Enter name "First.ENV.namE"
 * Finish "env-name"
-* Verify error "Failed to add environment. Environment 'First.ENV.namE' already exists." message shows up
+* Verify error "Failed to add environment. The environment 'First.ENV.namE' already exists." message shows up
 * Enter name "first environment"
 * Finish "env-name"
 * Verify error "Failed to add environment." message shows up

@@ -116,7 +116,7 @@ public class AlreadyOnUsersSummaryPage extends CruisePage{
 
     @com.thoughtworks.gauge.Step("Verify user addition failed")
 	public void verifyUserAdditionFailed() throws Exception {
-        verifyMessageOnSearchPopupIs(String.format("Failed to add user. User '%s' already exists.", addedUser));
+        verifyMessageOnSearchPopupIs(String.format("Failed to add user. The user '%s' already exists.", addedUser));
     }
 
     private void verifySearchPopupIsOpen() {
