@@ -33,13 +33,13 @@ Negatve scenario 1
 * Change environment name to "new_uat"
 
 * Click on edit pipelines
-* Verify error message "Environment named 'uat' not found." is present
+* Verify error message "Environment 'uat' not found." is present
 * Close popup
 * Click on edit agents
-* Verify error message "Environment named 'uat' not found." is present
+* Verify error message "Environment 'uat' not found." is present
 * Close popup
 * Click on edit environment variables
-* Verify error message "Environment named 'uat' not found." is present
+* Verify error message "Environment 'uat' not found." is present
 * Close popup
 
 Negative Scenario 2
@@ -55,7 +55,7 @@ Pipelines section
 * Change environment name to "uat"
 
 * Click on save
-* Verify error message "Environment named 'new_uat' not found." is present
+* Verify error message "Environment 'new_uat' not found." is present
 * Close popup
 
 Agents Section
@@ -69,7 +69,7 @@ Agents Section
 * Change environment name to "new_uat"
 
 * Click on save
-* Verify error message "Environment named 'uat' not found." is present
+* Verify error message "Environment 'uat' not found." is present
 * Close popup
 
 Environment Variables Section
@@ -84,7 +84,7 @@ Environment Variables Section
 * Change environment name to "uat"
 
 * Click on save
-* Verify error message "Environment named 'new_uat' not found." is present
+* Verify error message "Environment 'new_uat' not found." is present
 * Close popup
 
 
