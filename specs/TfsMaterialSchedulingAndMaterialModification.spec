@@ -64,7 +64,7 @@ verify second instance built with newer material
 
 * Looking at material of type "Tfs" named "tfs_mat"
 * Verify material has changed - Already On Build Cause Section
-* Verify modification "0" is checked in by "Modified by: CORPORATE\\sriniup on 2013-08-07T14:14:02+05:30" with comment "Comment: Changes Added"
+* Verify modification "0" is checked in by "Modified by: CORPORATE\\cruise_builder on 2016-10-28T12:03:00+05:30" with comment "Comment: new commit"
 
 
 
