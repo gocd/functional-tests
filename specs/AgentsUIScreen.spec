@@ -149,7 +149,7 @@ Delete agent
 * Verify "enabled" agent count is "5"
 * Verify "disabled" agent count is "0"
 * Delete an idle agent
-* Verify delete error message "Deleted 0 agent(s). Failed to delete 1 agent(s), as agent(s) might not be disabled or are still building."
+* Verify delete error message "Failed to delete 1 agent(s), as agent(s) might not be disabled or are still building."
 * Verify "enabled" agent count is "5"
 * Verify "disabled" agent count is "0"
 
