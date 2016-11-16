@@ -67,19 +67,20 @@ task :copy_plugins do
   rm "target/go-server-#{VERSION_NUMBER}/plugins/external/yum-repo-exec-poller.jar"
 end
 
-task :copy_server do
+task :copy_agent_server do
   mkdir_p "target"
-  cp_r "../#{GO_TRUNK_DIRNAME}/target/go-server-#{VERSION_NUMBER}", "target"
+  mkdir_p "target/test-addon"
+  cp_r "../#{GO_TRUNK_DIRNAME}/installers/target/distributions/zip/.", "target"
+  cp_r "../#{GO_TRUNK_DIRNAME}/test-addon/target/libs/.", "target/test-addon"
 end
 
-task :copy_agent do
-  mkdir_p "target"
-  cp_r "../#{GO_TRUNK_DIRNAME}/target/go-agent-#{VERSION_NUMBER}", "target"
-  cp "target/go-agent-#{VERSION_NUMBER}/agent.sh", "src/test/java/com/thoughtworks/cruise/preconditions/start-twist-agent.sh"
+task :local_setup_go do
+    system("unzip -o target/go-server*.zip -d target")
+    system("unzip -o target/go-agent*.zip -d target")
+    cp_r "target/test-addon/.", "target/go-server-#{VERSION_NUMBER}/addons"
 end
 
-task :setup => [:copy_agent, :copy_server, :copy_plugins]
-
+task :setup => [:clean, :copy_agent_server,  :copy_plugins, :local_setup_go]
 
 task :kill_server do
   if win_os?
@@ -99,7 +100,7 @@ task :killgauge do
   end
 end
 
-task :agent_cleanup do
+task :clean do
   if win_os?
     system("cmd /c target\\go-server-#{VERSION_NUMBER}\\stop-server.bat")
     system("cmd /c scripts\\kill_all_go_instances.bat")
