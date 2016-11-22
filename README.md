@@ -3,9 +3,12 @@ Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg
 
 ## Pre-Requisites
 * Java
+* Gradle
 * Maven
 * [Node](https://nodejs.org/en/) 
 * [Gauge](http://getgauge.io)
+* Mercurial
+* Git
 
 ## Setup
 * ``` git clone``` as a sibling directory to
@@ -14,15 +17,14 @@ Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg
 * ```$ gauge --install-all```
 
 ## Prepare
-* cd to ```gocd-plugins``` codebase, run : ```$ mvn clean install -DskipTests```
-* cd to ```gocd``` codebase, run : ```$ ./bn clean
-  cruise:prepare dist ALLOW_NON_PRODUCTION_CODE=yes```
-* cd to ```gocd-functional-tests``` and run : ```$ ./b clean setup```
-* ```./b start_server``` 
-
+```
+$ rake prepare
+```
 ## Running tests
 
-* ```gauge specs/AdminTaskListing.spec```
+```
+$ GO_VERSION=X.x.x gauge specs/AdminTaskListing.spec 
+```
 
 ## Contributing
 
