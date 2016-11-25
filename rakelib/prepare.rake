@@ -7,7 +7,7 @@ namespace :prepare do
     ENV['GO_VERSION']
   end
 
-  task :plugins => 'build:version' do
+  task :plugins => ['build:plugins', 'build:version'] do
     mkdir_p "target/go-server-#{version}/plugins/external"
     cp_r "../#{GO_PLUGINS_DIRNAME}/target/go-plugins-dist/.", "target/go-server-#{version}/plugins/external"
     rm "target/go-server-#{version}/plugins/external/yum-repo-exec-poller.jar"
@@ -41,7 +41,7 @@ namespace :prepare do
     sh 'mvn clean install -q'
   end
 
-  task :all => ['prepare:clean', :dependencies, :server, :agent, :plugins, :addon]
+  task :all => ['prepare:clean', 'build:clean', :dependencies, :server, :agent, :plugins, :addon, :properties]
 end
 
 desc 'Prepare the server, agent and plugins for testing'
