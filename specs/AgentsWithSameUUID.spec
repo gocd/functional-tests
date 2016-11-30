@@ -22,7 +22,7 @@ Setup of contexts
 AgentsWithSameUUID
 ------------------
 
-tags: agent management, same uuid issue, #3088, linux, 4378, OOM
+tags: agent management, same uuid issue, #3088, linux, 4378, OOM, manual
 
 MAKE THIS SCENARIO RUN IN WINDOWS ONCE THE BUG https://mingle05.thoughtworks.com/projects/cruise/cards/4378 is FIXED
 
@@ -68,8 +68,6 @@ MAKE THIS SCENARIO RUN IN WINDOWS ONCE THE BUG https://mingle05.thoughtworks.com
 
 * On Pipeline Dashboard Page
 * Trigger pipelines "basic-pipeline-fast" and wait for labels "1" to pass
-
-
 
 
 

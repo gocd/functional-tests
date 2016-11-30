@@ -24,6 +24,7 @@ public class AgentInformation {
 	private String agent_name;
 	private String ip_address;
 	private String agent_state;
+	private String agent_config_state;
 	private String sandbox;
 	private String os;
 	private String free_space;
@@ -31,7 +32,7 @@ public class AgentInformation {
 	private List<String> environments;
 
 	public AgentInformation(String uuid, String build_locator,
-			String agent_name, String ip_address, String status, String sandbox,
+			String agent_name, String ip_address, String config_state, String status, String sandbox,
 			String os, String free_space, List<String> resources,
 			List<String> environments) {
 		super();
@@ -40,6 +41,7 @@ public class AgentInformation {
 		this.agent_name = agent_name;
 		this.ip_address = ip_address;
 		this.agent_state = status;
+		this.agent_config_state = config_state;
 		this.sandbox = sandbox;
 		this.os = os;
 		this.free_space = free_space;
@@ -78,6 +80,10 @@ public class AgentInformation {
 	public void setIp_address(String ip_address) {
 		this.ip_address = ip_address;
 	}
+
+	public String getAgent_config_state() { return agent_config_state; }
+
+	public void setAgent_config_state(String agent_config_state) { this.agent_config_state = agent_config_state; }
 
 	public String getAgent_state() {
 		return agent_state;

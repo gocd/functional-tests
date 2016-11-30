@@ -110,7 +110,7 @@ public class OnAgentsPage extends CruisePage {
 
 	@Override
 	protected String url() {
-		return Urls.urlFor("/agents?autoRefresh=" + autoRefresh);
+		return Urls.urlFor("/old_agents?autoRefresh=" + autoRefresh);
 	}
 
 	@com.thoughtworks.gauge.Step("Wait for agent to show status <status>")
@@ -613,7 +613,7 @@ public class OnAgentsPage extends CruisePage {
 				environments = Arrays.asList(environmentList.split(" | "));
 			}
 			agentInformationList.add(new AgentInformation(uuid, null,
-					agent_name, ipAddress, status, sandbox, os, free_space,
+					agent_name, ipAddress, "", status, sandbox, os, free_space,
 					resources, environments));
 		}
 		return agentInformationList
