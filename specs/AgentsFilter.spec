@@ -22,7 +22,7 @@ Setup of contexts
 AgentsFilter
 ------------
 
-tags: agents, UI, automate, 5455, 5554
+tags: agents, UI, automate, 5455, 5554, manual
 
 Name based search
 * Enter filter value "name: random"

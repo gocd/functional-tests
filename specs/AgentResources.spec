@@ -23,7 +23,7 @@ Setup of contexts
 AgentResources
 --------------
 
-tags: agent management, svn support, scheduling, agent auto-discover, agents, automate
+tags: agent management, svn support, scheduling, agent auto-discover, agents, automate, manual
 
 
 * Looking at pipeline "basic-pipeline-with-job-resources"

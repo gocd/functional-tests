@@ -18,6 +18,8 @@ package com.thoughtworks.cruise.context;
 
 import com.thoughtworks.cruise.CruiseAgents;
 import com.thoughtworks.cruise.SahiBrowserWrapper;
+import com.thoughtworks.cruise.api.UsingAgentsApi;
+import com.thoughtworks.cruise.api.response.AgentInformation;
 import com.thoughtworks.cruise.page.OnAgentsPage;
 import com.thoughtworks.cruise.preconditions.AgentLauncher;
 import com.thoughtworks.cruise.util.ProcessUtils;
@@ -35,14 +37,16 @@ import java.util.List;
 
 public class WithLiveAgentsInDirectory {
     private List<AgentLauncher> agents = new ArrayList<AgentLauncher>();
-    protected final OnAgentsPage agentPage;
+    protected final UsingAgentsApi agentApi;
+    protected final OnAgentsPage agentsPage;
     private static int scenarioNumber = 0;
     private final CruiseAgents createdAgents;
     private final Browser browser;
 
     // The dependency on Configuration enforces that this be added after a configuration context
-    public WithLiveAgentsInDirectory(Configuration configuration, OnAgentsPage agentPage, CruiseAgents createdAgents, Browser browser) {
-        this.agentPage = agentPage;
+    public WithLiveAgentsInDirectory(Configuration configuration, UsingAgentsApi agentApi, OnAgentsPage agentsPage, CruiseAgents createdAgents, Browser browser) {
+        this.agentApi = agentApi;
+        this.agentsPage = agentsPage;
         this.createdAgents = createdAgents;
         this.browser = browser;
     }
@@ -52,31 +56,36 @@ public class WithLiveAgentsInDirectory {
         if (System.getenv("DONT_LAUNCH_AGENTS") == null) {
             stopAnyOldAgentsLeftBehind();
             createAgents(numberOfAgents, scenarioDirectoryName(directory));
-            waitForEnabledAgents(numberOfAgents + numberOfMissingAgents(), numberOfAgents);
+            waitForEnabledAgents(numberOfAgents);
         } else {
-            waitForEnabledAgents(1 + numberOfMissingAgents(), 1);
+            waitForEnabledAgents(1);
         }
     }
 
-    private void waitForEnabledAgents(final int expected, final int numberOfLiveAgents) {
-        agentPage.open();
+    private void waitForEnabledAgents(final int numberOfLiveAgents) {
+        agentsPage.open();
         try {
             Assertions.waitUntil(Timeout.FIVE_MINUTES, new Predicate() {
                 public boolean call() {
-                    boolean success = agentPage.numberOfEnabledAgents() >= expected && agentPage.numberOfAvailableAgents() >= numberOfLiveAgents;
-                    if (!success) {
-                        System.err.println(toString() + " (as shown below)");
-                        agentPage.printSummary();
-                        System.err.println();
-                    }
+                    boolean success = agentApi.getLiveAgentsCount() == numberOfLiveAgents;
+                    try {
+                        if (!success) {
+                            System.err.println(toString() + " (as shown below)");
+                            AgentInformation[] agents = agentApi.listInformationOfAllAgents();
+                            for(AgentInformation agent: agents){
+                                agents.toString();
+                            }
+                            System.err.println();
+                        }
+                    } catch (Exception e){e.printStackTrace();}
                     return success;
                 }
 
                 public String toString() {
-                    String expectedStr = String.format("Expected agents: [%s],  Expected live: [%s]", expected, numberOfLiveAgents);
+                    String expectedStr = String.format("Expected live: [%s]", numberOfLiveAgents);
                     try {
                         return expectedStr
-                                + String.format(" but Actual agents: [%s], Actual live [%s]. On page [%s]", agentPage.numberOfAvailableAgents(), agentPage.numberOfEnabledAgents(),
+                                + String.format(" but Actual agents: [%s], Actual live [%s].", agentApi.getAgentsCount(), agentApi.getLiveAgentsCount(),
                                         new SahiBrowserWrapper(browser).getCurrentUrl());
                     } catch (Exception e) {
                         e.printStackTrace();

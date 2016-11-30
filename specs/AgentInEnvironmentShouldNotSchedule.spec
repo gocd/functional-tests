@@ -23,7 +23,7 @@ Setup of contexts
 AgentInEnvironmentShouldNotSchedule
 -----------------------------------
 
-tags: agent management, svn support, agent auto-discover, 3093, automate
+tags: agent management, svn support, agent auto-discover, 3093, automate, manual
 
 * Add environment "uat" to agents "2"
 

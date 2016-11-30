@@ -130,6 +130,31 @@ public class UsingAgentsApi {
 		return agentUUID;
 	}
 
+	public Integer getLiveAgentsCount() {
+		Integer count = 0;
+		try {
+			AgentInformation[] agents = listInformationOfAllAgents();
+
+			for (AgentInformation agent : agents) {
+				if (agent.getAgent_state().equals("Idle") && agent.getAgent_config_state().equals("Enabled")) {
+					++count;
+				}
+			}
+		}catch(Exception e){e.printStackTrace();}
+
+		return count;
+	}
+
+	public Integer getAgentsCount() {
+		Integer count = 0;
+		try {
+			AgentInformation[] agents = listInformationOfAllAgents();
+			count = agents.length;
+		}catch(Exception e){e.printStackTrace();}
+
+		return count;
+	}
+
 	@com.thoughtworks.gauge.Step("Verify last job <pipelineName> <stageName> <jobName> <status>")
 	public void verifyLastJob(String pipelineName, String stageName, String jobName, String status) {
 		String actualPipelineName = state.pipelineNamed(pipelineName);
