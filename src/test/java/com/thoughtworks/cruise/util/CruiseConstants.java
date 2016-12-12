@@ -76,5 +76,7 @@ public class CruiseConstants {
 
     public static final String apiV1 = "application/vnd.go.cd.v1+json";
     public static final String apiV2 = "application/vnd.go.cd.v2+json";
+    public static final String apiV3 = "application/vnd.go.cd.v3+json";
+    public static final String apiV4 = "application/vnd.go.cd.v4+json";
 
 }
