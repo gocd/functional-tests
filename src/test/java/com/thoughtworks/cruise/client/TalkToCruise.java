@@ -37,7 +37,7 @@ import java.util.*;
 public class TalkToCruise {
 
     private final CurrentUsernameProvider currentUserNameProvider;
-    private final List<String> apiV2Urls = Arrays.asList("/api/agents");
+    private final List<String> apiV4Urls = Arrays.asList("/api/agents");
     private final List<String> apiV1Urls = Arrays.asList("/api/backups");
     private final List<String> ancientUrls = Arrays.asList("/job_run_history");
 
@@ -77,7 +77,7 @@ public class TalkToCruise {
         PostMethod post = new PostMethod(uri){
             @Override public String getName() { return "PATCH"; }
         };
-        post.setRequestHeader("Accept", CruiseConstants.apiV2);
+        post.setRequestHeader("Accept", CruiseConstants.apiV4);
         post.setRequestHeader("Content-Type", "application/json");
         return post;
     }
@@ -125,8 +125,8 @@ public class TalkToCruise {
 
     public CruiseResponse get(String url, boolean shouldFollowRedirect, NameValuePair... nameValuePairs) {
         GetMethod get = new GetMethod(url);
-        if(supportApiV2(url) && !isAncient(url))
-            get.setRequestHeader("Accept", CruiseConstants.apiV2);
+        if(supportApiV4(url) && !isAncient(url))
+            get.setRequestHeader("Accept", CruiseConstants.apiV4);
         get.setQueryString(nameValuePairs);
         get.setFollowRedirects(shouldFollowRedirect);
         return execute(url, get, true);
@@ -232,8 +232,8 @@ public class TalkToCruise {
         return false;
     }
 
-    private boolean supportApiV2(String url){
-        for(String subUrl: apiV2Urls){
+    private boolean supportApiV4(String url){
+        for(String subUrl: apiV4Urls){
             return url.contains(subUrl);
         }
         return false;
