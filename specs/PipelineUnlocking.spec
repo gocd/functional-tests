@@ -45,8 +45,7 @@ Verify can unlock a pipeline that's been cancelled
 * Verify stage "1" is "Building" on pipeline with label "2"
 * Navigate to stage "defaultStage" of run "2"
 
-* On Agents Page
-* Wait for agent to show status "building"
+* Wait for "1" agent to show status "Building" - Using Agents API
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "pipeline-2-manual-stages-that-run-till-file-exists"
@@ -62,8 +61,7 @@ Verify a stage can be rerun after releasing the lock
 
 * Rerun stage "defaultStage"
 
-* On Agents Page
-* Wait for agent to show status "building"
+* Wait for "1" agent to show status "Building" - Using Agents API
 
 * Stop "1" jobs that are waiting for file to exist
 

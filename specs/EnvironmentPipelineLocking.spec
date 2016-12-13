@@ -26,7 +26,7 @@ EnvironmentPipelineLocking
 
 tags: 3378, 3411, feeds, restful api, shine, 3426, automate, 3431, stage1
 
-* Add environment "uat" to agents "2"
+* Add environment "uat" to any "1" Idle agents - Using Agents API
 
 * Verify unlocking "environment-pipeline" is not acceptable because "no lock exists within the pipeline configuration for environment-pipeline"
 * Verify unlocking "environment-pipeline-locked" is not acceptable because "lock exists within the pipeline configuration but no pipeline instance is currently in progress"

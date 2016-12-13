@@ -45,8 +45,7 @@ Pipeline Visibility
 
 * Verify admin link is disabled
 
-* On Agents Page
-* Verify "cannot" operate on agents
+* Verify any operation on agents return code "401" - Using Agents Api
 
 * Verify pipeline is not visible "pipeline1"
 * Verify pipeline is visible "pipeline2"

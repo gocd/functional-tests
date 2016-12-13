@@ -25,7 +25,7 @@ SecureVariables
 
 tags: #5668, Clicky Admin, stage1, 6797, 6798, 6825
 
-* Add environment "uat" to agents "2"
+* Add environment "uat" to any "1" Idle agents - Using Agents API
 
 * Add environment variable "env_level_variable_made_secure_at_pipeline_level" with value "env_insecure_key_value" to environment "uat"
 * Add environment variable "secure_variable_made_insecure_by_job" with value "secure_variable_made_insecure_by_job" to job "defaultJob"

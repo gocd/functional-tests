@@ -26,7 +26,7 @@ CrudOperationsForEnvironmentVariables
 tags: automate, environment variables, stage1, 6826
 
 
-* Add environment "environment_1" to agents "2"
+* Add environment "environment_1" to any "1" Idle agents - Using Agents API
 
 * trigger pipeline "different_variable_at_environment_pipeline_stage_job" and navigate to job "job_1" of "stage_1" on successful run "1"
 

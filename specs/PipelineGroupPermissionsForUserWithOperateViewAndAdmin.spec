@@ -59,8 +59,7 @@ Pipeline Visibility
 * Click save - Already On General Options Page
 * Verify saved successfully - Already On General Options Page
 
-* On Agents Page
-* Verify "cannot" operate on agents
+* Verify any operation on agents return code "401" - Using Agents Api
 
 * On Environments Page
 * Verify pipeline is visible "pipeline1"

@@ -28,8 +28,7 @@ tags: 1995, 2126, 2126, automate
 * Looking at pipeline "basic-pipeline"
 * Trigger pipeline
 
-* On Agents Page
-* Wait for agent to show status "building"
+* Wait for "1" agent to show status "Building" - Using Agents API
 
 * Kill all agents
 * Restart all agents

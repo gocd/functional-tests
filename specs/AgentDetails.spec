@@ -24,7 +24,7 @@ Setup of contexts
 AgentDetails
 ------------
 
-tags: 2090, agents
+tags: 2090, agents, manual
 
 * Trigger pipelines "normal-pipeline" and wait for labels "1" to pass
 * Trigger pipelines "basic" and wait for label "1" to pass for stage "2"

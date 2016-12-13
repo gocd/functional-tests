@@ -25,7 +25,7 @@ OverrideEnvironmentVariableDuringTrigger
 
 tags: 3285, environment, automate, 3314, 3344, environment variables, stage1
 
-* Add environment "uat" to agents "2"
+* Add environment "uat" to any "1" Idle agents - Using Agents API
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "pipeline-with-environment-variables"
