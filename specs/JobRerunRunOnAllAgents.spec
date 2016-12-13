@@ -27,9 +27,8 @@ tags: 4137, stage-details, job-rerun, scheduling, rerun, run-on-all
 * Looking at pipeline "pipeline-for-job-rerun-run-on-all" - Configure Pipeline
 * Set run on all agents to "true" for job in pipeline "first"
 
-* On Agents Page
-* Enable an agent showing status "disabled"
-* Add environment "env-job-rerun" to agents "1, 2"
+* Enable an agent showing status "Disabled" - Using Agents API
+* Add environment "env-job-rerun" to all agents - Using Agents API
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "pipeline-for-job-rerun-run-on-all"

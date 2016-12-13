@@ -28,7 +28,7 @@ tags: UI, automate, pipeline-dashboard, #3700, 3820, failing, stage1, OOM
 
 * Remove lock from pipeline "pipeline-2-manual-stages-that-run-till-file-exists"
 
-* Add environment "uat" to agents "3, 4"
+* Add environment "uat" to any "2" Idle agents - Using Agents API
 
 * Logout - On Any Page
 

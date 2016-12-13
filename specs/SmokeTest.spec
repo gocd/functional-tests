@@ -42,9 +42,7 @@ Verify that if upstream pipeline has a timer it triggers the downstream pipeline
 * Verify modification "0" has revision "${runtime_name:basic-pipeline-fast}/1/defaultStage/1"
 * Verify material has changed
 
-* On Agents Page
-
-* Add environment "uat" to agents "2"
+* Add environment "uat" to any "1" Idle agents - Using Agents API
 
 * Adding pipeline "run.till.file.exists" to "uat" environment
 
@@ -81,8 +79,7 @@ Check we can see the Job Details page...
 
 * Navigate to job "short"
 
-* On Agents Page
-* Verify the "missing" agent has "Unknown" free space
+* Verify the "missing" agent has "unknown" free space - Using Agents API
 
 * On Preferences page
 * Verify page title is "Preferences"

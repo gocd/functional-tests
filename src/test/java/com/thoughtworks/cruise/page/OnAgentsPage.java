@@ -110,7 +110,7 @@ public class OnAgentsPage extends CruisePage {
 
 	@Override
 	protected String url() {
-		return Urls.urlFor("/old_agents?autoRefresh=" + autoRefresh);
+		return Urls.urlFor("/agents?autoRefresh=" + autoRefresh);
 	}
 
 	@com.thoughtworks.gauge.Step("Wait for agent to show status <status>")

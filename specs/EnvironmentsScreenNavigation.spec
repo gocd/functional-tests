@@ -31,18 +31,16 @@ Tests navigation from Environment page to different pages.
 * Looking at pipeline "environment-pipeline" - On Environment Page
 * Verify stage bar is not visible for pipeline "environment-pipeline"
 
-* On Agents Page
-* Add resource "linux" to all agents
+* Add resource "linux" to all agents - Using Agents API
+* Add environment "uat" to any "1" Idle agents - Using Agents API
 
-* Assigning "1" agents with resource "linux" to environment "uat"
 * Adding resource "linux" to the job "short"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "environment-pipeline"
 * Trigger pipeline "environment-pipeline"
 
-* On Agents Page
-* Verify the pipeline is building only on agents in "uat"
+* Verify the pipeline is building only on agents in "uat" - Using Agents API
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "environment-pipeline"
@@ -55,10 +53,6 @@ Tests navigation from Environment page to different pages.
 * Verify stage status "Passed: defaultStage" shows up for the pipeline
 * Click on stage "defaultStage" of pipeline "environment-pipeline"
 * Verify on stage details page for "environment-pipeline" stage "defaultStage"
-
-
-
-
 
 
 

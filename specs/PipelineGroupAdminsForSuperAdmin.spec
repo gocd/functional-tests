@@ -49,8 +49,7 @@ Pipeline Visibility
 * Verify "group2" has pipelines "pipeline2"
 * Verify "group3" has pipelines "pipeline3"
 
-* On Agents Page
-* Verify "can" operate on agents
+* Verify any operation on agents return code "200" - Using Agents Api
 
 * On Environments Page
 * Verify pipeline is visible "pipeline1"

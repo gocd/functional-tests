@@ -26,7 +26,7 @@ PassEnvironmentVariablesToAJob
 tags: 3285, environment, automate, 3314, 3344, environment variables, stage1, 6794, 6795, 6796, 6799, 6800, 6801, 6802, 6811, 6823
 
 This is to verify that only the agents associated with an evironment are used to build the pipeline
-* Add environment "uat" to agents "2"
+* Add environment "uat" to any "1" Idle agents - Using Agents API
 
 Note- Environment Variable 'VNC' is set as part of twist-agent startup by AgentLauncher.java
 * Add environment variable "VARIABLE_TEST" with value "variable test value" to environment "uat"

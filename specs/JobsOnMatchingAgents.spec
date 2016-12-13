@@ -30,9 +30,8 @@ tags: 3102, job template, automate
 * Set run on all agents to "true" for job in pipeline "basic-pipeline-run-till-file-exists-job"
 * Deny one agent
 
-* On Agents Page
-* Disable an agent showing status "missing"
-* Verify has "1" idle agents
+* Disable an agent showing status "Missing" - Using Agents API
+* Verify has "1" idle agents - Using Agents API
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "basic-pipeline-run-till-file-exists"
@@ -50,8 +49,7 @@ tags: 3102, job template, automate
 
 * Undeny one agent
 
-* On Agents Page
-* Verify has "2" idle agents
+* Verify has "2" idle agents - Using Agents API
 
 * On Pipeline Dashboard Page
 * Trigger pipeline
