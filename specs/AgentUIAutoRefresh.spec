@@ -10,7 +10,7 @@ Setup of contexts
 Agent UI Auto Refresh
 ---------------------
 
-tags: 2705, agents, UI, automate, 3268, 3304, 3422, 3313, 3450, 3434, 3483, stage1
+tags: 2705, agents, UI, automate, 3268, 3304, 3422, 3313, 3450, 3434, 3483, stage1, manual
 
 We don't want the page to reopen everytime we go to a new workflow like we have with other "On xxx Page". So, we check if we are already on the agents page
 and no open if we are. This way, we can ensure that auto refresh works fine.

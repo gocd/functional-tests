@@ -134,6 +134,6 @@ public class Urls {
     }
 
     public static String apiSupportURL() {
-        return urlFor("/go/api/support.txt");
+        return urlFor("/go/api/support");
     }
 }
