@@ -21,6 +21,8 @@ import com.thoughtworks.cruise.client.TalkToCruise;
 import com.thoughtworks.cruise.client.TalkToCruise.CruiseResponse;
 import com.thoughtworks.cruise.state.ScenarioState;
 import org.apache.commons.io.FileUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.util.Arrays;
@@ -42,14 +44,11 @@ public class LogNotificationPlugin {
 	public void storeCurrentState() throws Exception {
 		File pluginLogFile = null;
 		CruiseResponse response = talkToCruise.get(Urls.apiSupportURL(), true);
-		String[] responseParts = response.getBody().split("\n");
-		for (String responseLine : responseParts) {
-			if (responseLine.startsWith("loc.log.root.0")) {
-				pluginLogFile = new File(responseLine.split(" ")[1], "plugin-log.notifier.log");
-				scenarioState.putValueToStore("LOG_NOTIFICATION_PLUGIN_FILE_PATH", pluginLogFile.getAbsolutePath());
-				break;
-			}
-		}
+		JSONObject jsonObj = new JSONObject(response.getBody());
+		String path = jsonObj.getJSONObject("Config file locations").getString("loc.log.root.0");
+		pluginLogFile = new File(path, "plugin-log.notifier.log");
+		scenarioState.putValueToStore("LOG_NOTIFICATION_PLUGIN_FILE_PATH", pluginLogFile.getAbsolutePath());
+
 		if (pluginLogFile == null) {
 			throw new RuntimeException("could not find 'loc.log.root.0' in /go/api/support");
 		}

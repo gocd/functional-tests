@@ -224,10 +224,12 @@ public class UsingAgentsApi {
 			if (agent.getAgent_state().equals("Idle") && agent.getAgent_config_state().equals("Enabled")) {
 				operating(agent.getUuid(), "", "{\"environments\": [\"" + environmentName + "\"]}");
 				assertTrue(cruiseResponse.getStatus() == 200);
+				count +=1;
 			}
-			count +=1;
 			if (count == Integer.parseInt(idleCount)) break;
 		}
+		Assert.assertTrue("Add environment "+environmentName+" to "+idleCount+" agents failed",count == Integer.parseInt(idleCount));
+
 	}
 
 	@com.thoughtworks.gauge.Step("Add resource <resource> to all agents - Using Agents API")
