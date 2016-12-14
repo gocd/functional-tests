@@ -243,16 +243,29 @@ public class UsingAgentsApi {
 	}
 
 
-	@com.thoughtworks.gauge.Step("Verify the <state> agent has <space> free space - Using Agents API")
-	public void verifyAgentSpace(String state,
+	@com.thoughtworks.gauge.Step("Verify the <uuid> agent has <space> free space - Using Agents API")
+	public void verifyAgentSpace(String uuid,
 									   String space) throws Exception {
 		AgentInformation[] agents = listInformationOfAllAgents();
 
 		for (AgentInformation agent : agents) {
-			if (agent.getUuid().equals(state)) {
+			if (agent.getUuid().equals(uuid)) {
 				assertTrue(agent.getFree_space().equals(space));
 			}
 		}
+	}
+
+	@com.thoughtworks.gauge.Step("Verify an agent has environments <environment> - Using Agents API")
+	public void verifyAnAgentIsInEnvironment(String environment) throws Exception {
+		AgentInformation[] agents = listInformationOfAllAgents();
+
+		boolean hasEnv = false;
+		for (AgentInformation agent : agents) {
+			if (agent.getEnvironments().contains(environment)) {
+				hasEnv = true;
+			}
+		}
+		assertTrue("No agents is associated with environment "+environment,hasEnv);
 	}
 
 	@com.thoughtworks.gauge.Step("Enable an agent showing status <status> - Using Agents API")

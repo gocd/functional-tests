@@ -88,7 +88,7 @@ Add environment with pipelines, agents and environment variables
 * Verify values "missing-agent (10.232.3.1)" are shown in section "added_agents"
 * Verify values "name = value,name with space = other-value" are shown in section "added_environment_variables"
 
-* Verify agent "1" has environments "fooEnvironment"
+* Verify an agent has environments "fooEnvironment" - Using Agents API
 
 * Open "Config XML" tab
 
