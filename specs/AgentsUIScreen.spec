@@ -23,7 +23,7 @@ Setup of contexts
 AgentsUIScreen
 --------------
 
-tags: 2705, agents, UI, automate, 3268, 3304, 3422, 3313, 3450, 3434, 3483, 3503, stage1, 6945, OOM, Manual
+tags: 2705, agents, UI, automate, 3268, 3304, 3422, 3313, 3450, 3434, 3483, 3503, stage1, 6945, OOM, manual
 
 resource assignment and Bug #3503
 

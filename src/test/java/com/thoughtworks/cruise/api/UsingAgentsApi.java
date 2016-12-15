@@ -300,6 +300,79 @@ public class UsingAgentsApi {
 		waitForAgentStatusWithTimeout(status, Integer.parseInt(count), Timeout.ONE_MINUTE);
 	}
 
+	@com.thoughtworks.gauge.Step("Disabling a <state> and <configstate> agent should return <returnCode>")
+	public void disablingAAgentShouldReturn(String state, String configstate, Integer returnCode)
+			throws Exception {
+		AgentInformation[] agents = listInformationOfAllAgents();
+
+		for (AgentInformation agent : agents) {
+			if (agent.getAgent_state().equals(state) && agent.getAgent_config_state().equals(configstate)) {
+				disable(agent.getUuid());
+				break;
+			}
+		}
+		verifyReturnCodeIs(returnCode);
+	}
+
+	@com.thoughtworks.gauge.Step("Enabling a <status> and <config_state> agent should return <returnCode>")
+	public void enablingAAgentShouldReturn(String status, String config_state, Integer returnCode)
+			throws Exception {
+		AgentInformation[] agents = listInformationOfAllAgents();
+
+		for (AgentInformation agent : agents) {
+			if (agent.getAgent_state().equals(status) && agent.getAgent_config_state().equals(config_state)) {
+				enable(agent.getUuid());
+				break;
+			}
+		}
+		verifyReturnCodeIs(returnCode);
+	}
+
+	@com.thoughtworks.gauge.Step("Deleting a <status> and <config_state> agent should return <returnCode>")
+	public void deletingAAgentShouldReturn(String status, String config_state, Integer returnCode)
+			throws Exception {
+		AgentInformation[] agents = listInformationOfAllAgents();
+
+		for (AgentInformation agent : agents) {
+			if (agent.getAgent_state().equals(status) && agent.getAgent_config_state().equals(config_state)) {
+				delete(agent.getUuid());
+				break;
+			}
+		}
+		verifyReturnCodeIs(returnCode);
+	}
+
+	@com.thoughtworks.gauge.Step("Verify <configStatus> agent count is <count>")
+	public void verifyAgentCountIs(final String configStatus, final int count)
+			throws Exception {
+		int actual=0;
+		AgentInformation[] agents = listInformationOfAllAgents();
+
+		for (AgentInformation agent : agents) {
+			if (agent.getAgent_config_state().equals(configStatus)) {
+				actual +=1;
+			}
+		}
+
+		assertTrue("Expected number of agents in state "+configStatus+" is "+actual+" does not match expected count "+count, actual == count);
+	}
+
+	@com.thoughtworks.gauge.Step("Verify there are <count> agents with state <state>")
+	public void verifyAgentWithStateCountIs( final int count, final String state)
+			throws Exception {
+		int actual=0;
+		AgentInformation[] agents = listInformationOfAllAgents();
+
+		for (AgentInformation agent : agents) {
+			if (agent.getAgent_state().equals(state)) {
+				actual +=1;
+			}
+		}
+
+		assertTrue("Expected number of agents in state "+state+" is "+actual+" does not match expected count "+count, actual == count);
+	}
+
+
 	private Boolean waitForAgentStatusWithTimeout(final String status, final Integer count,
 												 final Timeout timeout) {
 		return Assertions.waitFor(timeout, new Assertions.Function<Boolean>() {

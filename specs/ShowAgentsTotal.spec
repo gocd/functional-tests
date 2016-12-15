@@ -22,7 +22,7 @@ Setup of contexts
 ShowAgentsTotal
 ---------------
 
-tags: 3241, agents, UI, automate
+tags: 3241, agents, UI, automate, manual
 
 We have a denied and missing agent by default. Since we don't have support for remote agents yet, we have 0 pending agents.
 

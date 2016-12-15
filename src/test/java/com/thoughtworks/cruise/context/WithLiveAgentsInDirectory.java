@@ -85,8 +85,7 @@ public class WithLiveAgentsInDirectory {
                     String expectedStr = String.format("Expected live: [%s]", numberOfLiveAgents);
                     try {
                         return expectedStr
-                                + String.format(" but Actual agents: [%s], Actual live [%s].", agentApi.getAgentsCount(), agentApi.getLiveAgentsCount(),
-                                        new SahiBrowserWrapper(browser).getCurrentUrl());
+                                + String.format(" but Actual agents: [%s], Actual live [%s].", agentApi.getAgentsCount(), agentApi.getLiveAgentsCount());
                     } catch (Exception e) {
                         e.printStackTrace();
                         return expectedStr + " Failed to retrive actuals";

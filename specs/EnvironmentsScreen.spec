@@ -25,7 +25,7 @@ EnvironmentsScreen
 
 tags: 2808, environment, UI, automate, 3574, 3513
 
-* Assigning "2" agents to environment "prod"
+* Add environment "prod" to any "2" Idle agents - Using Agents API
 
 * Adding pipeline "basic-pipeline-run-till-file-exists" to "prod" environment
 * Making pipeline "basic-environment-pipeline" auto update

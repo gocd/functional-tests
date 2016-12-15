@@ -27,7 +27,7 @@ tags: environment, 3737, automate, deployment lightbox
 
 Verify that all materials can be deployed.
 
-* Assigning "1" agents to environment "uat"
+* Add environment "uat" to any "1" Idle agents - Using Agents API
 * Adding pipeline "multiple-same-materials" to "uat" environment
 
 * For pipeline "multiple-same-materials" - Using pipeline api

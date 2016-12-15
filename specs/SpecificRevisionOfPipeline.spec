@@ -26,7 +26,7 @@ SpecificRevisionOfPipeline
 tags: 3388, restful api, 3407, automate, 3453
 
 * Adding pipeline "manual-downstream-pipeline" to "uat" environment
-* Assigning "1" agents to environment "uat"
+* Add environment "uat" to any "1" Idle agents - Using Agents API
 
 This sets up 2 pipeline instances of each pipeline
 * Trigger pipeline "basic-pipeline-fast"
