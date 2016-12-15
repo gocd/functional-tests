@@ -42,8 +42,8 @@ tags: 3544, automate, cancel, kill-process
 
 * Cancel "defaultStage" - Already On Stage Detail Page
 
-* On Agents Page
-* Wait for agent to show status "idle"
+* Wait for "1" agent to show status "Idle" - Using Agents API
+
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "process-tree"

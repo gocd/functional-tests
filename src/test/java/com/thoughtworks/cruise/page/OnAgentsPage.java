@@ -312,16 +312,7 @@ public class OnAgentsPage extends CruisePage {
 		return usableSpace;
 	}
 
-	@com.thoughtworks.gauge.Step("Verify <configStatus> agent count is <count>")
-	public void verifyAgentCountIs(final String configStatus, final int count)
-			throws Exception {
-		Assertions.waitUntil(Timeout.TEN_SECONDS, new Predicate() {
-			public boolean call() {
-				return elementAgentCountForStatus(configStatus).getText()
-						.endsWith(String.format(": %s", count));
-			}
-		});
-	}
+
 
 	private ElementStub elementAgentCountForStatus(String configStatus) {
 		reloadUrl();
@@ -479,12 +470,7 @@ public class OnAgentsPage extends CruisePage {
 		agentsApi.enable(id);
 	}
 
-	@com.thoughtworks.gauge.Step("Disabling a <status> agent should return <returnCode>")
-	public void disablingAAgentShouldReturn(String status, Integer returnCode)
-			throws Exception {
-		agentsApi.disable(agentRowIdFor(status, 0));
-		agentsApi.verifyReturnCodeIs(returnCode);
-	}
+
 
 	private String agentRowIdFor(final String status, final int idx) {
 		AgentRowFinderPredicate agentRowIdFinder = new AgentRowFinderPredicate(
@@ -493,15 +479,6 @@ public class OnAgentsPage extends CruisePage {
 		return agentRowIdFinder.id;
 	}
 
-	/**
-	 * @deprecated Move this to AgentsAPI when we have a RESTful API for Agents
-	 */
-	@com.thoughtworks.gauge.Step("Enabling a <status> agent should return <returnCode>")
-	public void enablingAAgentShouldReturn(String status, Integer returnCode)
-			throws Exception {
-		enableUsingApi(agentRowIdFor(status, 0));
-		agentsApi.verifyReturnCodeIs(returnCode);
-	}
 
 	@com.thoughtworks.gauge.Step("Add resource <resource> to agent <oneBasedIndex>")
 	public void addResourceToAgent(String resource, Integer oneBasedIndex)
@@ -1006,22 +983,6 @@ public class OnAgentsPage extends CruisePage {
 		assertThat(actualNoOfAgents, Is.is(expected.length));
 	}
 
-	@com.thoughtworks.gauge.Step("Deleting a <status> agent should return <returnCode>")
-	public void deletingAAgentShouldReturn(String status, Integer returnCode)
-			throws Exception {
-		String agentUUIDToDelete = agentRowIdFor(status, 0);
-		agentsApi.delete(agentUUIDToDelete);
-		agentsApi.verifyReturnCodeIs(returnCode);
-
-		if (returnCode == 200) {
-			// make sure the listing now doesnt have the agent
-			AgentInformation[] listInformationOfAllAgents = agentsApi
-					.listInformationOfAllAgents();
-			for (AgentInformation current : listInformationOfAllAgents) {
-				assertFalse(current.getUuid().equals(agentUUIDToDelete));
-			}
-		}
-	}
 
 	@com.thoughtworks.gauge.Step("Verify data in agent listing api is same as data on agents tab")
 	public void verifyDataInAgentListingApiIsSameAsDataOnAgentsTab()

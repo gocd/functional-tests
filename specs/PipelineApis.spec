@@ -28,7 +28,7 @@ tags: 3351, automate, 3086, schedule, trigger, restful api, 3453, OOM
 
 * Setting first stage of "downstream-pipeline" to auto approval
 
-* Add environment "uat" to agents "2, 3"
+* Add environment "uat" to any "2" Idle agents - Using Agents API
 
 * For pipeline "admin-pipeline" - Using pipeline api
 * With variable "VAR_NOT_CONFIGURED" set to "foo"

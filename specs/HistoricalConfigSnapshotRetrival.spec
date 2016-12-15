@@ -27,7 +27,7 @@ tags: config, api, 1441, versioning
 
 * Alias current md5 as "first-revision"
 
-* Type new resource "linux" for agent "1" and press return
+* Add resource "linux" to all agents - Using Agents API
 
 * Alias current md5 as "second-revision"
 * Verify "first-revision" does not have "<resource>linux</resource>"
@@ -42,10 +42,6 @@ tags: config, api, 1441, versioning
 * Verify "second-revision" does not have "<user>hero</user>"
 * Verify "current" has "<user>hero</user>"
 * Verify "third-revision" has "<user>hero</user>"
-
-
-
-
 
 
 Teardown of contexts

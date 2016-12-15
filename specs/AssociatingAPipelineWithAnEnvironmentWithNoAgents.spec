@@ -26,13 +26,13 @@ AssociatingAPipelineWithAnEnvironmentWithNoAgents
 tags: 3216, automate, environment, pipeline
 
 This is to verify that only the agents associated with an evironment are used to build the pipeline
-* Add resource "linux" to all agents
+* Add resource "linux" to all agents - Using Agents API
 
 * Adding resource "linux" to the job "short"
 
 * Trigger pipeline "environment-pipeline"
 
-* Verify none of the agents are building
+* Verify there are "0" agents with state "Building"
 
 
 
