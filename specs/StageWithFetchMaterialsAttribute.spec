@@ -25,9 +25,9 @@ StageWithFetchMaterialsAttribute
 
 tags: 4199, OOM
 
-* Add resource "first" to agent "2"
-* Add resource "second" to agent "3"
-* Add resource "third" to agent "4"
+* Add resource "first" to an agent - Using Agents API
+* Add resource "second" to an agent - Using Agents API
+* Add resource "third" to an agent - Using Agents API
 
 * Looking at pipeline "fetch-materials"
 * Trigger pipeline

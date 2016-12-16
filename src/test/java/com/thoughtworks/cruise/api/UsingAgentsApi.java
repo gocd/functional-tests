@@ -213,6 +213,19 @@ public class UsingAgentsApi {
 			}
 	}
 
+	@com.thoughtworks.gauge.Step("Add resource <resource> to an agent - Using Agents API")
+	public void addEnvironmentToAnAgent(String resource) throws Exception {
+
+		AgentInformation[] agents = listInformationOfAllAgents();
+		for (AgentInformation agent : agents) {
+			if(agent.getResources().isEmpty() && agent.getAgent_state().equals("Idle")) {
+				operating(agent.getUuid(), "", "{\"resources\": [\"" + resource + "\"]}");
+				assertTrue(cruiseResponse.getStatus() == 200);
+				break;
+			}
+		}
+	}
+
 	@com.thoughtworks.gauge.Step("Add environment <environmentName> to any <count> Idle agents - Using Agents API")
 	public void addEnvironmentToIdleAgents(String environmentName,
 									    String idleCount) throws Exception {

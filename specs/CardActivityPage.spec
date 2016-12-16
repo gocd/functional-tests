@@ -23,7 +23,8 @@ Setup of contexts
 CardActivityPage
 ----------------
 
-tags: 4521, card_activity, automate, 4520, mingle
+tags: 4521, card_activity, automate, 4520, mingle, manual
+Gadgets removed as part of 17.1 release, so ignoring this spec. Once 17.1 is released the spec can be removed
 
 * Looking at pipeline "mingle-config-parent"
 * Trigger pipeline

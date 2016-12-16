@@ -62,8 +62,9 @@ tags: 4688, compare_pipeline, 5789
 * Verify that there are "1" materials
 * Verify displays revision "SECOND_REV" having comment "#15 - Another comment loser" under "Mercurial" named "hg-material" for pipeline "up"
 
-* Verify card activity between pipeline "up" counters "2" and "3" is "" with show _ bisect "false"
-* Verify card activity between pipeline "up" counters "2" and "3" is "15,10" with show _ bisect "true"
+Gadgets removed as part of 17.1 release, so ignoring these steps. Once 17.1 is released the steps can be removed
+ Verify card activity between pipeline "up" counters "2" and "3" is "" with show _ bisect "false"
+ Verify card activity between pipeline "up" counters "2" and "3" is "15,10" with show _ bisect "true"
 
 
 
