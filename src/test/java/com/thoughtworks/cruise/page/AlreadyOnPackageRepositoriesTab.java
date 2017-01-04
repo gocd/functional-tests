@@ -162,7 +162,7 @@ public class AlreadyOnPackageRepositoriesTab extends CruiseAdminPage {
 
 	@com.thoughtworks.gauge.Step("Verify add new repository form is shown")
 	public void verifyAddNewRepositoryFormIsShown() throws Exception {
-		assertThat(browser.heading2(Regex.startsWith("Add Package Repository")).in(browser.div("content")).exists(), is(true));
+		assertThat(browser.heading2(Regex.startsWith("Add Package Repository")).exists(), is(true));
 	}
 
 	@com.thoughtworks.gauge.Step("Verify repo details are filled with name <repoName> plugin <plugin> and non secure configuration <configuration>")
