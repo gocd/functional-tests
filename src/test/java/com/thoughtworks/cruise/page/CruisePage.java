@@ -120,16 +120,16 @@ public abstract class CruisePage {
         assertThat(elementCCTrayFeed.fetch("href"), StringContains.containsString("/go/cctray.xml"));
 
         ElementStub elementAPIs = browser.link("api");
-        assertThat(elementAPIs.fetch("href"), StringContains.containsString("https://api.go.cd/"));
+        assertThat(elementAPIs.fetch("href"), StringContains.containsString("https://api.gocd.io/"));
 
         ElementStub elementPlugins = browser.link("plugins");
-        assertThat(elementPlugins.fetch("href"), StringContains.containsString("https://www.go.cd/plugins/"));
+        assertThat(elementPlugins.fetch("href"), StringContains.containsString("https://www.gocd.io/plugins/"));
 
         ElementStub elementServerDetails = browser.link("server-details");
         assertThat(elementServerDetails.fetch("href"), StringContains.containsString("/go/about"));
 
         ElementStub elementDoc = browser.link("documentation");
-        assertThat(elementDoc.fetch("href"), StringContains.containsString("https://docs.go.cd/current"));
+        assertThat(elementDoc.fetch("href"), StringContains.containsString("https://docs.gocd.io/current"));
 
         ElementStub elementForum = browser.link("forums");
         assertThat(elementForum.fetch("href"), StringContains.containsString("https://groups.google.com/d/forum/go-cd"));
