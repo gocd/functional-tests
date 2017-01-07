@@ -16,7 +16,7 @@
  *************************GO-LICENSE-END******************************* -->
 
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="87">
+	xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="88">
 	<server artifactsdir="artifacts" serverId="twist">
 		<security>
 			<passwordFile path="$password_properties" />
