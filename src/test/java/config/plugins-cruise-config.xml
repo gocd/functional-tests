@@ -35,7 +35,7 @@
                     <job name="defaultJob">
                         <tasks>
                             <task>
-							      <pluginConfiguration id="curl.task.plugin" version="1.0" />
+							      <pluginConfiguration id="cd.go.contrib.task.skeleton" version="1.0" />
 							      <configuration>
 							           <property>
 							                <key>Url</key>
@@ -70,7 +70,7 @@
 	                    <job name="defaultJob">
 	                        <tasks>
 	                            <task>
-								      <pluginConfiguration id="curl.task.plugin" version="1.0" />
+								      <pluginConfiguration id="cd.go.contrib.task.skeleton" version="1.0" />
 								      <configuration>
 								           <property>
 								                <key>Url</key>
