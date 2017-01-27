@@ -247,7 +247,7 @@
                     "passed"
                   ],
                   "plugin_configuration": {
-                    "id": "curl.task.plugin",
+                    "id": "cd.go.contrib.task.skeleton",
                     "version": "1.0"
                   },
                   "on_cancel": null
