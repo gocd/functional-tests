@@ -44,8 +44,8 @@ tags: Clicky Admin, 7876
 * On Admin page
 * Open "Templates" tab
 
-* Verify that template "simple-pass" is present with disabled permissions link
-* Verify that template "template-admin-pipeline" is present with disabled permissions link
+* Verify that template "simple-pass" is present with disabled "Permissions" link
+* Verify that template "template-admin-pipeline" is present with disabled "Permissions" link
 
 * Logout and login as "admin"
 
@@ -63,12 +63,28 @@ tags: Clicky Admin, 7876
 * On Admin page
 * Open "Templates" tab
 
+* Verify that template "simple-pass" is present with disabled "Edit" link
+* Verify that template "simple-pass" is present with enabled "View" link
+* Verify that template "template-admin-pipeline" is present with enabled "Edit" link
+* Verify that template "template-admin-pipeline" is present with disabled "Permissions" link
+
+Verify allow group admins view permission flag
+
+* Logout and login as "admin"
+
+* On Admin page
+* Open "Templates" tab
+
+* Verify that "simple-pass" template has permissions link enabled and click on it
+* Switch allow pipeline group admin view access to templates flag - Already On Permissions Page For Template
+* Click save - Already On Permissions Page For Template
+
+* Logout and login as "group1Admin"
+
+* On Admin page
+* Open "Templates" tab
+
 * Verify that templates "simple-pass" are not present
-* Verify that template "template-admin-pipeline" is present with disabled permissions link
-
-
-
-
 
 
 Teardown of contexts

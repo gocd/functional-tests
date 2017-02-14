@@ -47,7 +47,7 @@ Pipeline Visibility
 * Verify source xml is not visible
 * Verify server configuration is not visible
 * Verify user summary is not visible
-* Verify templates are not visible
+* Verify templates are visible
 * Open "Pipelines" tab
 
 * Verify pipeline groups "group2" are not visible

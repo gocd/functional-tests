@@ -90,15 +90,14 @@ tags: 4600, Clicky Admin, 7862
 
 
 * Verify that templates "unused-template" are present
-* Verify cannot delete templates "unused-template"
+* Verify can delete templates "unused-template"
 * Verify cannot add new template for template admin
 * Verify that template "unused-template" has message "No pipelines associated with this template"
 
 
-* Verify that templates "simple-pass" are not present
-* Verify that templates "template-admin-pipeline" are present
+* Verify that templates "simple-pass, template-admin-pipeline" are present
 * Verify cannot delete templates "template-admin-pipeline"
-* Verify message "This template is used in 2 pipelines" for template "template-admin-pipeline"
+* Verify "2" pipelines are associated with template "template-admin-pipeline"
 * Edit template "template-admin-pipeline"
 
 * Verify template being edited is "template-admin-pipeline"
@@ -117,7 +116,7 @@ tags: 4600, Clicky Admin, 7862
 * Navigate to admin templates tab
 
 * Verify that templates "unused-template" are present
-* Verify cannot delete templates "unused-template"
+* Verify can delete templates "unused-template"
 * Verify cannot add new template for template admin
 * Verify that template "unused-template" has message "No pipelines associated with this template"
 
