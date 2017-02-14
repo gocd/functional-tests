@@ -27,6 +27,7 @@ GO_TRUNK_DIRNAME = ENV['GO_TRUNK_DIR'] || 'gocd'
 GO_PLUGINS_DIRNAME = ENV['GO_PLUGINS_DIR'] || 'go-plugins'
 GO_JOB_RUN_COUNT = ENV['GO_JOB_RUN_COUNT']
 GO_JOB_RUN_INDEX = ENV['GO_JOB_RUN_INDEX']
+GO_STAGE_NAME = ENV['GO_STAGE_NAME']
 
 GAUGE_TAGS = ENV["GAUGE_TAGS"]||'smoke,\!manual'
 LOAD_BALANCED = GO_JOB_RUN_COUNT && GO_JOB_RUN_INDEX
@@ -129,7 +130,7 @@ task :setup_go do
     system("cmd /c scripts\\setup-go.bat")
   else
     sh "scripts/setup-go.sh"
-    task_plugin
+    task_plugin if GO_STAGE_NAME == 'RunAcceptanceSpecs-plugins'
   end
   sh "mvn -B -V dependency:resolve dependency:copy-dependencies -DoutputDirectory=libs/"
 end
