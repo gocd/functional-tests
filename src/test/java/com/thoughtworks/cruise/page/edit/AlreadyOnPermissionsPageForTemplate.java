@@ -118,4 +118,9 @@ public class AlreadyOnPermissionsPageForTemplate extends CruisePage {
     	String md5value = scenarioState.getValueFromStore(ConfigState.md5key);
     	assertEquals(browser.hidden("config_md5").getValue(), md5value);
     }
+
+	@com.thoughtworks.gauge.Step("Switch allow pipeline group admin view access to templates flag - Already On Permissions Page For Template")
+	public void switchAllowViewAccessFlag() throws Exception {
+		browser.checkbox(new Object[]{"template[allowGroupAdmins]"}).click();
+	}
 }

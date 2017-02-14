@@ -95,7 +95,7 @@ public class AlreadyOnTemplatesListingTab extends CruisePage {
         }
     }
 
-    @com.thoughtworks.gauge.Step("Verify can delete tempates <csTemplates>")
+    @com.thoughtworks.gauge.Step("Verify can delete templates <csTemplates>")
 	public void verifyCanDeleteTempates(String csTemplates) throws Exception {
         CommaSeparatedParams templates = new CommaSeparatedParams(csTemplates);
         for (String template : templates) {
@@ -182,13 +182,33 @@ public class AlreadyOnTemplatesListingTab extends CruisePage {
 		currentPageState.currentPageIs(Page.PERMISSIONS_PAGE_FOR_TEMPLATE);
 	}
 
-	@com.thoughtworks.gauge.Step("Verify that template <templateName> is present with disabled permissions link")
-	public void verifyThatTemplateIsPresentWithDisabledPermissionsLink(String templateName) {
+	@com.thoughtworks.gauge.Step("Verify that template <templateName> is present with disabled <link> link")
+	public void verifyThatTemplateIsPresentWithDisabledLink(String templateName, String link) {
 		verifyThatTemplatesArePresent(templateName);
 		ElementStub templateDiv = browser.heading2(templateName).parentNode();
-		ElementStub permissionsLink = browser.link("Permissions").in(templateDiv);
+		ElementStub permissionsLink = browser.link(link).in(templateDiv);
 		assertThat(permissionsLink.exists(), is(false));
 	}
+
+    @com.thoughtworks.gauge.Step("Verify that template <templateName> is present with enabled <link> link")
+    public void verifyThatTemplateIsPresentWithEnabledLink(String templateName, String link) {
+        verifyThatTemplatesArePresent(templateName);
+        ElementStub templateDiv = browser.heading2(templateName).parentNode();
+        ElementStub permissionsLink = browser.link(link).in(templateDiv);
+        assertThat(permissionsLink.exists(), is(true));
+    }
+
+    @com.thoughtworks.gauge.Step("Verify <count> pipelines are associated with template <templateName>")
+    public void verifyAssociatedPipelinesCountForTemplate(String count, String templateName) throws Exception {
+
+        ElementStub templateDiv = browser.div("template_container_"+templateName);
+        ElementStub pipelineTable = browser.table("list_table").in(templateDiv);
+        ElementStub pipelines = browser.row("").in(pipelineTable);
+        assertEquals(pipelines.countSimilar()-1,Integer.parseInt(count));
+
+
+    }
+
 
 	@com.thoughtworks.gauge.Step("Verify message <message> for template <templateName>")
 	public void verifyMessageForTemplate(String message, String templateName) throws Exception {
@@ -196,7 +216,6 @@ public class AlreadyOnTemplatesListingTab extends CruisePage {
 		ElementStub templateDiv = browser.div("template_container_"+templateName);
 		ElementStub pipelineTable = browser.table("list_table").in(templateDiv);
 		ElementStub spanMessage = browser.span("").in(pipelineTable);
-		
 		assertEquals(spanMessage.getText().trim(),message+".");
 		
 	
