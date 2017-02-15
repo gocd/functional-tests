@@ -33,7 +33,7 @@ tags: 4600, Clicky Admin
 * Verify that template "unused" has message "No pipelines associated with this template"
 * Verify that edit pipeline "pipeline1" lands on pipeline edit page
 * Verify cannot delete templates "simple-pass,default.pipeline"
-* Verify can delete tempates "unused"
+* Verify can delete templates "unused"
 * Delete template "unused"
 * Verify that templates "simple-pass,default.pipeline" are present
 * Verify that templates "unused" are not present

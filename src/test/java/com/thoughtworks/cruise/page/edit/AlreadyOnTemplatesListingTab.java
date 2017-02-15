@@ -96,7 +96,7 @@ public class AlreadyOnTemplatesListingTab extends CruisePage {
     }
 
     @com.thoughtworks.gauge.Step("Verify can delete templates <csTemplates>")
-	public void verifyCanDeleteTempates(String csTemplates) throws Exception {
+	public void verifyCanDeleteTemplates(String csTemplates) throws Exception {
         CommaSeparatedParams templates = new CommaSeparatedParams(csTemplates);
         for (String template : templates) {
             assertThat(String.format("Template delete must be enabled for '%s'", template), elementDeleteTemplate(template).exists(), is(true));
