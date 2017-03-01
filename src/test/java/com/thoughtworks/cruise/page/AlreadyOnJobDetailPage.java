@@ -473,13 +473,14 @@ public class AlreadyOnJobDetailPage extends CruisePage{
         String consoleContent = consoleContent();
         String[] consoleContentLines = consoleContent.split("\n");
         boolean foundFirstRelevantLine = false;
+
         for (int i = 0; i < consoleContentLines.length; i++) {
             if (consoleContentLines[i].contains(String.format("Start to execute task: fetch artifact [%s] => [] from [%s]", artifactName, resolvedPathFromAncestor))) {
                 foundFirstRelevantLine = true;
                 assertThat(consoleContentLines[i + 1].contains(String.format("Fetching artifact [%s] from [%s]", artifactName, resolvedStageLocator)), is(true));
             }
         }
-        assertThat(foundFirstRelevantLine, is(true));
+        assertThat("Could not find fetch artifact task message in console output:\n" + consoleContent, foundFirstRelevantLine, is(true));
     }
 
     private String resolvePathFromAncestor(String pathFromAncestor) {
