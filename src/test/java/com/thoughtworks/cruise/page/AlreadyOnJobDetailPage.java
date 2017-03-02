@@ -465,8 +465,8 @@ public class AlreadyOnJobDetailPage extends CruisePage{
         currentPageState.currentPageIs(Page.AGENT_DETAILS);
     }
 
-    @com.thoughtworks.gauge.Step("Verify console says that artifact <artifactName> was fetched from <stageLocator> for path <pathFromAncestor>")
-    public void verifyConsoleSaysThatArtifactWasFetchedFromForPath(String artifactName, String stageLocator, String pathFromAncestor)
+    @com.thoughtworks.gauge.Step("Verify console says that artifact <artifactName> was fetched from <stageLocator> for path <pathFromAncestor> from <stageJob>")
+    public void verifyConsoleSaysThatArtifactWasFetchedFromForPath(String artifactName, String stageLocator, String pathFromAncestor, String stage_job)
             throws Exception {
         String resolvedPathFromAncestor = resolvePathFromAncestor(pathFromAncestor);
         String resolvedStageLocator = scenarioState.expand(stageLocator);
@@ -475,7 +475,7 @@ public class AlreadyOnJobDetailPage extends CruisePage{
         boolean foundFirstRelevantLine = false;
 
         for (int i = 0; i < consoleContentLines.length; i++) {
-            if (consoleContentLines[i].contains(String.format("Start to execute task: fetch artifact [%s] => [] from [%s]", artifactName, resolvedPathFromAncestor))) {
+            if (consoleContentLines[i].contains(String.format("Start to execute task: fetch artifact [%s] =&gt; [] from [%s]", artifactName, resolvedPathFromAncestor+"/"+stage_job))) {
                 foundFirstRelevantLine = true;
                 assertThat(consoleContentLines[i + 1].contains(String.format("Fetching artifact [%s] from [%s]", artifactName, resolvedStageLocator)), is(true));
             }
