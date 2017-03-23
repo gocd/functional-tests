@@ -42,8 +42,8 @@ Successful fetch from an ancestor
 * Navigate to job "down-job1"
 
 * Open console tab
-* Verify console says that artifact "first" was fetched from "${runtime_name:uppest_pipeline}/1/uppest-stage1/latest/uppest-job1" for path "uppest_pipeline/upper_pipeline/up_pipeline" from "uppest-stage1/uppest-job1"
-* Verify console says that artifact "first" was fetched from "${runtime_name:uppest_pipeline}/2/uppest-stage1/1/uppest-job1" for path "uppest_pipeline/upper_peer_pipeline/up_pipeline" from "uppest-stage1/uppest-job1"
+* Verify console says that artifact "first" was fetched from "${runtime_name:uppest_pipeline}/1/uppest-stage1/latest/uppest-job1" for path "uppest_pipeline/upper_pipeline/up_pipeline"
+* Verify console says that artifact "first" was fetched from "${runtime_name:uppest_pipeline}/2/uppest-stage1/1/uppest-job1" for path "uppest_pipeline/upper_peer_pipeline/up_pipeline"
 
 Successful fetch from direct parent
 
@@ -54,7 +54,7 @@ Successful fetch from direct parent
 * Navigate to job "upper-job1"
 
 * Open console tab
-* Verify console says that artifact "first" was fetched from "${runtime_name:uppest_pipeline}/1/uppest-stage1/latest/uppest-job1" for path "uppest_pipeline" from "uppest-stage1/uppest-job1"
+* Verify console says that artifact "first" was fetched from "${runtime_name:uppest_pipeline}/1/uppest-stage1/latest/uppest-job1" for path "uppest_pipeline"
 
 
 
