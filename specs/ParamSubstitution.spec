@@ -33,7 +33,7 @@ tags: 4207, param, params
 * Navigate to job "defaultJob"
 
 * Open console tab
-* Verify console contains "Start to execute task: <exec command=\"some_command_that_can_never_ever_exist_with_tail\" />."
+* Verify console contains "Start to execute task: some_command_that_can_never_ever_exist_with_tail."
 
 
 
