@@ -2,28 +2,34 @@
 Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg)](http://getgauge.io)
 
 ## Pre-Requisites
-* Java
-* Gradle
-* Maven
-* [Node](https://nodejs.org/en/) 
-* [Gauge](http://getgauge.io)
+* JDK 8 (verified on 1.8.0_121-b13)
+* Gradle (verified to work on 3.4)
+* Maven (verified to work on 3.3.9)
+* [Node](https://nodejs.org/en/) 6.x (7.x will not work)
+* [Gauge](http://getgauge.io) 0.8.3
 * Mercurial
 * Git
+* **Firefox <= 45.x** (verified on 45.8.0esr; the version of webdriver used only supports up to 45)
 
 ## Setup
-* ``` git clone``` as a sibling directory to
-  [go.cd](https://github.com/gocd/gocd)
-* ```$ cd gocd-functional-tests```
+* Need the following repos cloned as sibling directories to this repo:
+    * [go.cd](https://github.com/gocd/gocd)
+    * [go-plugins](https://github.com/gocd/go-plugins)
+* ```$ cd functional-tests```
 * ```$ gauge --install-all```
+* ```$ gauge --update-all``` (in case the plugins were already installed before the previous command, update them to the latest anyway)
+* If you are using `nvm`, verify that Node 6.x is activated
+* Modfiy the paths to `firefox.exe` or `firefox-bin` in `src/test/java/twist.properties` (for both the `sahi.browserLocation` and `webdriver.firefox.bin` properties) to reflect the paths on your machine
 
 ## Prepare
-```
+```bash
+# This will, among other things, build go.cd binaries to use in these tests. Get some coffee.
 $ rake prepare
 ```
 ## Running tests
 
-```
-$ GO_VERSION=X.x.x gauge specs/AdminTaskListing.spec 
+```bash
+$ GO_VERSION=X.x.x gauge specs/AdminTaskListing.spec
 ```
 
 ## Contributing
@@ -35,7 +41,7 @@ A lot of useful information like links to user documentation, design documentati
 ## License
 
 ```plain
-Copyright 2016 ThoughtWorks, Inc.
+Copyright 2017 ThoughtWorks, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
