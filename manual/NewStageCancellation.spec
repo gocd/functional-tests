@@ -34,7 +34,7 @@ Old twist tests: CancellingStageRunsOnCancelTask, CancellingAStageSendsAnEmailWi
 * verify job is assigned to an agent
 * cancel stage on pipeline "test"
 * verify job is cancelled
-* Wait for console to contain "Start to execute cancel task:"
+* Wait for console to contain "Cancel task:"
 * verify email contains "The stage was cancelled by "
 
 
