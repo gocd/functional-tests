@@ -70,7 +70,7 @@ Include server and angular validation on onCancel
 * Navigate to job "defaultJob"
 
 * Open console tab
-* Verify console contains "Plugin with ID: cd.go.contrib.task.skeleton."
+* Verify console contains "Plugin with ID: cd.go.contrib.task.skeleton"
 * Verify console contains "https://www.codeschool.com"
 
 * On Pipeline Dashboard Page
@@ -81,7 +81,7 @@ Include server and angular validation on onCancel
 * Navigate to job "defaultJob"
 
 * Open console tab
-* Verify console contains "Plugin with ID: cd.go.contrib.task.skeleton."
+* Verify console contains "Plugin with ID: cd.go.contrib.task.skeleton"
 
 
 * Force navigate to add new pipeline
