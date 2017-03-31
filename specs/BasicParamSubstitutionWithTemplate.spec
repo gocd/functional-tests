@@ -14,10 +14,10 @@
 BasicParamSubstitutionWithTemplate
 ==================================
 
-     |Param0                         |Param1          |Param2                                    |
-     |-------------------------------|----------------|------------------------------------------|
-     |template-params-pipeline-trunk |echo trunk-dir. |Tasks:Exec ( Command=echo, Args=trunk-dir |
-     |template-params-pipeline-branch|echo branch-dir.|Tasks:Exec ( Command=echo, Args=branch-dir|
+     |Param0                         |Param1         |Param2                                    |
+     |-------------------------------|---------------|------------------------------------------|
+     |template-params-pipeline-trunk |echo trunk-dir |Tasks:Exec ( Command=echo, Args=trunk-dir |
+     |template-params-pipeline-branch|echo branch-dir|Tasks:Exec ( Command=echo, Args=branch-dir|
 Setup of contexts
 * Basic configuration - setup
 * Using pipeline "template-params-pipeline-trunk, template-params-pipeline-branch" - setup

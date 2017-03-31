@@ -33,7 +33,7 @@ tags: 4207, param, params
 * Navigate to job "defaultJob"
 
 * Open console tab
-* Verify console contains "some_command_that_can_never_ever_exist_with_tail."
+* Verify console contains "some_command_that_can_never_ever_exist_with_tail"
 
 
 
