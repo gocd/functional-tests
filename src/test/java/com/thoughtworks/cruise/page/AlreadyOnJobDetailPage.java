@@ -471,16 +471,12 @@ public class AlreadyOnJobDetailPage extends CruisePage{
         String resolvedPathFromAncestor = resolvePathFromAncestor(pathFromAncestor);
         String resolvedStageLocator = scenarioState.expand(stageLocator);
         String consoleContent = consoleContent();
-        String[] consoleContentLines = consoleContent.split("\n");
-        boolean foundFirstRelevantLine = false;
 
-        for (int i = 0; i < consoleContentLines.length; i++) {
-            if (consoleContentLines[i].contains(String.format("fetch artifact [%s] =&gt; [] from [%s]", artifactName, resolvedPathFromAncestor+"/"+stage_job))) {
-                foundFirstRelevantLine = true;
-                assertThat(consoleContentLines[i + 1].contains(String.format("Fetching artifact [%s] from [%s]", artifactName, resolvedStageLocator)), is(true));
-            }
-        }
-        assertThat("Could not find fetch artifact task message in console output:\n" + consoleContent, foundFirstRelevantLine, is(true));
+        String taskLine = String.format("fetch artifact [%s] =&gt; [] from [%s]", artifactName, resolvedPathFromAncestor + "/" + stage_job);
+        assertThat(String.format("Could not find \"%s\" in console output:\n%s", taskLine, consoleContent), consoleContent.contains(taskLine), is(true));
+
+        String fetchLine = String.format("Fetching artifact [%s] from [%s]", artifactName, resolvedStageLocator);
+        assertThat(String.format("Could not find \"%s\" in console output:\n%s", fetchLine, consoleContent), consoleContent.contains(fetchLine), is(true));
     }
 
     private String resolvePathFromAncestor(String pathFromAncestor) {
