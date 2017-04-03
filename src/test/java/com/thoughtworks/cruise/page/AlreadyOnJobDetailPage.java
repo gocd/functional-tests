@@ -337,7 +337,7 @@ public class AlreadyOnJobDetailPage extends CruisePage{
 
     @com.thoughtworks.gauge.Step("Verify console contains submodule status for dir <dir> and ref <ref>")
     public void verifyConsoleContainsSubmoduleStatusForDirAndRef(String dir, String ref) throws Exception {
-        boolean matchFound = Pattern.compile(String.format(".* [a-fA-F0-9]{40} %s \\(%s\\)$.*", dir, ref), Pattern.MULTILINE | Pattern.DOTALL).matcher(consoleContent()).matches();
+        boolean matchFound = Pattern.compile(String.format(".* [a-fA-F0-9]{40} %s \\(%s\\).*", dir, ref), Pattern.MULTILINE | Pattern.DOTALL).matcher(consoleContent()).matches();
         assertThat(matchFound, Is.is(true));
     }
 
