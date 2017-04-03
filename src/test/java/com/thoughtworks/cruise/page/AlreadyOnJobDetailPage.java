@@ -410,8 +410,8 @@ public class AlreadyOnJobDetailPage extends CruisePage{
 
     @com.thoughtworks.gauge.Step("Verify displaying job <oneBoundJobIndex>")
     public void verifyDisplayingJob(Integer oneBoundJobIndex) throws Exception {
-        ElementStub buildlist = browser.list("buildlist");
-        ElementStub job = browser.listItem("build_list_" + oneBoundJobIndex).in(buildlist);
+        ElementStub buildlistContainer = browser.div("buildlist-container");
+        ElementStub job = browser.listItem("build_list_" + oneBoundJobIndex).in(buildlistContainer);
         assertThat(job.fetch("className"), containsString("current"));
     }
 
@@ -427,8 +427,8 @@ public class AlreadyOnJobDetailPage extends CruisePage{
     }
 
     private ElementStub jobInJobHistory(Integer oneBoundJobIndex) {
-        ElementStub buildlist = browser.list("buildlist");
-        return browser.listItem("build_list_" + oneBoundJobIndex).in(buildlist);
+        ElementStub buildlistContainer = browser.div("buildlist-container");
+        return browser.listItem("build_list_" + oneBoundJobIndex).in(buildlistContainer);
     }
 
     @com.thoughtworks.gauge.Step("Verify console has environment variable <name> set to value <value>")

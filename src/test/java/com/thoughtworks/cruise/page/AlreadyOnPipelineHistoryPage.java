@@ -210,18 +210,29 @@ public class AlreadyOnPipelineHistoryPage extends CruisePage {
       }
 
 	@com.thoughtworks.gauge.Step("Rerun stage <stageName> - Already On Pipeline History Page")
-	public void rerunStage(String stageName) {
+	public void rerunStage(final String stageName) {
 		String pipelineName = scenarioState.currentRuntimePipelineName();
+		Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate(){
+			@Override
+			public boolean call() throws Exception {
+				String pipelineName = scenarioState.currentRuntimePipelineName();
+				return browser.byId("rerun-"+pipelineName+"-"+currentLabel()+"-"+stageName).exists();
+			}
+		});
 		browser.byId("rerun-"+pipelineName+"-"+currentLabel()+"-"+stageName).click();
 		
 	}
 
 
 	@com.thoughtworks.gauge.Step("Verify <stageName> stage can be cancelled")
-	public void verifyStageCanBeCancelled(String stageName) throws Exception {
-  	  String pipelineName = scenarioState.currentRuntimePipelineName();
-  	  Assert.assertThat(browser.byId("cancel-"+pipelineName+"-"+currentLabel()+"-"+stageName).exists(), Is.is(true));
-  	  
+	public void verifyStageCanBeCancelled(final String stageName) throws Exception {
+		Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate(){
+			@Override
+			public boolean call() throws Exception {
+				String pipelineName = scenarioState.currentRuntimePipelineName();
+				return browser.byId("cancel-"+pipelineName+"-"+currentLabel()+"-"+stageName).exists();
+			}
+		});
 	}
 	
 	@com.thoughtworks.gauge.Step("Cancel stage <stageName>")
