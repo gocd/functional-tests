@@ -210,17 +210,9 @@ public class AlreadyOnPipelineHistoryPage extends CruisePage {
       }
 
 	@com.thoughtworks.gauge.Step("Rerun stage <stageName> - Already On Pipeline History Page")
-	public void rerunStage(final String stageName) {
+	public void rerunStage(final String stageName) throws Exception{
 		String pipelineName = scenarioState.currentRuntimePipelineName();
-		Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate(){
-			@Override
-			public boolean call() throws Exception {
-				String pipelineName = scenarioState.currentRuntimePipelineName();
-				return browser.byId("rerun-"+pipelineName+"-"+currentLabel()+"-"+stageName).exists();
-			}
-		});
 		browser.byId("rerun-"+pipelineName+"-"+currentLabel()+"-"+stageName).click();
-		
 	}
 
 
