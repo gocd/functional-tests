@@ -16,6 +16,7 @@
 
 package com.thoughtworks.cruise.page;
 
+import com.thoughtworks.cruise.Regex;
 import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.client.TalkToCruise;
 import com.thoughtworks.cruise.client.TalkToCruise.CruiseResponse;
@@ -27,9 +28,14 @@ import com.thoughtworks.cruise.utils.Timeout;
 import net.sf.sahi.client.Browser;
 import net.sf.sahi.client.ElementStub;
 import org.apache.commons.lang.StringUtils;
+import org.apache.xerces.impl.xpath.regex.RegularExpression;
+import org.codehaus.groovy.runtime.powerassert.SourceText;
 import org.hamcrest.Matchers;
 import org.hamcrest.core.Is;
 import org.junit.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.Matchers.containsString;
@@ -37,83 +43,85 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class AlreadyOnPipelineHistoryPage extends CruisePage {
-	private final TalkToCruise talkToCruise;
-	private String currentLabel;
-	
-	public AlreadyOnPipelineHistoryPage(CurrentPageState currentPageState, ScenarioState scenarioState, TalkToCruise talkToCruise, Browser browser) {
-		super(scenarioState, true, browser);
-		this.talkToCruise = talkToCruise;
-		currentPageState.assertCurrentPageIs(CurrentPageState.Page.PIPELINE_HISTORY);
-	}
+    private final TalkToCruise talkToCruise;
+    private String currentLabel;
 
-	@com.thoughtworks.gauge.Step("Looking at pipeline with label <currentLabel>")
-	public void lookingAtPipelineWithLabel(String currentLabel) throws Exception {
-		this.currentLabel = currentLabel;
-	}
+    public AlreadyOnPipelineHistoryPage(CurrentPageState currentPageState, ScenarioState scenarioState, TalkToCruise talkToCruise, Browser browser) {
+        super(scenarioState, true, browser);
+        this.talkToCruise = talkToCruise;
+        currentPageState.assertCurrentPageIs(CurrentPageState.Page.PIPELINE_HISTORY);
+    }
 
-	public void triggerNewPipeline() throws Exception {
-		browser.button("force-run-pipeline").click();
-	}
+    @com.thoughtworks.gauge.Step("Looking at pipeline with label <currentLabel>")
+    public void lookingAtPipelineWithLabel(String currentLabel) throws Exception {
+        this.currentLabel = currentLabel;
+    }
 
-	@com.thoughtworks.gauge.Step("Approve stage <stageName>")
-	public void approveStage(String stageName) throws Exception {
-		approveStageWithLabel(stageName, currentLabel());
-	}
+    public void triggerNewPipeline() throws Exception {
+        browser.button("force-run-pipeline").click();
+    }
 
-	@com.thoughtworks.gauge.Step("Approve stage <stageName> with label <label>")
-	public void approveStageWithLabel(String stageName, String label) throws Exception {
-		boolean javascriptAlertBoxesStillExistAndAreUntestableWithWebDriver = true; // that sucks.
-		if (javascriptAlertBoxesStillExistAndAreUntestableWithWebDriver) {
-	        String url = Urls.urlFor(String.format("/run/%s/%s/%s", scenarioState.currentRuntimePipelineName(), label, stageName));
-	        System.err.println("posting to " + url);
-	        CruiseResponse response = talkToCruise.post(url);
-	        Assert.assertThat(String.format("Got back return code %s-%s from url %s", response.getStatus(), response.getBody(), url),
-	        		response.isSuccess(), Is.is(true));
-		} else {
-			browser.button(String.format("approve-%s-%s", label, stageName)).click();
-		}
-	}
+    @com.thoughtworks.gauge.Step("Approve stage <stageName>")
+    public void approveStage(String stageName) throws Exception {
+        approveStageWithLabel(stageName, currentLabel());
+    }
 
-	private String currentLabel() {
-		if (this.currentLabel == null) { throw new IllegalStateException("Must look at a particular pipeline instance"); }
-		return this.currentLabel;
-	}
+    @com.thoughtworks.gauge.Step("Approve stage <stageName> with label <label>")
+    public void approveStageWithLabel(String stageName, String label) throws Exception {
+        boolean javascriptAlertBoxesStillExistAndAreUntestableWithWebDriver = true; // that sucks.
+        if (javascriptAlertBoxesStillExistAndAreUntestableWithWebDriver) {
+            String url = Urls.urlFor(String.format("/run/%s/%s/%s", scenarioState.currentRuntimePipelineName(), label, stageName));
+            System.err.println("posting to " + url);
+            CruiseResponse response = talkToCruise.post(url);
+            Assert.assertThat(String.format("Got back return code %s-%s from url %s", response.getStatus(), response.getBody(), url),
+                    response.isSuccess(), Is.is(true));
+        } else {
+            browser.button(String.format("approve-%s-%s", label, stageName)).click();
+        }
+    }
 
-	private void showBuildCauseMessage(final int row) {
-		Assertions.waitUntil(Timeout.FIVE_SECONDS, new Predicate() {
-			public boolean call() throws Exception {
-				ElementStub pipelineRow = browser.row(row).in(browser.table("pipeline-history-group"));
-				ElementStub link = browser.link(1).in(pipelineRow);
-				link.click();
-				String buildCauseMessage = getBuildCauseMessage(row);
-				return !org.apache.commons.lang.StringUtils.isEmpty(buildCauseMessage);
-			}
-		});
-	}
+    private String currentLabel() {
+        if (this.currentLabel == null) {
+            throw new IllegalStateException("Must look at a particular pipeline instance");
+        }
+        return this.currentLabel;
+    }
 
-	private String getBuildCauseMessage(int row) {
-		return browser.div("/build-cause-summary-container/").in(browser.row(row).in(browser.table("pipeline-history-group"))).getText();
-	}
+    private void showBuildCauseMessage(final int row) {
+        Assertions.waitUntil(Timeout.FIVE_SECONDS, new Predicate() {
+            public boolean call() throws Exception {
+                ElementStub pipelineRow = browser.row(row).in(browser.table("pipeline-history-group"));
+                ElementStub link = browser.link(1).in(pipelineRow);
+                link.click();
+                String buildCauseMessage = getBuildCauseMessage(row);
+                return !org.apache.commons.lang.StringUtils.isEmpty(buildCauseMessage);
+            }
+        });
+    }
 
-	@com.thoughtworks.gauge.Step("Verify build cause message on row <row> contains <text> and not <text2>")
-	public void verifyBuildCauseMessageOnRowContainsAndNot(Integer row,	String text, String text2) throws Exception {
-		showBuildCauseMessage(row);
-		String msg = getBuildCauseMessage(row);
-		org.junit.Assert.assertThat(msg, Matchers.containsString(scenarioState.expand(text)));
-		org.junit.Assert.assertThat(msg, Matchers.not(Matchers.containsString(scenarioState.expand(text2))));
-	}
+    private String getBuildCauseMessage(int row) {
+        return browser.div("/build-cause-summary-container/").in(browser.row(row).in(browser.table("pipeline-history-group"))).getText();
+    }
 
-	//TODO: Get rid of this stupid duplication
-	@Override
-	protected String url() {
-		return browserWrapper.getCurrentUrl();
-	}
-	
-	@com.thoughtworks.gauge.Step("Verify build cause message contains <shouldExist>")
-	public void verifyBuildCauseMessageContains(String shouldExist) throws Exception {
-		String msg = buildCauseText();	
-		
-		
+    @com.thoughtworks.gauge.Step("Verify build cause message on row <row> contains <text> and not <text2>")
+    public void verifyBuildCauseMessageOnRowContainsAndNot(Integer row, String text, String text2) throws Exception {
+        showBuildCauseMessage(row);
+        String msg = getBuildCauseMessage(row);
+        org.junit.Assert.assertThat(msg, Matchers.containsString(scenarioState.expand(text)));
+        org.junit.Assert.assertThat(msg, Matchers.not(Matchers.containsString(scenarioState.expand(text2))));
+    }
+
+    //TODO: Get rid of this stupid duplication
+    @Override
+    protected String url() {
+        return browserWrapper.getCurrentUrl();
+    }
+
+    @com.thoughtworks.gauge.Step("Verify build cause message contains <shouldExist>")
+    public void verifyBuildCauseMessageContains(String shouldExist) throws Exception {
+        String msg = buildCauseText();
+
+
 //		String runtime_matcher = ".*(\\$\\{runtime_name:.*\\}).*";
 //		String variable_matcher = ".*:(.*)\\}";
 //		String replaceableVariable = "";
@@ -138,47 +146,47 @@ public class AlreadyOnPipelineHistoryPage extends CruisePage {
 //			System.out.println(stateVariable);
 //			System.out.print("above");
 
-		
-		org.junit.Assert.assertThat(msg, Matchers.containsString(scenarioState.expand(shouldExist)));
-			
-		
-	}
-	
-	public void verifyBuildCauseMessageDoesNotContain(String shouldNotExist) throws Exception {
-		String msg = buildCauseText();
-		org.junit.Assert.assertThat(msg, Matchers.not(Matchers.containsString(shouldNotExist)));
-	}
-	
-	private String buildCauseText() {
-		showBuildCauseMessage();
-		return getBuildCauseMessage();
-	}
 
-	private String getBuildCauseMessage() {
-		return browser.div("/build-cause-summary-container/").in(pipelineSelection()).getText();
-	}
+        org.junit.Assert.assertThat(msg, Matchers.containsString(scenarioState.expand(shouldExist)));
 
-	private void showBuildCauseMessage() {
-		Assertions.waitUntil(Timeout.TWENTY_SECONDS, new Predicate() {
-			public boolean call() throws Exception {
-				browser.link("/Triggered by/").in(pipelineSelection()).click();
-				String buildCauseMessage = getBuildCauseMessage();
-				return !StringUtils.isEmpty(buildCauseMessage);
-			}
-		});
-	}
-		
-	private ElementStub pipelineSelection() {
-		return browser.tableHeader("/^" + currentLabel + "/");
-	}
 
-	@com.thoughtworks.gauge.Step("Verify on pipeline history page for <pipelineName>")
-	public void verifyOnPipelineHistoryPageFor(String pipelineName) throws Exception {
-		assertThat(browserWrapper.getCurrentUrl(), containsString(scenarioState.pipelineNamed(pipelineName)));
-	}
+    }
 
-	@com.thoughtworks.gauge.Step("Open changes section for counter <counter> - Already on pipeline history page")
-	public void openChangesSectionForCounter(final String counter) throws Exception {
+    public void verifyBuildCauseMessageDoesNotContain(String shouldNotExist) throws Exception {
+        String msg = buildCauseText();
+        org.junit.Assert.assertThat(msg, Matchers.not(Matchers.containsString(shouldNotExist)));
+    }
+
+    private String buildCauseText() {
+        showBuildCauseMessage();
+        return getBuildCauseMessage();
+    }
+
+    private String getBuildCauseMessage() {
+        return browser.div("/build-cause-summary-container/").in(pipelineSelection()).getText();
+    }
+
+    private void showBuildCauseMessage() {
+        Assertions.waitUntil(Timeout.TWENTY_SECONDS, new Predicate() {
+            public boolean call() throws Exception {
+                browser.link("/Triggered by/").in(pipelineSelection()).click();
+                String buildCauseMessage = getBuildCauseMessage();
+                return !StringUtils.isEmpty(buildCauseMessage);
+            }
+        });
+    }
+
+    private ElementStub pipelineSelection() {
+        return browser.tableHeader("/^" + currentLabel + "/");
+    }
+
+    @com.thoughtworks.gauge.Step("Verify on pipeline history page for <pipelineName>")
+    public void verifyOnPipelineHistoryPageFor(String pipelineName) throws Exception {
+        assertThat(browserWrapper.getCurrentUrl(), containsString(scenarioState.pipelineNamed(pipelineName)));
+    }
+
+    @com.thoughtworks.gauge.Step("Open changes section for counter <counter> - Already on pipeline history page")
+    public void openChangesSectionForCounter(final String counter) throws Exception {
         Assertions.waitUntil(Timeout.TWENTY_SECONDS, new Predicate() {
             @Override
             public boolean call() throws Exception {
@@ -189,130 +197,187 @@ public class AlreadyOnPipelineHistoryPage extends CruisePage {
                 return true;
             }
         });
-	}
-        
-      @com.thoughtworks.gauge.Step("Verify stage <stageName> of pipeline can be rerun")
-	public void verifyStageOfPipelineCanBeRerun(final String stageName){
-    	  Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate(){
-    		  @Override
-    		  public boolean call() throws Exception {
-    			  String pipelineName = scenarioState.currentRuntimePipelineName();
-    			  return browser.byId("rerun-"+pipelineName+"-"+currentLabel()+"-"+stageName).exists();
-    		  }
-    	  });
-      }
-      
-      
-      @com.thoughtworks.gauge.Step("Verify stage <stageName> of pipeline cannot be rerun")
-	public void verifyStageOfPipelineCannotBeRerun(String stageName){
-    	  String pipelineName = scenarioState.currentRuntimePipelineName();
-          assertTrue("Rerun link found for run "+currentLabel()+" for pipeline "+pipelineName, !browser.byId("rerun-"+pipelineName+"-"+currentLabel()+"-"+stageName).exists());  	  
-      }
+    }
 
-	@com.thoughtworks.gauge.Step("Rerun stage <stageName> - Already On Pipeline History Page")
-	public void rerunStage(final String stageName) throws Exception{
-		String pipelineName = scenarioState.currentRuntimePipelineName();
-		browser.byId("rerun-"+pipelineName+"-"+currentLabel()+"-"+stageName).click();
-	}
-
-
-	@com.thoughtworks.gauge.Step("Verify <stageName> stage can be cancelled")
-	public void verifyStageCanBeCancelled(final String stageName) throws Exception {
-		Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate(){
-			@Override
-			public boolean call() throws Exception {
-				String pipelineName = scenarioState.currentRuntimePipelineName();
-				return browser.byId("cancel-"+pipelineName+"-"+currentLabel()+"-"+stageName).exists();
-			}
-		});
-	}
-	
-	@com.thoughtworks.gauge.Step("Cancel stage <stageName>")
-	public void cancelStage(String stageName){
-		 String pipelineName = scenarioState.currentRuntimePipelineName();
-	  	 browser.byId("cancel-"+pipelineName+"-"+currentLabel()+"-"+stageName).click();
-	}
-
-	@com.thoughtworks.gauge.Step("Pause pipeline on activity page")
-	public void pausePipelineOnActivityPage() throws Exception {
-		browser.byId("pause-"+scenarioState.currentRuntimePipelineName()).click();
-	}
-
-	@com.thoughtworks.gauge.Step("Verify pipeline is paused on pipeline activity page")
-	public void verifyPipelineIsPausedOnPipelineActivityPage() throws Exception {
-		reloadPage();
-		assertEquals("Pipeline not paused", "unpause", browser.byId("pause-"+scenarioState.currentRuntimePipelineName()).getText().toLowerCase());  	  
-        
-	}
-
-	@com.thoughtworks.gauge.Step("Unpause pipeline on pipeline activity page")
-	public void unpausePipelineOnPipelineActivityPage() throws Exception {
-		browser.byId("pause-"+scenarioState.currentRuntimePipelineName()).click();
-		reloadPage();
-	    
-	} 
-	
-	@com.thoughtworks.gauge.Step("Verify pipeline cannot be paused")
-	public void verifyPipelineCannotBePaused() throws Exception {
-		Assert.assertThat(!browser.byId("pause-"+scenarioState.currentRuntimePipelineName()).exists(),Is.is(true));
-	}
-
-	@com.thoughtworks.gauge.Step("Verify <stageName> can be approved")
-	public void verifyCanBeApproved(final String stageName) throws Exception {
-		Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate() {
+    @com.thoughtworks.gauge.Step("Verify stage <stageName> of pipeline can be rerun")
+    public void verifyStageOfPipelineCanBeRerun(final String stageName) {
+        Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate() {
             @Override
             public boolean call() throws Exception {
-                ElementStub approveElement = browser.byId("approve-"+currentLabel()+"-"+stageName);
+                String pipelineName = scenarioState.currentRuntimePipelineName();
+                return browser.byId("rerun-" + pipelineName + "-" + currentLabel() + "-" + stageName).exists();
+            }
+        });
+    }
+
+
+    @com.thoughtworks.gauge.Step("Verify stage <stageName> of pipeline cannot be rerun")
+    public void verifyStageOfPipelineCannotBeRerun(String stageName) {
+        String pipelineName = scenarioState.currentRuntimePipelineName();
+        assertTrue("Rerun link found for run " + currentLabel() + " for pipeline " + pipelineName, !browser.byId("rerun-" + pipelineName + "-" + currentLabel() + "-" + stageName).exists());
+    }
+
+    @com.thoughtworks.gauge.Step("Rerun stage <stageName> - Already On Pipeline History Page")
+    public void rerunStage(final String stageName) throws Exception {
+        String pipelineName = scenarioState.currentRuntimePipelineName();
+        browser.byId("rerun-" + pipelineName + "-" + currentLabel() + "-" + stageName).click();
+    }
+
+
+    @com.thoughtworks.gauge.Step("Verify <stageName> stage can be cancelled")
+    public void verifyStageCanBeCancelled(final String stageName) throws Exception {
+        Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate() {
+            @Override
+            public boolean call() throws Exception {
+                String pipelineName = scenarioState.currentRuntimePipelineName();
+                return browser.byId("cancel-" + pipelineName + "-" + currentLabel() + "-" + stageName).exists();
+            }
+        });
+    }
+
+    @com.thoughtworks.gauge.Step("Cancel stage <stageName>")
+    public void cancelStage(String stageName) {
+        String pipelineName = scenarioState.currentRuntimePipelineName();
+        browser.byId("cancel-" + pipelineName + "-" + currentLabel() + "-" + stageName).click();
+    }
+
+    @com.thoughtworks.gauge.Step("Pause pipeline on activity page")
+    public void pausePipelineOnActivityPage() throws Exception {
+        browser.byId("pause-" + scenarioState.currentRuntimePipelineName()).click();
+    }
+
+    @com.thoughtworks.gauge.Step("Verify pipeline is paused on pipeline activity page")
+    public void verifyPipelineIsPausedOnPipelineActivityPage() throws Exception {
+        reloadPage();
+        assertEquals("Pipeline not paused", "unpause", browser.byId("pause-" + scenarioState.currentRuntimePipelineName()).getText().toLowerCase());
+
+    }
+
+    @com.thoughtworks.gauge.Step("Unpause pipeline on pipeline activity page")
+    public void unpausePipelineOnPipelineActivityPage() throws Exception {
+        browser.byId("pause-" + scenarioState.currentRuntimePipelineName()).click();
+        reloadPage();
+
+    }
+
+    @com.thoughtworks.gauge.Step("Verify pipeline cannot be paused")
+    public void verifyPipelineCannotBePaused() throws Exception {
+        Assert.assertThat(!browser.byId("pause-" + scenarioState.currentRuntimePipelineName()).exists(), Is.is(true));
+    }
+
+    @com.thoughtworks.gauge.Step("Verify <stageName> can be approved")
+    public void verifyCanBeApproved(final String stageName) throws Exception {
+        Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate() {
+            @Override
+            public boolean call() throws Exception {
+                ElementStub approveElement = browser.byId("approve-" + currentLabel() + "-" + stageName);
                 if (approveElement.exists())
                     return true;
                 else
-                	return false;
+                    return false;
             }
         });
-		
-	}
 
-	@com.thoughtworks.gauge.Step("Verify <stageName> cannot be approved")
-	public void verifyCannotBeApproved(final String stageName) throws Exception {
-		Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate() {
+    }
+
+    @com.thoughtworks.gauge.Step("Verify <stageName> cannot be approved")
+    public void verifyCannotBeApproved(final String stageName) throws Exception {
+        Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate() {
             @Override
             public boolean call() throws Exception {
-                ElementStub approveElement = browser.byId("approve-"+currentLabel()+"-"+stageName);
+                ElementStub approveElement = browser.byId("approve-" + currentLabel() + "-" + stageName);
                 if (approveElement.exists())
                     return false;
                 else
-                	return true;
+                    return true;
             }
         });
-		
-	}
 
-	@com.thoughtworks.gauge.Step("Verify pipeline is triggered by <user>")
-	public void verifyPipelineIsTriggeredBy(final String user) throws Exception {
-		Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate() {
-			@Override
-			public boolean call() throws Exception {
-				return browser.link("/Triggered by/").in(pipelineSelection()).getText().equals("Triggered by "+user);
-			}
-			
-		});
-		
-	}
+    }
 
-	public void waitForStageToPass(final String stageName) throws Exception {
-		Assertions.waitUntil(Timeout.TWENTY_SECONDS, new Predicate(){
-			@Override
-			public boolean call() throws Exception {
-				reloadPage();
-				return browser.div("passed-stage").in(browser.byId("stage-detail-"+currentLabel()+"-"+stageName)).exists();
-				
-				
-			}
-		});
-	}
-	
-	
-	
+    @com.thoughtworks.gauge.Step("Verify pipeline is triggered by <user>")
+    public void verifyPipelineIsTriggeredBy(final String user) throws Exception {
+        Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate() {
+            @Override
+            public boolean call() throws Exception {
+                return browser.link("/Triggered by/").in(pipelineSelection()).getText().equals("Triggered by " + user);
+            }
+
+        });
+
+    }
+
+    @com.thoughtworks.gauge.Step("Verify pipeline history has <pipelineHistories>")
+    public void verifyStageHistoryHas(final String pipelineHistories) throws Exception {
+        final String[] history = pipelineHistories.split("\\s*,\\s*");
+        List<ElementStub> historyEntries = Assertions.waitFor(Timeout.THIRTY_SECONDS, new Assertions.Function<List<ElementStub>>() {
+            public List<ElementStub> call() {
+                List<ElementStub> entries = new ArrayList<>();
+                String pipelineName = scenarioState.pipelineNamed(scenarioState.currentPipeline());
+                for (String historyNum : history) {
+                    entries.add(browser.link("/go/pipelines/value_stream_map/" + pipelineName + '/' + historyNum));
+                }
+
+                if (entries.size() == history.length) {
+                    return entries;
+                }
+                throw new RuntimeException(String.format("Expected the page to have %s entries. Instead found %s entries.", history.length, entries.size()));
+            }
+        });
+    }
+
+    private ElementStub currentSelectedPage() {
+        return browser.span("page-num highlight-warning");
+    }
+
+    @com.thoughtworks.gauge.Step("Verify shows pipeline history page <pageNum>")
+    public void verifyShowsPipelineHistoryPage(Integer pageNum) throws Exception {
+        assertThat(currentSelectedPage().getText(), Is.is(String.valueOf(pageNum)));
+    }
+
+    @com.thoughtworks.gauge.Step("Click on next pipeline history page")
+    public void clickOnNextPipelineHistory() throws Exception {
+        nextPage().click();
+    }
+
+    @com.thoughtworks.gauge.Step("Click on previous pipeline history page")
+    public void clickOnPreviousPipelineHistory() throws Exception {
+        previousPage().click();
+    }
+
+    @com.thoughtworks.gauge.Step("Click on pipeline history page <pageNumber>")
+    public void clickOnPipelineHistoryPage(final Integer pageNumber) throws Exception {
+        pageNumber(pageNumber).click();
+    }
+
+    @com.thoughtworks.gauge.Step("Search for <searchString> on pipeline history page")
+    public void searchForOnPipelineHistoryPage(final String searchString) throws Exception {
+        browser.execute("jQuery(\"#labelFilterField\").val(\"" + searchString + "\").trigger(\"input\")");
+    }
+
+    private ElementStub pageNumber(Integer pageNumber) {
+        return browser.byId("page_" + pageNumber);
+    }
+
+    private ElementStub nextPage() {
+        return browser.byId("page-next");
+    }
+
+    private ElementStub previousPage() {
+        return browser.byId("page-previous");
+    }
+
+    public void waitForStageToPass(final String stageName) throws Exception {
+        Assertions.waitUntil(Timeout.TWENTY_SECONDS, new Predicate() {
+            @Override
+            public boolean call() throws Exception {
+                reloadPage();
+                return browser.div("passed-stage").in(browser.byId("stage-detail-" + currentLabel() + "-" + stageName)).exists();
+            }
+        });
+    }
+
+
 }
       
       
