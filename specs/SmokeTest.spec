@@ -81,8 +81,9 @@ Check we can see the Job Details page...
 
 * Verify the "missing" agent has "unknown" free space - Using Agents API
 
-* On Preferences page
-* Verify page title is "Preferences"
+Moving Preferences page valdiations to ruby functional tests since SPAs are not supported by the Firefox v24 used for sahi tests
+ On Preferences page
+ Verify page title is "Preferences"
 
 * Verify page title is "Administration" - On Administration Page
 
