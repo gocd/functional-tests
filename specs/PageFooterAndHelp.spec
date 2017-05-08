@@ -45,7 +45,8 @@ tags: 3246, automate
 
 * Verify cruise footer - On Agents Page
 
-* Verify cruise footer - On preferences page
+Moving Preferences page valdiations to ruby functional tests since SPAs are not supported by the Firefox v24 used for sahi tests
+ Verify cruise footer - On preferences page
 
 * On Pipeline Dashboard Page
 * Verify cruise footer
