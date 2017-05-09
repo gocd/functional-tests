@@ -30,12 +30,12 @@ user should get logged in if valid ldap credentials are provided
 
 user should see error message when incorrect username is provided
 * Login with username "does_not_exist" and password "password"
-* Assert login error "Bad credentials Help Topic: Authentication"
+* Assert login error "Invalid credentials. Either your username and password are incorrect, or there is a problem with your browser cookies. Please check with your administrator. Help Topic: Authentication"
 
 
 user should see error message when incorrect password is provided
 * Login with username "user1" and password "incorrect_password"
-* Assert login error "Bad credentials Help Topic: Authentication"
+* Assert login error "Invalid credentials. Either your username and password are incorrect, or there is a problem with your browser cookies. Please check with your administrator. Help Topic: Authentication"
 
 
 Teardown of contexts
