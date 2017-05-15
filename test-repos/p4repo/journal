@@ -1,736 +1,352 @@
 @pv@ 1 @db.counters@ @upgrade@ @1@ 
-@ex@ 32263 1219128382
+@ex@ 76481 1494853191
 @rv@ 1 @db.counters@ @upgrade@ @2@ 
-@ex@ 32263 1219128382
+@ex@ 76481 1494853191
 @rv@ 1 @db.counters@ @upgrade@ @3@ 
-@ex@ 32263 1219128382
+@ex@ 76481 1494853191
 @rv@ 1 @db.counters@ @upgrade@ @4@ 
-@ex@ 32263 1219128382
+@ex@ 76481 1494853191
 @rv@ 1 @db.counters@ @upgrade@ @5@ 
 @pv@ 1 @db.depot@ @depot@ 0 @@ @depot/...@ 
-@pv@ 4 @db.domain@ @depot@ 100 @@ @@ @@ @@ @@ 1219128382 1219128382 135735665 @Default depot@ 
-@ex@ 32263 1219128382
+@pv@ 6 @db.domain@ @depot@ 100 @@ @@ @@ @@ @@ 1494853191 1494853191 0 @Default depot@ @@ @@ 0 
+@ex@ 76481 1494853191
 @rv@ 1 @db.counters@ @upgrade@ @6@ 
-@ex@ 32263 1219128382
+@ex@ 76481 1494853191
 @rv@ 1 @db.counters@ @upgrade@ @7@ 
-@ex@ 32263 1219128382
+@ex@ 76481 1494853191
 @rv@ 1 @db.counters@ @upgrade@ @8@ 
-@ex@ 32263 1219128382
+@ex@ 76481 1494853191
 @rv@ 1 @db.counters@ @upgrade@ @9@ 
 @rv@ 1 @db.counters@ @upgrade@ @10@ 
-@ex@ 32263 1219128382
+@ex@ 76481 1494853191
 @rv@ 1 @db.counters@ @upgrade@ @11@ 
 @rv@ 1 @db.counters@ @upgrade@ @12@ 
-@ex@ 32263 1219128382
+@ex@ 76481 1494853191
 @rv@ 1 @db.counters@ @upgrade@ @13@ 
 @rv@ 1 @db.counters@ @upgrade@ @14@ 
 @rv@ 1 @db.counters@ @upgrade@ @15@ 
-@ex@ 32263 1219128382
+@ex@ 76481 1494853191
 @rv@ 1 @db.counters@ @upgrade@ @16@ 
-@ex@ 32263 1219128382
+@ex@ 76481 1494853191
 @rv@ 1 @db.counters@ @upgrade@ @17@ 
 @rv@ 1 @db.counters@ @upgrade@ @18@ 
-@ex@ 32263 1219128382
+@ex@ 76481 1494853191
 @rv@ 1 @db.counters@ @upgrade@ @19@ 
-@ex@ 32263 1219128382
-@pv@ 3 @db.user@ @cceuser@ @cceuser@@localhost@ @@ 1219128425 1219128425 @cceuser@ @@ 0 @@ 0 
-@ex@ 32271 1219128425
-@pv@ 1 @db.view@ @localhost@ 0 0 @//localhost/...@ @//depot/...@ 
-@ex@ 32271 1219128439
-@pv@ 4 @db.domain@ @localhost@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219128439 1219128439 0 @Created by cceuser.
-@ 
-@ex@ 32271 1219128439
-@pv@ 1 @db.view@ @connect4@ 0 0 @//connect4/...@ @//depot/...@ 
-@ex@ 32300 1219128531
-@pv@ 4 @db.domain@ @connect4@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219128531 1219128531 0 @Created by cceuser.
-@ 
-@ex@ 32300 1219128531
-@dv@ 1 @db.view@ @localhost@ 0 0 @@ @@ 
-@dv@ 4 @db.domain@ @localhost@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219128439 1219128439 0 @Created by cceuser.
-@ 
-@ex@ 32308 1219128550
-@rv@ 3 @db.user@ @cceuser@ @cceuser@@localhost@ @@ 1219128425 1219128878 @cceuser@ @@ 0 @@ 0 
-@ex@ 32359 1219128878
-@pv@ 1 @db.view@ @localhost@ 0 0 @//localhost/...@ @//depot/...@ 
-@ex@ 32361 1219128905
-@pv@ 4 @db.domain@ @localhost@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219128905 1219128905 0 @Created by cceuser.
-@ 
-@ex@ 32361 1219128905
-@rv@ 4 @db.domain@ @connect4@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219128531 1219128944 0 @Created by cceuser.
-@ 
-@ex@ 32369 1219128944
-@dv@ 1 @db.view@ @localhost@ 0 0 @@ @@ 
-@dv@ 4 @db.domain@ @localhost@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219128905 1219128905 0 @Created by cceuser.
-@ 
-@ex@ 32373 1219128966
-@pv@ 8 @db.working@ @//connect4/build.xml@ @//depot/build.xml@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/build.xml@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32379 1219128992
-@pv@ 8 @db.working@ @//connect4/README.txt@ @//depot/README.txt@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/README.txt@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32379 1219128992
-@pv@ 8 @db.working@ @//connect4/cruise-output/log.xml@ @//depot/cruise-output/log.xml@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/cruise-output/log.xml@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32381 1219129013
-@pv@ 8 @db.working@ @//connect4/lib/junit.jar@ @//depot/lib/junit.jar@ @connect4@ @cceuser@ 0 1 0 65539 0 0 0 0 00000000000000000000000000000000 -1 0 0 65539 
-@pv@ 2 @db.locks@ @//depot/lib/junit.jar@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32383 1219129021
-@pv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32385 1219129033
-@pv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32385 1219129033
-@pv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32385 1219129033
-@pv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32385 1219129033
-@pv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32385 1219129033
-@pv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32385 1219129033
-@pv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32385 1219129033
-@pv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32385 1219129033
-@pv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32385 1219129033
-@pv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32385 1219129033
-@pv@ 8 @db.working@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32387 1219129047
-@pv@ 8 @db.working@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32387 1219129047
+@ex@ 76481 1494853191
+@rv@ 1 @db.counters@ @upgrade@ @20@ 
+@rv@ 1 @db.counters@ @upgrade@ @21@ 
+@rv@ 1 @db.counters@ @upgrade@ @22@ 
+@rv@ 1 @db.counters@ @upgrade@ @23@ 
+@rv@ 1 @db.counters@ @upgrade@ @24@ 
+@ex@ 76481 1494853191
+@rv@ 1 @db.counters@ @upgrade@ @25@ 
+@pv@ 1 @db.depot@ @repo@ 7 @@ @repo/...@ 
+@pv@ 6 @db.domain@ @repo@ 100 @@ @@ @@ @@ @@ 1494853191 1494853191 0 @Default graph depot@ @@ @@ 0 
+@ex@ 76481 1494853191
+@rv@ 1 @db.counters@ @upgrade@ @26@ 
+@ex@ 76481 1494853191
+@nx@ 7 1494853191 @42@ 0 0 0 0 0 @1666@ @.@ @@ @@ @@ 
+@ex@ 76481 1494853191
+@pv@ 7 @db.user@ @rajieshn@ @rajieshn@@in-rajieshn@ @@ 1494853254 1494853254 @rajieshn@ @@ 0 @@ 0 0 0 0 0 0 
+@ex@ 76490 1494853254
+@pv@ 1 @db.view@ @in-rajieshn@ 0 0 @//in-rajieshn/...@ @//depot/...@ 
+@ex@ 76490 1494853277
+@pv@ 6 @db.domain@ @in-rajieshn@ 99 @in-rajieshn.local@ @/Users/rajieshn/workspace/perforce-client@ @@ @@ @rajieshn@ 1494853277 1494853277 0 @Created by rajieshn.
+@ @@ @@ 0 
+@ex@ 76490 1494853277
+@nx@ 8 1494853491 @42@ 0 0 0 0 0 @1666@ @@ @@ @@ @@ 
+@ex@ 76481 1494853491
+@nx@ 7 1494854168 @42@ 0 0 0 0 0 @1666@ @.@ @@ @@ @@ 
+@ex@ 76679 1494854168
+@rv@ 7 @db.user@ @rajieshn@ @rajieshn@@in-rajieshn@ @@ 1494853254 1494854187 @rajieshn@ @@ 0 @@ 0 0 0 0 0 0 
+@ex@ 76682 1494854187
+@rv@ 6 @db.domain@ @depot@ 100 @@ @@ @@ @@ @@ 1494854202 1494853191 0 @Default depot
+@ @@ @@ 0 
+@ex@ 76682 1494854202
+@rv@ 6 @db.domain@ @in-rajieshn@ 99 @in-rajieshn.local@ @/Users/rajieshn/workspace/perforce-client@ @@ @@ @rajieshn@ 1494853277 1494854359 0 @Created by rajieshn.
+@ @@ @@ 0 
+@ex@ 76690 1494854359
+@pv@ 10 @db.working@ @//in-rajieshn/build.xml,v@ @//depot/build.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/build.xml,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/cruise-config.xml,v@ @//depot/cruise-config.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/cruise-config.xml,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/README.txt,v@ @//depot/README.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/README.txt,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@ex@ 76696 1494854401
+@rv@ 7 @db.user@ @rajieshn@ @rajieshn@@in-rajieshn@ @@ 1494853254 1494854557 @rajieshn@ @@ 0 @@ 0 0 0 0 0 0 
+@ex@ 76702 1494854557
+@pv@ 10 @db.working@ @//in-rajieshn/cruise-output/log.xml,v@ @//depot/cruise-output/log.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/cruise-output/log.xml,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/dir1/abc1.cd2,v@ @//depot/dir1/abc1.cd2,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/dir1/abc1.cd2,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/dir1/old1.txt,v@ @//depot/dir1/old1.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/dir1/old1.txt,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/dir1/old2.txt,v@ @//depot/dir1/old2.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/dir1/old2.txt,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/lib/junit.jar,d/1.1.gz@ @//depot/lib/junit.jar,d/1.1.gz@ @in-rajieshn@ @rajieshn@ 0 1 0 65537 0 0 0 0 00000000000000000000000000000000 -1 0 0 65537 @@ 0 
+@pv@ 2 @db.locks@ @//depot/lib/junit.jar,d/1.1.gz@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@pv@ 10 @db.working@ @//in-rajieshn/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@pv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @in-rajieshn@ @rajieshn@ 0 0 0 
+@ex@ 76702 1494854557
 @pv@ 1 @db.counters@ @change@ @1@ 
-@pv@ 1 @db.change@ 1 1 @connect4@ @cceuser@ 1219129334 0 @Initial import
-@ @@ 
-@pv@ 0 @db.desc@ 1 @Initial import
+@pv@ 0 @db.desc@ 1 @Test submit
 @ 
-@pv@ 1 @db.changex@ 1 1 @connect4@ @cceuser@ 1219129334 0 @Initial import
-@ @@ 
-@rv@ 8 @db.working@ @//connect4/README.txt@ @//depot/README.txt@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/README.txt@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/build.xml@ @//depot/build.xml@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/build.xml@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/cruise-output/log.xml@ @//depot/cruise-output/log.xml@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/cruise-output/log.xml@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/lib/junit.jar@ @//depot/lib/junit.jar@ @connect4@ @cceuser@ 0 1 0 65539 0 1 0 0 00000000000000000000000000000000 -1 0 0 65539 
-@rv@ 2 @db.locks@ @//depot/lib/junit.jar@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @connect4@ @cceuser@ 0 0 1 
-@rv@ 8 @db.working@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @connect4@ @cceuser@ 0 0 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/README.txt@ @//depot/README.txt@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/README.txt@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/build.xml@ @//depot/build.xml@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/build.xml@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/cruise-output/log.xml@ @//depot/cruise-output/log.xml@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/cruise-output/log.xml@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/lib/junit.jar@ @//depot/lib/junit.jar@ @connect4@ @cceuser@ 0 1 0 65539 0 1 0 1 00000000000000000000000000000000 -1 0 0 65539 
-@rv@ 2 @db.locks@ @//depot/lib/junit.jar@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @connect4@ @cceuser@ 0 1 1 
-@rv@ 8 @db.working@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/README.txt@ @//depot/README.txt@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128635 1 8C4286466FEF2F4F559E53DE75A7C830 2298 0 0 0 
-@rv@ 2 @db.locks@ @//depot/README.txt@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/build.xml@ @//depot/build.xml@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128601 1 8262503886EC6D57FC6777AA0E11FC95 3552 0 0 0 
-@rv@ 2 @db.locks@ @//depot/build.xml@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/cruise-output/log.xml@ @//depot/cruise-output/log.xml@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128666 1 0EFE2EC142C2B78E46A79607E1C7AA61 85009 0 0 0 
-@rv@ 2 @db.locks@ @//depot/cruise-output/log.xml@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/lib/junit.jar@ @//depot/lib/junit.jar@ @connect4@ @cceuser@ 0 1 0 65539 0 1 1219128616 1 1F40FB782A4F2CF78F161D32670F7A3A 121070 0 0 65539 
-@rv@ 2 @db.locks@ @//depot/lib/junit.jar@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 A7C45258BBD1556C152F2B177DC0DF8E 2417 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 B1919BDF46AE5FF7F5C0B2DAD2B9919B 2235 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 AF12A83813FE9D3EA4844FB66CDAD267 2524 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 91673F349E8C461B2CB4F204A599B516 2073 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 2F54B17CDE8E05C49B31D17B8B7DB677 2074 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 B192343DAC83683106EA196D3CF7EFD7 2071 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 99916052D7937FD93F399AD12905B7FD 2076 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 9C71C3C67EBED26A21B0C6D3755A21B0 2072 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 E12FA88A32B7FC577DA04BC26DD33A40 7221 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 CC433BCE2EBF22BE49AC6012A03BBCB9 2072 0 0 0 
-@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128643 1 6007845C0B58A9A4F6D2D55C7AC9EE54 2269 0 0 0 
-@rv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@rv@ 8 @db.working@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128643 1 BF281E5032DA6D000E098EAEDAB5AA1D 10582 0 0 0 
-@rv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @connect4@ @cceuser@ 0 1 1 
-@ex@ 32395 1219129334
-@dv@ 1 @db.changex@ 1 1 @connect4@ @cceuser@ 1219129334 1 @Initial import
-@ @//depot/...@ 
-@rv@ 1 @db.change@ 1 1 @connect4@ @cceuser@ 1219129334 1 @Initial import
-@ @//depot/...@ 
-@pv@ 2 @db.have@ @//connect4/README.txt@ @//depot/README.txt@ 1 0 
-@pv@ 7 @db.rev@ @//depot/README.txt@ 1 0 0 1 1219129334 1219128635 8C4286466FEF2F4F559E53DE75A7C830 2298 0 0 @//depot/README.txt@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/README.txt@ 1 0 0 1 1219129334 1219128635 8C4286466FEF2F4F559E53DE75A7C830 2298 0 0 @//depot/README.txt@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/README.txt@ 1 0 
-@dv@ 2 @db.locks@ @//depot/README.txt@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/README.txt@ @//depot/README.txt@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128635 1 8C4286466FEF2F4F559E53DE75A7C830 2298 0 0 0 
-@pv@ 2 @db.have@ @//connect4/build.xml@ @//depot/build.xml@ 1 0 
-@pv@ 7 @db.rev@ @//depot/build.xml@ 1 0 0 1 1219129334 1219128601 8262503886EC6D57FC6777AA0E11FC95 3552 0 0 @//depot/build.xml@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/build.xml@ 1 0 0 1 1219129334 1219128601 8262503886EC6D57FC6777AA0E11FC95 3552 0 0 @//depot/build.xml@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/build.xml@ 1 0 
-@dv@ 2 @db.locks@ @//depot/build.xml@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/build.xml@ @//depot/build.xml@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128601 1 8262503886EC6D57FC6777AA0E11FC95 3552 0 0 0 
-@pv@ 2 @db.have@ @//connect4/cruise-output/log.xml@ @//depot/cruise-output/log.xml@ 1 0 
-@pv@ 7 @db.rev@ @//depot/cruise-output/log.xml@ 1 0 0 1 1219129334 1219128666 0EFE2EC142C2B78E46A79607E1C7AA61 85009 0 0 @//depot/cruise-output/log.xml@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/cruise-output/log.xml@ 1 0 0 1 1219129334 1219128666 0EFE2EC142C2B78E46A79607E1C7AA61 85009 0 0 @//depot/cruise-output/log.xml@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/cruise-output/log.xml@ 1 0 
-@dv@ 2 @db.locks@ @//depot/cruise-output/log.xml@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/cruise-output/log.xml@ @//depot/cruise-output/log.xml@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128666 1 0EFE2EC142C2B78E46A79607E1C7AA61 85009 0 0 0 
-@pv@ 2 @db.have@ @//connect4/lib/junit.jar@ @//depot/lib/junit.jar@ 1 65539 
-@pv@ 7 @db.rev@ @//depot/lib/junit.jar@ 1 65539 0 1 1219129334 1219128616 1F40FB782A4F2CF78F161D32670F7A3A 121070 0 0 @//depot/lib/junit.jar@ @1.1@ 65539 
-@pv@ 7 @db.revhx@ @//depot/lib/junit.jar@ 1 65539 0 1 1219129334 1219128616 1F40FB782A4F2CF78F161D32670F7A3A 121070 0 0 @//depot/lib/junit.jar@ @1.1@ 65539 
-@pv@ 0 @db.revcx@ 1 @//depot/lib/junit.jar@ 1 0 
-@dv@ 2 @db.locks@ @//depot/lib/junit.jar@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/lib/junit.jar@ @//depot/lib/junit.jar@ @connect4@ @cceuser@ 0 1 0 65539 0 1 1219128616 1 1F40FB782A4F2CF78F161D32670F7A3A 121070 0 0 65539 
-@pv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ 1 0 
-@pv@ 7 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ 1 0 0 1 1219129334 1219128640 A7C45258BBD1556C152F2B177DC0DF8E 2417 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ 1 0 0 1 1219129334 1219128640 A7C45258BBD1556C152F2B177DC0DF8E 2417 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ 1 0 
-@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 A7C45258BBD1556C152F2B177DC0DF8E 2417 0 0 0 
-@pv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ 1 0 
-@pv@ 7 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ 1 0 0 1 1219129334 1219128640 B1919BDF46AE5FF7F5C0B2DAD2B9919B 2235 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ 1 0 0 1 1219129334 1219128640 B1919BDF46AE5FF7F5C0B2DAD2B9919B 2235 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ 1 0 
-@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 B1919BDF46AE5FF7F5C0B2DAD2B9919B 2235 0 0 0 
-@pv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ 1 0 
-@pv@ 7 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ 1 0 0 1 1219129334 1219128640 AF12A83813FE9D3EA4844FB66CDAD267 2524 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ 1 0 0 1 1219129334 1219128640 AF12A83813FE9D3EA4844FB66CDAD267 2524 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ 1 0 
-@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 AF12A83813FE9D3EA4844FB66CDAD267 2524 0 0 0 
-@pv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ 1 0 
-@pv@ 7 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ 1 0 0 1 1219129334 1219128640 91673F349E8C461B2CB4F204A599B516 2073 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ 1 0 0 1 1219129334 1219128640 91673F349E8C461B2CB4F204A599B516 2073 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ 1 0 
-@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 91673F349E8C461B2CB4F204A599B516 2073 0 0 0 
-@pv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ 1 0 
-@pv@ 7 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ 1 0 0 1 1219129334 1219128640 2F54B17CDE8E05C49B31D17B8B7DB677 2074 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ 1 0 0 1 1219129334 1219128640 2F54B17CDE8E05C49B31D17B8B7DB677 2074 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ 1 0 
-@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 2F54B17CDE8E05C49B31D17B8B7DB677 2074 0 0 0 
-@pv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ 1 0 
-@pv@ 7 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ 1 0 0 1 1219129334 1219128640 B192343DAC83683106EA196D3CF7EFD7 2071 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ 1 0 0 1 1219129334 1219128640 B192343DAC83683106EA196D3CF7EFD7 2071 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ 1 0 
-@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 B192343DAC83683106EA196D3CF7EFD7 2071 0 0 0 
-@pv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ 1 0 
-@pv@ 7 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ 1 0 0 1 1219129334 1219128640 99916052D7937FD93F399AD12905B7FD 2076 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ 1 0 0 1 1219129334 1219128640 99916052D7937FD93F399AD12905B7FD 2076 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ 1 0 
-@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 99916052D7937FD93F399AD12905B7FD 2076 0 0 0 
-@pv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ 1 0 
-@pv@ 7 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ 1 0 0 1 1219129334 1219128640 9C71C3C67EBED26A21B0C6D3755A21B0 2072 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ 1 0 0 1 1219129334 1219128640 9C71C3C67EBED26A21B0C6D3755A21B0 2072 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ 1 0 
-@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 9C71C3C67EBED26A21B0C6D3755A21B0 2072 0 0 0 
-@pv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ 1 0 
-@pv@ 7 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ 1 0 0 1 1219129334 1219128640 E12FA88A32B7FC577DA04BC26DD33A40 7221 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ 1 0 0 1 1219129334 1219128640 E12FA88A32B7FC577DA04BC26DD33A40 7221 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ 1 0 
-@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 E12FA88A32B7FC577DA04BC26DD33A40 7221 0 0 0 
-@pv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ 1 0 
-@pv@ 7 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ 1 0 0 1 1219129334 1219128640 CC433BCE2EBF22BE49AC6012A03BBCB9 2072 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ 1 0 0 1 1219129334 1219128640 CC433BCE2EBF22BE49AC6012A03BBCB9 2072 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ 1 0 
-@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128640 1 CC433BCE2EBF22BE49AC6012A03BBCB9 2072 0 0 0 
-@pv@ 2 @db.have@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ 1 0 
-@pv@ 7 @db.rev@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ 1 0 0 1 1219129334 1219128643 6007845C0B58A9A4F6D2D55C7AC9EE54 2269 0 0 @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ 1 0 0 1 1219129334 1219128643 6007845C0B58A9A4F6D2D55C7AC9EE54 2269 0 0 @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @1.1@ 0 
-@mx@ 32395 1219129334
-@pv@ 0 @db.revcx@ 1 @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ 1 0 
-@dv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128643 1 6007845C0B58A9A4F6D2D55C7AC9EE54 2269 0 0 0 
-@pv@ 2 @db.have@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ 1 0 
-@pv@ 7 @db.rev@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ 1 0 0 1 1219129334 1219128643 BF281E5032DA6D000E098EAEDAB5AA1D 10582 0 0 @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @1.1@ 0 
-@pv@ 7 @db.revhx@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ 1 0 0 1 1219129334 1219128643 BF281E5032DA6D000E098EAEDAB5AA1D 10582 0 0 @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @1.1@ 0 
-@pv@ 0 @db.revcx@ 1 @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ 1 0 
-@dv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @connect4@ @cceuser@ 0 1 1 
-@dv@ 8 @db.working@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @connect4@ @cceuser@ 0 1 0 0 0 1 1219128643 1 BF281E5032DA6D000E098EAEDAB5AA1D 10582 0 0 0 
-@ex@ 32395 1219129334
-@rv@ 3 @db.user@ @cceuser@ @cceuser@@localhost@ @@ 1219128425 1219129342 @cceuser@ @@ 0 @@ 0 
-@ex@ 32434 1219129342
-@rv@ 4 @db.domain@ @connect4@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219128531 1219129450 0 @Created by cceuser.
-@ 
-@ex@ 32455 1219129450
-@pv@ 8 @db.working@ @//connect4/cruise-config.xml@ @//depot/cruise-config.xml@ @connect4@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/cruise-config.xml@ @connect4@ @cceuser@ 0 0 0 
-@ex@ 32455 1219129450
-@rv@ 1 @db.counters@ @change@ @2@ 
-@pv@ 1 @db.change@ 2 2 @connect4@ @cceuser@ 1219129483 0 @Added config file
-@ @@ 
-@pv@ 0 @db.desc@ 2 @Added config file
-@ 
-@pv@ 1 @db.changex@ 2 2 @connect4@ @cceuser@ 1219129483 0 @Added config file
-@ @@ 
-@rv@ 8 @db.working@ @//connect4/cruise-config.xml@ @//depot/cruise-config.xml@ @connect4@ @cceuser@ 0 1 0 0 0 2 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/cruise-config.xml@ @connect4@ @cceuser@ 0 0 2 
-@ex@ 32457 1219129483
-@rv@ 8 @db.working@ @//connect4/cruise-config.xml@ @//depot/cruise-config.xml@ @connect4@ @cceuser@ 0 1 0 0 0 2 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/cruise-config.xml@ @connect4@ @cceuser@ 0 1 2 
-@ex@ 32457 1219129483
-@rv@ 8 @db.working@ @//connect4/cruise-config.xml@ @//depot/cruise-config.xml@ @connect4@ @cceuser@ 0 1 0 0 0 2 1219129438 1 7D626F33F9945516AF3B29121B9F32DB 1195 0 0 0 
-@rv@ 2 @db.locks@ @//depot/cruise-config.xml@ @connect4@ @cceuser@ 0 1 2 
-@ex@ 32457 1219129483
-@dv@ 1 @db.changex@ 2 2 @connect4@ @cceuser@ 1219129483 1 @Added config file
-@ @//depot/*@ 
-@rv@ 1 @db.change@ 2 2 @connect4@ @cceuser@ 1219129483 1 @Added config file
-@ @//depot/*@ 
-@pv@ 2 @db.have@ @//connect4/cruise-config.xml@ @//depot/cruise-config.xml@ 1 0 
-@pv@ 7 @db.rev@ @//depot/cruise-config.xml@ 1 0 0 2 1219129483 1219129438 7D626F33F9945516AF3B29121B9F32DB 1195 0 0 @//depot/cruise-config.xml@ @1.2@ 0 
-@pv@ 7 @db.revhx@ @//depot/cruise-config.xml@ 1 0 0 2 1219129483 1219129438 7D626F33F9945516AF3B29121B9F32DB 1195 0 0 @//depot/cruise-config.xml@ @1.2@ 0 
-@pv@ 0 @db.revcx@ 2 @//depot/cruise-config.xml@ 1 0 
-@dv@ 2 @db.locks@ @//depot/cruise-config.xml@ @connect4@ @cceuser@ 0 1 2 
-@dv@ 8 @db.working@ @//connect4/cruise-config.xml@ @//depot/cruise-config.xml@ @connect4@ @cceuser@ 0 1 0 0 0 2 1219129438 1 7D626F33F9945516AF3B29121B9F32DB 1195 0 0 0 
-@ex@ 32457 1219129483
-@pv@ 1 @db.view@ @localhost@ 0 0 @//localhost/...@ @//depot/...@ 
-@ex@ 32465 1219129530
-@pv@ 4 @db.domain@ @localhost@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219129530 1219129530 0 @Created by cceuser.
-@ 
-@ex@ 32465 1219129530
-@pv@ 2 @db.have@ @//localhost/README.txt@ @//depot/README.txt@ 1 0 
-@pv@ 2 @db.have@ @//localhost/build.xml@ @//depot/build.xml@ 1 0 
-@pv@ 2 @db.have@ @//localhost/cruise-config.xml@ @//depot/cruise-config.xml@ 1 0 
-@pv@ 2 @db.have@ @//localhost/cruise-output/log.xml@ @//depot/cruise-output/log.xml@ 1 0 
-@pv@ 2 @db.have@ @//localhost/lib/junit.jar@ @//depot/lib/junit.jar@ 1 65539 
-@pv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ 1 0 
-@pv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ 1 0 
-@pv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ 1 0 
-@pv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ 1 0 
-@pv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ 1 0 
-@pv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ 1 0 
-@pv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ 1 0 
-@pv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ 1 0 
-@pv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ 1 0 
-@pv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ 1 0 
-@pv@ 2 @db.have@ @//localhost/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ 1 0 
-@pv@ 2 @db.have@ @//localhost/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ 1 0 
-@ex@ 32475 1219129582
-@rv@ 3 @db.user@ @cceuser@ @cceuser@@localhost@ @@ 1219128425 1219130947 @cceuser@ @@ 0 @@ 0 
-@ex@ 32631 1219130947
-@rv@ 4 @db.domain@ @localhost@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219129530 1219130947 0 @Created by cceuser.
-@ 
-@ex@ 32631 1219130947
-@pv@ 8 @db.working@ @//localhost/cruise-output/log.xml@ @//depot/cruise-output/log.xml@ @localhost@ @cceuser@ 1 1 0 0 2 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/cruise-output/log.xml@ @localhost@ @cceuser@ 2 0 0 
-@ex@ 32631 1219130947
-@rv@ 1 @db.counters@ @change@ @3@ 
-@pv@ 1 @db.change@ 3 3 @localhost@ @cceuser@ 1219131041 0 @Removing cruise-output
-@ @@ 
-@pv@ 0 @db.desc@ 3 @Removing cruise-output
-@ 
-@pv@ 1 @db.changex@ 3 3 @localhost@ @cceuser@ 1219131041 0 @Removing cruise-output
-@ @@ 
-@rv@ 8 @db.working@ @//localhost/cruise-output/log.xml@ @//depot/cruise-output/log.xml@ @localhost@ @cceuser@ 1 1 0 0 2 3 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/cruise-output/log.xml@ @localhost@ @cceuser@ 2 0 3 
-@ex@ 32635 1219131041
-@rv@ 8 @db.working@ @//localhost/cruise-output/log.xml@ @//depot/cruise-output/log.xml@ @localhost@ @cceuser@ 1 1 0 0 2 3 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/cruise-output/log.xml@ @localhost@ @cceuser@ 2 1 3 
-@ex@ 32635 1219131041
-@dv@ 1 @db.changex@ 3 3 @localhost@ @cceuser@ 1219131041 1 @Removing cruise-output
-@ @//depot/cruise-output/*@ 
-@rv@ 1 @db.change@ 3 3 @localhost@ @cceuser@ 1219131041 1 @Removing cruise-output
-@ @//depot/cruise-output/*@ 
-@dv@ 2 @db.have@ @//localhost/cruise-output/log.xml@ @//depot/cruise-output/log.xml@ 2 0 
-@pv@ 7 @db.rev@ @//depot/cruise-output/log.xml@ 2 0 2 3 1219131041 0 00000000000000000000000000000000 -1 0 0 @//depot/cruise-output/log.xml@ @1.3@ 0 
-@dv@ 7 @db.revhx@ @//depot/cruise-output/log.xml@ 2 0 2 3 1219131041 0 00000000000000000000000000000000 -1 0 0 @//depot/cruise-output/log.xml@ @1.3@ 0 
-@pv@ 7 @db.revdx@ @//depot/cruise-output/log.xml@ 2 0 2 3 1219131041 0 00000000000000000000000000000000 -1 0 0 @//depot/cruise-output/log.xml@ @1.3@ 0 
-@pv@ 0 @db.revcx@ 3 @//depot/cruise-output/log.xml@ 2 2 
-@dv@ 2 @db.locks@ @//depot/cruise-output/log.xml@ @localhost@ @cceuser@ 2 1 3 
-@dv@ 8 @db.working@ @//localhost/cruise-output/log.xml@ @//depot/cruise-output/log.xml@ @localhost@ @cceuser@ 1 1 0 0 2 3 0 1 00000000000000000000000000000000 -1 0 0 0 
-@ex@ 32635 1219131041
-@rv@ 1 @db.view@ @localhost@ 0 0 @//localhost/...@ @//depot/lib/...@ 
-@pv@ 1 @db.view@ @localhost@ 1 3 @//localhost/*@ @//depot/*@ 
-@pv@ 1 @db.view@ @localhost@ 2 3 @//localhost/...@ @//depot/...@ 
-@ex@ 32646 1219131148
-@rv@ 4 @db.domain@ @localhost@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219131148 1219130947 0 @Created by cceuser.
-@ 
-@ex@ 32646 1219131148
-@dv@ 2 @db.have@ @//localhost/README.txt@ @//depot/README.txt@ 1 0 
-@dv@ 2 @db.have@ @//localhost/build.xml@ @//depot/build.xml@ 1 0 
-@dv@ 2 @db.have@ @//localhost/cruise-config.xml@ @//depot/cruise-config.xml@ 1 0 
-@dv@ 2 @db.have@ @//localhost/lib/junit.jar@ @//depot/lib/junit.jar@ 1 65539 
-@dv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ 1 0 
-@dv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ 1 0 
-@dv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ 1 0 
-@dv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ 1 0 
-@dv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ 1 0 
-@dv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ 1 0 
-@dv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ 1 0 
-@dv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ 1 0 
-@dv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ 1 0 
-@dv@ 2 @db.have@ @//localhost/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ 1 0 
-@dv@ 2 @db.have@ @//localhost/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ 1 0 
-@dv@ 2 @db.have@ @//localhost/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ 1 0 
-@pv@ 2 @db.have@ @//localhost/junit.jar@ @//depot/lib/junit.jar@ 1 65539 
-@ex@ 32650 1219131153
-@rv@ 4 @db.domain@ @localhost@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219131190 1219130947 64 @Created by cceuser.
-@ 
-@ex@ 32654 1219131190
-@rv@ 3 @db.user@ @cceuser@ @cceuser@@localhost@ @@ 1219128425 1219131252 @cceuser@ @@ 0 @@ 0 
-@ex@ 32674 1219131252
-@rv@ 4 @db.domain@ @localhost@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219131190 1219131252 64 @Created by cceuser.
-@ 
-@ex@ 32674 1219131252
-@rv@ 4 @db.domain@ @connect4@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219128531 1219131396 0 @Created by cceuser.
-@ 
-@ex@ 32700 1219131396
-@dv@ 2 @db.have@ @//connect4/cruise-output/log.xml@ @//depot/cruise-output/log.xml@ 1 0 
-@ex@ 32700 1219131396
-@dv@ 2 @db.have@ @//connect4/README.txt@ @//depot/README.txt@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/build.xml@ @//depot/build.xml@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/cruise-config.xml@ @//depot/cruise-config.xml@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/lib/junit.jar@ @//depot/lib/junit.jar@ 1 65539 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//connect4/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ 1 0 
-@ex@ 32714 1219131459
-@dv@ 1 @db.view@ @connect4@ 0 0 @@ @@ 
-@dv@ 4 @db.domain@ @connect4@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219128531 1219131396 0 @Created by cceuser.
-@ 
-@ex@ 32714 1219131459
-@dv@ 2 @db.have@ @//localhost/junit.jar@ @//depot/lib/junit.jar@ 1 65539 
-@ex@ 32716 1219131463
-@dv@ 1 @db.view@ @localhost@ 0 0 @@ @@ 
-@dv@ 1 @db.view@ @localhost@ 1 0 @@ @@ 
-@dv@ 1 @db.view@ @localhost@ 2 0 @@ @@ 
-@dv@ 4 @db.domain@ @localhost@ 99 @localhost@ @/tmp/p4connect4@ @@ @@ @cceuser@ 1219131190 1219131252 64 @Created by cceuser.
-@ 
-@ex@ 32716 1219131463
-@rv@ 3 @db.user@ @cceuser@ @cceuser@@localhost@ @@ 1219128425 1220263014 @cceuser@ @@ 0 @@ 0 
-@ex@ 6454 1220263014
-@pv@ 1 @db.view@ @CceDev01@ 0 0 @//CceDev01/...@ @//depot/...@ 
-@ex@ 6454 1220263026
-@pv@ 4 @db.domain@ @CceDev01@ 99 @CceDev01@ @/tmp/p4client@ @@ @@ @cceuser@ 1220263026 1220263026 0 @Created by cceuser.
-@ 
-@ex@ 6454 1220263026
-@pv@ 1 @db.view@ @cruise-CceDev01-1220261663168@ 0 0 @//cruise-CceDev01-1220261663168/...@ @//depot/dir1/...@ 
-@ex@ 6459 1220263031
-@pv@ 4 @db.domain@ @cruise-CceDev01-1220261663168@ 99 @@ @/home/cceuser/projects/hg-cruise/story1880/target/cruise-server-1.0/pipelines/1220261663168@ @@ @@ @@ 1220263031 1220263031 64 @@ 
-@ex@ 6459 1220263031
-@pv@ 2 @db.have@ @//CceDev01/README.txt@ @//depot/README.txt@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/build.xml@ @//depot/build.xml@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/cruise-config.xml@ @//depot/cruise-config.xml@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/lib/junit.jar@ @//depot/lib/junit.jar@ 1 65539 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ 1 0 
-@ex@ 6466 1220263033
-@pv@ 8 @db.working@ @//CceDev01/dir1/abc1.cd2@ @//depot/dir1/abc1.cd2@ @CceDev01@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/dir1/abc1.cd2@ @CceDev01@ @cceuser@ 0 0 0 
-@ex@ 6499 1220263153
-@pv@ 8 @db.working@ @//CceDev01/dir1/old1.txt@ @//depot/dir1/old1.txt@ @CceDev01@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/dir1/old1.txt@ @CceDev01@ @cceuser@ 0 0 0 
-@ex@ 6499 1220263153
-@pv@ 8 @db.working@ @//CceDev01/dir1/old2.txt@ @//depot/dir1/old2.txt@ @CceDev01@ @cceuser@ 0 1 0 0 0 0 0 0 00000000000000000000000000000000 -1 0 0 0 
-@pv@ 2 @db.locks@ @//depot/dir1/old2.txt@ @CceDev01@ @cceuser@ 0 0 0 
-@ex@ 6499 1220263153
-@rv@ 1 @db.counters@ @change@ @4@ 
-@pv@ 1 @db.change@ 4 4 @CceDev01@ @cceuser@ 1220263301 0 @Added dir1 for testing
-@ @@ 
-@pv@ 0 @db.desc@ 4 @Added dir1 for testing
-@ 
-@pv@ 1 @db.changex@ 4 4 @CceDev01@ @cceuser@ 1220263301 0 @Added dir1 for testing
-@ @@ 
-@rv@ 8 @db.working@ @//CceDev01/dir1/abc1.cd2@ @//depot/dir1/abc1.cd2@ @CceDev01@ @cceuser@ 0 1 0 0 0 4 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/dir1/abc1.cd2@ @CceDev01@ @cceuser@ 0 0 4 
-@rv@ 8 @db.working@ @//CceDev01/dir1/old1.txt@ @//depot/dir1/old1.txt@ @CceDev01@ @cceuser@ 0 1 0 0 0 4 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/dir1/old1.txt@ @CceDev01@ @cceuser@ 0 0 4 
-@rv@ 8 @db.working@ @//CceDev01/dir1/old2.txt@ @//depot/dir1/old2.txt@ @CceDev01@ @cceuser@ 0 1 0 0 0 4 0 0 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/dir1/old2.txt@ @CceDev01@ @cceuser@ 0 0 4 
-@ex@ 6535 1220263301
-@rv@ 8 @db.working@ @//CceDev01/dir1/abc1.cd2@ @//depot/dir1/abc1.cd2@ @CceDev01@ @cceuser@ 0 1 0 0 0 4 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/dir1/abc1.cd2@ @CceDev01@ @cceuser@ 0 1 4 
-@rv@ 8 @db.working@ @//CceDev01/dir1/old1.txt@ @//depot/dir1/old1.txt@ @CceDev01@ @cceuser@ 0 1 0 0 0 4 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/dir1/old1.txt@ @CceDev01@ @cceuser@ 0 1 4 
-@rv@ 8 @db.working@ @//CceDev01/dir1/old2.txt@ @//depot/dir1/old2.txt@ @CceDev01@ @cceuser@ 0 1 0 0 0 4 0 1 00000000000000000000000000000000 -1 0 0 0 
-@rv@ 2 @db.locks@ @//depot/dir1/old2.txt@ @CceDev01@ @cceuser@ 0 1 4 
-@ex@ 6535 1220263301
-@rv@ 8 @db.working@ @//CceDev01/dir1/abc1.cd2@ @//depot/dir1/abc1.cd2@ @CceDev01@ @cceuser@ 0 1 0 0 0 4 1220263194 1 9B22AB105981CC05831824B1AF3981FF 12 0 0 0 
-@rv@ 2 @db.locks@ @//depot/dir1/abc1.cd2@ @CceDev01@ @cceuser@ 0 1 4 
-@ex@ 6535 1220263301
-@rv@ 8 @db.working@ @//CceDev01/dir1/old1.txt@ @//depot/dir1/old1.txt@ @CceDev01@ @cceuser@ 0 1 0 0 0 4 1220263101 1 20BB937F4A0ECB723EFD074EBA7C60A6 10 0 0 0 
-@rv@ 2 @db.locks@ @//depot/dir1/old1.txt@ @CceDev01@ @cceuser@ 0 1 4 
-@ex@ 6535 1220263301
-@rv@ 8 @db.working@ @//CceDev01/dir1/old2.txt@ @//depot/dir1/old2.txt@ @CceDev01@ @cceuser@ 0 1 0 0 0 4 1220263109 1 297FFA8EBB9C659C0474C2D8BFFD656A 10 0 0 0 
-@rv@ 2 @db.locks@ @//depot/dir1/old2.txt@ @CceDev01@ @cceuser@ 0 1 4 
-@ex@ 6535 1220263301
-@dv@ 1 @db.changex@ 4 4 @CceDev01@ @cceuser@ 1220263301 1 @Added dir1 for testing
-@ @//depot/dir1/*@ 
-@rv@ 1 @db.change@ 4 4 @CceDev01@ @cceuser@ 1220263301 1 @Added dir1 for testing
-@ @//depot/dir1/*@ 
-@pv@ 2 @db.have@ @//CceDev01/dir1/abc1.cd2@ @//depot/dir1/abc1.cd2@ 1 0 
-@pv@ 7 @db.rev@ @//depot/dir1/abc1.cd2@ 1 0 0 4 1220263301 1220263194 9B22AB105981CC05831824B1AF3981FF 12 0 0 @//depot/dir1/abc1.cd2@ @1.4@ 0 
-@pv@ 7 @db.revhx@ @//depot/dir1/abc1.cd2@ 1 0 0 4 1220263301 1220263194 9B22AB105981CC05831824B1AF3981FF 12 0 0 @//depot/dir1/abc1.cd2@ @1.4@ 0 
-@pv@ 0 @db.revcx@ 4 @//depot/dir1/abc1.cd2@ 1 0 
-@dv@ 2 @db.locks@ @//depot/dir1/abc1.cd2@ @CceDev01@ @cceuser@ 0 1 4 
-@dv@ 8 @db.working@ @//CceDev01/dir1/abc1.cd2@ @//depot/dir1/abc1.cd2@ @CceDev01@ @cceuser@ 0 1 0 0 0 4 1220263194 1 9B22AB105981CC05831824B1AF3981FF 12 0 0 0 
-@pv@ 2 @db.have@ @//CceDev01/dir1/old1.txt@ @//depot/dir1/old1.txt@ 1 0 
-@pv@ 7 @db.rev@ @//depot/dir1/old1.txt@ 1 0 0 4 1220263301 1220263101 20BB937F4A0ECB723EFD074EBA7C60A6 10 0 0 @//depot/dir1/old1.txt@ @1.4@ 0 
-@pv@ 7 @db.revhx@ @//depot/dir1/old1.txt@ 1 0 0 4 1220263301 1220263101 20BB937F4A0ECB723EFD074EBA7C60A6 10 0 0 @//depot/dir1/old1.txt@ @1.4@ 0 
-@pv@ 0 @db.revcx@ 4 @//depot/dir1/old1.txt@ 1 0 
-@dv@ 2 @db.locks@ @//depot/dir1/old1.txt@ @CceDev01@ @cceuser@ 0 1 4 
-@dv@ 8 @db.working@ @//CceDev01/dir1/old1.txt@ @//depot/dir1/old1.txt@ @CceDev01@ @cceuser@ 0 1 0 0 0 4 1220263101 1 20BB937F4A0ECB723EFD074EBA7C60A6 10 0 0 0 
-@pv@ 2 @db.have@ @//CceDev01/dir1/old2.txt@ @//depot/dir1/old2.txt@ 1 0 
-@pv@ 7 @db.rev@ @//depot/dir1/old2.txt@ 1 0 0 4 1220263301 1220263109 297FFA8EBB9C659C0474C2D8BFFD656A 10 0 0 @//depot/dir1/old2.txt@ @1.4@ 0 
-@pv@ 7 @db.revhx@ @//depot/dir1/old2.txt@ 1 0 0 4 1220263301 1220263109 297FFA8EBB9C659C0474C2D8BFFD656A 10 0 0 @//depot/dir1/old2.txt@ @1.4@ 0 
-@pv@ 0 @db.revcx@ 4 @//depot/dir1/old2.txt@ 1 0 
-@dv@ 2 @db.locks@ @//depot/dir1/old2.txt@ @CceDev01@ @cceuser@ 0 1 4 
-@dv@ 8 @db.working@ @//CceDev01/dir1/old2.txt@ @//depot/dir1/old2.txt@ @CceDev01@ @cceuser@ 0 1 0 0 0 4 1220263109 1 297FFA8EBB9C659C0474C2D8BFFD656A 10 0 0 0 
-@ex@ 6535 1220263301
-@rv@ 3 @db.user@ @cceuser@ @cceuser@@localhost@ @@ 1219128425 1220263470 @cceuser@ @@ 0 @@ 0 
-@ex@ 6898 1220263470
-@dv@ 1 @db.view@ @cruise-CceDev01-1220261663168@ 0 0 @@ @@ 
-@dv@ 4 @db.domain@ @cruise-CceDev01-1220261663168@ 99 @@ @/home/cceuser/projects/hg-cruise/story1880/target/cruise-server-1.0/pipelines/1220261663168@ @@ @@ @@ 1220263031 1220263031 64 @@ 
-@ex@ 6900 1220263487
-@dv@ 2 @db.have@ @//CceDev01/README.txt@ @//depot/README.txt@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/build.xml@ @//depot/build.xml@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/cruise-config.xml@ @//depot/cruise-config.xml@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/dir1/abc1.cd2@ @//depot/dir1/abc1.cd2@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/dir1/old1.txt@ @//depot/dir1/old1.txt@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/dir1/old2.txt@ @//depot/dir1/old2.txt@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/lib/junit.jar@ @//depot/lib/junit.jar@ 1 65539 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 2 @db.have@ @//CceDev01/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ 1 0 
-@ex@ 6904 1220263500
-@dv@ 1 @db.view@ @CceDev01@ 0 0 @@ @@ 
-@dv@ 4 @db.domain@ @CceDev01@ 99 @CceDev01@ @/tmp/p4client@ @@ @@ @cceuser@ 1220263026 1220263026 0 @Created by cceuser.
-@ 
-@ex@ 6904 1220263500
-@pv@ 1 @db.view@ @cruise-CceDev01-1220261663168@ 0 0 @//cruise-CceDev01-1220261663168/...@ @//depot/dir1/...@ 
-@ex@ 6910 1220263511
-@pv@ 4 @db.domain@ @cruise-CceDev01-1220261663168@ 99 @@ @/home/cceuser/projects/hg-cruise/story1880/target/cruise-server-1.0/pipelines/1220261663168@ @@ @@ @@ 1220263511 1220263511 64 @@ 
-@ex@ 6910 1220263511
-@rv@ 4 @db.domain@ @cruise-CceDev01-1220261663168@ 99 @@ @/home/cceuser/projects/hg-cruise/story1880/target/cruise-agent-1.0/pipelines/1220261663168@ @@ @@ @@ 1220263517 1220263511 64 @@ 
-@ex@ 6923 1220263517
-@pv@ 2 @db.have@ @//cruise-CceDev01-1220261663168/abc1.cd2@ @//depot/dir1/abc1.cd2@ 1 0 
-@pv@ 2 @db.have@ @//cruise-CceDev01-1220261663168/old1.txt@ @//depot/dir1/old1.txt@ 1 0 
-@pv@ 2 @db.have@ @//cruise-CceDev01-1220261663168/old2.txt@ @//depot/dir1/old2.txt@ 1 0 
-@ex@ 6927 1220263517
-@rv@ 3 @db.user@ @cceuser@ @cceuser@@localhost@ @@ 1219128425 1220264030 @cceuser@ @@ 0 @@ 0 
-@ex@ 7522 1220264030
-@pv@ 1 @db.view@ @CceDev01@ 0 0 @//CceDev01/...@ @//depot/...@ 
-@ex@ 7524 1220264053
-@pv@ 4 @db.domain@ @CceDev01@ 99 @CceDev01@ @/tmp/p4client@ @@ @@ @cceuser@ 1220264053 1220264053 0 @Created by cceuser.
-@ 
-@ex@ 7524 1220264053
-@pv@ 2 @db.have@ @//CceDev01/README.txt@ @//depot/README.txt@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/build.xml@ @//depot/build.xml@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/cruise-config.xml@ @//depot/cruise-config.xml@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/dir1/abc1.cd2@ @//depot/dir1/abc1.cd2@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/dir1/old1.txt@ @//depot/dir1/old1.txt@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/dir1/old2.txt@ @//depot/dir1/old2.txt@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/lib/junit.jar@ @//depot/lib/junit.jar@ 1 65539 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ 1 0 
-@pv@ 2 @db.have@ @//CceDev01/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ 1 0 
-@ex@ 7532 1220264079
-@rv@ 3 @db.user@ @cceuser@ @cceuser@@localhost@ @@ 1219128425 1220327498 @cceuser@ @@ 0 @@ 0 
-@ex@ 16138 1220327498
-@dv@ 2 @db.have@ @//CceDev01/README.txt@ @//depot/README.txt@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/build.xml@ @//depot/build.xml@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/cruise-config.xml@ @//depot/cruise-config.xml@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/dir1/abc1.cd2@ @//depot/dir1/abc1.cd2@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/dir1/old1.txt@ @//depot/dir1/old1.txt@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/dir1/old2.txt@ @//depot/dir1/old2.txt@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/lib/junit.jar@ @//depot/lib/junit.jar@ 1 65539 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//CceDev01/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java@ 1 0 
-@ex@ 16140 1220327510
-@dv@ 1 @db.view@ @CceDev01@ 0 0 @@ @@ 
-@dv@ 4 @db.domain@ @CceDev01@ 99 @CceDev01@ @/tmp/p4client@ @@ @@ @cceuser@ 1220264053 1220264053 0 @Created by cceuser.
-@ 
-@ex@ 16140 1220327510
-@dv@ 2 @db.have@ @//cruise-CceDev01-1220261663168/abc1.cd2@ @//depot/dir1/abc1.cd2@ 1 0 
-@ex@ 16142 1220327518
-@dv@ 2 @db.have@ @//cruise-CceDev01-1220261663168/old1.txt@ @//depot/dir1/old1.txt@ 1 0 
-@ex@ 16142 1220327518
-@dv@ 2 @db.have@ @//cruise-CceDev01-1220261663168/old2.txt@ @//depot/dir1/old2.txt@ 1 0 
-@ex@ 16142 1220327518
-@dv@ 1 @db.view@ @cruise-CceDev01-1220261663168@ 0 0 @@ @@ 
-@dv@ 4 @db.domain@ @cruise-CceDev01-1220261663168@ 99 @@ @/home/cceuser/projects/hg-cruise/story1880/target/cruise-agent-1.0/pipelines/1220261663168@ @@ @@ @@ 1220263517 1220263511 64 @@ 
-@ex@ 16142 1220327518
+@pv@ 4 @db.change@ 1 1 @in-rajieshn@ @rajieshn@ 1494854629 0 @Test submit
+@ @@ @@ @@ 0 
+@pv@ 4 @db.changex@ 1 1 @in-rajieshn@ @rajieshn@ 1494854629 0 @Test submit
+@ @@ @@ @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/README.txt,v@ @//depot/README.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/README.txt,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/build.xml,v@ @//depot/build.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/build.xml,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/cruise-config.xml,v@ @//depot/cruise-config.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/cruise-config.xml,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/cruise-output/log.xml,v@ @//depot/cruise-output/log.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/cruise-output/log.xml,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/dir1/abc1.cd2,v@ @//depot/dir1/abc1.cd2,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/dir1/abc1.cd2,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/dir1/old1.txt,v@ @//depot/dir1/old1.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/dir1/old1.txt,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/dir1/old2.txt,v@ @//depot/dir1/old2.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/dir1/old2.txt,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/lib/junit.jar,d/1.1.gz@ @//depot/lib/junit.jar,d/1.1.gz@ @in-rajieshn@ @rajieshn@ 0 1 0 65537 0 1 0 0 00000000000000000000000000000000 -1 0 0 65537 @@ 0 
+@rv@ 2 @db.locks@ @//depot/lib/junit.jar,d/1.1.gz@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@rv@ 10 @db.working@ @//in-rajieshn/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 0 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @in-rajieshn@ @rajieshn@ 0 0 1 
+@ex@ 76706 1494854629
+@rv@ 10 @db.working@ @//in-rajieshn/README.txt,v@ @//depot/README.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/README.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/build.xml,v@ @//depot/build.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/build.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/cruise-config.xml,v@ @//depot/cruise-config.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/cruise-config.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/cruise-output/log.xml,v@ @//depot/cruise-output/log.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/cruise-output/log.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/dir1/abc1.cd2,v@ @//depot/dir1/abc1.cd2,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/dir1/abc1.cd2,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/dir1/old1.txt,v@ @//depot/dir1/old1.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/dir1/old1.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/dir1/old2.txt,v@ @//depot/dir1/old2.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/dir1/old2.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/lib/junit.jar,d/1.1.gz@ @//depot/lib/junit.jar,d/1.1.gz@ @in-rajieshn@ @rajieshn@ 0 1 0 65537 0 1 0 1 00000000000000000000000000000000 -1 0 0 65537 @@ 0 
+@rv@ 2 @db.locks@ @//depot/lib/junit.jar,d/1.1.gz@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@rv@ 10 @db.working@ @//in-rajieshn/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 0 1 00000000000000000000000000000000 -1 0 0 0 @@ 0 
+@rv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@ex@ 76706 1494854629
+@rv@ 10 @db.working@ @//in-rajieshn/README.txt,v@ @//depot/README.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 AF783C3E7230A75273F6ED240A5E812E 2428 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/build.xml,v@ @//depot/build.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 7C1F6335FEAFB0CCBA273B009A3169F6 3644 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/cruise-config.xml,v@ @//depot/cruise-config.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 EE0C36F16B19C9B4EF1866C236EDB52A 1367 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/cruise-output/log.xml,v@ @//depot/cruise-output/log.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 F63CA7D79D2B2309BFB21E413AEFF1EF 84843 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/dir1/abc1.cd2,v@ @//depot/dir1/abc1.cd2,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 F04269DEFC1597C53BDA4D1E066109C3 184 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/dir1/old1.txt,v@ @//depot/dir1/old1.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 01D51E47EE4DDDDDB183ECD8E96DF5FB 182 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/dir1/old2.txt,v@ @//depot/dir1/old2.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 76ED646B7D3B6F9D58185E98F4A9FE59 182 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/lib/junit.jar,d/1.1.gz@ @//depot/lib/junit.jar,d/1.1.gz@ @in-rajieshn@ @rajieshn@ 0 1 0 65537 0 1 1494854390 1 0CB518FF7C2C5847BDC0549665B335F5 108419 0 0 65537 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 890EF3A9B9E3547EA0FB0F63F4354D0B 2529 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 427E35BC3A513E38512E4E3A704C51DD 2359 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 4A2D0C725B0A9429623546FB2641373F 2645 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 DE384F2B1203A2E29D2A5ABD724A04B9 2205 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 CFD0FAC85F2CD2AB6E84E4B8F3E9E374 2206 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 1093BC8316E04B8B3166B742BBFD2F2E 2203 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 41378D0949694E454640365E997DA1CB 2208 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 25635A34E2A2BEC8DA4CD7DABE58A15C 2204 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 D9364BDCD39E6AE2E3F4738D2AA2435F 7191 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 484E69CD905415370A0EAE84F4C33C1C 2204 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 5768DA35EE5E40823B37CE47157E47C0 2393 0 0 0 @@ 0 
+@rv@ 10 @db.working@ @//in-rajieshn/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 9DB96C4D1B0FE929249AE951B59AE911 10406 0 0 0 @@ 0 
+@ex@ 76706 1494854630
+@dv@ 4 @db.changex@ 1 1 @in-rajieshn@ @rajieshn@ 1494854630 1 @Test submit
+@ @//depot/...@ @@ @@ 0 
+@rv@ 4 @db.change@ 1 1 @in-rajieshn@ @rajieshn@ 1494854630 1 @Test submit
+@ @//depot/...@ @@ @@ 0 
+@pv@ 9 @db.rev@ @//depot/README.txt,v@ 1 0 0 1 1494854630 1494854390 AF783C3E7230A75273F6ED240A5E812E 2428 0 0 @//depot/README.txt,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/README.txt,v@ 1 0 0 1 1494854630 1494854390 AF783C3E7230A75273F6ED240A5E812E 2428 0 0 @//depot/README.txt,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/README.txt,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/build.xml,v@ 1 0 0 1 1494854630 1494854390 7C1F6335FEAFB0CCBA273B009A3169F6 3644 0 0 @//depot/build.xml,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/build.xml,v@ 1 0 0 1 1494854630 1494854390 7C1F6335FEAFB0CCBA273B009A3169F6 3644 0 0 @//depot/build.xml,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/build.xml,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/cruise-config.xml,v@ 1 0 0 1 1494854630 1494854390 EE0C36F16B19C9B4EF1866C236EDB52A 1367 0 0 @//depot/cruise-config.xml,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/cruise-config.xml,v@ 1 0 0 1 1494854630 1494854390 EE0C36F16B19C9B4EF1866C236EDB52A 1367 0 0 @//depot/cruise-config.xml,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/cruise-config.xml,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/cruise-output/log.xml,v@ 1 0 0 1 1494854630 1494854390 F63CA7D79D2B2309BFB21E413AEFF1EF 84843 0 0 @//depot/cruise-output/log.xml,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/cruise-output/log.xml,v@ 1 0 0 1 1494854630 1494854390 F63CA7D79D2B2309BFB21E413AEFF1EF 84843 0 0 @//depot/cruise-output/log.xml,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/cruise-output/log.xml,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/dir1/abc1.cd2,v@ 1 0 0 1 1494854630 1494854390 F04269DEFC1597C53BDA4D1E066109C3 184 0 0 @//depot/dir1/abc1.cd2,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/dir1/abc1.cd2,v@ 1 0 0 1 1494854630 1494854390 F04269DEFC1597C53BDA4D1E066109C3 184 0 0 @//depot/dir1/abc1.cd2,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/dir1/abc1.cd2,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/dir1/old1.txt,v@ 1 0 0 1 1494854630 1494854390 01D51E47EE4DDDDDB183ECD8E96DF5FB 182 0 0 @//depot/dir1/old1.txt,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/dir1/old1.txt,v@ 1 0 0 1 1494854630 1494854390 01D51E47EE4DDDDDB183ECD8E96DF5FB 182 0 0 @//depot/dir1/old1.txt,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/dir1/old1.txt,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/dir1/old2.txt,v@ 1 0 0 1 1494854630 1494854390 76ED646B7D3B6F9D58185E98F4A9FE59 182 0 0 @//depot/dir1/old2.txt,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/dir1/old2.txt,v@ 1 0 0 1 1494854630 1494854390 76ED646B7D3B6F9D58185E98F4A9FE59 182 0 0 @//depot/dir1/old2.txt,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/dir1/old2.txt,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/lib/junit.jar,d/1.1.gz@ 1 65537 0 1 1494854630 1494854390 0CB518FF7C2C5847BDC0549665B335F5 108419 0 0 @//depot/lib/junit.jar,d/1.1.gz@ @1.1@ 65537 
+@pv@ 9 @db.revhx@ @//depot/lib/junit.jar,d/1.1.gz@ 1 65537 0 1 1494854630 1494854390 0CB518FF7C2C5847BDC0549665B335F5 108419 0 0 @//depot/lib/junit.jar,d/1.1.gz@ @1.1@ 65537 
+@pv@ 0 @db.revcx@ 1 @//depot/lib/junit.jar,d/1.1.gz@ 1 0 
+@pv@ 9 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ 1 0 0 1 1494854630 1494854390 890EF3A9B9E3547EA0FB0F63F4354D0B 2529 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ 1 0 0 1 1494854630 1494854390 890EF3A9B9E3547EA0FB0F63F4354D0B 2529 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ 1 0 0 1 1494854630 1494854390 427E35BC3A513E38512E4E3A704C51DD 2359 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ 1 0 0 1 1494854630 1494854390 427E35BC3A513E38512E4E3A704C51DD 2359 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ 1 0 0 1 1494854630 1494854390 4A2D0C725B0A9429623546FB2641373F 2645 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ 1 0 0 1 1494854630 1494854390 4A2D0C725B0A9429623546FB2641373F 2645 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ 1 0 0 1 1494854630 1494854390 DE384F2B1203A2E29D2A5ABD724A04B9 2205 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ 1 0 0 1 1494854630 1494854390 DE384F2B1203A2E29D2A5ABD724A04B9 2205 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ 1 0 0 1 1494854630 1494854390 CFD0FAC85F2CD2AB6E84E4B8F3E9E374 2206 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ 1 0 0 1 1494854630 1494854390 CFD0FAC85F2CD2AB6E84E4B8F3E9E374 2206 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ 1 0 0 1 1494854630 1494854390 1093BC8316E04B8B3166B742BBFD2F2E 2203 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ 1 0 0 1 1494854630 1494854390 1093BC8316E04B8B3166B742BBFD2F2E 2203 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ 1 0 0 1 1494854630 1494854390 41378D0949694E454640365E997DA1CB 2208 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ 1 0 0 1 1494854630 1494854390 41378D0949694E454640365E997DA1CB 2208 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ 1 0 0 1 1494854630 1494854390 25635A34E2A2BEC8DA4CD7DABE58A15C 2204 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ 1 0 0 1 1494854630 1494854390 25635A34E2A2BEC8DA4CD7DABE58A15C 2204 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ 1 0 0 1 1494854630 1494854390 D9364BDCD39E6AE2E3F4738D2AA2435F 7191 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ 1 0 0 1 1494854630 1494854390 D9364BDCD39E6AE2E3F4738D2AA2435F 7191 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ 1 0 0 1 1494854630 1494854390 484E69CD905415370A0EAE84F4C33C1C 2204 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ 1 0 0 1 1494854630 1494854390 484E69CD905415370A0EAE84F4C33C1C 2204 0 0 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ 1 0 0 1 1494854630 1494854390 5768DA35EE5E40823B37CE47157E47C0 2393 0 0 @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ 1 0 0 1 1494854630 1494854390 5768DA35EE5E40823B37CE47157E47C0 2393 0 0 @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ 1 0 
+@pv@ 9 @db.rev@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ 1 0 0 1 1494854630 1494854390 9DB96C4D1B0FE929249AE951B59AE911 10406 0 0 @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @1.1@ 0 
+@pv@ 9 @db.revhx@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ 1 0 0 1 1494854630 1494854390 9DB96C4D1B0FE929249AE951B59AE911 10406 0 0 @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @1.1@ 0 
+@pv@ 0 @db.revcx@ 1 @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ 1 0 
+@ex@ 76706 1494854630
+@pv@ 1 @db.counters@ @maxCommitChange@ @1@ 
+@ex@ 76706 1494854630
+@pv@ 3 @db.have@ @//in-rajieshn/README.txt,v@ @//depot/README.txt,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/README.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/README.txt,v@ @//depot/README.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 AF783C3E7230A75273F6ED240A5E812E 2428 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/build.xml,v@ @//depot/build.xml,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/build.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/build.xml,v@ @//depot/build.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 7C1F6335FEAFB0CCBA273B009A3169F6 3644 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/cruise-config.xml,v@ @//depot/cruise-config.xml,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/cruise-config.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/cruise-config.xml,v@ @//depot/cruise-config.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 EE0C36F16B19C9B4EF1866C236EDB52A 1367 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/cruise-output/log.xml,v@ @//depot/cruise-output/log.xml,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/cruise-output/log.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/cruise-output/log.xml,v@ @//depot/cruise-output/log.xml,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 F63CA7D79D2B2309BFB21E413AEFF1EF 84843 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/dir1/abc1.cd2,v@ @//depot/dir1/abc1.cd2,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/dir1/abc1.cd2,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/dir1/abc1.cd2,v@ @//depot/dir1/abc1.cd2,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 F04269DEFC1597C53BDA4D1E066109C3 184 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/dir1/old1.txt,v@ @//depot/dir1/old1.txt,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/dir1/old1.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/dir1/old1.txt,v@ @//depot/dir1/old1.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 01D51E47EE4DDDDDB183ECD8E96DF5FB 182 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/dir1/old2.txt,v@ @//depot/dir1/old2.txt,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/dir1/old2.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/dir1/old2.txt,v@ @//depot/dir1/old2.txt,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 76ED646B7D3B6F9D58185E98F4A9FE59 182 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/lib/junit.jar,d/1.1.gz@ @//depot/lib/junit.jar,d/1.1.gz@ 1 65537 1494854390 
+@dv@ 2 @db.locks@ @//depot/lib/junit.jar,d/1.1.gz@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/lib/junit.jar,d/1.1.gz@ @//depot/lib/junit.jar,d/1.1.gz@ @in-rajieshn@ @rajieshn@ 0 1 0 65537 0 1 1494854390 1 0CB518FF7C2C5847BDC0549665B335F5 108419 0 0 65537 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Cell.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 890EF3A9B9E3547EA0FB0F63F4354D0B 2529 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Chip.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 427E35BC3A513E38512E4E3A704C51DD 2359 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/Direction.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 4A2D0C725B0A9429623546FB2641373F 2645 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/FullColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 DE384F2B1203A2E29D2A5ABD724A04B9 2205 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameNotOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 CFD0FAC85F2CD2AB6E84E4B8F3E9E374 2206 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/GameOverException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 1093BC8316E04B8B3166B742BBFD2F2E 2203 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/InvalidColumnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 41378D0949694E454640365E997DA1CB 2208 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/OutOfTurnException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 25635A34E2A2BEC8DA4CD7DABE58A15C 2204 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStand.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 D9364BDCD39E6AE2E3F4738D2AA2435F 7191 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @//depot/src/net/sourceforge/cruisecontrol/sampleproject/connectfour/StalemateException.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 484E69CD905415370A0EAE84F4C33C1C 2204 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/CellTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 5768DA35EE5E40823B37CE47157E47C0 2393 0 0 0 @@ 0 
+@pv@ 3 @db.have@ @//in-rajieshn/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ 1 0 1494854390 
+@dv@ 2 @db.locks@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 1 
+@dv@ 10 @db.working@ @//in-rajieshn/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @//depot/test/net/sourceforge/cruisecontrol/sampleproject/connectfour/PlayingStandTest.java,v@ @in-rajieshn@ @rajieshn@ 0 1 0 0 0 1 1494854390 1 9DB96C4D1B0FE929249AE951B59AE911 10406 0 0 0 @@ 0 
+@ex@ 76706 1494854630
+@nx@ 8 1494854669 @42@ 0 0 0 0 0 @1666@ @@ @@ @@ @@ 
+@ex@ 76679 1494854669
