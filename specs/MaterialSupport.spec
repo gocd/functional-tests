@@ -15,7 +15,7 @@ MaterialSupport
 ===============
 
 |material name|Pipeline|jobName|First Updating message|Secong Updating Message|Material Tab|modified by|First Revision|Second Revision|Third Revision|First modified by|material type|
-|p4|p4-pipeline|defaultJob|Start updating p4|Start updating p4 at revision 5|Revision: 5|modified by cceuser@${p4_view}|4|5|6|Revision: 4, modified by cceuser|Perforce|
+|p4|p4-pipeline|defaultJob|Test submit|Start updating p4 at revision 2|Revision: 2|modified by rajieshn@${p4_view}|1|2|3|Revision: 1, modified by rajieshn@in-rajieshn|Perforce|
 |svn|basic-svn-pipeline|basic-svn-pipeline-job|Start updating svn|Start updating svn at revision 4|Revision: 4|modified by cceuser|3|4|5|Revision: 3, modified by cceuser|Subversion|
 Setup of contexts 
 * Basic configuration - setup
@@ -42,7 +42,7 @@ tags: perforce, automate
 
 * Open console tab
 * Verify material tab contains revision <First modified by>
-* Verify console contains <First Updating message>
+ Verify console contains <First Updating message>
 
 * Looking at first agent for pipeline <Pipeline>
 * Verify <material name> is checked out under the pipelines folder
@@ -63,7 +63,7 @@ tags: perforce, automate
 * Navigate to job <jobName>
 
 * Open console tab
-* Verify console contains <Secong Updating Message>
+ Verify console contains <Secong Updating Message>
 * Verify material tab contains revision <Material Tab>
 
 Check autoscheduling svn pipeline

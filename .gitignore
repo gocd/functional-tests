@@ -13,3 +13,5 @@ tags
 out/
 nohup.out
 sahi/userdata/
+libs
+test-repos/p4repo-2009

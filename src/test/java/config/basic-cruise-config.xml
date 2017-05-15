@@ -1404,7 +1404,7 @@
                             <artifact src="hg/dev/nant.build" dest="hg-artifact"/>
                             <artifact src="git/first.txt" dest="git-artifact"/>
                             <artifact src="svn/build.xml" dest="svn-artifact"/>
-                            <artifact src="p4/README.txt" dest="p4-artifact"/>
+                            <artifact src="p4/README.txt,v" dest="p4-artifact"/>
                         </artifacts>
                     </job>
                 </jobs>
