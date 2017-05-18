@@ -52,7 +52,7 @@ public class SecureConfiguration extends AbstractConfiguration {
 
 	private void pointPasswordFileToAbsolutePath(CruiseConfigDom dom, File passwordProperties) throws IOException {
 		Element passwordFile = dom.getPasswordFile();
-		passwordFile.attribute("path").setValue(passwordProperties.getCanonicalPath());
+		passwordFile.setText(passwordProperties.getCanonicalPath());
 	}
 
 	private File copyPasswordPropertiesToServer(String name) {

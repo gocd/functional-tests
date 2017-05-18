@@ -19,6 +19,7 @@ package com.thoughtworks.cruise.utils.configfile;
 import com.thoughtworks.cruise.client.Job;
 import com.thoughtworks.cruise.client.Stage;
 import com.thoughtworks.cruise.materials.TfsServer;
+import com.thoughtworks.cruise.util.CruiseConstants;
 import com.thoughtworks.cruise.util.StringUtil;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.RandomStringUtils;
@@ -1389,11 +1390,11 @@ public class CruiseConfigDom {
 	}
 
 	public Element getPasswordFile() {
-		return (Element) root().selectSingleNode("//passwordFile");
+		return (Element) root().selectSingleNode("//authConfigs/authConfig[@pluginId='"+ CruiseConstants.FILE_BASED_PLUGIN_ID +"']/property/value");
 	}
 
 	public Element getLdap() {
-		return (Element) root().selectSingleNode("//ldap");
+		return (Element) root().selectSingleNode("//authConfigs/authConfig[@pluginId='"+ CruiseConstants.LDAP_AUTHENTICATION_PLUGIN_ID +"']/property[0]/value");
 	}
 
 	public Element getMailHost() {
