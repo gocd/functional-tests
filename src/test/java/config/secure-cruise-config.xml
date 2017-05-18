@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- *************************GO-LICENSE-START******************************
- * Copyright 2015 ThoughtWorks, Inc.
+ * Copyright 2017 ThoughtWorks, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="92">
   <server artifactsdir="artifacts" serverId="twist">
       <security>
-      <passwordFile path="$password_properties"/>
+      
       <roles>
         <role name="admins">
         <users>
@@ -45,7 +44,15 @@
       <admins>
         <role>admins</role>
       </admins>
-    </security>
+          <authConfigs>
+              <authConfig id="7f1f7f6d-3cbd-4c29-8464-fa4536eadabc" pluginId="cd.go.authentication.passwordfile">
+                  <property>
+                      <key>PasswordFilePath</key>
+                      <value>$password_properties</value>
+                  </property>
+              </authConfig>
+          </authConfigs>
+      </security>
   </server>
   <pipelines group="diamond-dependency">
   	<authorization>
@@ -670,19 +677,19 @@
 	</pipeline>
     <pipeline name="pipeline-with-multiple-materials-stages-jobs">
       <materials>
-        <git url="$git-on-pipeline-with-multiple-materials-stages-jobs" dest="git" autoUpdate="false" materialName="git-for-pipeline-with-multiple-materials-stages-jobs" />
-        <hg url="$hgurl-pipeline-with-multiple-materials-stages-jobs" dest="hg" autoUpdate="false" materialName="hg-for-pipeline-with-multiple-materials-stages-jobs" />
+        <git url="$git-on-pipeline-with-multiple-materials-stages-jobs" dest="git" autoUpdate="false" materialName="git-for-pipeline-with-multiple-materials-stages-jobs"/>
+        <hg url="$hgurl-pipeline-with-multiple-materials-stages-jobs" dest="hg" autoUpdate="false" materialName="hg-for-pipeline-with-multiple-materials-stages-jobs"/>
       </materials>
       <stage name="stageOne">
         <jobs>
           <job name="job1">
             <tasks>
-              <exec command="ls" />
+              <exec command="ls"/>
             </tasks>
           </job>
           <job name="job2">
             <tasks>
-              <exec command="ls" />
+              <exec command="ls"/>
             </tasks>
           </job>
         </jobs>
@@ -691,7 +698,7 @@
         <jobs>
           <job name="jobOne">
             <tasks>
-              <exec command="ls" />
+              <exec command="ls"/>
             </tasks>
           </job>
         </jobs>
@@ -939,7 +946,7 @@
         	</materials>
 	  	</pipeline>
   	</pipelines>
-    <pipelines group ="empty-group" />
+    <pipelines group="empty-group"/>
     
     <pipelines group="agent-details-testing">
       	<authorization>

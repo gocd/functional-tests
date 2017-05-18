@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- *************************GO-LICENSE-START******************************
- * Copyright 2015 ThoughtWorks, Inc.
+ * Copyright 2017 ThoughtWorks, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,28 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="92">
     <server artifactsdir="artifacts" serverId="twist">
     </server>
     <pipelines group="basic">
 	    <pipeline name="tfs_artifact_in_dest">
 	      <materials>
-	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false" />
+	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false"/>
 	      </materials>
 	      <stage name="defaultStage">
-	      	<approval type="manual" />
+	      	<approval type="manual"/>
 	        <jobs>
 	          <job name="defaultJob">
 	            <tasks>
 	              <exec command="/bin/bash">
 	                <arg>create_file.sh</arg>
 	                <arg>artifact.file</arg>
-	                <runif status="passed" />
+	                <runif status="passed"/>
 	              </exec>
 	            </tasks>
 	            <artifacts>
-	              <artifact src="artifact.file" />
+	              <artifact src="artifact.file"/>
 	            </artifacts>
 	          </job>
 	        </jobs>
@@ -43,10 +42,10 @@
 	    </pipeline>
 	    <pipeline name="tfs_artifact_in_child_directory">
 	      <materials>
-	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false" />
+	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false"/>
 	      </materials>
 	      <stage name="defaultStage">
-	       	<approval type="manual" />
+	       	<approval type="manual"/>
 	        <jobs>
 	          <job name="defaultJob">
 	            <tasks>
@@ -56,11 +55,11 @@
 	              <exec command="/bin/bash">
 	                <arg>create_file.sh</arg>
 	                <arg>child/artifact.file</arg>
-	                <runif status="passed" />
+	                <runif status="passed"/>
 	              </exec>
 	            </tasks>
 	            <artifacts>
-	              <artifact src="child/artifact.file" />
+	              <artifact src="child/artifact.file"/>
 	            </artifacts>
 	          </job>
 	        </jobs>
@@ -68,17 +67,17 @@
 	    </pipeline>
 	    <pipeline name="tfs_generated_file_gets_deleted">
 	      <materials>
-	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false" />
+	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false"/>
 	      </materials>
 	      <stage name="defaultStage">
-	       	<approval type="manual" />
+	       	<approval type="manual"/>
 	        <jobs>
 	          <job name="defaultJob">
 	            <tasks>
 	              <exec command="/bin/bash">
 	                <arg>create_file.sh</arg>
 	                <arg>artifact.file</arg>
-	                <runif status="passed" />
+	                <runif status="passed"/>
 	              </exec>
 	              <exec command="rm">
 	              	<arg>-rf</arg>
@@ -86,7 +85,7 @@
 	              </exec>
 	            </tasks>
 	            <artifacts>
-	              <artifact src="artifact.file" />
+	              <artifact src="artifact.file"/>
 	            </artifacts>
 	          </job>
 	        </jobs>
@@ -94,22 +93,22 @@
 	    </pipeline>
 	    <pipeline name="tfs-pipeline-with-multiple-stages">
 	      <materials>
-		    <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false" />
+		    <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false"/>
 		  </materials>
 		  <stage name="stage1">
-		  	<approval type="manual" />
+		  	<approval type="manual"/>
 		    <jobs>
 		      <job name="defaultJob">
-		        <tasks></tasks>
+		        <tasks/>
 		      </job>
 		    </jobs>
 		  </stage>
 		  <stage name="stage2">
-		  	<approval type="manual" />
+		  	<approval type="manual"/>
 		    <jobs>
 		      <job name="defaultJob">
 		        <tasks>
-		        	<exec command='sleep'>
+		        	<exec command="sleep">
 		        		<arg>60</arg>
 		        	</exec>
 		        </tasks>
@@ -119,10 +118,10 @@
 	    </pipeline>
 			<pipeline name="basic-tfs-pipeline">
 				<materials>
-					<tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_1" dest="new_dir" materialName="tfs_mat" autoUpdate="false" >
+					<tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_1" dest="new_dir" materialName="tfs_mat" autoUpdate="false">
 						<filter>
 							<ignore pattern="*.ignore.txt"/>
-							<ignore pattern="$/for_twist_tests_1/Folder with space/*" />
+							<ignore pattern="$/for_twist_tests_1/Folder with space/*"/>
 						</filter>
 					</tfs>
 				</materials>

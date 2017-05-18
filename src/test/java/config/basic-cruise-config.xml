@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- *************************GO-LICENSE-START******************************
- * Copyright 2015 ThoughtWorks, Inc.
+ * Copyright 2017 ThoughtWorks, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="92">
     <server artifactsdir="artifacts" serverId="twist">
     </server>
@@ -728,7 +727,7 @@
                 <jobs>
                     <job name="defaultJob">
                         <tasks>
-                            <exec command='ls'/>
+                            <exec command="ls"/>
                         </tasks>
                     </job>
                 </jobs>
@@ -744,7 +743,7 @@
                 <jobs>
                     <job name="defaultJob">
                         <tasks>
-                            <exec command='ls'/>
+                            <exec command="ls"/>
                         </tasks>
                     </job>
                 </jobs>
@@ -1371,7 +1370,7 @@
                             	<arg>$GO_JOB_RUN_COUNT</arg>
                             	<arg> Job Run Index: </arg>
                             	<arg>$GO_JOB_RUN_INDEX</arg>
-                            	<runif status="passed" />
+                            	<runif status="passed"/>
                             </exec>
                         </tasks>
                     </job>
@@ -1443,7 +1442,7 @@
               				</exec>
             			</tasks>
             			<artifacts>
-              				<artifact src="bigfile" />
+              				<artifact src="bigfile"/>
             			</artifacts>
           			</job>
         		</jobs>
@@ -1452,14 +1451,14 @@
     	
     	<pipeline name="pipeline_downloading_large_artifact">
       		<materials>
-        		<pipeline pipelineName="pipeline_uploading_large_artifact" stageName="defaultStage" />
+        		<pipeline pipelineName="pipeline_uploading_large_artifact" stageName="defaultStage"/>
       		</materials>
       		<stage name="defaultStage">
       			<approval type="manual"/>
         		<jobs>
           			<job name="defaultJob">
             			<tasks>
-            				<fetchartifact pipeline="pipeline_uploading_large_artifact" stage="defaultStage" job="defaultJob" srcfile="bigfile" />
+            				<fetchartifact pipeline="pipeline_uploading_large_artifact" stage="defaultStage" job="defaultJob" srcfile="bigfile"/>
             			</tasks>
           			</job>
         		</jobs>
@@ -1560,7 +1559,7 @@
                     <job name="defaultJob">
                         <tasks>
                             <exec command="ls">
-                                <runif status="passed" />
+                                <runif status="passed"/>
                             </exec>
                         </tasks>
                     </job>
@@ -1895,10 +1894,10 @@
     <pipelines group="tfs_group">
      	<pipeline name="basic-tfs-pipeline">
             <materials>
-                  <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_1" dest="new_dir" materialName="tfs_mat" autoUpdate="false" >
+                  <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_1" dest="new_dir" materialName="tfs_mat" autoUpdate="false">
                   <filter>
                         <ignore pattern="*.ignore.txt"/>
-                        <ignore pattern="$/for_twist_tests_1/Folder with space/*" />
+                        <ignore pattern="$/for_twist_tests_1/Folder with space/*"/>
                     </filter>	
                   </tfs>  
             </materials>
@@ -1915,8 +1914,8 @@
         </pipeline>
 		<pipeline name="tfs-pipeline-with-duplicate-materials">
             <materials>
-                  <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_2" dest="new_dir_1" materialName="tfs_mat_1" autoUpdate="false" />
-				  <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_2" dest="new_dir_2" materialName="tfs_mat_2" autoUpdate="false" />
+                  <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_2" dest="new_dir_1" materialName="tfs_mat_1" autoUpdate="false"/>
+				  <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_2" dest="new_dir_2" materialName="tfs_mat_2" autoUpdate="false"/>
             </materials>
             <stage name="defaultStage">
                 <approval type="manual"/>
@@ -1935,22 +1934,22 @@
     <pipelines group="fetch-artifact-from-ancestor-group">
       <pipeline name="uppest_pipeline">
       <materials>
-        <hg url="$hgurl" materialName="hg_material" />
+        <hg url="$hgurl" materialName="hg_material"/>
       </materials>
       <stage name="uppest-stage1">
-      <approval type="manual" />
+      <approval type="manual"/>
         <jobs>
           <job name="uppest-job1">
             <tasks>
-               <exec command="echo" args="hello" />
+               <exec command="echo" args="hello"/>
             </tasks>
             <artifacts>
-              <artifact src="first" />
+              <artifact src="first"/>
             </artifacts>
           </job>
           <job name="uppest-job1a">
             <tasks>
-               <exec command="echo" args="hello" />
+               <exec command="echo" args="hello"/>
             </tasks>
           </job>
         </jobs>
@@ -1959,10 +1958,10 @@
         <jobs>
           <job name="uppest-job2">
             <tasks>
-               <exec command="echo" args="hello" />
+               <exec command="echo" args="hello"/>
             </tasks>
             <artifacts>
-              <artifact src="second" />
+              <artifact src="second"/>
             </artifacts>
           </job>
         </jobs>
@@ -1971,7 +1970,7 @@
         <jobs>
           <job name="uppest-job3">
             <tasks>
-                <exec command="echo" args="hello" />
+                <exec command="echo" args="hello"/>
             </tasks>
           </job>
         </jobs>
@@ -1979,14 +1978,14 @@
     </pipeline>
     <pipeline name="upper_pipeline">
       <materials>
-        <pipeline pipelineName="uppest_pipeline" stageName="uppest-stage2" />
+        <pipeline pipelineName="uppest_pipeline" stageName="uppest-stage2"/>
       </materials>
       <stage name="upper-stage1">
-       <approval type="manual" />
+       <approval type="manual"/>
         <jobs>
           <job name="upper-job1">
             <tasks>
-              <exec command="echo" args="hello" />
+              <exec command="echo" args="hello"/>
               <fetchartifact pipeline="uppest_pipeline" stage="uppest-stage1" job="uppest-job1" srcfile="first"/>
             </tasks>
           </job>
@@ -1995,14 +1994,14 @@
     </pipeline>
     <pipeline name="upper_peer_pipeline">
       <materials>
-        <pipeline pipelineName="uppest_pipeline" stageName="uppest-stage1" />
+        <pipeline pipelineName="uppest_pipeline" stageName="uppest-stage1"/>
       </materials>
       <stage name="upper-peer-stage1">
-       <approval type="manual" />
+       <approval type="manual"/>
         <jobs>
           <job name="upper-peer-job1">
             <tasks>
-               <exec command="echo" args="hello" />
+               <exec command="echo" args="hello"/>
             </tasks>
           </job>
         </jobs>
@@ -2010,15 +2009,15 @@
     </pipeline>
     <pipeline name="up_pipeline">
       <materials>
-        <pipeline pipelineName="upper_pipeline" stageName="upper-stage1" />
-        <pipeline pipelineName="upper_peer_pipeline" stageName="upper-peer-stage1" />
+        <pipeline pipelineName="upper_pipeline" stageName="upper-stage1"/>
+        <pipeline pipelineName="upper_peer_pipeline" stageName="upper-peer-stage1"/>
       </materials>
       <stage name="up-stage1">
-        <approval type="manual" />
+        <approval type="manual"/>
         <jobs>
           <job name="up-job1">
             <tasks>
-                <exec command="echo" args="hello" />
+                <exec command="echo" args="hello"/>
             </tasks>
           </job>
         </jobs>
@@ -2026,10 +2025,10 @@
     </pipeline>
     <pipeline name="down_pipeline">
       <materials>
-        <pipeline pipelineName="up_pipeline" stageName="up-stage1" />
+        <pipeline pipelineName="up_pipeline" stageName="up-stage1"/>
       </materials>
       <stage name="down-stage1">
-      <approval type="manual" />
+      <approval type="manual"/>
         <jobs>
           <job name="down-job1">
             <tasks>
@@ -2040,7 +2039,7 @@
         </jobs>
       </stage>
       <stage name="down-stage2">
-      <approval type="manual" />
+      <approval type="manual"/>
         <jobs>
           <job name="down-job2">
             <tasks>
@@ -2061,7 +2060,7 @@
                 <jobs>
                     <job name="defaultJob">
                         <tasks>
-                            <exec command='ls'/>
+                            <exec command="ls"/>
                         </tasks>
                     </job>
                 </jobs>
@@ -2077,7 +2076,7 @@
                 <jobs>
                     <job name="defaultJob">
                         <tasks>
-                            <exec command='ls'/>
+                            <exec command="ls"/>
                         </tasks>
                     </job>
                 </jobs>
@@ -2093,7 +2092,7 @@
                 <jobs>
                     <job name="defaultJob">
                         <tasks>
-                            <exec command='ls'/>
+                            <exec command="ls"/>
                         </tasks>
                     </job>
                 </jobs>
@@ -2109,7 +2108,7 @@
                 <jobs>
                     <job name="defaultJob">
                         <tasks>
-                            <exec command='ls'/>
+                            <exec command="ls"/>
                         </tasks>
                     </job>
                 </jobs>
@@ -2207,7 +2206,7 @@
         </variable>
       </environmentvariables>
       <pipelines>
-        <pipeline name="different_variable_at_environment_pipeline_stage_job" />
+        <pipeline name="different_variable_at_environment_pipeline_stage_job"/>
       </pipelines>
   </environment>
   
