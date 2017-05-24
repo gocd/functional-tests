@@ -1725,8 +1725,24 @@ public class CruiseConfigDom {
 
 	public void addSecurityWithPasswordFile(String passwordFilePath,
 			String adminUsers) {
-		Element passwordFileTag = new DefaultElement("passwordFile");
-		passwordFileTag.addAttribute("path", passwordFilePath);
+
+		Element securityTag = new DefaultElement("security");
+		Element authConfigsTag = new DefaultElement("authConfigs");
+		Element authConfigTag = new DefaultElement("authConfig");
+		Element propertyTag = new DefaultElement("property");
+		Element keyTag = new DefaultElement("key");
+		Element valueTag = new DefaultElement("value");
+
+
+		authConfigTag.addAttribute("id", "pwd_file");
+		authConfigTag.addAttribute("pluginId", CruiseConstants.FILE_BASED_PLUGIN_ID);
+
+		keyTag.setText("PasswordFilePath");
+		valueTag.setText(passwordFilePath);
+		propertyTag.add(keyTag);
+		propertyTag.add(valueTag);
+		authConfigTag.add(propertyTag);
+		authConfigsTag.add(authConfigTag);
 
 		Element adminsTag = new DefaultElement("admins");
 		String[] adminUserList = adminUsers.split(",");
@@ -1734,19 +1750,34 @@ public class CruiseConfigDom {
 			adminsTag.add(new DefaultElement("user").addText(adminUser.trim()));
 		}
 
-		Element securityTag = new DefaultElement("security");
-		securityTag.add(passwordFileTag);
 		securityTag.add(adminsTag);
-
+		securityTag.add(authConfigsTag);
 		serverTag().add(securityTag);
+
 	}
 
 	public void addSecurityWithPasswordFileOnly(String passwordFilePath) {
-		Element passwordFileTag = new DefaultElement("passwordFile");
-		passwordFileTag.addAttribute("path", passwordFilePath);
 		Element securityTag = new DefaultElement("security");
-		securityTag.add(passwordFileTag);
+		Element authConfigsTag = new DefaultElement("authConfigs");
+		Element authConfigTag = new DefaultElement("authConfig");
+		Element propertyTag = new DefaultElement("property");
+		Element keyTag = new DefaultElement("key");
+		Element valueTag = new DefaultElement("value");
+
+
+		authConfigTag.addAttribute("id", "pwd_file");
+		authConfigTag.addAttribute("pluginId", CruiseConstants.FILE_BASED_PLUGIN_ID);
+
+		keyTag.setText("PasswordFilePath");
+		valueTag.setText(passwordFilePath);
+		propertyTag.add(keyTag);
+		propertyTag.add(valueTag);
+		authConfigTag.add(propertyTag);
+		authConfigsTag.add(authConfigTag);
+
+		securityTag.add(authConfigsTag);
 		serverTag().add(securityTag);
+        
 	}
 
 	public void replaceServerId(String serverId) {
