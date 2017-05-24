@@ -22,38 +22,41 @@ import net.sf.sahi.client.Browser;
 
 public class OnPreferencesPage extends CruisePage {
 
-	public OnPreferencesPage(ScenarioState scenarioState, Browser browser) {
-		super(scenarioState, browser);
-	}
+    public OnPreferencesPage(ScenarioState scenarioState, Browser browser) {
+        super(scenarioState, browser);
+    }
 
-	protected String url() {
-		return Urls.urlFor("/tab/mycruise/user");
-	}
-	
-	@com.thoughtworks.gauge.Step("Verify page title is <expectedTitle>")
-	public void verifyPageTitleIs(String expectedTitle) {
-		super.verifyPageTitleIs(expectedTitle);
-	}
+    protected String url() {
+        return Urls.urlFor("/preferences/notifications");
+    }
+
+    @com.thoughtworks.gauge.Step("Verify page title is <expectedTitle>")
+    public void verifyPageTitleIs(String expectedTitle) {
+        super.verifyPageTitleIs(expectedTitle);
+    }
+
+    @Override
+    protected String findPageTitle() {
+        return browser.byXPath("//header[contains(@class, 'page-header')]//h1").getText().trim();
+    }
+
+    @com.thoughtworks.gauge.Step("On Preferences page")
+    public void goToPreferencePage() {
+        navigateToURL();
+    }
+
+    @com.thoughtworks.gauge.Step("Verify cruise footer - On preferences page")
+    @Override
+    public void verifyCruiseFooter() throws Exception {
+        super.verifyCruiseFooter();
+    }
 
 
-	@com.thoughtworks.gauge.Step("On Preferences page")
-	public void goToPreferencePage() {
-		navigateToURL();
-	}
-	
-	@com.thoughtworks.gauge.Step("Verify cruise footer - On preferences page")
-	@Override
-	public void verifyCruiseFooter() throws Exception {
-		super.verifyCruiseFooter();
-	}
-	
-    
     public void changeEmailToAndAliasTo(String email, String alias) throws Exception {
         browser.byId("edit-matchers").click();
         browser.byId("email").setValue(email);
-        browser.byId("matchers").setValue(alias);        
+        browser.byId("matchers").setValue(alias);
         browser.byId("save-matchers").click();
-    }    
-    
+    }
 
 }
