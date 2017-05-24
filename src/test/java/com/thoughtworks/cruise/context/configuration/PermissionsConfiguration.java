@@ -50,7 +50,7 @@ protected void postProcess(CruiseConfigDom dom) throws IOException {
 private void pointPasswordFileToAbsolutePath(CruiseConfigDom dom) throws IOException {
 	File destination = config.copyPasswordFile(getClass().getResource("/config/password.properties"));
 	Element passwordFile = dom.getPasswordFile();
-	passwordFile.attribute("path").setValue(destination.getCanonicalPath());
+	passwordFile.setText(destination.getCanonicalPath());
 }
 
 @com.thoughtworks.gauge.Step("Permissions configuration - teardown")

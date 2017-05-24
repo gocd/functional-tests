@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- *************************GO-LICENSE-START******************************
- * Copyright 2015 ThoughtWorks, Inc.
+ * Copyright 2017 ThoughtWorks, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="92">
   <server artifactsdir="artifacts" serverId="twist">
       <security>
-      <ldap uri="ldap://does_not_exist.com" managerDn="cn=Active Directory Ldap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=corporate,dc=thoughtworks,dc=com" managerPassword="password" searchFilter="(sAMAccountName={0})">
-      	<bases>
-      		<base value="ou=Employees,ou=Enterprise,ou=Principal,dc=organisation,dc=company,dc=com"/>
-      	</bases>
-      </ldap>
-      <passwordFile path="$password_properties"/>
-    </security>
+          <authConfigs>
+              <authConfig id="bc2ff922-eb8d-4a96-9791-22fd85104a43" pluginId="cd.go.authentication.ldap">
+                  <property>
+                      <key>Url</key>
+                      <value>ldap://does_not_exist.com</value>
+                  </property>
+                  <property>
+                      <key>ManagerDN</key>
+                      <value>cn=Active Directory Ldap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=corporate,dc=thoughtworks,dc=com
+                      </value>
+                  </property>
+                  <property>
+                      <key>SearchBases</key>
+                      <value>ou=Employees,ou=Enterprise,ou=Principal,dc=organisation,dc=company,dc=com
+                      </value>
+                  </property>
+                  <property>
+                      <key>UserLoginFilter</key>
+                      <value>(sAMAccountName={0})</value>
+                  </property>
+                  <property>
+                      <key>Password</key>
+                      <value>password</value>
+                  </property>
+              </authConfig>
+              <authConfig id="cc1cb954-5f97-4339-a353-1d9e23a9f29b" pluginId="cd.go.authentication.passwordfile">
+                  <property>
+                      <key>PasswordFilePath</key>
+                      <value>$password_properties</value>
+                  </property>
+              </authConfig>
+          </authConfigs>
+      </security>
   </server>
 </cruise>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- *************************GO-LICENSE-START******************************
- * Copyright 2015 ThoughtWorks, Inc.
+ * Copyright 2017 ThoughtWorks, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="92">
     <server artifactsdir="artifacts" serverId="twist">
     </server>
@@ -297,7 +296,7 @@
   <pipelines group="defaultGroup">
     <pipeline name="pipeline_with_yum_repo_package_as_material">
       <materials>
-        <package ref="package-id" />
+        <package ref="package-id"/>
       </materials>
       <stage name="defaultStage">
         <jobs>
@@ -306,7 +305,7 @@
               <exec command="/bin/sh">
                 <arg>-c</arg>
                 <arg>echo GO_REPO_TW_REPO_GO_AGENT_PASSWORD : $GO_REPO_TW_REPO_GO_AGENT_PASSWORD AND GO_PACKAGE_TW_REPO_GO_AGENT_LOCATION : $GO_PACKAGE_TW_REPO_GO_AGENT_LOCATION</arg>
-                <runif status="passed" />
+                <runif status="passed"/>
               </exec>
             </tasks>
           </job>
@@ -316,17 +315,17 @@
     
     <pipeline name="pipeline_with_yum_repo_package_api">
       <materials>
-        <package ref="package-id" />
+        <package ref="package-id"/>
       </materials>
       <stage name="defaultStage">
-      <approval type="manual" />
+      <approval type="manual"/>
         <jobs>
           <job name="defaultJob">
             <tasks>
               <exec command="/bin/sh">
                 <arg>-c</arg>
                 <arg>echo GO_REPO_TW_REPO_GO_AGENT_PASSWORD : $GO_REPO_TW_REPO_GO_AGENT_PASSWORD AND GO_PACKAGE_TW_REPO_GO_AGENT_LOCATION : $GO_PACKAGE_TW_REPO_GO_AGENT_LOCATION</arg>
-                <runif status="passed" />
+                <runif status="passed"/>
               </exec>
             </tasks>
           </job>
@@ -336,7 +335,7 @@
     
      <pipeline name="pipeline_repo_user_has_special_password">
       <materials>
-        <package ref="package-id-2" />
+        <package ref="package-id-2"/>
       </materials>
       <stage name="defaultStage">
         <jobs>
@@ -345,7 +344,7 @@
               <exec command="/bin/sh">
                 <arg>-c</arg>
                 <arg>echo GO_REPO_TW_REPO_2_GO_AGENT_NOARCH_PASSWORD : $GO_REPO_TW_REPO_2_GO_AGENT_NOARCH_PASSWORD AND GO_PACKAGE_TW_REPO_2_GO_AGENT_NOARCH_LOCATION : $GO_PACKAGE_TW_REPO_2_GO_AGENT_NOARCH_LOCATION</arg>
-                <runif status="passed" />
+                <runif status="passed"/>
               </exec>
             </tasks>
           </job>
@@ -361,7 +360,7 @@
         <jobs>
           <job name="defaultJob">
             <tasks>
-              <exec command="ls" />
+              <exec command="ls"/>
             </tasks>
           </job>
         </jobs>
@@ -371,8 +370,8 @@
     
     <pipeline name="A1" template="A-series">
       <materials>
-        <package ref="P1" />
-        <package ref="Q1" />      
+        <package ref="P1"/>
+        <package ref="Q1"/>      
        <pipeline pipelineName="A3" stageName="defaultStage"/>
         
       </materials>
@@ -380,16 +379,16 @@
 
      <pipeline name="A2" template="A-series">
       <materials>
-        <package ref="P2" />
-        <package ref="Q2" />
+        <package ref="P2"/>
+        <package ref="Q2"/>
         <git url="$giturl" materialName="modifiable_git" dest="git-mod"/>
       </materials>
     </pipeline>
 
      <pipeline name="A3" template="A-series">
       <materials>
-        <package ref="P2" />
-        <package ref="Q3" />
+        <package ref="P2"/>
+        <package ref="Q3"/>
       </materials>
     </pipeline>
     
@@ -404,8 +403,8 @@
       <materials>
         
       	<pipeline pipelineName="C1" stageName="defaultStage"/>
-        <package ref="CP1" />
-        <package ref="CP2" />
+        <package ref="CP1"/>
+        <package ref="CP2"/>
         <hg url="$hgurl" dest="hg" materialName="hg-c2"/>
         
       </materials>
@@ -413,14 +412,14 @@
     
     <pipeline name="F1" template="A-series">
       <materials>
-        <package ref="P1" />
+        <package ref="P1"/>
       </materials>
     </pipeline>
     
     <pipeline name="F2" template="A-series">
       <materials>
-        <package ref="P1" />
-        <package ref="CP2" />
+        <package ref="P1"/>
+        <package ref="CP2"/>
       </materials>
     </pipeline>
     
@@ -428,20 +427,20 @@
       <materials>
 		<pipeline pipelineName="F1" stageName="defaultStage"/>
         <pipeline pipelineName="F2" stageName="defaultStage"/>
-        <package ref="CP2" />
+        <package ref="CP2"/>
       </materials>
     </pipeline>  
     
     <pipeline name="K1">
       <materials>
-        <package ref="CP2" />
+        <package ref="CP2"/>
       </materials>
        <stage name="defaultStage">
-        <approval type="manual" />
+        <approval type="manual"/>
         <jobs>
           <job name="defaultJob">
             <tasks>
-              <exec command="ls" />
+              <exec command="ls"/>
             </tasks>
           </job>
         </jobs>
@@ -450,14 +449,14 @@
     
     <pipeline name="K2">
       <materials>
-        <package ref="CP1" />
+        <package ref="CP1"/>
       </materials>
        <stage name="defaultStage">
-        <approval type="manual" />
+        <approval type="manual"/>
         <jobs>
           <job name="defaultJob">
             <tasks>
-              <exec command="ls" />
+              <exec command="ls"/>
             </tasks>
           </job>
         </jobs>
@@ -466,18 +465,18 @@
   
      <pipeline name="K3">
       <materials>
-        <hg url="$hgurl" dest="hg" materialName="hg-k3" />
-        <package ref="CP1" />
+        <hg url="$hgurl" dest="hg" materialName="hg-k3"/>
+        <package ref="CP1"/>
       </materials>
       <stage name="defaultStage">
-        <approval type="manual" />
+        <approval type="manual"/>
         <jobs>
           <job name="defaultJob">
             <tasks>
-              <exec command="ls" />
+              <exec command="ls"/>
             </tasks>
             <artifacts>
-              <test src="hg/dev/pass.xml" dest="pass" />
+              <test src="hg/dev/pass.xml" dest="pass"/>
             </artifacts>
           </job>
         </jobs>
@@ -486,18 +485,18 @@
     
     <pipeline name="K4">
       <materials>
-        <hg url="$hgurl" dest="hg" materialName="hg-k4" />
-        <package ref="CP1" />
+        <hg url="$hgurl" dest="hg" materialName="hg-k4"/>
+        <package ref="CP1"/>
       </materials>
       <stage name="defaultStage">
-        <approval type="manual" />
+        <approval type="manual"/>
         <jobs>
           <job name="defaultJob">
             <tasks>
-              <exec command="ls123" />
+              <exec command="ls123"/>
             </tasks>
             <artifacts>
-              <test src="hg/dev/fail.xml" dest="fail" />
+              <test src="hg/dev/fail.xml" dest="fail"/>
             </artifacts>
           </job>
         </jobs>
@@ -509,7 +508,7 @@
   <pipelines group="fanin-advanced">
     <pipeline name="fanin_a" template="fanin_a-template">
       <materials>
-        <package ref="CP2" />
+        <package ref="CP2"/>
       </materials>
     </pipeline>
     
@@ -539,61 +538,61 @@
     <pipelines group="mduErrors">    
     <pipeline name="M1" template="A-series">
       <materials>
-        <package ref="MQ2" />
-        <package ref="MP3" />
+        <package ref="MQ2"/>
+        <package ref="MP3"/>
       </materials>
     </pipeline>
     
      <pipeline name="M2" template="A-series">
       <materials>
-        <package ref="MP1" />
-        <package ref="MP3" />
+        <package ref="MP1"/>
+        <package ref="MP3"/>
       </materials>
     </pipeline> 
     
      <pipeline name="M3" template="A-series">
       <materials>
-        <package ref="MQ2" />
+        <package ref="MQ2"/>
       </materials>
     </pipeline>
     
     <pipeline name="M4" template="A-series">
       <materials>
-        <package ref="MQ3" />
-        <package ref="MQ5" />
+        <package ref="MQ3"/>
+        <package ref="MQ5"/>
       </materials>
     </pipeline>
   
   <pipeline name="M5" template="A-series">
       <materials>
-        <package ref="MP2" />
-        <package ref="MQ4" />
+        <package ref="MP2"/>
+        <package ref="MQ4"/>
       </materials>
     </pipeline>			
 
   
   <pipeline name="M6" template="A-series">
       <materials>
-        <package ref="CP2" />
-        <package ref="MP3" />
+        <package ref="CP2"/>
+        <package ref="MP3"/>
       </materials>
     </pipeline>	
     
     <pipeline name="M7" template="A-series">
       <materials>
-        <package ref="MP4" />
+        <package ref="MP4"/>
       </materials>
     </pipeline>	
     
     <pipeline name="M8" template="A-series">
       <materials>
-        <package ref="pkg-dup-and-invalid-keys" />
+        <package ref="pkg-dup-and-invalid-keys"/>
       </materials>
     </pipeline>	
     
     <pipeline name="M9" template="A-series">
       <materials>
-        <package ref="pkg-with-empty-key-value" />
+        <package ref="pkg-with-empty-key-value"/>
       </materials>
     </pipeline>		
   	
@@ -608,17 +607,17 @@
          <jobs>
           <job name="job1">
             <tasks>
-              <exec command="ls" />
+              <exec command="ls"/>
             </tasks>
           </job>
         </jobs>
       </stage>
       <stage name="stage_2">
-      <approval type="manual" />
+      <approval type="manual"/>
          <jobs>
           <job name="job1">
             <tasks>
-              <exec command="ls" />
+              <exec command="ls"/>
             </tasks>
           </job>
         </jobs>
@@ -630,7 +629,7 @@
          <jobs>
           <job name="defaultJob">
             <tasks>
-              <exec command="ls" />
+              <exec command="ls"/>
             </tasks>
           </job>
         </jobs>
@@ -642,7 +641,7 @@
          <jobs>
           <job name="defaultJob">
             <tasks>
-              <exec command="ls" />
+              <exec command="ls"/>
             </tasks>
           </job>
         </jobs>
@@ -652,11 +651,11 @@
 
    <pipeline name="C-series">
       <stage name="defaultStage">
-      <approval type="manual" />
+      <approval type="manual"/>
          <jobs>
           <job name="defaultJob">
             <tasks>
-              <exec command="ls" />
+              <exec command="ls"/>
             </tasks>
           </job>
         </jobs>

@@ -40,7 +40,7 @@ public class ValidLdapConfiguration extends AbstractConfiguration{
 	protected void postProcess(CruiseConfigDom dom) throws Exception {
 		String ldapServerIp = System.getenv("LDAP_SERVER_IP");
 		if (StringUtils.isBlank(ldapServerIp)) throw new RuntimeException(String.format("%s is not set", ldapServerIp));
-		dom.getLdap().attribute("uri").setValue("ldap://" + ldapServerIp);
+		dom.getLdap().setText("ldap://" + ldapServerIp);
 	}
 
 

@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="92">
     <server artifactsdir="artifacts" serverId="twist">
     </server>
@@ -74,13 +73,13 @@
 
         <pipeline name="M8" template="A-series">
             <materials>
-                <package ref="pkg-dup-and-invalid-keys" />
+                <package ref="pkg-dup-and-invalid-keys"/>
             </materials>
         </pipeline>
 
         <pipeline name="M9" template="A-series">
             <materials>
-                <package ref="pkg-with-empty-key-value" />
+                <package ref="pkg-with-empty-key-value"/>
             </materials>
         </pipeline>
 
@@ -96,7 +95,7 @@
                 <jobs>
                     <job name="defaultJob">
                         <tasks>
-                            <exec command="ls" />
+                            <exec command="ls"/>
                         </tasks>
                     </job>
                 </jobs>
