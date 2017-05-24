@@ -22,7 +22,9 @@ Setup of contexts
 EncryptPasswords
 ----------------
 
-tags: 3560, Encrypt Passwords, stage1
+tags: 3560, Encrypt Passwords, stage1, manual
+
+This test will be replaced with a spec in ruby-selenium tests validating the password field encryption by LDAP auth plugin
 
 Encryption of Svn and P4 passwords taken care of in relavent tests
 
