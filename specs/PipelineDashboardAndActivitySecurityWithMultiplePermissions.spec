@@ -34,7 +34,7 @@ Verify that user 'group1view' gets union of the different permissions specified 
 
 * Logout - On Any Page
 
-* Login as "group1View"
+* Login as "group1view"
 
 
 Pipeline Visibility
