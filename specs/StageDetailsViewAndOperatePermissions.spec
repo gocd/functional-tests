@@ -83,7 +83,7 @@ tags: 6786, stage-details
 * verify user can operate stage "stage2" for pipeline "p4" from stage details page
 
 
-* Logout and login as "group1view"
+* Logout and login as "group1View"
 
 * On Pipeline Dashboard Page
 * verify user cannot operate stage "defaultStage" for pipeline "p1" from stage details page
