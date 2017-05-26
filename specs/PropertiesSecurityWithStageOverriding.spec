@@ -72,7 +72,7 @@ commented line verification to be put back after #6827 or #6809 is fixed
 * verify property "prop_name_api_6" with value "prop_value_api_6" for pipeline "P6" stage "secondStage" label "1" counter "1" job "secondJob" cannot be added
 
 
-* Logout and login as "group1View"
+* Logout and login as "group1view"
 
 * Looking at pipeline "P6"
 * Navigate to stage "firstStage" of run "1" having counter "1"

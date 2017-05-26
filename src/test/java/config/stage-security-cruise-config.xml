@@ -36,7 +36,7 @@
 				</role>
 				<role name="misc">
 					<users>
-						<user>group1View</user>
+						<user>group1view</user>
 					</users>
 				</role>
 			</roles>

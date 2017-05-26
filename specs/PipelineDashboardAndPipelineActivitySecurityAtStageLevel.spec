@@ -98,7 +98,7 @@ Pipeline Visibility
 
 * Logout - On Any Page
 
-* Login as "group1View"
+* Login as "group1view"
 
 Pipeline Visibility
 * PipelineVisibility 
