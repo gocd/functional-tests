@@ -16,7 +16,7 @@ ServerConfigurationConfigMergeConflict
 
 Setup of contexts
 * Secure configuration - setup
-* Login as "Admin" - setup
+* Login as "admin" - setup
 * Capture go state "ServerConfigurationConfigMergeConflict" - setup
 
 ServerConfigurationConfigMergeConflict
@@ -55,7 +55,7 @@ tags: 7294, enterprise
 Teardown of contexts
 ____________________
 * Capture go state "ServerConfigurationConfigMergeConflict" - teardown
-* Login as "Admin" - teardown
+* Login as "admin" - teardown
 * Secure configuration - teardown
 
 
