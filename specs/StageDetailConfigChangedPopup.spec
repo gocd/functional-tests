@@ -16,7 +16,7 @@ StageDetailConfigChangedPopup
 
 Setup of contexts
 * Secure configuration - setup
-* Login as "Admin" - setup
+* Login as "admin" - setup
 * Using pipeline "edit-pipeline" - setup
 * Capture go state "StageDetailConfigChangedPopup" - setup
 
@@ -80,7 +80,7 @@ Teardown of contexts
 ____________________
 * Capture go state "StageDetailConfigChangedPopup" - teardown
 * Using pipeline "edit-pipeline" - teardown
-* Login as "Admin" - teardown
+* Login as "admin" - teardown
 * Secure configuration - teardown
 
 
