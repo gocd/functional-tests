@@ -21,7 +21,7 @@
       <roles>
         <role name="misc">
           <users>
-            <user>group1view</user>
+            <user>group1View</user>
           </users>
         </role>
       </roles>
@@ -297,7 +297,7 @@
       <view>
         <user>raghu</user>
         <user>pavan</user>
-        <user>group1view</user>
+        <user>group1View</user>
       </view>
       <operate>
         <role>misc</role>
@@ -325,7 +325,7 @@
     <pipelines group="GroupI">
     <authorization>
       <admins>
-        <user>group1view</user>
+        <user>group1View</user>
       </admins>
       <view>
         <role>misc</role>

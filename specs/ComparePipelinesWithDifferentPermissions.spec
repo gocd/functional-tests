@@ -97,7 +97,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687, 6786
 * Click on upstream pipeline revision "${runtime_name:first-pipeline}/1/defaultStage/1"
 * Verify that unauthorized access message is shown
 
-* Logout and login as "group1view"
+* Logout and login as "group1View"
 
 * Verify pipeline "first-pipeline" is visible
 * Looking at pipeline "down-pipeline"
