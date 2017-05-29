@@ -1394,7 +1394,7 @@ public class CruiseConfigDom {
 	}
 
 	public Element getLdap() {
-		return (Element) root().selectSingleNode("//authConfigs/authConfig[@pluginId='"+ CruiseConstants.LDAP_AUTHENTICATION_PLUGIN_ID +"']/property[0]/value");
+		return (Element) root().selectSingleNode("//authConfigs/authConfig[@pluginId='"+ CruiseConstants.LDAP_AUTHENTICATION_PLUGIN_ID +"']/property[1]/value");
 	}
 
 	public Element getMailHost() {
@@ -1777,7 +1777,7 @@ public class CruiseConfigDom {
 
 		securityTag.add(authConfigsTag);
 		serverTag().add(securityTag);
-        
+
 	}
 
 	public void replaceServerId(String serverId) {
