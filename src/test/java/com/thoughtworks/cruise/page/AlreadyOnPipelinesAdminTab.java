@@ -103,9 +103,9 @@ public class AlreadyOnPipelinesAdminTab extends CruisePage {
         assertThatExtractTemplateExists(pipelineName, true);
     }
 
-    @com.thoughtworks.gauge.Step("Verify that extract template is not visible for <pipelineName>")
+    @com.thoughtworks.gauge.Step("Verify that extract template is visible for <pipelineName>")
 	public void verifyThatExtractTemplateIsNotVisibleFor(String pipelineName) throws Exception {
-        assertThatExtractTemplateExists(pipelineName, false);
+        assertThatExtractTemplateExists(pipelineName, true);
     }
     
     private void assertThatExtractTemplateExists(String pipelineName, boolean exists) {

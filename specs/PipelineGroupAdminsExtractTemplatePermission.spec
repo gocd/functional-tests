@@ -38,7 +38,7 @@ User pavan is the pipeline Group Admin. He should not see Extract Template.
 * On Admin page
 * Open "Pipelines" tab
 
-* Verify that extract template is not visible for "pipeline-with-group-and-stage-security"
+* Verify that extract template is visible for "pipeline-with-group-and-stage-security"
 
 
 

@@ -91,7 +91,7 @@ tags: 4600, Clicky Admin, 7862
 
 * Verify that templates "unused-template" are present
 * Verify can delete templates "unused-template"
-* Verify cannot add new template for template admin
+* Verify can add new template for group admin
 * Verify that template "unused-template" has message "No pipelines associated with this template"
 
 

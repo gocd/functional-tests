@@ -173,6 +173,14 @@ public class AlreadyOnTemplatesListingTab extends CruisePage {
 				browser.span("add_icon_disabled").in(secondaryTemplateContainer).exists(), is(true));
 	}
 
+    @com.thoughtworks.gauge.Step("Verify can add new template for group admin")
+    public void verifyCanAddNewTemplateForGroupAdmin() {
+        ElementStub templateContainer = browser.div("templates");
+        ElementStub secondaryTemplateContainer = browser.span("title_secondary_info").in(templateContainer);
+        assertThat("Add new template must be disabled for template admin",
+                browser.span("add_icon_disabled").in(secondaryTemplateContainer).exists(), is(false));
+    }
+
 	@com.thoughtworks.gauge.Step("Verify that <templateName> template has permissions link enabled and click on it")
 	public void verifyThatTemplateHasPermissionsLinkEnabledAndClickOnIt(String templateName) {
 		ElementStub templateDiv = browser.heading2(templateName).parentNode();
