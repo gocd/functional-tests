@@ -41,7 +41,7 @@ public class AlreadyOnStageDetailJobsTab extends CruisePage {
         this.autoRefresh = browserWrapper.isAutoRefresh();
 		currentPageState.assertCurrentPageIs(CurrentPageState.Page.STAGE_DETAIL_JOBS_TAB);
 	}
-	
+
 	@Override
 	protected String url() {
 		String url = browserWrapper.getCurrentUrl();
@@ -80,7 +80,7 @@ public class AlreadyOnStageDetailJobsTab extends CruisePage {
 				reloadPage();
                 return verifyJobStateAndResult(job, state, result);
 			}
-		});	
+		});
 	}
 
     private boolean verifyJobStateAndResult(String job, String state, String result) {
@@ -94,7 +94,7 @@ public class AlreadyOnStageDetailJobsTab extends CruisePage {
 	}
 
 	private void assertRerunButtonState(boolean status) {
-		assertThat(browser.submit("RERUN").isVisible(), is(status));
+		assertThat(browser.submit("RERUN SELECTED").isVisible(), is(status));
 	}
 
 	@com.thoughtworks.gauge.Step("Rerun <jobNames> jobs")
@@ -103,7 +103,7 @@ public class AlreadyOnStageDetailJobsTab extends CruisePage {
             ElementStub selector = browser.checkbox(jobName);
             selector.check();
         }
-        browser.submit("RERUN").click();
+        browser.submit("RERUN SELECTED").click();
 	}
 
 	@com.thoughtworks.gauge.Step("Verify looking at <stageName> having counter <stageCounter>")
