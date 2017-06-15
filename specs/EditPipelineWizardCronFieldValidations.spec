@@ -26,26 +26,7 @@ tags: 4737, Clicky Admin
 
 * Click on pipeline "edit-pipeline" for editing
 
-
-Cron Field Validations
-
-* CronFieldValidation 
-     |Cron Field Value           |valid|
-     |---------------------------|-----|
-     |0 0/5 * * * ?              |true |
-     |10 0/5 * * * ?             |true |
-     |0 30 10-13 ? * WED,FRI     |true |
-     |0 0/30 8-9 5,20 * ?        |true |
-     |0 30 10-13 ? * WED-FRI     |true |
-     |0 30 10-13 ? * FRI-MON     |true |
-     |0 30 10-13 ? * WED,FRI 2011|true |
-     |some_string                |false|
-     |@hourly                    |false|
-     |@monthly                   |false|
-     |@weekly                    |false|
-     |@daily                     |false|
-     |@reboot                    |false|
-     |0 30  1-12 1-28 JAN-JUN ?  |true |
+Removed the cron field validations since it did not makes sense to check the quartz cron format as part of E2E tests
 
 
 * Open parameters page
@@ -76,8 +57,6 @@ Cron Field Validations with parameter substituion
 * Click save - Already On Environment Variables Page
 * Open general options page - Already on environment variables page
 
-
-
 Cron time specifier validation with environment variables
 
 
@@ -86,10 +65,6 @@ Cron time specifier validation with environment variables
      |-----------------------------|-----|
      |${env_cron_specifier}        |false|
      |${env_partial_cron_specifier}|false|
-
-
-
-
 
 
 
