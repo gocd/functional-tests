@@ -22,7 +22,9 @@ Setup of contexts
 StageDetailsHistoryPagination
 -----------------------------
 
-tags: 3609, stage-details, automate
+tags: 3609, stage-details, automate, ignore
+Stage History page change is validated as part of the tests here - https://github.com/gocd/gocd/blob/master/server/webapp/WEB-INF/rails.new/spec/javascripts/stage_history_spec.js
+So ignore this test at E2E level
 
 * Trigger and cancel pipeline "pipeline-ls" "21" times
 * Navigate to stage "defaultStage" of run "21" having counter "1"

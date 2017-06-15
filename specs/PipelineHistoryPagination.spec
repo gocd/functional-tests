@@ -22,7 +22,9 @@ Setup of contexts
 PipelineHistoryPagination
 -----------------------------
 
-tags: pipeline-history
+tags: pipeline-history, ignore
+Pipeline history navigation is verified in this spec - https://github.com/gocd/gocd/blob/master/server/webapp/WEB-INF/rails.new/spec/javascripts/pipeline_history_spec.js
+So ignore at E2E level
 
 * Trigger and cancel pipeline "pipeline-ls" "23" times
 * Navigate to pipeline history of pipeline "pipeline-ls"
