@@ -23,7 +23,7 @@ Setup of contexts
 AssociatingAPipelineWithAnEnvironmentWithNoAgents
 -------------------------------------------------
 
-tags: 3216, automate, environment, pipeline
+tags: 3216, automate, environment, pipeline, ignore
 
 This is to verify that only the agents associated with an evironment are used to build the pipeline
 * Add resource "linux" to all agents - Using Agents API

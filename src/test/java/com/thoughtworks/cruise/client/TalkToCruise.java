@@ -61,6 +61,7 @@ public class TalkToCruise {
             post.setRequestHeader("Accept", CruiseConstants.apiV1);
             post.setRequestHeader("Content-Type", "application/json");
         }
+        post.setRequestHeader("CONFIRM","true");
         return execute(url, client, post);
     }
 
