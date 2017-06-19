@@ -26,6 +26,15 @@ AssociatingMultiplePipelinesWithAnEnvironment
 tags: 3216, automate, environment, pipeline
 
 This is to verify that only the agents associated with an evironment are used to build the pipeline
+
+* Add resource "linux" to all agents - Using Agents API
+
+* Adding resource "linux" to the job "short"
+
+* Trigger pipeline "environment-pipeline"
+
+* Verify there are "0" agents with state "Building"
+
 * Add environment "uat" to any "2" Idle agents - Using Agents API
 * Adding pipeline "basic-pipeline" to "uat" environment
 
@@ -35,9 +44,6 @@ This is to verify that only the agents associated with an evironment are used to
 * Looking at pipeline "basic-pipeline"
 * Trigger pipeline
 * Verify stage "1" is "Building" on pipeline with label "1"
-
-
-
 
 
 

@@ -405,7 +405,7 @@ public class AlreadyOnStageDetailPage extends CruisePage {
 	@com.thoughtworks.gauge.Step("Verify stage bar triggered at shows a date")
 	public void verifyStageBarTriggeredAtShowsADate() throws Exception {
 		ElementStub stageTriggeredBy = browser.span(Regex.wholeWord("time")).in(browser.div("schedule_info"));
-		assertTrue(Pattern.matches("\\d{2} \\w{3}, \\d{4} at \\d{2}:\\d{2}:\\d{2} .*", stageTriggeredBy.getText()));
+		assertTrue(Pattern.matches("\\d{2} \\w{3} \\d{4} at \\d{2}:\\d{2}:\\d{2} .*", stageTriggeredBy.getText()));
 	}
 
 	@com.thoughtworks.gauge.Step("Verify the lock status is <lockStatus>")
