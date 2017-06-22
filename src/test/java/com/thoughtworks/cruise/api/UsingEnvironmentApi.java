@@ -45,7 +45,7 @@ public class UsingEnvironmentApi {
 	private String environmentUpdateUrl;
 	private String envName;
 	private String auth = "Basic "+new String(Base64.encode("admin:badger".getBytes()));
-	private String apiv1 = "application/vnd.go.cd.v1+json";
+	private String apiv2 = "application/vnd.go.cd.v2+json";
 	private String contentType = "application/json";
 
 	public UsingEnvironmentApi(Browser browser, TalkToCruise talkToCruise) {
@@ -59,7 +59,7 @@ public class UsingEnvironmentApi {
 		HashMap<String, String> headers = new HashMap<String, String>();
 
 		headers.put("Authorization", auth);
-		headers.put("Accept", apiv1);
+		headers.put("Accept", apiv2);
 		headers.put("Content-Type", contentType);
 		headers.put("If-Match", response.getHeader("Etag"));
 
@@ -78,7 +78,7 @@ public class UsingEnvironmentApi {
 
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put("Authorization", auth);
-		headers.put("Accept", apiv1);
+		headers.put("Accept", apiv2);
 		headers.put("Content-Type", contentType);
 
 		Response response = given().
