@@ -842,7 +842,7 @@
     </xsd:attributeGroup>
     <xsd:simpleType name="commandType">
         <xsd:restriction base="xsd:string">
-            <xsd:pattern value="\S(.*\S)?"/>
+            <xsd:pattern value="\S+(.*\S+)*"/>
         </xsd:restriction>
     </xsd:simpleType>
     <xsd:complexType name="dependsType">
