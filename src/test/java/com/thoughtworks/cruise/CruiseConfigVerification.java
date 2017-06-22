@@ -176,7 +176,6 @@ public class CruiseConfigVerification {
     @com.thoughtworks.gauge.Step("Verify has tag <tagName> <attributes>")
 	public void verifyHasTag(String tagName, String attributes) throws Exception {
 
-        System.out.println("DEBUG Statement. The XPATH as formatted by the test : "+ String.format(".//%s%s", tagName, conditions(attributes)));
         Assert.assertThat(currentPipeline().selectNodes(String.format(".//%s%s", tagName, conditions(attributes))).isEmpty(), is(false));
     }
     

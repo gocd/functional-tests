@@ -92,7 +92,7 @@ tags: 5041, Clicky Admin
 * For pipeline "svn_pipeline_name"
 * Verify has tag "svn" "@url: http://svn.url, @username: loser"
 * Verify has tag "exec" "@command: snippet2, ./arg/text(): arg1_for_snippet2, @workingdir: target"
-* Verify has tag "exec" "@command: snippet2, ./arg/text(): arg2_for_snippet2, @workingdir: target"
+* Verify has tag "exec" "@command: snippet2, ./arg/text(): arg2_for_snippet2"
 
 * Force navigate to add new pipeline
 
