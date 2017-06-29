@@ -382,6 +382,11 @@ public class AlreadyOnJobDetailPage extends CruisePage{
         assertThat(elementBreadcrumbLink(scenarioState.pipelineNamed(pipeline)).exists(), is(true));
     }
 
+    @com.thoughtworks.gauge.Step("Verify breadcrumb contains link to pipeline <pipeline> settings page")
+    public void verifyBreadcrumbContainsLinkToPipelineSettings(String pipeline) throws Exception {
+        assertThat(elementBreadcrumbLink("icon16 setting").getAttribute("href"), containsString("/go/admin/pipelines/" + scenarioState.pipelineNamed(pipeline) + "/general"));
+    }
+
     @com.thoughtworks.gauge.Step("Verify breadcrumb contains pipeline label <label>")
     public void verifyBreadcrumbContainsPipelineLabel(String label) throws Exception {
         assertThat(elementBreadcrumbLink(label).exists(), is(true));
