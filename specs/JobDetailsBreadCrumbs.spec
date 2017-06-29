@@ -34,6 +34,7 @@ tags: 4147, breadcrumbs, job-detail
 * Verify breadcrumb contains pipeline "basic-pipeline-fast"
 * Verify breadcrumb contains pipeline label "1"
 * Verify breadcrumb contains stage run "defaultStage / 1"
+* Verify breadcrumb contains link to pipeline "basic-pipeline-fast" settings page
 * Click on bread crumb "defaultStage / 1"
 
 * Verify that "${runtime_name:basic-pipeline-fast}/1/defaultStage/1" stage is displayed
@@ -46,6 +47,7 @@ tags: 4147, breadcrumbs, job-detail
 * Verify breadcrumb contains pipeline label "1"
 * Verify breadcrumb contains stage run "defaultStage / 2"
 * Verify breadcrumb contains link to value stream map on pipeline label "1" for pipeline "basic-pipeline-fast" for counter "1"
+* Verify breadcrumb contains link to pipeline "basic-pipeline-fast" settings page
 * Click on bread crumb "defaultStage / 2"
 
 * Verify that "${runtime_name:basic-pipeline-fast}/1/defaultStage/2" stage is displayed
@@ -56,6 +58,7 @@ tags: 4147, breadcrumbs, job-detail
 * Click on pipeline bread crumb "basic-pipeline-fast"
 
 * Verify on pipeline history page for "basic-pipeline-fast"
+* Verify breadcrumb contains link to pipeline "basic-pipeline-fast" settings page
 
 
 
