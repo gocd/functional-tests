@@ -181,6 +181,12 @@ public class AgentLauncher extends ProcessIsRunning {
                         " -Dagent.ping.delay=500" +
                         " -Dagent.ping.interval=500" +
                         " -Dgo.gauge.agent=true");
+
+        String startUpArgs = System.getenv("ADDITIONAL_AGENT_STARTUP_ARGS");
+        if (startUpArgs != null && !startUpArgs.equals("")) {
+            String additionalStartupArgs = env.get("GO_AGENT_SYSTEM_PROPERTIES") + " " + startUpArgs;
+            env.put("GO_AGENT_SYSTEM_PROPERTIES", additionalStartupArgs);
+        }
         return env;
     }
 
