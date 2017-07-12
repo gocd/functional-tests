@@ -23,7 +23,7 @@ Setup of contexts
 GitPipeline
 -----------
 
-tags: git, automate
+tags: git, automate, buildcommand
 
 * With external material of "git-submodule" for pipeline "git-pipeline"
 * Checkin file "new_file" as user "twist <twist@thoughtworks.com>" with message "Added new_file"

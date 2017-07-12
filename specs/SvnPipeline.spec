@@ -23,7 +23,7 @@ Setup of contexts
 SvnPipeline
 -----------
 
-tags: 1995, 2126, svn-support, long, not-windows, automate
+tags: 1995, 2126, svn-support, long, not-windows, automate, buildcommand
 
 Modify material definition and make sure the pipeline gets scheduled
 

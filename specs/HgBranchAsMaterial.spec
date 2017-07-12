@@ -23,7 +23,7 @@ Setup of contexts
 HgBranchAsMaterial
 ------------------
 
-tags: #7089, Hg branch
+tags: #7089, Hg branch, buildcommand
 
 * Looking at pipeline "pipeline-using-hg-default-branch"
 * Verify stage "1" is "Passed" on pipeline with label "1"
