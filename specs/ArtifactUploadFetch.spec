@@ -24,7 +24,7 @@ Setup of contexts
 ArtifactUploadFetch
 -------------------
 
-tags: 2248, 3153, fetch artifact, svn support, diagnostics messages, publish artifact, scheduling, not-windows, automate, stage1
+tags: 2248, 3153, fetch artifact, svn support, diagnostics messages, publish artifact, scheduling, not-windows, automate, stage1, buildcommand
 
 * Looking at pipeline "pipeline-artifacts"
 * Trigger pipeline
