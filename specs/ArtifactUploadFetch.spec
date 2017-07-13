@@ -41,7 +41,6 @@ tags: 2248, 3153, fetch artifact, svn support, diagnostics messages, publish art
 * Verify in console that artifact "/subfolder/file" was uploaded to "all-in-subfolder"
 * Verify in console that artifact "/something.zip" was uploaded to "allzip"
 * Verify in console that artifact "/subfolder/another.zip" was uploaded to "allzip/subfolder"
-* Verify console contains "Failed to upload [**/*.not-exists]"
 
 * Looking at pipeline "pipeline-artifacts"
 * Navigate to stage "defaultStage" of run "1" having counter "1"
