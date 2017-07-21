@@ -29,7 +29,7 @@ tags: 7735, 7777, admin-page, configuration, plugins-tests
 
 * Verify plugin named "Yum plugin" with id "yum" is valid
 * Verify plugin with id "yum" has version "2.0.1" name "Yum plugin" description "Plugin that polls a yum repository" author "ThoughtWorks Go Team" with enabled link to "http://www.thoughtworks.com/"
-* Verify more information for plugin with id "yum" has path "/plugins/bundled/yum-repo-exec-poller.jar" target os "Linux" target go version "15.2.0" and bundled status as "Yes"
+* Verify more information for plugin with id "yum" has path "/plugins/bundled/gocd-yum-repository-poller-plugin.jar" target os "Linux" target go version "15.2.0" and bundled status as "Yes"
 * Verify plugin named "test-donothing-plugin.jar" with id "test-donothing-plugin.jar" is valid
 * Verify plugin with id "test-donothing-plugin.jar" has version "" name "test-donothing-plugin.jar" description "No description available." author "Unknown" with disabled link
 * Verify more information for plugin with id "test-donothing-plugin.jar" has path "/test-donothing-plugin.jar" target os "No restrictions" target go version "Unknown" and bundled status as "No"
@@ -44,7 +44,7 @@ tags: 7735, 7777, admin-page, configuration, plugins-tests
 
 * Verify plugin named "Yum plugin" with id "yum" is valid
 * Verify plugin with id "yum" has version "2.0.1" name "Yum plugin" description "Plugin that polls a yum repository" author "ThoughtWorks Go Team" with enabled link to "http://www.thoughtworks.com/"
-* Verify more information for plugin with id "yum" has path "/plugins/bundled/yum-repo-exec-poller.jar" target os "Linux" target go version "15.2.0" and bundled status as "Yes"
+* Verify more information for plugin with id "yum" has path "/plugins/bundled/gocd-yum-repository-poller-plugin.jar" target os "Linux" target go version "15.2.0" and bundled status as "Yes"
 * Verify plugin named "test-donothing-plugin.jar" with id "test-donothing-plugin.jar" is valid
 * Verify plugin with id "test-donothing-plugin.jar" has version "" name "test-donothing-plugin.jar" description "No description available." author "Unknown" with disabled link
 * Verify more information for plugin with id "test-donothing-plugin.jar" has path "/test-donothing-plugin.jar" target os "No restrictions" target go version "Unknown" and bundled status as "No"
@@ -62,5 +62,3 @@ ____________________
 * Login as "admin" - teardown
 * Group admin security configuration - teardown
 * Setup http based yum repo - teardown
-
-

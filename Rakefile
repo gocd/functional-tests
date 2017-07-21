@@ -69,7 +69,6 @@ drop_recreate_pgsql_db
 task :copy_plugins do
   mkdir_p "target/go-server-#{VERSION_NUMBER}/plugins/external"
   cp_r "../#{GO_PLUGINS_DIRNAME}/target/go-plugins-dist/.", "target/go-server-#{VERSION_NUMBER}/plugins/external"
-  rm "target/go-server-#{VERSION_NUMBER}/plugins/external/yum-repo-exec-poller.jar"
   task_plugin
 end
 
