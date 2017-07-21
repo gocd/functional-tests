@@ -22,6 +22,7 @@ import com.thoughtworks.cruise.state.CurrentPageState;
 import net.sf.sahi.client.Browser;
 import net.sf.sahi.client.ElementStub;
 import org.hamcrest.core.Is;
+import static org.hamcrest.text.IsEqualIgnoringCase.equalToIgnoringCase;
 import org.junit.Assert;
 
 public class AlreadyInPluginsListingPage {
@@ -171,8 +172,8 @@ public class AlreadyInPluginsListingPage {
 		Assert.assertThat(pluginBlock.fetch("className"), Is.is("plugin enabled"));
 		ElementStub pluginData = browser.div("plugin-data").in(pluginBlock);
 		ElementStub pluginDetails = browser.div("plugin-details").in(pluginData);
-		Assert.assertThat(browser.span("name").in(pluginDetails).text(), Is.is(name));
-		Assert.assertThat(browser.span(" smaller descriptor-id").in(pluginDetails).text(), Is.is(String.format("[%s]", pluginId)));
+		Assert.assertThat(browser.span("name").in(pluginDetails).text(), equalToIgnoringCase(name));
+		Assert.assertThat(browser.span(" smaller descriptor-id").in(pluginDetails).text(), equalToIgnoringCase(String.format("[%s]", pluginId)));
 	}
 
 	private ElementStub verifyInvalidPluginDetailsAndGiveBackPluginMessages(String name, String pluginId) {
@@ -181,8 +182,8 @@ public class AlreadyInPluginsListingPage {
 		Assert.assertThat(pluginBlock.fetch("className"), Is.is("plugin disabled"));
 		ElementStub pluginData = browser.div("plugin-data").in(pluginBlock);
 		ElementStub pluginDetails = browser.div("plugin-details").in(pluginData);
-		Assert.assertThat(browser.span("name").in(pluginDetails).text(), Is.is(name));
-		Assert.assertThat(browser.span(" smaller descriptor-id").in(pluginDetails).text(), Is.is(String.format("[%s]", pluginId)));
+		Assert.assertThat(browser.span("name").in(pluginDetails).text(), equalToIgnoringCase(name));
+		Assert.assertThat(browser.span(" smaller descriptor-id").in(pluginDetails).text(), equalToIgnoringCase(String.format("[%s]", pluginId)));
 		ElementStub pluginMessages = browser.div("plugin-messages").in(pluginData);
 		return pluginMessages;
 	}
