@@ -33,7 +33,6 @@ copy target\test-addon\test-addon-*.jar target\go-server-%GO_VERSION%\addons
 dir target\go-server-%GO_VERSION%\addons
 
 echo copying the example plugins, except yum repo poller, because it is bundled
-del target\go-plugins-dist\yum-repo-exec-poller.jar
 mkdir target\go-server-%GO_VERSION%\plugins\external
 copy target\go-plugins-dist\*.jar target\go-server-%GO_VERSION%\plugins\external
 
