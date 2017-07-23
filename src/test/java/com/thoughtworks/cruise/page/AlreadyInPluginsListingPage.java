@@ -117,7 +117,7 @@ public class AlreadyInPluginsListingPage {
 
 	public void verifyAuthorForPluginWithIdIsWithDisabledLink(String pluginId, String authorName) {
 		ElementStub pluginBlock = getPluginBlock(pluginId);
-		ElementStub pluginAuthor = browser.span("plugin-author smaller").in(pluginBlock);
+		ElementStub pluginAuthor = browser.span("plugin-author").in(pluginBlock);
 		Assert.assertThat(browser.span("key").in(pluginAuthor).in(pluginBlock).text(), Is.is("Author"));
 		Assert.assertThat(browser.span("value").in(pluginAuthor).in(pluginBlock).text(), Is.is(authorName));
 		Assert.assertThat(browser.link(authorName).in(pluginAuthor).in(pluginBlock).exists(), Is.is(false));
