@@ -147,7 +147,6 @@ public class AlreadyOnStageDetailPage extends CruisePage {
 	public void cancel(String stage) throws Exception {
 		this.autoRefresh = new SahiBrowserWrapper(browser).isAutoRefresh();
 		stageHeaderPartial.cancel(stage);
-
 	}
 
 	@com.thoughtworks.gauge.Step("Verify stage <stage> does not have actions link")
@@ -272,6 +271,7 @@ public class AlreadyOnStageDetailPage extends CruisePage {
 	public void navigateToJob(String job) {
 		browser.link(job).click();
 		currentPageState.currentPageIs(Page.JOB_DETAILS);
+		Assert.assertThat(browser.byId("build_console").getAttribute("className"), Is.is("current_tab"));
 	}
 
 	@com.thoughtworks.gauge.Step("Verify stage history has <stageHistories>")
