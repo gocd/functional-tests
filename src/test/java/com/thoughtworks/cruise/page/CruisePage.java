@@ -105,42 +105,7 @@ public abstract class CruisePage {
         ElementStub footerText = browser.paragraph("copyright");
 		assertTrue(footerText.isVisible());
 
-        ElementStub elementTWLink = browser.link("/ThoughtWorks/").in(footerText);
-        assertTrue(elementTWLink.exists());
-        assertThat(elementTWLink.fetch("href"), StringContains.containsString("https://www.thoughtworks.com/products"));
-
-        ElementStub licenseLink = browser.link("/Apache License, Version 2.0/").in(footerText);
-        assertTrue(licenseLink.exists());
-        assertThat(licenseLink.fetch("href"), StringContains.containsString("https://www.apache.org/licenses/LICENSE-2.0"));
-
-        //ElementStub elementVersion = browser.listItem("last").in(browser.div("footer"));
         assertThat(footerText.getText(), Matchers.containsString("Go Version: " + CruiseConstants.CURRENT_REVISION));
-
-        ElementStub elementCCTrayFeed = browser.link("cctray");
-        assertThat(elementCCTrayFeed.fetch("href"), StringContains.containsString("/go/cctray.xml"));
-
-        ElementStub elementAPIs = browser.link("api");
-        assertThat(elementAPIs.fetch("href"), StringContains.containsString("https://api.gocd.org/"));
-
-        ElementStub elementPlugins = browser.link("plugins");
-        assertThat(elementPlugins.fetch("href"), StringContains.containsString("https://www.gocd.org/plugins/"));
-
-        ElementStub elementServerDetails = browser.link("server-details");
-        assertThat(elementServerDetails.fetch("href"), StringContains.containsString("/go/about"));
-
-        ElementStub elementDoc = browser.link("documentation");
-        assertThat(elementDoc.fetch("href"), StringContains.containsString("https://docs.gocd.org/"));
-
-        ElementStub elementForum = browser.link("forums");
-        assertThat(elementForum.fetch("href"), StringContains.containsString("https://groups.google.com/d/forum/go-cd"));
-
-        ElementStub elementGit = browser.link("github");
-        assertThat(elementGit.fetch("href"), StringContains.containsString("https://github.com/gocd/gocd"));
-
-        ElementStub elementTwitter = browser.link("twitter");
-        assertThat(elementTwitter.fetch("href"), StringContains.containsString("https://twitter.com/goforcd"));
-
-
     }
 
     protected String stageDetailsUrl(String pipelineName, String pipelineCounter, String stageName, String stageCounter) {
