@@ -389,11 +389,15 @@ public class AlreadyOnJobDetailPage extends CruisePage{
 
     @com.thoughtworks.gauge.Step("Verify breadcrumb contains pipeline label <label>")
     public void verifyBreadcrumbContainsPipelineLabel(String label) throws Exception {
-        assertThat(elementBreadcrumbLink(label).exists(), is(true));
+        assertThat(elementBreadcrumbSpan(label).exists(), is(true));
     }
 
     private ElementStub elementBreadcrumbLink(String label) {
         return browser.link(label).in(browser.div(Regex.wholeWord("page_header")));
+    }
+
+    private ElementStub elementBreadcrumbSpan(String label) {
+        return browser.span(label).in(browser.div(Regex.wholeWord("page_header")));
     }
 
     @com.thoughtworks.gauge.Step("Verify breadcrumb contains stage run <stageRun>")
@@ -540,7 +544,7 @@ public class AlreadyOnJobDetailPage extends CruisePage{
     @com.thoughtworks.gauge.Step("Verify breadcrumb contains link to value stream map on pipeline label <pipelineLabel> for pipeline <pipelineName> for counter <pipelineCounter>")
     public void verifyBreadcrumbContainsLinkToValueStreamMapOnPipelineLabelForPipelineForCounter(
         String pipelineLabel, String pipelineName, String pipelineCounter) throws Exception {
-        String url = browser.link(pipelineLabel).in(browser.div(Regex.wholeWord("page_header"))).fetch("href");
+        String url = browser.link("VSM").in(browser.div(Regex.wholeWord("page_header"))).fetch("href");
         String runtimePipelineName = scenarioState.pipelineNamed(pipelineName);
         assertThat(url.endsWith("/pipelines/value_stream_map/"+runtimePipelineName+"/"+ pipelineCounter), is(true));
     }
