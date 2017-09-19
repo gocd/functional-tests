@@ -125,8 +125,8 @@ public class AgentLauncher extends ProcessIsRunning {
 	}
 
 	private static void copyAgentLog4jProperties(File dir) throws IOException {
-		File agentLog4j = new File(dir, "log4j.properties");
-		FileUtils.copyFile(new File(RuntimePath.pathFor("properties"), "agent-log4j.properties"), agentLog4j);
+		File agentLog4j = new File(dir, "agent-logback.xml");
+		FileUtils.copyFile(new File(RuntimePath.pathFor("properties"), "agent-logback.xml"), agentLog4j);
 	}
 	
 	public AgentLauncher(File dir) {

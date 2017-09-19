@@ -57,8 +57,8 @@ public class ServerIsRunning extends ProcessIsRunning {
     }
 
     private void copyLog4jProperties() throws IOException {
-        File agentLog4j = new File(RuntimePath.getServerConfigPath(), "log4j.properties");
-        FileUtils.copyFile(new File(RuntimePath.pathFor("properties"), "server-log4j.properties"), agentLog4j);
+        File agentLog4j = new File(RuntimePath.getServerConfigPath(), "logback.xml");
+        FileUtils.copyFile(new File(RuntimePath.pathFor("properties"), "server-logback.xml"), agentLog4j);
     }
 
     public void stop() throws Exception {
