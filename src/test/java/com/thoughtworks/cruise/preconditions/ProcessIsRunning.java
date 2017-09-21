@@ -106,8 +106,8 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
     protected void execute(String command, Map<String, String> envVariables) throws Exception {
         ProcessBuilder builder = new ProcessBuilder();
         builder.redirectErrorStream(true);
-        builder.environment().put("PID_FILE", pidFile());
-        builder.environment().put("MANUAL_SETTING", "Y");
+        builder.environment().put("PID_FILE", pidFile());//Remove this once PR https://github.com/gocd/gocd/pull/3879 is merged
+        builder.environment().put("MANUAL_SETTING", "Y");//Remove this once PR https://github.com/gocd/gocd/pull/3879 is merged
         
         /* We need to unset all environment variables that the parent agent is setting while running twist jobs. Else, all environment variables are reported as overridden. */
         builder.environment().remove("GO_SERVER_URL");
@@ -139,8 +139,8 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
         	builder.environment().put("DAEMON", "N");
             builder.command("cmd ", "/c", command);
         } else {
-            builder.environment().put("DAEMON", "Y");
-            builder.command("bash", command);
+            builder.environment().put("DAEMON", "Y"); //Remove this once PR https://github.com/gocd/gocd/pull/3879 is merged
+            builder.command("bash", command, "service_mode");
         }
         System.err.println("Executing command: " + StringUtils.join(builder.command(), " ") + " (in " + getWorkingDir() + ")");
         Process process = builder.start();
@@ -154,7 +154,7 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
     protected abstract boolean pumpErrorStream();
 
 	private String pidFile() throws IOException {
-        return new File(getWorkingDir(), "process.pid").getCanonicalPath();
+        return new File(getWorkingDir(), "go-server.pid").getCanonicalPath();
         
     }
 
