@@ -151,14 +151,11 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
     protected abstract boolean pumpOutputStream();
     protected abstract boolean pumpErrorStream();
 
-	private String pidFile() throws IOException {
-        return new File(getWorkingDir(), "go-server.pid").getCanonicalPath();
-        
-    }
-
     protected String pid() throws IOException {
         return FileUtils.readFileToString(new File(pidFile())).trim();
     }
+
+    protected abstract String pidFile() throws IOException;
 
     protected abstract boolean isProcessStopped();
 

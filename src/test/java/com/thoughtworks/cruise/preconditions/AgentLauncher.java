@@ -153,6 +153,11 @@ public class AgentLauncher extends ProcessIsRunning {
         }
     }
 
+    protected String pidFile() throws IOException {
+        return new File(getWorkingDir(), "go-agent.pid").getCanonicalPath();
+
+    }
+
     protected String startCommand() {
         return SystemUtil.isWindows() ? "start-agent.bat" : "./agent.sh";
     }

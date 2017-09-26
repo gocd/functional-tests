@@ -23,6 +23,8 @@ import com.thoughtworks.cruise.utils.Assertions.Predicate;
 import com.thoughtworks.cruise.utils.Timeout;
 import net.sf.sahi.client.Browser;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -69,6 +71,11 @@ public class GadgetRenderingServerIsRunning {
 
 		private boolean isServerRunning() {
 			return get("http://localhost:3000").getReturnCode() < 400;
+		}
+
+		protected String pidFile() throws IOException {
+			return new File(getWorkingDir(), "go-gadgets.pid").getCanonicalPath();
+
 		}
 
 		@Override

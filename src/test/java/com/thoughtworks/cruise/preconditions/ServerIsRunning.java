@@ -162,6 +162,11 @@ public class ServerIsRunning extends ProcessIsRunning {
                 System.getenv("POSTGRES_DB_HOST_TO_USE"), "postgres", "postgres", System.getenv("POSTGRES_DB_NAME_TO_USE").toLowerCase(), "5432");
     }
 
+    protected String pidFile() throws IOException {
+        return new File(getWorkingDir(), "go-server.pid").getCanonicalPath();
+
+    }
+
     protected String startCommand() {
         return SystemUtil.isWindows() ? "start-server.bat" : "./server.sh";
     }
