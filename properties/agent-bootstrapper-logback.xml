@@ -20,33 +20,33 @@
         xmlns="http://ch.qos.logback/xml/ns/logback"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://ch.qos.logback/xml/ns/logback http://ch.qos.logback/xml/ns/logback/logback.xsd"
-        debug="${gocd.agent.logback.debug:-false}"
-        scan="${gocd.agent.logback.scan:-true}"
-        scanPeriod="${gocd.agent.logback.scanPeriod:-5 seconds}"
+        debug="${gocd.agentBootstrapper.logback.debug:-false}"
+        scan="${gocd.agentBootstrapper.logback.scan:-true}"
+        scanPeriod="${gocd.agentBootstrapper.logback.scanPeriod:-5 seconds}"
 >
 
     <appender name="FileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/go-agent.log</file>
+        <file>logs/go-agent-bootstrapper.log</file>
         <encoder>
             <pattern>
-                ${gocd.agent.logback.defaultPattern:-%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n}
+                ${gocd.agentBootstrapper.logback.defaultPattern:-%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n}
             </pattern>
         </encoder>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>
-                logs/go-agent.log.%d{yyyy-MM-dd}.%i.gz
+                logs/go-agent-bootstrapper.log.%d{yyyy-MM-dd}.%i.gz
             </fileNamePattern>
-            <maxFileSize>${gocd.agent.logback.defaultRollingFileAppender.rotation.maxFileSize:-5 MB}</maxFileSize>
-            <maxHistory>${gocd.agent.logback.defaultRollingFileAppender.rotation.maxHistory:-4}</maxHistory>
-            <totalSizeCap>${gocd.agent.logback.defaultRollingFileAppender.rotation.totalSizeCap:-20 MB}</totalSizeCap>
+            <maxFileSize>${gocd.agentBootstrapper.logback.defaultRollingFileAppender.rotation.maxFileSize:-5 MB}</maxFileSize>
+            <maxHistory>${gocd.agentBootstrapper.logback.defaultRollingFileAppender.rotation.maxHistory:-4}</maxHistory>
+            <totalSizeCap>
+                ${gocd.agentBootstrapper.logback.defaultRollingFileAppender.rotation.totalSizeCap:-20 MB}
+            </totalSizeCap>
         </rollingPolicy>
     </appender>
 
-    <root level="${gocd.agent.logback.root.level:-INFO}">
-        <appender-ref ref="${gocd.agent.logback.root.appender:-FileAppender}"/>
+    <root level="${gocd.agentBootstrapper.logback.root.level:-INFO}">
+        <appender-ref ref="${gocd.agentBootstrapper.logback.root.appender:-FileAppender}"/>
     </root>
-
-    <logger name="org.apache.http.wire" level="ERROR"/>
 
 </configuration>

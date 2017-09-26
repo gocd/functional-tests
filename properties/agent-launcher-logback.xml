@@ -26,7 +26,7 @@
 >
 
     <appender name="FileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/go-agent.log</file>
+        <file>logs/go-agent-launcher.log</file>
         <encoder>
             <pattern>
                 ${gocd.agent.logback.defaultPattern:-%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n}
@@ -35,7 +35,7 @@
 
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>
-                logs/go-agent.log.%d{yyyy-MM-dd}.%i.gz
+                logs/go-agent-launcher.log.%d{yyyy-MM-dd}.%i.gz
             </fileNamePattern>
             <maxFileSize>${gocd.agent.logback.defaultRollingFileAppender.rotation.maxFileSize:-5 MB}</maxFileSize>
             <maxHistory>${gocd.agent.logback.defaultRollingFileAppender.rotation.maxHistory:-4}</maxHistory>
