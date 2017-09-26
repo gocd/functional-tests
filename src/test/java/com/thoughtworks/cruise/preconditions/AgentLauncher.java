@@ -107,7 +107,7 @@ public class AgentLauncher extends ProcessIsRunning {
                                         !path.endsWith(".log");
                     }
             });
-        copyAgentLog4jProperties(dir);
+        File config_dir = new File(dir, "config");
 
 		if (new File(dir, ".agent-bootstrapper.running").exists()) {
 			throw new RuntimeException("Agent already running in " + dir.getPath());
@@ -116,6 +116,10 @@ public class AgentLauncher extends ProcessIsRunning {
 		FileUtils.deleteQuietly(new File(dir, "pipelines"));
         FileUtils.deleteQuietly(new File(dir, Agents.WAITING_FOR_STOP_JOB_FILE));
         FileUtils.deleteQuietly(new File(dir, Agents.STOP_JOB_FILE));
+
+        copyAgentLauncherLogback(config_dir);
+        copyAgentBootstarpperLogback(config_dir);
+        copyAgentLogback(config_dir);
 		AgentLauncher agent = new AgentLauncher(dir);
         return agent;
     }
@@ -124,10 +128,20 @@ public class AgentLauncher extends ProcessIsRunning {
 		return String.format("%s-%02d", directory, (++agentCounter));
 	}
 
-	private static void copyAgentLog4jProperties(File dir) throws IOException {
-		File agentLog4j = new File(dir, "agent-logback.xml");
-		FileUtils.copyFile(new File(RuntimePath.pathFor("properties"), "agent-logback.xml"), agentLog4j);
+	private static void copyAgentLauncherLogback(File dir) throws IOException {
+		File agentLog4j = new File(dir, "agent-launcher-logback.xml");
+		FileUtils.copyFile(new File(RuntimePath.pathFor("properties"), "agent-launcher-logback.xml"), agentLog4j);
 	}
+
+    private static void copyAgentBootstarpperLogback(File dir) throws IOException {
+        File agentLog4j = new File(dir, "agent-bootstrapper-logback.xml");
+        FileUtils.copyFile(new File(RuntimePath.pathFor("properties"), "agent-bootstrapper-logback.xml"), agentLog4j);
+    }
+
+    private static void copyAgentLogback(File dir) throws IOException {
+        File agentLog4j = new File(dir, "agent-logback.xml");
+        FileUtils.copyFile(new File(RuntimePath.pathFor("properties"), "agent-logback.xml"), agentLog4j);
+    }
 	
 	public AgentLauncher(File dir) {
         this.dir = dir;
