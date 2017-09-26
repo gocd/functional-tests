@@ -12,6 +12,9 @@ tags
 *.iml
 out/
 nohup.out
-sahi/userdata/
+sahi/userdata/browser
+sahi/userdata/temp
+sahi/userdata/certs
 libs
 test-repos/p4repo-2009
+docs
