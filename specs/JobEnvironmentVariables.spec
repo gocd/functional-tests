@@ -23,7 +23,7 @@ Setup of contexts
 JobEnvironmentVariables
 -----------------------
 
-tags: 2719, git, hg, svn, perforce, environment variables, dependency pipeline, automate, 3465, linux, perforce, #6272, stage1
+tags: 2719, git, hg, svn, perforce, environment variables, dependency pipeline, automate, 3465, linux, perforce, #6272, stage1, buildcommand
 
 Pipeline with all 4 materials
 
