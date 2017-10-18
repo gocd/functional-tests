@@ -633,7 +633,7 @@ public class OnPipelineDashboardPage extends CruisePage {
     }
 
     private ElementStub elementPipelineLabel(final String pipelineLabel) {
-        return browser.div("Label: " + pipelineLabel).in(pipelinePanel());
+        return browser.div("Instance: " + pipelineLabel).in(pipelinePanel());
     }
 
     @com.thoughtworks.gauge.Step("Verify current pipeline has label with counter <pipelineCounter> concatenated with value in store with key <key>")
