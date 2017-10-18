@@ -105,7 +105,7 @@ public class AlreadyOnBuildCausePopup {
     @com.thoughtworks.gauge.Step("Verify revision <revision> exists")
 	public void verifyRevisionExists(String revision) throws Exception {
     	String useNewRails = System.getenv("USE_NEW_RAILS");
-    	String revisionString = (useNewRails != null && useNewRails.equals("N")) ? revision : revision + " - vsm";
+    	String revisionString = (useNewRails != null && useNewRails.equals("N")) ? revision : revision + " - VSM";
 
 		ElementStub revisionElement = browser.byText(revisionString, "TD");
         assertThat(revisionElement.getText().trim(), containsString(revision));
