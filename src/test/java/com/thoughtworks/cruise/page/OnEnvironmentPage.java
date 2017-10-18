@@ -198,7 +198,8 @@ public class OnEnvironmentPage extends CruisePage {
     }
 
     private String pipelineLabel() {
-        return browser.link(0).in(browser.div("Instance").in(elementStatus())).getText().trim();
+        String[] instance = browser.span("pipeline_run_label").in(elementStatus()).getText().split(":");
+        return instance[1].trim();
     }
 
     private String elementStatusMessageText() {
