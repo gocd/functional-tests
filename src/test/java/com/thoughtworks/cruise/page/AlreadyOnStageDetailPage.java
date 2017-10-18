@@ -558,7 +558,7 @@ public class AlreadyOnStageDetailPage extends CruisePage {
 		final String rev = repositoryState.getRevisionFromAlias(revision);
 
 		String useNewRails = System.getenv("USE_NEW_RAILS");
-		final String revisionString = (useNewRails != null && useNewRails.equals("N")) ? rev : rev + " - vsm";
+		final String revisionString = (useNewRails != null && useNewRails.equals("N")) ? rev : rev + " - VSM";
 
 		assertThat(browser.isVisible(browser.cell(revisionString)), Is.is(false));
 		Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate() {
