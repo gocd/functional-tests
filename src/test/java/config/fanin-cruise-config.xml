@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="97">
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="98">
     <server artifactsdir="artifacts" serverId="twist">
     </server>
     
@@ -312,7 +312,7 @@
         </jobs>
       </stage>
     </pipeline>
-    <pipeline name="FS2" isLocked="false">
+    <pipeline name="FS2" lockBehavior="none">
       <materials>
         <pipeline pipelineName="FS1" stageName="stage2-manual"/>
       </materials>
@@ -360,7 +360,7 @@
         </jobs>
       </stage>
     </pipeline>
-    <pipeline name="FIR2" isLocked="false">
+    <pipeline name="FIR2" lockBehavior="none">
       <materials>
         <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
       </materials>
@@ -408,7 +408,7 @@
         </jobs>
       </stage>
     </pipeline>
-    <pipeline name="FTO2" isLocked="false">
+    <pipeline name="FTO2" lockBehavior="none">
       <materials>
         <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
       </materials>
@@ -456,7 +456,7 @@
         </jobs>
       </stage>
     </pipeline>
-    <pipeline name="FTO5" isLocked="false">
+    <pipeline name="FTO5" lockBehavior="none">
       <materials>
         <pipeline pipelineName="FTO4" stageName="stage1"/>
       </materials>
@@ -488,7 +488,7 @@
                 </jobs>
             </stage>
         </pipeline>
-        <pipeline name="VSMO2" isLocked="false">
+        <pipeline name="VSMO2" lockBehavior="none">
             <materials>
                 <git url="$git-one" materialName="git-one" dest="git-one" autoUpdate="true"/>
             </materials>
@@ -534,7 +534,7 @@
                 </jobs>
             </stage>
         </pipeline>
-        <pipeline name="VSMO5" isLocked="false">
+        <pipeline name="VSMO5" lockBehavior="none">
             <materials>
                 <pipeline pipelineName="VSMO4" stageName="stage1"/>
             </materials>
