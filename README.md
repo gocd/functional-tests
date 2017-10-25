@@ -1,12 +1,12 @@
 [![Gauge
-Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg)](http://getgauge.io)
+Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg)](https://getgauge.io)
 
 ## Pre-Requisites
 * JDK 8 (verified on 1.8.0_121-b13)
 * Gradle (verified to work on 3.4)
 * Maven (verified to work on 3.3.9)
 * [Node](https://nodejs.org/en/) 6.x (7.x will not work)
-* [Gauge](http://getgauge.io) 0.8.3
+* [Gauge](https://getgauge.io) 0.8.3
 * Mercurial
 * Git
 * **Firefox <= 45.x** (verified on 45.8.0esr; the version of webdriver used only supports up to 45)
@@ -23,7 +23,7 @@ Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg
 
 ## Prepare
 ```bash
-# This will, among other things, build go.cd binaries to use in these tests. Get some coffee.
+# This will, among other things, build GoCD binaries to use in these tests. Get some coffee.
 $ rake prepare
 ```
 ## Running tests
@@ -34,8 +34,8 @@ $ GO_VERSION=X.x.x gauge specs/AdminTaskListing.spec
 
 ## Contributing
 
-We encourage you to contribute to Go. For information on contributing to this project, please see our [contributor's guide](http://www.go.cd/contribute).
-A lot of useful information like links to user documentation, design documentation, mailing lists etc. can be found in the [resources](http://www.go.cd/community/resources.html) section.
+We encourage you to contribute to GoCD. For information on contributing to this project, please see our [contributor's guide](https://www.gocd.org/contribute).
+A lot of useful information like links to user documentation, design documentation, mailing lists etc. can be found in the [resources](https://www.gocd.org/community/resources.html) section.
 
 
 ## License

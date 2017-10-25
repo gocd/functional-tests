@@ -32,7 +32,7 @@ Checking for textbox and checkbox
 * Verify that dirty check is invoked
 * Cancel dirty check prompt
 * Click reset
-* Check automatic pipeline locking
+* Select automatic pipeline locking
 * Open stage listing page
 * Verify that dirty check is invoked
 * Proceed with dirty check prompt

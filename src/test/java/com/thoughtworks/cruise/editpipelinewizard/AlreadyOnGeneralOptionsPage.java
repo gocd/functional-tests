@@ -103,9 +103,9 @@ public class AlreadyOnGeneralOptionsPage extends AlreadyOnEditPipelineWizardPage
         super.cancelDirtyCheckPrompt();
     }
 
-    @com.thoughtworks.gauge.Step("Check automatic pipeline locking")
+    @com.thoughtworks.gauge.Step("Select automatic pipeline locking")
 	public void checkAutomaticPipelineLocking() throws Exception {
-        browser.byId("pipeline_lock").check();
+        browser.byId("pipeline_lockBehavior_lockonfailure").check();
     }
 
     @com.thoughtworks.gauge.Step("Proceed with dirty check prompt")
