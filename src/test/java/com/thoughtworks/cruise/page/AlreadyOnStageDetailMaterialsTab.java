@@ -147,7 +147,7 @@ public class AlreadyOnStageDetailMaterialsTab extends CruisePage {
 	}
 
 	public static String dependencyRevisionLabelMessage(String label) {
-		return String.format("Label: %s", label);
+		return String.format("Instance: %s", label);
 	}
 
 	@com.thoughtworks.gauge.Step("Verify shows completed at")
