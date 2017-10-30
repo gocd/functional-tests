@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="97">
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="98">
     <server artifactsdir="artifacts" serverId="twist">
     </server>
     <pipelines group="basic">
@@ -1201,7 +1201,7 @@
         </pipeline>
 
 
-        <pipeline name="pipeline-with-lock" isLocked="true">
+        <pipeline name="pipeline-with-lock" lockBehavior="lockOnFailure">
             <materials>
                 <hg url="$hgurl-pipeline-with-lock" dest="hg" materialName="pipeline-with-lock-material" autoUpdate="false"/>
             </materials>
@@ -1226,7 +1226,7 @@
             </stage>
         </pipeline>
 
-        <pipeline name="pipeline-with-lock-all-manual" isLocked="true">
+        <pipeline name="pipeline-with-lock-all-manual" lockBehavior="lockOnFailure">
             <materials>
                 <hg url="$hgurl-basic-pipeline-run-till-file-exists" dest="hg" autoUpdate="false" materialName="hg-material"/>
             </materials>

@@ -1457,7 +1457,7 @@ public class CruiseConfigDom {
 	}
 
 	public void removeLockFromPipeline(String pipelineName) {
-		pipelineWithName(pipelineName).attribute("isLocked").setText("false");
+		pipelineWithName(pipelineName).attribute("lockBehavior").setText("none");
 	}
 
 	public void addAdminUser(String user) {
