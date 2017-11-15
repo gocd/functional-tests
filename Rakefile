@@ -59,8 +59,8 @@ def drop_recreate_pgsql_db
 
   db_user = ENV['DB_USER'] || 'postgres'
 
-  drop_db_command = "java -jar tools/run_with_postgres.jar #{ENV['POSTGRES_DB_HOST_TO_USE']} 5432 '' #{db_user} '' 'DROP DATABASE IF EXISTS #{ENV['POSTGRES_DB_NAME_TO_USE']}'"
-  create_db_command = "java -jar tools/run_with_postgres.jar #{ENV['POSTGRES_DB_HOST_TO_USE']} 5432 '' #{db_user} '' 'CREATE DATABASE #{ENV['POSTGRES_DB_NAME_TO_USE']}'"
+  drop_db_command = "java -jar tools/run_with_postgres.jar #{ENV['POSTGRES_DB_HOST_TO_USE']} 5432 postgres #{db_user} '' 'DROP DATABASE IF EXISTS #{ENV['POSTGRES_DB_NAME_TO_USE']}'"
+  create_db_command = "java -jar tools/run_with_postgres.jar #{ENV['POSTGRES_DB_HOST_TO_USE']} 5432 postgres #{db_user} '' 'CREATE DATABASE #{ENV['POSTGRES_DB_NAME_TO_USE']}'"
   system("#{drop_db_command} && #{create_db_command}") || (puts "Failed to drop and recreate DB. Tried running: #{drop_db_command} && #{create_db_command}"; exit 1)
 
   puts "Recreated DB: #{ENV['POSTGRES_DB_NAME_TO_USE']}"
