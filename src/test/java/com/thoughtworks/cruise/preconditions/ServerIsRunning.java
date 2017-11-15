@@ -158,8 +158,10 @@ public class ServerIsRunning extends ProcessIsRunning {
         if (!("Y".equals(System.getenv("USE_POSTGRESQL")))) {
             return "";
         }
+        String db_user = System.getenv("DB_USER") != null ? System.getenv("DB_USER") : "postgres";
+        String db_pwd = System.getenv("DB_PASSWORD") != null ? System.getenv("DB_PASSWORD") : "";
         return String.format(" -Duse.postgresql.db=Y -Dgo.database.provider=com.thoughtworks.go.postgresql.PostgresqlDatabase -Ddb.host=%s -Ddb.user=%s -Ddb.password=%s -Ddb.name=%s -Ddb.port=%s",
-                System.getenv("POSTGRES_DB_HOST_TO_USE"), "postgres", "postgres", System.getenv("POSTGRES_DB_NAME_TO_USE").toLowerCase(), "5432");
+                System.getenv("POSTGRES_DB_HOST_TO_USE"), db_user, db_pwd, System.getenv("POSTGRES_DB_NAME_TO_USE").toLowerCase(), "5432");
     }
 
     protected String pidFile() throws IOException {
