@@ -64,7 +64,7 @@ public class TfsRepository extends AbstractRepository {
     }
     
     private String loginArg() {
-        return String.format("-login:%s\\%s,%s", TfsServer.getDomain(), TfsServer.getUsername(), TfsServer.getPassword());
+        return String.format("-login:%s,%s", TfsServer.getUsername(), TfsServer.getPassword());
     }
 
     private String serverArg() {
@@ -84,9 +84,6 @@ public class TfsRepository extends AbstractRepository {
         }
         if (element.attribute("password") != null) {
             element.attribute("password").setValue(TfsServer.getPassword());
-        }
-        if (element.attribute("domain") != null) {
-            element.attribute("domain").setValue(TfsServer.getDomain());
         }
     }
 

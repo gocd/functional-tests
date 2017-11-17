@@ -24,7 +24,7 @@ public class TfsServer {
     }
 
     public static String getDefaultTfsCollectionUrl() {
-        return getUrl() + "twist_tests";
+        return getUrl();
     }
 
     public static String getPassword() {

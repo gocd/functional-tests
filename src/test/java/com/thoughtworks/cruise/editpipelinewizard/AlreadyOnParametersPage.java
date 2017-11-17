@@ -81,7 +81,7 @@ public class AlreadyOnParametersPage extends AlreadyOnEditPipelineWizardPage {
 
 	@com.thoughtworks.gauge.Step("Enter tfs url as parameter <parameterLocation> with name <name> and value <collection>")
 	public void enterTfsUrlAsParameterWithNameAndValue(Integer parameterLocation, String name, String collection) throws Exception {
-		enterParameterNameAndValue(parameterLocation, name, TfsServer.getUrl() + collection);
+		enterParameterNameAndValue(parameterLocation, name, TfsServer.getUrl());
 	}
 
     @com.thoughtworks.gauge.Step("Enter parameter <parameterLocation> name <parameterName> and value <parameterValue>")

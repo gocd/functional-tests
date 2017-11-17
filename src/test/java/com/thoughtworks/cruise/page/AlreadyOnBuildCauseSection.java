@@ -79,7 +79,7 @@ public class AlreadyOnBuildCauseSection {
 
 	@com.thoughtworks.gauge.Step("Verify material has changed - Already On Build Cause Section")
 	public void verifyMaterialHasChanged() throws Exception {
-		ElementStub materialElement = buildCauseMaterial();
+ 		ElementStub materialElement = buildCauseMaterial();
 		assertThat(materialElement.parentNode().fetch("className"), containsString("changed"));
 	}
 
@@ -100,7 +100,7 @@ public class AlreadyOnBuildCauseSection {
 	}
 	@com.thoughtworks.gauge.Step("Verify tfs modification <modificationOffset> is checked in by authorized user with comment <comment>")
 	public void verifyTfsModificationIsCheckedInByAuthorizedUserWithComment(Integer modificationOffset, String comment) throws Exception {
-		verifyModificationIsCheckedInByWithComment(modificationOffset, String.format("%s\\%s", TfsServer.getDomain(), TfsServer.getUsername()), comment);
+		verifyModificationIsCheckedInByWithComment(modificationOffset, String.format("%s", TfsServer.getUsername()), comment);
 	}
 
 

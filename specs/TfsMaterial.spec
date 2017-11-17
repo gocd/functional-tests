@@ -26,7 +26,6 @@ TfsMaterial
 tags: tfs, 6194, internal
 
 * Add resource "tfs" to an agent - Using Agents API
-* Add resource "tfs" to an agent - Using Agents API
 
 * Click on pipeline "basic-tfs-pipeline" for editing
 
