@@ -30,12 +30,11 @@ tags: Clicky Admin, #5775, 6191, tfs, internal
 
 * Enter tfs url as parameter "1" with name "valid_tfs_url" and value "integration_tests"
 * Enter parameter "2" name "username" and derive value from environment variable "TFS_SERVER_USERNAME"
-* Enter parameter "3" name "valid_project_path" and value "$/for_tests"
-* Enter parameter "4" name "domain" and derive value from environment variable "TFS_SERVER_DOMAIN"
-* Enter parameter "5" name "destination_dir" and value "tfs_destination"
-* Enter tfs url as parameter "6" with name "invalid_tfs_url" and value "incorrect_url"
-* Enter parameter "7" name "invalid_username" and value "invalidUser"
-* Enter parameter "8" name "invalid_project_path" and value "$/invalid_project_path"
+* Enter parameter "3" name "valid_project_path" and value "$/MyFirstProject"
+* Enter parameter "4" name "destination_dir" and value "tfs_destination"
+* Enter tfs url as parameter "5" with name "invalid_tfs_url" and value "incorrect_url"
+* Enter parameter "6" name "invalid_username" and value "invalidUser"
+* Enter parameter "7" name "invalid_project_path" and value "$/invalid_project_path"
 * Click save
 * Verify saved successfully
 * Open general options page
@@ -63,7 +62,6 @@ tags: Clicky Admin, #5775, 6191, tfs, internal
 * Enter username "#{username}" - Already on Tfs Material Creation Popup
 * Enter valid password - Already on Tfs Material Creation Popup
 * Enter project path as "$/invalid_project_path"
-* Enter valid domain
 * Click check connection
 * Verify message "project path might be invalid"
 * Enter valid username - Already on Tfs Material Creation Popup
@@ -74,29 +72,28 @@ tags: Clicky Admin, #5775, 6191, tfs, internal
 * Enter destination directory "#{destination_dir}" - Already on Tfs Material Creation Popup
 * Click check connection
 * Verify message "Connection OK"
-* Enter project path as "$/for_tests"
+* Enter project path as "$/MyFirstProject"
 * Enter destination directory "tfs_destination" - Already on Tfs Material Creation Popup
-* Enter domain "#{domain}"
 * Click check connection
 * Verify message "Connection OK"
 * Make autoupdate to be "false" - Already on Tfs Material Creation Popup
 * Click save - Already on tfs material creation popup
 
 * Verify that material saved successfully
-* Verify that "tfs" with name "tfs_material" is added with attributes "materialName>tfs_material,url>integration_tests,username>cruise_builder,dest>tfs_destination,autoUpdate>false,projectPath>$/for_tests"
+* Verify that "tfs" with name "tfs_material" is added with attributes "materialName>tfs_material,url>https://go-tfs-user.visualstudio.com,username>go.tfs.user@gmail.com,dest>tfs_destination,autoUpdate>false,projectPath>$/MyFirstProject"
 * Edit material "tfs_material"
 
 * Enter material name "tfs_material_edited" - Already on Tfs Material Creation Popup
 * Enter url "integration_tests_edited" - Already on tfs material creation popup
 * Enter username "user_edited" - Already on Tfs Material Creation Popup
 * Enter password "abc" - Already on Tfs Material Creation Popup
-* Enter project path as "$/for_tests_edited"
+* Enter project path as "$/MyFirstProject"
 * Enter destination directory "tfs_destination_edited" - Already on Tfs Material Creation Popup
 * Make autoupdate to be "false" - Already on Tfs Material Creation Popup
 * Click save - Already on tfs material creation popup
 
 * Verify that material saved successfully
-* Verify that "tfs" with name "tfs_material_edited" is added with attributes "materialName>tfs_material_edited,url>integration_tests_edited,username>user_edited,dest>tfs_destination_edited,autoUpdate>false,projectPath>$/for_tests_edited"
+* Verify that "tfs" with name "tfs_material_edited" is added with attributes "materialName>tfs_material_edited,url>https://go-tfs-user.visualstudio.com,username>user_edited,dest>tfs_destination_edited,autoUpdate>false,projectPath>$/MyFirstProject"
 
 
 

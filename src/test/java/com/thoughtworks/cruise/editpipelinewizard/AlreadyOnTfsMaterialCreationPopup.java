@@ -43,7 +43,7 @@ public class AlreadyOnTfsMaterialCreationPopup extends AlreadyOnEditMaterialPopu
 	
 	@com.thoughtworks.gauge.Step("Enter url <collection> - Already on tfs material creation popup")
 	public void enterUrl(String collection) throws Exception {
-        super.enterUrl(TfsServer.getUrl() + collection);
+        super.enterUrl(TfsServer.getUrl());
     }
 
 	@com.thoughtworks.gauge.Step("Enter username <userName> - Already on Tfs Material Creation Popup")

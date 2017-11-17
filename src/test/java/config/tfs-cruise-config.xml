@@ -20,7 +20,7 @@
     <pipelines group="basic">
 	    <pipeline name="tfs_artifact_in_dest">
 	      <materials>
-	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false"/>
+	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/MyFirstProject" materialName="tfs_mat" autoUpdate="false"/>
 	      </materials>
 	      <stage name="defaultStage">
 	      	<approval type="manual"/>
@@ -42,7 +42,7 @@
 	    </pipeline>
 	    <pipeline name="tfs_artifact_in_child_directory">
 	      <materials>
-	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false"/>
+	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/MyFirstProject" materialName="tfs_mat" autoUpdate="false"/>
 	      </materials>
 	      <stage name="defaultStage">
 	       	<approval type="manual"/>
@@ -67,7 +67,7 @@
 	    </pipeline>
 	    <pipeline name="tfs_generated_file_gets_deleted">
 	      <materials>
-	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false"/>
+	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/MyFirstProject" materialName="tfs_mat" autoUpdate="false"/>
 	      </materials>
 	      <stage name="defaultStage">
 	       	<approval type="manual"/>
@@ -93,7 +93,7 @@
 	    </pipeline>
 	    <pipeline name="tfs-pipeline-with-multiple-stages">
 	      <materials>
-		    <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/for_twist_tests_1" materialName="tfs_mat" autoUpdate="false"/>
+		    <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/MyFirstProject" materialName="tfs_mat" autoUpdate="false"/>
 		  </materials>
 		  <stage name="stage1">
 		  	<approval type="manual"/>
@@ -118,10 +118,10 @@
 	    </pipeline>
 			<pipeline name="basic-tfs-pipeline">
 				<materials>
-					<tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_1" dest="new_dir" materialName="tfs_mat" autoUpdate="false">
+					<tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/MyFirstProject" dest="new_dir" materialName="tfs_mat" autoUpdate="false">
 						<filter>
 							<ignore pattern="*.ignore.txt"/>
-							<ignore pattern="$/for_twist_tests_1/Folder with space/*"/>
+							<ignore pattern="$/MyFirstProject/Folder with space/*"/>
 						</filter>
 					</tfs>
 				</materials>

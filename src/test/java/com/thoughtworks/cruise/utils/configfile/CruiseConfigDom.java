@@ -18,7 +18,6 @@ package com.thoughtworks.cruise.utils.configfile;
 
 import com.thoughtworks.cruise.client.Job;
 import com.thoughtworks.cruise.client.Stage;
-import com.thoughtworks.cruise.materials.TfsServer;
 import com.thoughtworks.cruise.util.CruiseConstants;
 import com.thoughtworks.cruise.util.StringUtil;
 import org.apache.commons.io.IOUtils;
@@ -1664,9 +1663,6 @@ public class CruiseConfigDom {
 		for (String nameValue : nameValues) {
 			String[] nameAndValue = nameValue.split(">");
 			String value = nameAndValue[1];
-			if("tfs".equals(materialType) && "url".equals(nameAndValue[0])){
-				value = TfsServer.getUrl() + value;
-			}
 			Attribute attrib = material.attribute(nameAndValue[0]);
 			if (attrib == null || !attrib.getText().equals(value)) {
 				throw new RuntimeException("Could not find attribute pair: "
