@@ -15,7 +15,7 @@
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="100">
-  <server artifactsdir="artifacts" serverId="twist">
+  <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
       <security>
           <authConfigs>
               <authConfig id="301dd1cf-0f7d-4e4e-a1e1-b36df85cf3b6" pluginId="cd.go.authentication.ldap">
