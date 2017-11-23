@@ -18,7 +18,6 @@ package com.thoughtworks.cruise.context;
 
 import com.thoughtworks.cruise.ConfigureCruiseUsingApi;
 import com.thoughtworks.cruise.RuntimePath;
-import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.client.TalkToCruise;
 import com.thoughtworks.cruise.client.TalkToCruise.CruiseResponse;
 import com.thoughtworks.cruise.state.CurrentUsernameProvider;
@@ -79,6 +78,7 @@ public class Configuration {
     public void setDom(final CruiseConfigDom dom) {
     	CurrentConfigState currentConfigState = currentConfigState();
     	dom.replaceServerId(currentConfigState.serverId);
+    	dom.replaceTokenGenerationKey(currentConfigState.tokenGenerationKey);
         String url = ConfigureCruiseUsingApi.GO_CONFIG_API_URL;
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
         nameValuePairs.add(new NameValuePair("xmlFile", dom.asXml()));
@@ -93,24 +93,28 @@ public class Configuration {
     private static final class CurrentConfigState {
         final String md5;
         final String serverId;
+        final String tokenGenerationKey;
 
-        private CurrentConfigState(String md5, String serverId) {
+        private CurrentConfigState(String md5, String serverId, String tokenGenerationKey) {
             this.md5 = md5;
             this.serverId = serverId;
+            this.tokenGenerationKey = tokenGenerationKey;
         }
     }
 
     private CurrentConfigState currentConfigState() {
         CruiseResponse configContent = getConfigContent();
         String serverId = null;
+        String tokenGenerationKey = null;
         try {
             Document dom = XmlUtil.parse(configContent.getBody());
             Node node = dom.selectSingleNode("//server/@serverId");
             serverId = node.getText();
+            tokenGenerationKey = dom.selectSingleNode("//server/@tokenGenerationKey").getText();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return new CurrentConfigState(configContent.getResponseHeader(X_CRUISE_CONFIG_MD5), serverId);
+        return new CurrentConfigState(configContent.getResponseHeader(X_CRUISE_CONFIG_MD5), serverId, tokenGenerationKey);
     }
 
     private CruiseResponse getConfigContent() {

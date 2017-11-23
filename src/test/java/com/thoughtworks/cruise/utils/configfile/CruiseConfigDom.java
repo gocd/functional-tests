@@ -1779,6 +1779,9 @@ public class CruiseConfigDom {
 	public void replaceServerId(String serverId) {
 		serverTag().setAttributeValue("serverId", serverId);
 	}
+	public void replaceTokenGenerationKey(String tokenGenerationKey) {
+		serverTag().setAttributeValue("tokenGenerationKey", tokenGenerationKey);
+	}
 
 	public String getCommandRepositoryLocation() {
 		return serverTag().attribute("commandRepositoryLocation").getText();

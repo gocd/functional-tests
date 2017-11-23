@@ -36,6 +36,7 @@ import static com.thoughtworks.cruise.util.ExceptionUtils.bomb;
 public class CruiseConfigFileEditor extends ConfigFileContents {
     public static final String DEFAULT_CIPHER = "269298bc31c44620";
     private static final String SERVER_ID_XPATH = "//server/@serverId";
+    private static final String TOKEN_GENERATION_KEY_XPATH = "//server/@tokenGenerationKey";
 
     public static File getCruiseConfigFile() {
         return new File(RuntimePath.getServerConfigPath() + "/cruise-config.xml");
@@ -49,10 +50,12 @@ public class CruiseConfigFileEditor extends ConfigFileContents {
         try {
             File configFile = getCruiseConfigFile();
             if (configFile.exists()) {
+                String tokenGenerationKey = XmlUtil.parse(FileUtil.readToEnd(configFile)).selectSingleNode(TOKEN_GENERATION_KEY_XPATH).getText();
                 String serverId = XmlUtil.parse(FileUtil.readToEnd(configFile)).selectSingleNode(SERVER_ID_XPATH).getText();
                 Document dom = XmlUtil.parse(xml);
                 Element node = (Element) dom.selectSingleNode("//server");
                 node.setAttributeValue("serverId", serverId);
+                node.setAttributeValue("tokenGenerationKey", tokenGenerationKey);
                 xml = dom.asXML();
             }
             System.err.println("Writing out config file to " + configFile.getCanonicalPath());
