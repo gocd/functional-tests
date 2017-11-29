@@ -174,9 +174,17 @@ public class CruiseConfigVerification {
     }
 
     @com.thoughtworks.gauge.Step("Verify has tag <tagName> <attributes>")
-	public void verifyHasTag(String tagName, String attributes) throws Exception {
-
+    public void verifyHasTag(String tagName, String attributes) throws Exception {
         Assert.assertThat(currentPipeline().selectNodes(String.format(".//%s%s", tagName, conditions(attributes))).isEmpty(), is(false));
+    }
+
+    @com.thoughtworks.gauge.Step("Verify has tag <tagName> with text <text>")
+    public void verifyHasTagWithText(String tagName, String text) throws Exception {
+
+        List<Element> list = currentPipeline().selectNodes(String.format(".//%s", tagName));
+        for(Element l : list){
+            Assert.assertTrue(text.contains(l.getText()));
+        }
     }
     
     @com.thoughtworks.gauge.Step("Verify has tag with file path <tagName> <tagAttribute> <attributeFilePath> <attributes>")
