@@ -93,9 +93,7 @@ tags: 5041, Clicky Admin
 * Verify has tag "svn" "@url: http://svn.url, @username: loser"
 Possible fix for flaky test issue - https://github.com/gocd/functional-tests/issues/199
 * Verify has tag "exec" "@command: snippet2, @workingdir: target"
-* Verify has tag "exec" "./arg/text(): arg1_for_snippet2"
-* Verify has tag "exec" "./arg/text(): arg2_for_snippet2"
-
+* Verify has tag "arg" with text "arg1_for_snippet2, arg2_for_snippet2"
 
 
 * Force navigate to add new pipeline
