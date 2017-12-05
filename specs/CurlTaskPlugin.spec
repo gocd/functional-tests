@@ -26,9 +26,7 @@ CurlTaskPlugin
 
 tags: #7928, plugins-tests
 
-* Open "Plugins" tab
-
-* Verify plugin with id "cd.go.contrib.task.skeleton" is loaded
+* Verify plugin with id "cd.go.contrib.task.skeleton" is active
 
 * Click on pipeline "curl-task-pass" for editing
 

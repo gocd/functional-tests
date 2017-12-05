@@ -25,9 +25,7 @@ LogNotificationPlugin
 
 tags: plugins-tests
 
-* Open "Plugins" tab
-
-* Verify plugin with id "log.notifier" is loaded
+* Verify plugin with id "log.notifier" is active
 
 * Store current state
 
