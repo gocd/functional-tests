@@ -20,7 +20,7 @@ Setup of contexts
 PluginValidations
 -----------------
 
-tags: #7481, Plugin Validations, plugins-tests
+tags: #7481, Plugin Validations, plugins-tests, manual
 
 * Open "Plugins" tab
 

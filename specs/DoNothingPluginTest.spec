@@ -21,7 +21,7 @@ Setup of contexts
 DoNothingPluginTest
 -------------------
 
-tags: plugins-tests
+tags: plugins-tests, manual
 
 * Open "Plugins" tab
 

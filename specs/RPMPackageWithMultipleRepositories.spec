@@ -26,9 +26,8 @@ RPMPackageWithMultipleRepositories
 
 tags: #7467, Yum repo package, plugins-tests
 
-* Open "Plugins" tab
 
-* Verify plugin with id "yum" is loaded
+* Verify plugin with id "yum" is active
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "A1"

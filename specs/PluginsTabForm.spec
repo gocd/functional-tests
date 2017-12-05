@@ -23,7 +23,7 @@ Setup of contexts
 PluginsTabForm
 --------------
 
-tags: 7735, 7777, admin-page, configuration, plugins-tests
+tags: 7735, 7777, admin-page, configuration, plugins-tests, manual
 
 * Open "Plugins" tab
 
