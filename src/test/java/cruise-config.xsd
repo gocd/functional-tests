@@ -30,11 +30,11 @@
                         <xsd:all>
                             <xsd:element minOccurs="0" maxOccurs="1" name="security" type="securityType"/>
                             <xsd:element minOccurs="0" maxOccurs="1" name="mailhost" type="mailHostType"/>
-                            <xsd:element minOccurs="0" maxOccurs="1" name="elastic" type="serverElasticConfigType"/>
                         </xsd:all>
                         <xsd:attributeGroup ref="serverAttributeGroup"/>
                     </xsd:complexType>
                 </xsd:element>
+                <xsd:element minOccurs="0" maxOccurs="1" name="elastic" type="elasticConfigType"/>
                 <xsd:element minOccurs="0" maxOccurs="1" name="repositories" type="repositoriesType">
                     <xsd:unique name="uniqueRepositoryId">
                         <xsd:selector xpath="repository"/>
@@ -264,7 +264,7 @@
         <xsd:attribute name="from" type="emailType" use="required"/>
         <xsd:attribute name="admin" type="emailType" use="required"/>
     </xsd:complexType>
-    <xsd:complexType name="serverElasticConfigType">
+    <xsd:complexType name="elasticConfigType">
         <xsd:sequence>
             <xsd:element name="profiles" type="elasticAgentProfilesType" minOccurs="0" maxOccurs="1">
                 <xsd:unique name="uniqueProfileId">
@@ -1056,4 +1056,5 @@
         <xsd:attribute name="secure" type="xsd:boolean"/>
     </xsd:complexType>
 </xsd:schema>
+
 
