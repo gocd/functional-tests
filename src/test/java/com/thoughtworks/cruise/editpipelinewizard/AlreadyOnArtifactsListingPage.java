@@ -50,9 +50,9 @@ public class AlreadyOnArtifactsListingPage extends AlreadyOnEditPipelineWizardPa
 		
 		listingIdString = (listingId == 0) ? "" : "[" + listingId + "]" ;
 		
-		browser.textbox("job[artifactPlans][][src]" + listingIdString).setValue(source);
-		browser.textbox("job[artifactPlans][][dest]" + listingIdString).setValue(destination);
-		browser.select("job[artifactPlans][][artifactTypeValue]" + listingIdString).choose(type);
+		browser.textbox("job[artifactConfigs][][source]" + listingIdString).setValue(source);
+		browser.textbox("job[artifactConfigs][][destination]" + listingIdString).setValue(destination);
+		browser.select("job[artifactConfigs][][artifactTypeValue]" + listingIdString).choose(type);
 	}
 	
 	
@@ -64,7 +64,7 @@ public class AlreadyOnArtifactsListingPage extends AlreadyOnEditPipelineWizardPa
 	private boolean artifactExists(Integer listingId) {
 		
 		listingId--;
-		return ( (listingId == 0) ? browser.textbox("job[artifactPlans][][src]").exists() : browser.textbox("job[artifactPlans][][src][" + listingId + "]").exists());  
+		return ( (listingId == 0) ? browser.textbox("job[artifactConfigs][][source]").exists() : browser.textbox("job[artifactConfigs][][source][" + listingId + "]").exists());
 		
 
 	}
