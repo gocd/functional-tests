@@ -96,6 +96,8 @@ AutoComplete and Save
 Validations
 * Verify has "task[pipelineName](text_field): NULL, task[stage](text_field): NULL, task[job](text_field):NULL"
 * Verify has "task[src](text_field): NULL, task[isSourceAFile](check_box): false, task[dest](text_field):NULL"
+* Set "task[stage](text_field): defaultStage" - Already on Task edit popup
+* Set "task[job](text_field): defaultJob" - Already on Task edit popup
 * Save and verify save failed
 * Verify validation failed for "task[src](text_field): Should provide either srcdir or srcfile"
 
