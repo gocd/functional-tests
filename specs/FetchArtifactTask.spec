@@ -97,7 +97,7 @@ Validations
 * Verify has "task[pipelineName](text_field): NULL, task[stage](text_field): NULL, task[job](text_field):NULL"
 * Verify has "task[src](text_field): NULL, task[isSourceAFile](check_box): false, task[dest](text_field):NULL"
 * Save and verify save failed
-* Verify validation failed for "task[src](text_field): Should provide either srcdir or srcfile"
+* Verify save failed with error message "Should provide either srcdir or srcfile"
 
 
 Teardown of contexts

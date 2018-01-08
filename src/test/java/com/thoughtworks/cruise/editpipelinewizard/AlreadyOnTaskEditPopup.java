@@ -33,6 +33,7 @@ import java.util.List;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertTrue;
 
 // JUnit Assert framework can be used for verification
 
@@ -104,9 +105,15 @@ public class AlreadyOnTaskEditPopup extends AlreadyOnEditPipelineWizardPage {
 		for(FormField expectedField : formFields(scenarioState.expand(fieldErrorRepresentations))) {
 			expectedField.verifyError(browser);
 		}
-	} 
-	
-	@com.thoughtworks.gauge.Step("Auto complete should show up <suggestion> - Already on Task edit popup")
+	}
+
+    @com.thoughtworks.gauge.Step("Verify save failed with error message <message>")
+    public void verifyValidationFailedGlobalMessage(String message) throws Exception {
+        assertTrue(browser.div("form_submit_errors").containsText(message));
+    }
+
+
+    @com.thoughtworks.gauge.Step("Auto complete should show up <suggestion> - Already on Task edit popup")
 	public void autoCompleteShouldShowUp(String suggestion) throws Exception {
 	    suggestion = scenarioState.expand(suggestion);
         new AutoCompleteSuggestions(browser, browserWrapper).autoCompletesShouldShowSuggestion(suggestion);
