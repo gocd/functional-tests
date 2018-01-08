@@ -123,7 +123,6 @@ Error conditions
 * Save and verify save failed
 * Verify validation failed for "task[stage](text_field): Stage is a required field."
 * Verify validation failed for "task[job](text_field): Job is a required field."
-* Verify validation failed for "task[src](text_field): Should provide either srcdir or srcfile"
 * Set "task[pipelineName](text_field): ${runtime_name:uppest_pipeline}" - Already on Task edit popup
 * Set "task[stage](text_field): uppest-stage3" - Already on Task edit popup
 * Set "task[job](text_field): uppest-job3" - Already on Task edit popup
