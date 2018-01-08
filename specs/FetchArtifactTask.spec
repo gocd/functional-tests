@@ -99,7 +99,7 @@ Validations
 * Set "task[stage](text_field): defaultStage" - Already on Task edit popup
 * Set "task[job](text_field): defaultJob" - Already on Task edit popup
 * Save and verify save failed
-* Verify validation failed for "task[src](text_field): Should provide either srcdir or srcfile"
+* Verify save failed with error message "Should provide either srcdir or srcfile"
 
 
 Teardown of contexts
