@@ -68,14 +68,14 @@ Make sure that only users who operate permissions (and not view users) on the pi
 * Enter "pavan" as user name
 * Save - Already On Edit Stage Page
 * On the field "user" with value "pavan"
-* Verify message "User \"pavan\" who is not authorized to operate pipeline group can not be authorized to approve stage" shows up - Already On Edit Stage Page
+* Verify message "User \"pavan\" who is not authorized to operate pipeline group `basic` can not be authorized to approve stage" shows up - Already On Edit Stage Page
 
 * Enter "view" as role name
 * Auto complete should not show up "viewer" - Already On Edit Stage Page
 * Enter "viewer" as role name
 * Save - Already On Edit Stage Page
 * On the field "role" with value "viewer"
-* Verify message "Role \"viewer\" who is not authorized to operate pipeline group can not be authorized to approve stage" shows up - Already On Edit Stage Page
+* Verify message "Role \"viewer\" who is not authorized to operate pipeline group `basic` can not be authorized to approve stage" shows up - Already On Edit Stage Page
 
 
 
