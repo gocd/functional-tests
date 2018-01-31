@@ -29,10 +29,10 @@ tags: 3378, 3411, feeds, restful api, shine, 3426, automate
 
 * Verify unauthorized to unlock "admin-pipeline"
 * Verify unauthorized to unlock "viewable-pipeline"
-* Verify unlocking "basic-pipeline-fast" is not acceptable because "no lock exists within the pipeline configuration for"
-* Verify unlocking "basic-pipeline-slow" is not acceptable because "lock exists within the pipeline configuration but no pipeline instance is currently in progress"
-* Verify unlocking "environment-pipeline-locked" is not acceptable because "lock exists within the pipeline configuration but no pipeline instance is currently in progress"
-* Verify unlocking "environment-pipeline" is not acceptable because "no lock exists within the pipeline configuration for"
+* Verify unlocking "basic-pipeline-fast" is not acceptable because "No lock exists within the pipeline configuration for"
+* Verify unlocking "basic-pipeline-slow" is not acceptable because "Lock exists within the pipeline configuration but no pipeline instance is currently in progress"
+* Verify unlocking "environment-pipeline-locked" is not acceptable because "Lock exists within the pipeline configuration but no pipeline instance is currently in progress"
+* Verify unlocking "environment-pipeline" is not acceptable because "No lock exists within the pipeline configuration for"
 * Verify unlocking "foo" fails as pipeline is not found
 
 
