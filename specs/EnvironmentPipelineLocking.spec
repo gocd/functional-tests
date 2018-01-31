@@ -28,8 +28,8 @@ tags: 3378, 3411, feeds, restful api, shine, 3426, automate, 3431, stage1
 
 * Add environment "uat" to any "1" Idle agents - Using Agents API
 
-* Verify unlocking "environment-pipeline" is not acceptable because "no lock exists within the pipeline configuration for environment-pipeline"
-* Verify unlocking "environment-pipeline-locked" is not acceptable because "lock exists within the pipeline configuration but no pipeline instance is currently in progress"
+* Verify unlocking "environment-pipeline" is not acceptable because "No lock exists within the pipeline configuration for environment-pipeline"
+* Verify unlocking "environment-pipeline-locked" is not acceptable because "Lock exists within the pipeline configuration but no pipeline instance is currently in progress"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "environment-pipeline-locked"
@@ -37,7 +37,7 @@ tags: 3378, 3411, feeds, restful api, shine, 3426, automate, 3431, stage1
 * Verify stage "1" is "Passed" on pipeline with label "1"
 * Wait for stage "secondStage" status to be "Building" with label "1"
 
-* Verify unlocking "environment-pipeline-locked" is not acceptable because "locked pipeline instance is currently running (one of the stages is in progress)"
+* Verify unlocking "environment-pipeline-locked" is not acceptable because "Locked pipeline instance is currently running (one of the stages is in progress)"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "environment-pipeline-locked"

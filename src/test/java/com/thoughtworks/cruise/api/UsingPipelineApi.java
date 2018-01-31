@@ -158,7 +158,7 @@ public class UsingPipelineApi {
 
 	@com.thoughtworks.gauge.Step("Verify unlocking <pipelineName> is not acceptable because <shouldHaveMessage>")
 	public void verifyUnlockingIsNotAcceptableBecause(String pipelineName, String shouldHaveMessage) throws Exception {
-		unlockShouldReturn(state.pipelineNamed(pipelineName), 406, shouldHaveMessage);
+		unlockShouldReturn(state.pipelineNamed(pipelineName), 409, shouldHaveMessage);
 	}
 
 	@com.thoughtworks.gauge.Step("Verify unlocking <litteralPipelineName> fails as pipeline is not found")
@@ -169,13 +169,13 @@ public class UsingPipelineApi {
 	@com.thoughtworks.gauge.Step("Verify can unlock <pipelineName>")
 	public void verifyCanUnlock(String pipelineName) throws Exception {
 		String actualPipelineName = state.pipelineNamed(pipelineName);
-		waitUntilUnlockReturns(actualPipelineName, 200, String.format("pipeline lock released for %s", actualPipelineName));
+		waitUntilUnlockReturns(actualPipelineName, 200, String.format("Pipeline lock released for %s", actualPipelineName));
 	}
 
 	@com.thoughtworks.gauge.Step("Unlock <pipelineName>")
 	public void unlock(String pipelineName) throws Exception {
 		String actualPipelineName = state.pipelineNamed(pipelineName);
-		unlockShouldReturn(actualPipelineName, 200, String.format("pipeline lock released for %s", actualPipelineName));
+		unlockShouldReturn(actualPipelineName, 200, String.format("Pipeline lock released for %s", actualPipelineName));
 	}
 
 	@com.thoughtworks.gauge.Step("Using remembered revision <revisionAlias> for material <materialName>")
