@@ -53,15 +53,7 @@ Enable security
 
 * Login as "admin"
 
-Verify 'admin' views same pipelines selected before
 * Turn on autoRefresh - On Pipeline Dashboard Page
-* Verify group "basic" is visible - On Pipeline Dashboard Page
-* Verify pipeline "up" is visible
-* Verify pipeline "edit-pipeline" is visible
-* Verify group "artifact_md5_verification" is visible - On Pipeline Dashboard Page
-* Verify pipeline "artifact-md5-skip" is visible
-* Verify pipeline "artifact-md5-up" is not visible
-* Verify group "dependency-group" is not visible
 * Open pipelines selector
 
 'admin' makes selections
