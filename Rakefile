@@ -164,7 +164,7 @@ task 'bump-schema' do
   version = ENV['VERSION'].to_s
 
   raise "Please provide VERSION" if version.empty?
-  sh("curl --fail --location --silent https://raw.githubusercontent.com/gocd/gocd/master/config/config-server/resources/cruise-config.xsd > src/test/java/cruise-config.xsd")
+  sh("curl --fail --location --silent https://raw.githubusercontent.com/gocd/gocd/master/config/config-server/src/main/resources/cruise-config.xsd > src/test/java/cruise-config.xsd")
 
   Dir["./src/test/java/config/*.xml"].each do |path|
     content = File.read(path)
