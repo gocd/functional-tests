@@ -16,7 +16,6 @@
 
 package com.thoughtworks.cruise.page;
 
-import com.thoughtworks.cruise.Regex;
 import com.thoughtworks.cruise.SahiBrowserWrapper;
 import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.state.ScenarioState;
@@ -62,11 +61,12 @@ public class OnAnyPage extends CruisePage {
 				if (!autoRefresh) {
 					reloadPage();
 				}
-				ElementStub errors = errorCountElement();
+				ElementStub errors = serverMessageElement();
 				if (!errors.exists()) {
 					return false;
 				}
-				int actualErrors = Integer.parseInt(errors.getText().trim().substring("Errors: ".length()).trim());
+				String[] error_count = errors.getText().trim().split("error");
+				int actualErrors = Integer.parseInt(error_count[0].trim());
 				return actualErrors >= count;
 			}
 		});
@@ -80,11 +80,11 @@ public class OnAnyPage extends CruisePage {
 				if (!autoRefresh) {
 					reloadPage();
 				}
-				ElementStub warnings = warningCountElement();
+				ElementStub warnings = serverMessageElement();
 				if (!warnings.exists()) {
 					return false;
 				}
-				return warnings.getText().trim().equals("Warnings: " + count);
+				return warnings.getText().trim().contains(count + " warning");
 			}
 		});
 	}
@@ -100,17 +100,17 @@ public class OnAnyPage extends CruisePage {
     	if (!autoRefresh) {
     		reloadPage();
     	}
-        ElementStub warnings = warningCountElement();
-        return warnings.exists();
+        ElementStub warnings = serverMessageElement();
+    	if (warnings.exists()) {
+			return warnings.getText().trim().contains("warning");
+		}else {return false;}
+
     }
 
-	private ElementStub warningCountElement() {
-		return browser.span(Regex.wholeWord("warning_count")).in(messagesElement());
+	private ElementStub serverMessageElement() {
+		return browser.span("messages").in(messagesElement());
 	}
-	
-	private ElementStub errorCountElement() {
-		return browser.span("/error_count/").in(messagesElement());
-	}
+
 	
 	//AskNarayan: messages don't appear consistently, need to refresh page to see it.
 	@com.thoughtworks.gauge.Step("Open error and warning messages popup")
@@ -140,7 +140,10 @@ public class OnAnyPage extends CruisePage {
 				if (!autoRefresh) {
 					reloadPage();
 				}
-				return !errorCountElement().exists();
+				ElementStub errors = serverMessageElement();
+				if (errors.exists()) {
+					return !errors.getText().trim().contains("error");
+				}else {return true;}
 			}			
 		});		
 	}
