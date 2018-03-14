@@ -37,6 +37,8 @@ public class CruiseConfigFileEditor extends ConfigFileContents {
     public static final String DEFAULT_CIPHER = "269298bc31c44620";
     private static final String SERVER_ID_XPATH = "//server/@serverId";
     private static final String TOKEN_GENERATION_KEY_XPATH = "//server/@tokenGenerationKey";
+    private static final String AUTO_REGISTERATION_KEY_XPATH = "//server/@agentAutoRegisterKey";
+    private static final String WEB_HOOK_SECRET_XPATH = "//server/@webhookSecret";
 
     public static File getCruiseConfigFile() {
         return new File(RuntimePath.getServerConfigPath() + "/cruise-config.xml");
@@ -52,10 +54,14 @@ public class CruiseConfigFileEditor extends ConfigFileContents {
             if (configFile.exists()) {
                 String tokenGenerationKey = XmlUtil.parse(FileUtil.readToEnd(configFile)).selectSingleNode(TOKEN_GENERATION_KEY_XPATH).getText();
                 String serverId = XmlUtil.parse(FileUtil.readToEnd(configFile)).selectSingleNode(SERVER_ID_XPATH).getText();
+                String autoRegsiterationKey = XmlUtil.parse(FileUtil.readToEnd(configFile)).selectSingleNode(AUTO_REGISTERATION_KEY_XPATH).getText();
+                String webHookSecret = XmlUtil.parse(FileUtil.readToEnd(configFile)).selectSingleNode(WEB_HOOK_SECRET_XPATH).getText();
                 Document dom = XmlUtil.parse(xml);
                 Element node = (Element) dom.selectSingleNode("//server");
                 node.setAttributeValue("serverId", serverId);
                 node.setAttributeValue("tokenGenerationKey", tokenGenerationKey);
+                node.setAttributeValue("agentAutoRegisterKey", autoRegsiterationKey);
+                node.setAttributeValue("webhookSecret", webHookSecret);
                 xml = dom.asXML();
             }
             System.err.println("Writing out config file to " + configFile.getCanonicalPath());

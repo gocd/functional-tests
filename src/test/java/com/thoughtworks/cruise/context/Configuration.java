@@ -94,11 +94,16 @@ public class Configuration {
         final String md5;
         final String serverId;
         final String tokenGenerationKey;
+        final String autoRegistrationKey;
+        final String webHookSecret;
 
-        private CurrentConfigState(String md5, String serverId, String tokenGenerationKey) {
+
+        private CurrentConfigState(String md5, String serverId, String tokenGenerationKey, String autoRegistrationKey, String webHookSecret) {
             this.md5 = md5;
             this.serverId = serverId;
             this.tokenGenerationKey = tokenGenerationKey;
+            this.autoRegistrationKey = autoRegistrationKey;
+            this.webHookSecret = webHookSecret;
         }
     }
 
@@ -106,15 +111,19 @@ public class Configuration {
         CruiseResponse configContent = getConfigContent();
         String serverId = null;
         String tokenGenerationKey = null;
+        String autoRegistrationKey = null;
+        String webHookSecret = null;
         try {
             Document dom = XmlUtil.parse(configContent.getBody());
             Node node = dom.selectSingleNode("//server/@serverId");
             serverId = node.getText();
             tokenGenerationKey = dom.selectSingleNode("//server/@tokenGenerationKey").getText();
+            autoRegistrationKey = dom.selectSingleNode("//server/@agentAutoRegisterKey").getText();
+            webHookSecret = dom.selectSingleNode("//server/@webhookSecret").getText();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return new CurrentConfigState(configContent.getResponseHeader(X_CRUISE_CONFIG_MD5), serverId, tokenGenerationKey);
+        return new CurrentConfigState(configContent.getResponseHeader(X_CRUISE_CONFIG_MD5), serverId, tokenGenerationKey, autoRegistrationKey, webHookSecret);
     }
 
     private CruiseResponse getConfigContent() {
