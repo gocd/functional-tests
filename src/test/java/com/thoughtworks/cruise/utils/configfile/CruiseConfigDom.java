@@ -1783,6 +1783,14 @@ public class CruiseConfigDom {
 		serverTag().setAttributeValue("tokenGenerationKey", tokenGenerationKey);
 	}
 
+	public void replaceAutoRegisterationKey(String autoRegisterationKey) {
+		serverTag().setAttributeValue("agentAutoRegisterKey", autoRegisterationKey);
+	}
+
+	public void replaceWebHookSecret(String webHookSecret) {
+		serverTag().setAttributeValue("webhookSecret", webHookSecret);
+	}
+
 	public String getCommandRepositoryLocation() {
 		return serverTag().attribute("commandRepositoryLocation").getText();
 	}
