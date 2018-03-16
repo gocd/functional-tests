@@ -32,7 +32,7 @@ namespace :build do
 
   task :api do
     cd "../#{GO_TRUNK_DIRNAME}" do
-      sh "./gradlew -q go-plugin-api:install go-plugin-api-internal:install"
+      sh "./gradlew -q :plugin-infra:go-plugin-api:install :plugin-infra:go-plugin-api-internal:install"
     end
   end
 
