@@ -142,9 +142,9 @@ task :gauge_specs do
  end
 
  if LOAD_BALANCED
-  sh "gauge --tags=#{GAUGE_TAGS} -n=#{GO_JOB_RUN_COUNT} -g=#{GO_JOB_RUN_INDEX} run specs/"
+  sh "gauge run --tags=#{GAUGE_TAGS} -n=#{GO_JOB_RUN_COUNT} -g=#{GO_JOB_RUN_INDEX} specs/"
  else
-  sh "gauge --tags=#{GAUGE_TAGS} run specs/"
+  sh "gauge run --tags=#{GAUGE_TAGS} specs/"
  end
 
  if win_os?
