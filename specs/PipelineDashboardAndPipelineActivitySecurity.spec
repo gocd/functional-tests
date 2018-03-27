@@ -1,15 +1,16 @@
-// --GO-LICENSE-START--
-// Copyright 2015 ThoughtWorks, Inc.
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//    http://www.apache.org/licenses/LICENSE-2.0
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-// --GO-LICENSE-END--
+Copyright 2018 ThoughtWorks, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
 PipelineDashboardAndPipelineActivitySecurity
 ============================================
@@ -44,7 +45,14 @@ Pipeline Visibility
      |P3           |true       |true                 |true        |true               |true                |
      |P4           |true       |true                 |true        |true               |true                |
 
-
+* Looking at pipeline "P1"
+* Wait for labels "2" to pass
+* Looking at pipeline "P2"
+* Wait for labels "2" to pass
+* Looking at pipeline "P3"
+* Wait for labels "2" to pass
+* Looking at pipeline "P4"
+* Wait for labels "2" to pass
 
 * verify user has operate permissions on "defaultStage" for pipeline "P1" on Pipeline Activity Page
 * Verify pipeline is triggered by "admin"
@@ -73,6 +81,10 @@ Pipeline Visibility
      |P3           |true       |true                 |true        |true               |true                |
      |P4           |false      |false                |true        |false              |true                |
 
+* Looking at pipeline "P2"
+* Wait for labels "3" to pass
+* Looking at pipeline "P3"
+* Wait for labels "3" to pass
 
 * On Pipeline Dashboard Page
 * verify user does not have operate permissions on "defaultStage" for pipleine "P1" on pipeline activity page
@@ -96,6 +108,8 @@ Pipeline Visibility
      |P3           |true       |true                 |true        |true               |true                |
      |P4           |false      |false                |false       |false              |false               |
 
+* Looking at pipeline "P3"
+* Wait for labels "4" to pass
 
 * On Pipeline Dashboard Page
 * verify user does not have operate permissions on "defaultStage" for pipleine "P1" on pipeline activity page
@@ -118,6 +132,8 @@ Pipeline Visibility
      |P3           |true       |false                |false       |true               |true                |
      |P4           |true       |false                |false       |false              |false               |
 
+* Looking at pipeline "P2"
+* Wait for labels "4" to pass
 
 * On Pipeline Dashboard Page
 * verify user has operate permissions on "defaultStage" for pipeline "P2" on Pipeline Activity Page
