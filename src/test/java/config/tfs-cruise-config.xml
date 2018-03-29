@@ -34,7 +34,7 @@
 	              </exec>
 	            </tasks>
 	            <artifacts>
-	              <artifact src="artifact.file"/>
+	              <artifact type="build" src="artifact.file"/>
 	            </artifacts>
 	          </job>
 	        </jobs>
@@ -59,7 +59,7 @@
 	              </exec>
 	            </tasks>
 	            <artifacts>
-	              <artifact src="child/artifact.file"/>
+	              <artifact type="build" src="child/artifact.file"/>
 	            </artifacts>
 	          </job>
 	        </jobs>
@@ -85,7 +85,7 @@
 	              </exec>
 	            </tasks>
 	            <artifacts>
-	              <artifact src="artifact.file"/>
+	              <artifact type="build" src="artifact.file"/>
 	            </artifacts>
 	          </job>
 	        </jobs>
