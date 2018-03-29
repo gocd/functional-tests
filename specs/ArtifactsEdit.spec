@@ -43,8 +43,8 @@ ArtifactsEdit
 
 
 * For pipeline "edit-pipeline"
-* Verify "test" artifact with "@src:first_source, @dest:first_destination" exists for "defaultJob" in "defaultStage"
-* Verify "artifact" artifact with "@src:second_source, @dest:second destination" exists for "defaultJob" in "defaultStage"
+* Verify "artifact" artifact with "@type:test, @src:first_source, @dest:first_destination" exists for "defaultJob" in "defaultStage"
+* Verify "artifact" artifact with "@type:build, @src:second_source, @dest:second destination" exists for "defaultJob" in "defaultStage"
 
 
 

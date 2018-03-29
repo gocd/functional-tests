@@ -1451,6 +1451,7 @@ public class CruiseConfigDom {
 		Element test = new DefaultElement("test");
 		test.addAttribute("src", source);
 		test.addAttribute("dest", dest);
+		test.addAttribute("type", "build");
 
 		findOrCreateElement(job(job), "artifacts").add(test);
 	}
