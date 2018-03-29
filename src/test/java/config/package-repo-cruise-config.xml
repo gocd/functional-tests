@@ -476,7 +476,7 @@
               <exec command="ls"/>
             </tasks>
             <artifacts>
-              <test src="hg/dev/pass.xml" dest="pass"/>
+              <artifact type="test" src="hg/dev/pass.xml" dest="pass"/>
             </artifacts>
           </job>
         </jobs>
@@ -496,7 +496,7 @@
               <exec command="ls123"/>
             </tasks>
             <artifacts>
-              <test src="hg/dev/fail.xml" dest="fail"/>
+              <artifact type="test" src="hg/dev/fail.xml" dest="fail"/>
             </artifacts>
           </job>
         </jobs>

@@ -158,7 +158,7 @@
                             <rake buildfile="create_file.rake" target="create" workingdir="hg"/>
                         </tasks>
                         <artifacts>
-							<artifact src="hg/big_file.txt" dest="pkg"/>
+							<artifact type="build" src="hg/big_file.txt" dest="pkg"/>
                         </artifacts>
                     </job>
                 </jobs>
@@ -1400,10 +1400,10 @@
                         </tasks>
 
                         <artifacts>
-                            <artifact src="hg/dev/nant.build" dest="hg-artifact"/>
-                            <artifact src="git/first.txt" dest="git-artifact"/>
-                            <artifact src="svn/build.xml" dest="svn-artifact"/>
-                            <artifact src="p4/README.txt,v" dest="p4-artifact"/>
+                            <artifact type="build" src="hg/dev/nant.build" dest="hg-artifact"/>
+                            <artifact type="build" src="git/first.txt" dest="git-artifact"/>
+                            <artifact type="build" src="svn/build.xml" dest="svn-artifact"/>
+                            <artifact type="build" src="p4/README.txt,v" dest="p4-artifact"/>
                         </artifacts>
                     </job>
                 </jobs>
@@ -1442,7 +1442,7 @@
               				</exec>
             			</tasks>
             			<artifacts>
-              				<artifact src="bigfile"/>
+              				<artifact type="build" src="bigfile"/>
             			</artifacts>
           			</job>
         		</jobs>
@@ -1477,7 +1477,7 @@
                             <ant target="fail" workingdir="dev"/>
                         </tasks>
                         <artifacts>
-                            <test src="junit-output" dest="junit"/>
+                            <artifact type="test" src="junit-output" dest="junit"/>
                         </artifacts>
                     </job>
                 </jobs>
@@ -1496,7 +1496,7 @@
                             <ant target="run-till-file-exists" workingdir="dev"/>
                         </tasks>
                         <artifacts>
-                            <test src="junit-output" dest="junit"/>
+                            <artifact type="test" src="junit-output" dest="junit"/>
                         </artifacts>
                     </job>
                 </jobs>
@@ -1755,8 +1755,8 @@
                 <jobs>
                     <job name="defaultJob">
                         <artifacts>
-                            <artifact src="abc.txt"/>
-                            <artifact src="baz"/>
+                            <artifact type="build" src="abc.txt"/>
+                            <artifact type="build" src="baz"/>
                         </artifacts>
                     </job>
                 </jobs>
@@ -1801,7 +1801,7 @@
                 <jobs>
                     <job name="defaultJob">
                     	<artifacts>
-                            <artifact src="new_artifact.txt"/>
+                            <artifact type="build" src="new_artifact.txt"/>
                         </artifacts>
                     </job>
                 </jobs>
@@ -1944,7 +1944,7 @@
                <exec command="echo" args="hello"/>
             </tasks>
             <artifacts>
-              <artifact src="first"/>
+              <artifact type="build" src="first"/>
             </artifacts>
           </job>
           <job name="uppest-job1a">
@@ -1961,7 +1961,7 @@
                <exec command="echo" args="hello"/>
             </tasks>
             <artifacts>
-              <artifact src="second"/>
+              <artifact type="build" src="second"/>
             </artifacts>
           </job>
         </jobs>

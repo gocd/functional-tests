@@ -560,7 +560,7 @@
               <ant target="fail" workingdir="dev"/>
             </tasks>
             <artifacts>
-              <test src="junit-output" dest="junit"/>
+              <artifact type="test" src="junit-output" dest="junit"/>
             </artifacts>
           </job>
         </jobs>
@@ -601,12 +601,12 @@
               <exec command="touch" args="subfolder/another.zip"/>
             </tasks>
             <artifacts>
-              <artifact src="subfolder/*.*" dest="file-with-dot-in-subfolder"/>
-              <artifact src="*.jar" dest="jarfolder"/>
-              <artifact src="*.txt.*" dest="zipfolder"/>
-              <artifact src="subfolder/*" dest="all-in-subfolder"/>
-              <artifact src="**/*.zip" dest="allzip"/>
-              <artifact src="**/*.not-exists" dest="not-exists"/>
+              <artifact type="build" src="subfolder/*.*" dest="file-with-dot-in-subfolder"/>
+              <artifact type="build" src="*.jar" dest="jarfolder"/>
+              <artifact type="build" src="*.txt.*" dest="zipfolder"/>
+              <artifact type="build" src="subfolder/*" dest="all-in-subfolder"/>
+              <artifact type="build" src="**/*.zip" dest="allzip"/>
+              <artifact type="build" src="**/*.not-exists" dest="not-exists"/>
             </artifacts>
           </job>
         </jobs>
