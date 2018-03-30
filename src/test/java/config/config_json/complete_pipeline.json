@@ -264,7 +264,7 @@
             ],
             "artifacts": [
               {
-                "source": "#{tests}/reports",
+                "source": "#{tests}/builds",
                 "destination": "Reports",
                 "type": "build"
               },
