@@ -1448,10 +1448,10 @@ public class CruiseConfigDom {
 	}
 
 	public void addTestArtifactToJob(String job, String source, String dest) {
-		Element test = new DefaultElement("test");
+		Element test = new DefaultElement("artifact");
 		test.addAttribute("src", source);
 		test.addAttribute("dest", dest);
-		test.addAttribute("type", "build");
+		test.addAttribute("type", "test");
 
 		findOrCreateElement(job(job), "artifacts").add(test);
 	}
