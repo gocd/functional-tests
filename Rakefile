@@ -78,7 +78,7 @@ task :copy_agent_server do
   mkdir_p "target"
   mkdir_p "target/test-addon"
   cp_r "../#{GO_TRUNK_DIRNAME}/installers/target/distributions/zip/.", "target"
-  cp_r "../#{GO_TRUNK_DIRNAME}/test-addon/target/libs/.", "target/test-addon"
+  cp_r "../#{GO_TRUNK_DIRNAME}/test/test-addon/target/libs/.", "target/test-addon"
 end
 
 task :local_setup_go do

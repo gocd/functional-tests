@@ -44,7 +44,7 @@ namespace :build do
 
   task :addon do
     cd "../#{GO_TRUNK_DIRNAME}" do
-      sh "./gradlew -q test-addon:assemble"
+      sh "./gradlew -q test:test-addon:assemble"
     end
   end
 
