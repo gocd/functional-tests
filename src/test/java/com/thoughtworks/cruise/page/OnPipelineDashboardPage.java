@@ -77,7 +77,7 @@ public class OnPipelineDashboardPage extends CruisePage {
 
     @Override
     protected String url() {
-        return Urls.urlFor("/pipelines?autoRefresh=" + autoRefresh);
+        return Urls.urlFor("/old_dashboard?autoRefresh=" + autoRefresh);
     }
 
     @com.thoughtworks.gauge.Step("Turn on autoRefresh - On Pipeline Dashboard Page")
