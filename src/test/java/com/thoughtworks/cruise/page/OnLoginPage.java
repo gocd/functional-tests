@@ -44,6 +44,7 @@ public class OnLoginPage extends CruisePage {
 	}
 
 	private void verifyLoggedInUser(final String username) {
+		browser.navigateTo(Urls.urlFor("/old_dashboard"), true);
 		Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate() {
 
 			@Override
