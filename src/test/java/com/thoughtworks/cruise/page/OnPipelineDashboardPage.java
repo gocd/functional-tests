@@ -75,6 +75,12 @@ public class OnPipelineDashboardPage extends CruisePage {
         scenarioState.usingPipeline(pipelineName);
     }
 
+    @com.thoughtworks.gauge.Step("Navigate to pipeline dashboard page")
+    public void navigateToPipelineDashboardPage() throws Exception {
+        navigateToURL();
+        currentPageState.currentPageIs(Page.PIPELINE_DASHBOARD);
+    }
+
     @Override
     protected String url() {
         return Urls.urlFor("/old_dashboard?autoRefresh=" + autoRefresh);

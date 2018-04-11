@@ -458,11 +458,7 @@ public class AlreadyOnStageDetailPage extends CruisePage {
 		assertThat(browserWrapper.getCurrentUrl(), containsString(scenarioState.expand(stageLocator)));
 	}
 
-	@com.thoughtworks.gauge.Step("Navigate to pipeline dashboard page")
-	public void navigateToPipelineDashboardPage() throws Exception {
-		browser.link("PIPELINES").click();
-		currentPageState.currentPageIs(Page.PIPELINE_DASHBOARD);
-	}
+
 
 	private String userErrorMessage() {
 		return browser.div("/message_pane/").getText();
