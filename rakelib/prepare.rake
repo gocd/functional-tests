@@ -24,7 +24,7 @@ namespace :prepare do
 
   task :addon => ['build:addon', 'build:version'] do
     mkdir_p "target/test-addon"
-    cp_r "../#{GO_TRUNK_DIRNAME}/test-addon/target/libs/.", "target/test-addon"
+    cp_r "../#{GO_TRUNK_DIRNAME}/test/test-addon/target/libs/.", "target/test-addon"
     cp_r "target/test-addon/.", "target/go-server-#{version}/addons"
   end
 
