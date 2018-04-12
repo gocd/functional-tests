@@ -100,7 +100,7 @@ public class Urls {
 	}
 
 	public static String oauthAuthorize(String id, String redirectURI, boolean shouldEscape) {
-		String pathAndQuery = String .format("%s?redirect_uri=%s&client_id=%s&response_type=code",
+		String pathAndQuery = String.format("%s?redirect_uri=%s&client_id=%s&response_type=code",
 				"/oauth/authorize", redirectURI, id);
 		try {
 			return localhostSslUrlFor(shouldEscape ? URLEncoder.encode(pathAndQuery, "UTF-8") : pathAndQuery);
