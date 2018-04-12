@@ -114,9 +114,12 @@ public abstract class CruisePage {
     }
 
     public void logout() {
-        browser.navigateTo(Urls.urlFor("/old_dashboard"), true);
-    	browser.execute("_sahi._deleteCookie('JSESSIONID')");
-    	browser.execute("document.cookie='JSESSIONID=;expires=Thu, 01 Jan 1970 00:00:01 GMT;'");
+        String current_url = browser.fetch("window.location.href");
+        if (current_url.startsWith("https")) {
+            browser.navigateTo(Urls.localhostSslUrlFor("/old_dashboard"), false);
+        } else{
+            browser.navigateTo(Urls.urlFor("/old_dashboard"), false);
+        }
 		ElementStub userLink = browser.listItem("current_user icon");
     	if (!browser.title().contains("Login") && userLink.exists() && browser.link("nav-logout").exists()) {
         	userLink.click();

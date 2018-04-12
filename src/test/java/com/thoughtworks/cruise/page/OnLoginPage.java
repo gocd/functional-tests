@@ -44,7 +44,12 @@ public class OnLoginPage extends CruisePage {
 	}
 
 	private void verifyLoggedInUser(final String username) {
-		browser.navigateTo(Urls.urlFor("/old_dashboard"), true);
+		String current_url = browser.fetch("window.location.href");
+		if (current_url.startsWith("https")) {
+			browser.navigateTo(Urls.localhostSslUrlFor("/old_dashboard"), false);
+		} else{
+			browser.navigateTo(Urls.urlFor("/old_dashboard"), false);
+		}
 		Assertions.waitUntil(Timeout.THIRTY_SECONDS, new Predicate() {
 
 			@Override
