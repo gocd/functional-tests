@@ -63,13 +63,13 @@ This tests the CRUD operations on an OAuth client. Only an admin can perform the
 
 
 
-
-
 Teardown of contexts
 ____________________
 * Capture go state "OAuthCRUDOperations" - teardown
 * Using pipeline "basic-pipeline" - teardown
 * Login as "admin" - teardown
+* Stop server
+* Start server
 * Secure configuration - teardown
 
 
