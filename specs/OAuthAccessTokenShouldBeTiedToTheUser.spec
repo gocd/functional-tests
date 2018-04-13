@@ -101,6 +101,8 @@ ____________________
 * Capture go state "OAuthAccessTokenShouldBeTiedToTheUser" - teardown
 * Using pipeline "pipeline1, pipeline2" - teardown
 * Login as "admin" - teardown
+* Stop server
+* Start server
 * Group admin security configuration - teardown
 
 
