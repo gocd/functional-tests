@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="106">
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="107">
   <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
     <security>
 
@@ -616,11 +616,11 @@
         <jobs>
           <job name="Job2">
             <tasks>
-              <fetchartifact stage="defaultStage" job="Job1" srcdir="file-with-dot-in-subfolder" dest="file-with-dot-in-subfolder-new"/>
-              <fetchartifact stage="defaultStage" job="Job1" srcdir="jarfolder" dest="jarfolder-new"/>
-              <fetchartifact stage="defaultStage" job="Job1" srcdir="zipfolder" dest="zipfolder-new"/>
-              <fetchartifact stage="defaultStage" job="Job1" srcdir="all-in-subfolder" dest="all-in-subfolder-new"/>
-              <fetchartifact stage="defaultStage" job="Job1" srcdir="allzip" dest="allzip-new"/>
+              <fetchartifact origin="gocd" stage="defaultStage" job="Job1" srcdir="file-with-dot-in-subfolder" dest="file-with-dot-in-subfolder-new"/>
+              <fetchartifact origin="gocd" stage="defaultStage" job="Job1" srcdir="jarfolder" dest="jarfolder-new"/>
+              <fetchartifact origin="gocd" stage="defaultStage" job="Job1" srcdir="zipfolder" dest="zipfolder-new"/>
+              <fetchartifact origin="gocd" stage="defaultStage" job="Job1" srcdir="all-in-subfolder" dest="all-in-subfolder-new"/>
+              <fetchartifact origin="gocd" stage="defaultStage" job="Job1" srcdir="allzip" dest="allzip-new"/>
             </tasks>
           </job>
         </jobs>
