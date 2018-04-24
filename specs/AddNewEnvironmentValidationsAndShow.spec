@@ -59,7 +59,7 @@ Add environment with pipelines, agents and environment variables
 * Verify error "Failed to add environment 'first environment'." message shows up
 * Enter name "foo_!_bar"
 * Finish "env-name"
-* Verify error "Failed to add environment 'first environment'. failed to save : Environment name is invalid. \"foo_!_bar\" should conform to the pattern - [a-zA-Z0-9_\\-]{1}[a-zA-Z0-9_\\-.]*" message shows up
+* Verify error "Failed to add environment 'foo_!_bar'. failed to save : Environment name is invalid. \"foo_!_bar\" should conform to the pattern - [a-zA-Z0-9_\\-]{1}[a-zA-Z0-9_\\-.]*" message shows up
 * Enter name "fooEnvironment"
 
 * Select tab "env-pipelines"
@@ -75,7 +75,7 @@ Add environment with pipelines, agents and environment variables
 * Add new variable
 * For variable "1" name "name" value "other-value"
 * Finish
-* Verify error "Failed to add environment 'first environment'. Environment Variable name 'name' is not unique for environment 'fooEnvironment'." message shows up
+* Verify error "Failed to add environment 'fooEnvironment'. Environment Variable name 'name' is not unique for environment 'fooEnvironment'." message shows up
 * Select tab "env-vars"
 * Delete variable "1"
 * Add new variable
