@@ -38,7 +38,7 @@ tags: 4171, clicky ui, admin-page, configuration, plugins-tests, 7488, 7487, 735
 * Select "yum" plugin
 * Click save - Already on Package Repositories tab
 * Verify message shows up "Save failed, see errors below"
-* Verify error message "This field is required. Repository url is empty" shows up against field repository url
+* Verify error message "This field is required,Repository url is empty" shows up against field repository url
 * Enter repo url as "http://localhost:8081/${runtime_package_http_repo_name:http_repo1}"
 * Verify check connection gives message containing "401"
 * Click save - Already on Package Repositories tab
