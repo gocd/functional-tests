@@ -53,7 +53,7 @@ public class VerifyIfUserIsAdmin {
 			public boolean call() throws Exception {
 				onAnyPage.logout();
 				onLoginPage.loginAs(loginAsUser);
-				ElementStub adminLink = browser.link("ADMIN");
+				ElementStub adminLink = browser.link("Admin");
 				return adminLink.exists() == Boolean.valueOf(isAdmin);
 			}
 		});

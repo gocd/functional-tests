@@ -495,7 +495,7 @@ public class OnEnvironmentPage extends CruisePage {
 
 	@com.thoughtworks.gauge.Step("Click edit environment link for <environmentName>")
 	public void clickEditEnvironmentLinkFor(String environmentName) throws Exception {
-		browser.link("ENVIRONMENTS").click();
+		browser.link("Environments").click();
         String environmentDiv = String.format("environment_%s_panel", environmentName);
         browser.link("icon16 setting").in(browser.div(environmentDiv)).click();
 	}
