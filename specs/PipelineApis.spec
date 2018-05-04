@@ -154,9 +154,7 @@ tags: 3351, automate, 3086, schedule, trigger, restful api, 3453, OOM
 * For pipeline "run.till.file.exists" - Using pipeline api
 * Schedule should return code "409"
 
-* Attempt to get scheduled list of jobs should return with status "403"
-
-
+* Attempt to get scheduled list of jobs should return with status "401"
 
 
 
