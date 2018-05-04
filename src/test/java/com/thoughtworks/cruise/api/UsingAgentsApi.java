@@ -1,5 +1,5 @@
 /*************************GO-LICENSE-START*********************************
- * Copyright 2015 ThoughtWorks, Inc.
+ * Copyright 2018 ThoughtWorks, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,8 +17,6 @@
 package com.thoughtworks.cruise.api;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.api.response.AgentInformation;
 import com.thoughtworks.cruise.api.response.AgentJobRunHistory;
@@ -29,14 +27,10 @@ import com.thoughtworks.cruise.state.ScenarioState;
 import com.thoughtworks.cruise.util.CruiseConstants;
 import com.thoughtworks.cruise.utils.Assertions;
 import com.thoughtworks.cruise.utils.Timeout;
-import net.sf.cglib.transform.impl.InterceptFieldCallback;
-import net.sf.sahi.client.ElementStub;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Assert;
-
-import java.util.HashMap;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

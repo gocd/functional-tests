@@ -1,5 +1,5 @@
 /*************************GO-LICENSE-START*********************************
- * Copyright 2015 ThoughtWorks, Inc.
+ * Copyright 2018 ThoughtWorks, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,9 @@ import com.thoughtworks.cruise.client.TalkToCruise;
 import com.thoughtworks.cruise.client.TalkToCruise.CruiseResponse;
 import com.thoughtworks.cruise.util.CruiseConstants;
 import org.apache.commons.httpclient.NameValuePair;
+import org.apache.commons.httpclient.methods.StringRequestEntity;
+
+import java.io.UnsupportedEncodingException;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -43,5 +46,21 @@ public class UsingUserApi {
 	public void attemptToDeleteUserAndShouldReturn(String username, String httpStatus) throws Exception {
 		CruiseResponse response = talkToCruise.delete(Urls.urlFor(String.format("/api/users/%s", username)), true, CruiseConstants.apiV2);
 		assertThat(response.getStatus(), is(Integer.parseInt(httpStatus)));
+	}
+
+	@com.thoughtworks.gauge.Step("Add user <username> - Using user API")
+	public void AddUser(String username) throws Exception {
+		CruiseResponse response = addUserApiCall(username);
+		assertThat(response.getStatus(), is(201));
+	}
+
+	private CruiseResponse addUserApiCall(String username) throws UnsupportedEncodingException {
+		StringRequestEntity requestEntity = new StringRequestEntity(
+				"{\"login_name\": \""+ username + "\"}",
+				"application/json",
+				"UTF-8");
+		String url = Urls.urlFor(String.format("/api/users"));
+		CruiseResponse response = talkToCruise.post(url, requestEntity);
+		return response;
 	}
 }

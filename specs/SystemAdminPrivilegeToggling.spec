@@ -25,10 +25,10 @@ SystemAdminPrivilegeToggling
 
 tags: 4404, admin, role
 
-* Open "User Summary" tab
+* Add user "pavan" - Using user API
+* Add user "raghu" - Using user API
 
-* Search for "pavan" and add user "1" in the search result
-* Search for "raghu" and add user "1" in the search result
+* Open "User Summary" tab
 
 * Toggle selection of users "pavan"
 * Select role states "admins:add"

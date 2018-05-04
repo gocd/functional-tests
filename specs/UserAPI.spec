@@ -23,12 +23,13 @@ UserAPI
 -------
 
 tags: 7478, api, users
+apply_changes
+
+* Add user "operate" - Using user API
+* Add user "operatorUser" - Using user API
+* Add user "notInAnyRoleA" - Using user API
 
 * Open "User Summary" tab
-
-* Add and verify "operate"
-* Add and verify "operatorUser"
-* Add and verify "notInAnyRoleA"
 
 * Attempt to delete "operate" user and should return "400"
 * Attempt to delete "operatorUser" user and should return "400"

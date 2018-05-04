@@ -25,10 +25,11 @@ EditStagePermissionsWithPipelineGroupPermissions
 
 tags: Clicky Admin, 4690
 
-* Open "User Summary" tab
 
-* Search for "pavan" and add user "1" in the search result
-* Search for "raghu" and add user "1" in the search result
+* Add user "pavan" - Using user API
+* Add user "raghu" - Using user API
+
+* Open "User Summary" tab
 
 * Adding "pavan" as a "view" user for group "basic"
 * Adding "viewer" as a "view" role for group "basic"

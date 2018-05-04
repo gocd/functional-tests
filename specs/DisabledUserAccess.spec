@@ -27,10 +27,11 @@ DisabledUserAccess
 
 tags: #3238, Admin, Security
 
+* Add user "operate" - Using user API
+* Add user "group1View" - Using user API
+
 * Open "User Summary" tab
 
-* Search for "operate" and add user "1" in the search result
-* Search for "group1View" and add user "1" in the search result
 * Verify users "operate, group1View" are enabled
 
 * Logout and login as "operate"
