@@ -25,11 +25,11 @@ AssociateUsersWithRoles
 
 tags: 4170, admin, role
 
-* Open "User Summary" tab
+* Add user "pavan" - Using user API
+* Add user "raghu" - Using user API
+* Add user "operate" - Using user API
 
-* Search for "pavan" and add user "1" in the search result
-* Search for "raghu" and add user "1" in the search result
-* Search for "operate" and add user "1" in the search result
+* Open "User Summary" tab
 
 * Toggle selection of users "pavan,raghu"
 * Select role states "viewer:add"

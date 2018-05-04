@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 ThoughtWorks, Inc.
+ * Copyright 2018 ThoughtWorks, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 
 package com.thoughtworks.cruise.client;
 
-import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.state.CurrentUsernameProvider;
 import com.thoughtworks.cruise.util.CruiseConstants;
 import org.apache.commons.httpclient.*;
@@ -26,12 +25,11 @@ import org.apache.commons.httpclient.methods.multipart.FilePart;
 import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.methods.multipart.StringPart;
-import com.jayway.restassured.*;
-import com.jayway.restassured.response.Response;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class TalkToCruise {
@@ -39,6 +37,7 @@ public class TalkToCruise {
     private final CurrentUsernameProvider currentUserNameProvider;
     private final List<String> apiV4Urls = Arrays.asList("/api/agents");
     private final List<String> apiV1Urls = Arrays.asList("/api/backups");
+    private final List<String> apiV2Urls = Arrays.asList("/api/users");
     private final List<String> ancientUrls = Arrays.asList("/job_run_history");
 
 
@@ -52,7 +51,6 @@ public class TalkToCruise {
         return post(url, toArray(nameValuePairs));
     }
 
-
     public CruiseResponse post(String url, NameValuePair... nameValuePairs) {
         HttpClient client = client();
         PostMethod post = new PostMethod(url);
@@ -61,9 +59,32 @@ public class TalkToCruise {
             post.setRequestHeader("Accept", CruiseConstants.apiV1);
             post.setRequestHeader("Content-Type", "application/json");
         }
+
+        if(supportApiV2(url)){
+            post.setRequestHeader("Accept", CruiseConstants.apiV2);
+            post.setRequestHeader("Content-Type", "application/json");
+        }
         post.setRequestHeader("CONFIRM","true");
         return execute(url, client, post);
     }
+
+    public CruiseResponse post(String url, StringRequestEntity body) {
+        HttpClient client = client();
+        PostMethod post = new PostMethod(url);
+        post.setRequestEntity(body);
+        if(supportApiV1(url)){
+            post.setRequestHeader("Accept", CruiseConstants.apiV1);
+            post.setRequestHeader("Content-Type", "application/json");
+        }
+
+        if(supportApiV2(url)){
+            post.setRequestHeader("Accept", CruiseConstants.apiV2);
+            post.setRequestHeader("Content-Type", "application/json");
+        }
+        post.setRequestHeader("CONFIRM","true");
+        return execute(url, client, post);
+    }
+
 
     public CruiseResponse patch(String url, String body, NameValuePair... nameValuePairs) {
 
@@ -228,6 +249,13 @@ public class TalkToCruise {
 
     private boolean supportApiV1(String url){
         for(String subUrl: apiV1Urls){
+            return url.contains(subUrl);
+        }
+        return false;
+    }
+
+    private boolean supportApiV2(String url){
+        for(String subUrl: apiV2Urls){
             return url.contains(subUrl);
         }
         return false;

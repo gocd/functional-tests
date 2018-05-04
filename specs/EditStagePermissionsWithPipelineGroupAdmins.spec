@@ -27,10 +27,10 @@ tags: Clicky Admin, 4690
 
 Verify that an admin or a pipeline group admin can be explicitly added as an operate user
 
-* Open "User Summary" tab
+* Add user "pavan" - Using user API
+* Add user "raghu" - Using user API
 
-* Search for "pavan" and add user "1" in the search result
-* Search for "raghu" and add user "1" in the search result
+* Open "User Summary" tab
 
 * Adding "pavan" as a group admin of "basic"
 
