@@ -23,7 +23,8 @@ Setup of contexts
 EnableDisableUsers
 ------------------
 
-tags: #3238, Admin, Security, stage1
+tags: #3238, Admin, Security, stage1, ignore
+Ignore this spec as its moved to ruby functional tests repo
 
 * Open "User Summary" tab
 
