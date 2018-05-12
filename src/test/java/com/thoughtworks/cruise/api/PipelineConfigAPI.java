@@ -16,25 +16,19 @@
 
 package com.thoughtworks.cruise.api;
 
-import com.jayway.restassured.*;
+import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.response.Response;
 import com.thoughtworks.cruise.Urls;
-import com.thoughtworks.cruise.state.ScenarioState;
-import com.thoughtworks.xstream.core.util.Base64Encoder;
 import org.bouncycastle.util.encoders.Base64;
 import org.hamcrest.Matchers;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.JSONObject;
-import org.junit.Assert;
 
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.Map;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.junit.matchers.StringContains.containsString;
 
@@ -118,7 +112,7 @@ public class PipelineConfigAPI {
     public void deletePipelineAsViewUser(String pipeline, String user) throws Exception {
 
         Response response = deletePipeline(pipeline,"view");
-        response.then().statusCode(403);
+        response.then().statusCode(401);
 
     }
 
