@@ -73,7 +73,7 @@ View user cannot add/edit artifacts and add properties using api
 
 * For pipeline "viewable-pipeline" label "1" stage "defaultStage" counter "1" job "defaultJob"
 * Create artifact "another_artifact.txt"
-* Verify return code is "401" - Using Artifact Api
+* Verify return code is "403" - Using Artifact Api
 
 * Looking at pipeline "viewable-pipeline"
 * Navigate to stage "defaultStage" of run "1" having counter "1"
@@ -84,7 +84,7 @@ View user cannot add/edit artifacts and add properties using api
 
 * For pipeline "viewable-pipeline" label "1" stage "defaultStage" counter "1" job "defaultJob"
 * Append "foo bar baz" to artifact "another_artifact.txt"
-* Verify return code is "401" - Using Artifact Api
+* Verify return code is "403" - Using Artifact Api
 
 * Verify artifacts tab does not contain file "another_artifact.txt"
 

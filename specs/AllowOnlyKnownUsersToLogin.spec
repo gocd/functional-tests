@@ -30,7 +30,7 @@ tags: 4168
 
 * Logout - On Any Page
 
-* Login as "view" should fail with message "Please ask the administrator to add you to Go Help Topic: Authentication"
+* Login as "view" should fail with message "Please ask the administrator to add you to GoCD. Help Topic: Authentication"
 * Login as "admin"
 
 * Allow unknown users to login

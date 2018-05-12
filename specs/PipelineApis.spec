@@ -103,7 +103,7 @@ tags: 3351, automate, 3086, schedule, trigger, restful api, 3453, OOM
 * Login as "view"
 
 * For pipeline "admin-pipeline" - Using pipeline api
-* Schedule should return code "401"
+* Schedule should return code "403"
 * For pipeline named "doesnt-exist"
 * Schedule should return code "404"
 * For pipeline "basic-pipeline-fast" - Using pipeline api
@@ -154,7 +154,7 @@ tags: 3351, automate, 3086, schedule, trigger, restful api, 3453, OOM
 * For pipeline "run.till.file.exists" - Using pipeline api
 * Schedule should return code "409"
 
-* Attempt to get scheduled list of jobs should return with status "401"
+* Attempt to get scheduled list of jobs should return with status "403"
 
 
 

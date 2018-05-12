@@ -57,7 +57,7 @@ Admins: admin
 
 * Login as "group1View"
 
-* Attempt to cancel running stage "first" of the current running pipeline should return with status "401"
+* Attempt to cancel running stage "first" of the current running pipeline should return with status "403"
 
 
 

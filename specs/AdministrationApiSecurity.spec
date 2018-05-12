@@ -66,7 +66,7 @@ Users Not in Roles
 * Login as "group2Admin"
 
 * For pipeline "pipeline2" - Using pipeline api
-* Schedule should return code "401"
+* Schedule should return code "403"
 
 * Logout - On Any Page
 

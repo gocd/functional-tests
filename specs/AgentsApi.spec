@@ -58,9 +58,9 @@ Verify security unauthorized
 * Logged in as "view"
 
 * Enable "some-uuid"
-* Verify return code is "401"
+* Verify return code is "403"
 * Delete "some-uuid" - Using Agents Api
-* Verify return code is "401"
+* Verify return code is "403"
 
 The following randomly fails with a timeout issue on IE when fetching the agents page in the
 constructor. I've tried various workarounds, but nothing fixes the problem... commenting out for

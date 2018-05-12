@@ -130,9 +130,9 @@ public class CCTrayFeedXml extends FeedXml{
 	public void verifyCctrayFeedIsNotAccessible() throws Exception {
 		try {
 			apiHelper.loadXmlDocumentFromUrl(feedUrl());
-			fail("Was expecting to get a 401. But seems to have passed while using the url: " + feedUrl());
+			fail("Was expecting to get a 403. But seems to have passed while using the url: " + feedUrl());
 		} catch (CannotAccessUrlException expected) {
-			assertThat(expected.getCruiseResponse().getStatus(), is(401));
+			assertThat(expected.getCruiseResponse().getStatus(), is(403));
 		}
 	}
 

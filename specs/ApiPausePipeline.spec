@@ -48,8 +48,8 @@ Admins: admin
 
 * Login as "group1View"
 
-* Attempt to pause pipline "pipeline1" with cause "twist testing it - user has view only" and should return with http status "401"
-* Attempt to unpause pipeline "pipeline1" and should return with http status "401"
+* Attempt to pause pipline "pipeline1" with cause "twist testing it - user has view only" and should return with http status "403"
+* Attempt to unpause pipeline "pipeline1" and should return with http status "403"
 * Attempt to pause non existent pipline "non-existent-pipeline" with cause "twist testing it" and should return with http status "404"
 * Attempt to unpause non existent pipline "non-existent-pipeline" and should return with http status "404"
 

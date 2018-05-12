@@ -189,7 +189,7 @@ public abstract class CruisePage {
 		ElementStub notification = browser.div(Regex.matches("notification"));
 		ElementStub notificationIcon = browser.div("biggest").in(notification);
 		ElementStub notificationText = browser.heading3("Not authorized to view pipeline { Not authorized to view pipeline } ").in(notification);
-		assertThat(browser.title().contains("HTTP ERROR 401"), Is.is(true));
+		assertThat(browser.title().contains("HTTP ERROR 403"), Is.is(true));
 		assertThat(notificationIcon.exists(), Is.is(true));
 		assertThat(notificationText.exists(), Is.is(true));
 	}

@@ -112,7 +112,7 @@ public class PipelineConfigAPI {
     public void deletePipelineAsViewUser(String pipeline, String user) throws Exception {
 
         Response response = deletePipeline(pipeline,"view");
-        response.then().statusCode(401);
+        response.then().statusCode(403);
 
     }
 

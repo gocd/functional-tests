@@ -56,7 +56,7 @@ tags: #3238, Admin, Security
 * Logged in as "operate"
 
 * For pipeline "basic-pipeline" - Using pipeline api
-* Schedule should return code "401"
+* Schedule should return code "403"
 
 
 

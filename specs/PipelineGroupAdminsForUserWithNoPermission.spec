@@ -41,7 +41,7 @@ Pipeline Visibility
      |pipeline2    |false      |false       |
      |pipeline3    |false      |false       |
 
-* Verify any operation on agents return code "401" - Using Agents Api
+* Verify any operation on agents return code "403" - Using Agents Api
 
 * Verify admin link is disabled
 

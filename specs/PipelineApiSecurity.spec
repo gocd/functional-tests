@@ -102,9 +102,9 @@ tags: 3351, automate, 3086, schedule, trigger, restful api, 3453
 * For pipeline "basic-pipeline-fast" - Using pipeline api
 * Schedule should return code "202"
 * For pipeline "viewable-pipeline" - Using pipeline api
-* Schedule should return code "401"
+* Schedule should return code "403"
 * For pipeline "admin-pipeline" - Using pipeline api
-* Schedule should return code "401"
+* Schedule should return code "403"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "basic-pipeline-fast"
@@ -115,10 +115,10 @@ tags: 3351, automate, 3086, schedule, trigger, restful api, 3453
 * Schedule should return code "202"
 * For pipeline "viewable-pipeline" - Using pipeline api
 * Using "2nd" last revision of "viewable-pipeline-hg"
-* Schedule should return code "401"
+* Schedule should return code "403"
 * For pipeline "admin-pipeline" - Using pipeline api
 * Using "2nd" last revision of "admin-pipeline-hg"
-* Schedule should return code "401"
+* Schedule should return code "403"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "basic-pipeline-fast"
@@ -137,7 +137,7 @@ tags: 3351, automate, 3086, schedule, trigger, restful api, 3453
 * For pipeline "viewable-pipeline" - Using pipeline api
 * Schedule should return code "202"
 * For pipeline "admin-pipeline" - Using pipeline api
-* Schedule should return code "401"
+* Schedule should return code "403"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "basic-pipeline-fast"
@@ -153,7 +153,7 @@ tags: 3351, automate, 3086, schedule, trigger, restful api, 3453
 * Schedule should return code "202"
 * For pipeline "admin-pipeline" - Using pipeline api
 * Using "2nd" last revision of "admin-pipeline-hg"
-* Schedule should return code "401"
+* Schedule should return code "403"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "basic-pipeline-fast"

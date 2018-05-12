@@ -153,7 +153,7 @@ public class UsingPipelineApi {
 
 	@com.thoughtworks.gauge.Step("Verify unauthorized to unlock <pipelineName>")
 	public void verifyUnauthorizedToUnlock(String pipelineName) throws Exception {
-		unlockShouldReturn(state.pipelineNamed(pipelineName), 401, "user does not have operate permission on the pipeline");
+		unlockShouldReturn(state.pipelineNamed(pipelineName), 403, "user does not have operate permission on the pipeline");
 	}
 
 	@com.thoughtworks.gauge.Step("Verify unlocking <pipelineName> is not acceptable because <shouldHaveMessage>")

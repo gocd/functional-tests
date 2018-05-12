@@ -55,7 +55,7 @@ Admins: admin
 
 * For pipeline group "group2"
 * Create pipeline "newpipeline" using template "simple-pass"
-* Response should return code "401"
+* Response should return code "403"
 
 * Logout - On Any Page
 
@@ -63,7 +63,7 @@ Admins: admin
 
 * For pipeline group "group1"
 * Create pipeline "newpipeline" using template "simple-pass"
-response should return code "401" (currently returning "403")
+response should return code "403" (currently returning "403")
 
 
 

@@ -40,7 +40,7 @@ tags: 4171, clicky ui, admin-page, configuration, plugins-tests, 7488, 7487, 735
 * Verify message shows up "Save failed, see errors below"
 * Verify error message "This field is required,Repository url is empty" shows up against field repository url
 * Enter repo url as "http://localhost:8081/${runtime_package_http_repo_name:http_repo1}"
-* Verify check connection gives message containing "401"
+* Verify check connection gives message containing "403"
 * Click save - Already on Package Repositories tab
 * Verify repository listing contains "repo-1"
 
@@ -52,11 +52,11 @@ tags: 4171, clicky ui, admin-page, configuration, plugins-tests, 7488, 7487, 735
 * Verify repo details are filled with name "repo-1" plugin "yum" and non secure configuration "http://localhost:8081/${runtime_package_http_repo_name:http_repo1}"
 * Enter username as "user1"
 * Enter password as "password"
-* Verify check connection gives message containing "401"
+* Verify check connection gives message containing "403"
 * Click reset - Already on Package Repositories tab
 * Enter username as "user"
 * Enter password as "password123"
-* Verify check connection gives message containing "401"
+* Verify check connection gives message containing "403"
 * Click reset - Already on Package Repositories tab
 * Enter username as "user"
 * Enter password as "password"

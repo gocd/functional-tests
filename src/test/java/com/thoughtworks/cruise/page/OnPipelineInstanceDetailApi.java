@@ -58,7 +58,7 @@ public class OnPipelineInstanceDetailApi {
 		String knownPipelineInstanceUrl = state.knownPipelineInstanceUrl(pipelineName);
 		verifyUrlPatternAssumptionIsCorrect(knownPipelineInstanceUrl);
 		CruiseResponse response = talkToCruise.get(knownPipelineInstanceUrl);
-		Assert.assertThat(response.getStatus(), Matchers.is(401));
+		Assert.assertThat(response.getStatus(), Matchers.is(403));
 	}
 	
 	@com.thoughtworks.gauge.Step("Verify fails to find <pipelineName> with bad id")

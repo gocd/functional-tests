@@ -58,7 +58,7 @@ public class OnPipelineStagesFeedApi {
 	@com.thoughtworks.gauge.Step("Verify <pipelineName> is not viewable")
 	public void verifyIsNotViewable(String pipelineName) throws Exception {
 		CruiseResponse response = loadStageListing(state.pipelineNamed(pipelineName));
-		Assert.assertThat(response.getStatus(), Matchers.is(401));
+		Assert.assertThat(response.getStatus(), Matchers.is(403));
 	}
 
     @com.thoughtworks.gauge.Step("Verify shows first instance of <stageName> of <pipelineName>")

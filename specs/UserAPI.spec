@@ -43,7 +43,7 @@ apply_changes
 
 * Logout and login as "view"
 
-* Attempt to delete "notInAnyRoleA" user and should return "401"
+* Attempt to delete "notInAnyRoleA" user and should return "403"
 
 * Logout - On Any Page
 
