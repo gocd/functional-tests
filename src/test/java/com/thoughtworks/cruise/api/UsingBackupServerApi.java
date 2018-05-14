@@ -26,37 +26,37 @@ import org.hamcrest.core.Is;
 import org.junit.Assert;
 
 public class UsingBackupServerApi {
-	
-	private ScenarioState state;
-	private CruiseResponse cruiseResponse;
-	
-	protected UsingBackupServerApi(ScenarioState state, RepositoryState repositoryState) {
-		this.state = state;
-	}
 
-	@com.thoughtworks.gauge.Step("Take backup as <userName>")
-	public void takeBackupAs(final String userName) throws Exception {
-		String url = Urls.urlFor(String.format("/api/backups"));
-		System.err.println("posting to " + url);
-		
-		TalkToCruise talkToCruise = new TalkToCruise(new CurrentUsernameProvider() {
-			@Override
-			public String loggedInUser() {
-				return userName;
-			}
-		});
-		
-		cruiseResponse = talkToCruise.post(url);
-	}
+    private ScenarioState state;
+    private CruiseResponse cruiseResponse;
 
-	@com.thoughtworks.gauge.Step("Verify backup is successful")
-	public void verifyBackupIsSuccessful(){
-				Assert.assertThat(cruiseResponse.isSuccess(), Is.is(true));
-	}
-	
-	@com.thoughtworks.gauge.Step("Verify user is not authorized to take backups")
-	public void verifyUserIsNotAuthorizedToTakeBackups(){
-		Assert.assertThat(cruiseResponse.isUnAuthorized(), Is.is(true));
-	}
+    protected UsingBackupServerApi(ScenarioState state, RepositoryState repositoryState) {
+        this.state = state;
+    }
+
+    @com.thoughtworks.gauge.Step("Take backup as <userName>")
+    public void takeBackupAs(final String userName) throws Exception {
+        String url = Urls.urlFor(String.format("/api/backups"));
+        System.err.println("posting to " + url);
+
+        TalkToCruise talkToCruise = new TalkToCruise(new CurrentUsernameProvider() {
+            @Override
+            public String loggedInUser() {
+                return userName;
+            }
+        });
+
+        cruiseResponse = talkToCruise.post(url);
+    }
+
+    @com.thoughtworks.gauge.Step("Verify backup is successful")
+    public void verifyBackupIsSuccessful() {
+        Assert.assertThat(cruiseResponse.isSuccess(), Is.is(true));
+    }
+
+    @com.thoughtworks.gauge.Step("Verify user is not authorized to take backups")
+    public void verifyUserIsNotAuthorizedToTakeBackups() {
+        Assert.assertThat(cruiseResponse.isForbidden(), Is.is(true));
+    }
 
 }
