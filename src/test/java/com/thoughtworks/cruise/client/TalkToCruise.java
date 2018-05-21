@@ -18,6 +18,7 @@ package com.thoughtworks.cruise.client;
 
 import com.thoughtworks.cruise.state.CurrentUsernameProvider;
 import com.thoughtworks.cruise.util.CruiseConstants;
+import com.thoughtworks.cruise.util.URL;
 import org.apache.commons.httpclient.*;
 import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.commons.httpclient.methods.*;
@@ -146,10 +147,13 @@ public class TalkToCruise {
     }
 
     public CruiseResponse get(String url, boolean shouldFollowRedirect, NameValuePair... nameValuePairs) {
-        GetMethod get = new GetMethod(url);
+        URL uri = new URL(url);
+        for (NameValuePair nameValuePair : nameValuePairs) {
+            uri.addParameter(nameValuePair.getName(), nameValuePair.getValue());
+        }
+        GetMethod get = new GetMethod(uri.toString());
         if(supportApiV4(url) && !isAncient(url))
             get.setRequestHeader("Accept", CruiseConstants.apiV4);
-        get.setQueryString(nameValuePairs);
         get.setFollowRedirects(shouldFollowRedirect);
         return execute(url, get, true);
     }

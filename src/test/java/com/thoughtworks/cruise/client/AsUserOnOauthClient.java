@@ -80,12 +80,12 @@ public class AsUserOnOauthClient {
 
 	@com.thoughtworks.gauge.Step("Gadget page for pipeline <pipelineName> should contain <content>")
 	public void gadgetPageForPipelineShouldContain(String pipelineName, String content) throws Exception {
-		verifyCanAccessUrlUsingAccessToken(Urls.gadgetUrlForPipeline(state.pipelineNamed(pipelineName)), content, true);		
+		verifyCanAccessUrlUsingAccessToken(Urls.gadgetUrlForPipeline(state.pipelineNamed(pipelineName)), content, true);
 	}
 
 	private void verifyCanAccessUrlUsingAccessToken(String url, String pageName, boolean canView) {
 		CruiseResponse response = getUsingAccessToken(url);
-		Assert.assertThat(response.getStatus(), Is.is(200));		
+		Assert.assertThat(response.getStatus(), Is.is(200));
 		Assert.assertThat(response.getBody().contains(pageName), Is.is(canView));
 	}
 
@@ -93,7 +93,7 @@ public class AsUserOnOauthClient {
 		OauthClient client = currentClient();
 		String headervalue = String.format("Token token=\"%s\"", client.getAccessToken(username == null ? state.loggedInUser() : username));
 		String headerName = "Authorization";
-		//TODO: Clean this up a bit 
+		//TODO: Clean this up a bit
 		CruiseResponse response = talkToCruise.getWithoutBasicAuth(Urls.urlFor(url), headerName, headervalue);
 		return response;
 	}
@@ -134,7 +134,7 @@ public class AsUserOnOauthClient {
 	@com.thoughtworks.gauge.Step("Verify requesting approval redirects to <path> and returns with error <error>")
 	public void verifyRequestingApprovalRedirectsToAndReturnsWithError(String path, String error) throws Exception {
 		OauthClient client = currentClient();
-		CruiseResponse response = talkToCruise.get(Urls.oauthAuthorize(client.getId(), client.getRedirectURI(), true), false);
+		CruiseResponse response = talkToCruise.get(Urls.oauthAuthorize(client.getId(), client.getRedirectURI()), false);
 		String location = response.getResponseHeader("Location");
 		URI uri = new URI(location, true);
 		Assert.assertThat(uri.getQuery().contains(error), Is.is(true));

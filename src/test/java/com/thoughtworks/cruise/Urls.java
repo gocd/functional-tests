@@ -16,8 +16,10 @@
 
 package com.thoughtworks.cruise;
 
+import org.apache.http.client.utils.URIBuilder;
+
 import java.net.InetAddress;
-import java.net.URLEncoder;
+import java.net.URISyntaxException;
 import java.net.UnknownHostException;
 
 public class Urls {
@@ -95,15 +97,13 @@ public class Urls {
 		return urlFor(String.format("/admin/restful/configuration/group/%s/xml", method));
 	}
 
-	public static String oauthAuthorize(String id, String redirectURI) {
-		return oauthAuthorize(id, redirectURI, false);
-	}
-
-	public static String oauthAuthorize(String id, String redirectURI, boolean shouldEscape) {
-		String pathAndQuery = String.format("%s?redirect_uri=%s&client_id=%s&response_type=code",
-				"/oauth/authorize", redirectURI, id);
+	public static String oauthAuthorize(String id, String redirectURI) throws URISyntaxException {
+		String pathAndQuery = new URIBuilder("/oauth/authorize")
+				.addParameter("redirect_uri", redirectURI)
+				.addParameter("client_id", id)
+				.addParameter("response_type", "code").toString();
 		try {
-			return localhostSslUrlFor(shouldEscape ? URLEncoder.encode(pathAndQuery, "UTF-8") : pathAndQuery);
+			return localhostSslUrlFor(pathAndQuery);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
