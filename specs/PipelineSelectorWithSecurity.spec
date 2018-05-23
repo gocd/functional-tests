@@ -23,7 +23,8 @@ Setup of contexts
 PipelineSelectorWithSecurity
 ----------------------------
 
-tags: 3843, UI, 5424, linux
+This spec is moved to ruby functional tests
+tags: 3843, UI, 5424, linux, ignore
 
 * Turn on autoRefresh - On Pipeline Dashboard Page
 * Open pipelines selector
