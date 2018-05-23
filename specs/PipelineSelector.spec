@@ -23,7 +23,8 @@ Setup of contexts
 PipelineSelector
 ----------------
 
-tags: 3843, UI, 5424, New Item
+This spec is moved to ruby functional tests
+tags: 3843, UI, 5424, New Item, ignore
 
 * Turn on autoRefresh - On Pipeline Dashboard Page
 * Open pipelines selector
