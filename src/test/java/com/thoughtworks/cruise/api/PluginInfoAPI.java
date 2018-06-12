@@ -29,7 +29,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class PluginInfoAPI {
 
-    private String apiv3 = "application/vnd.go.cd.v3+json";
+    private String apiVersion = "application/vnd.go.cd.v4+json";
     private final ScenarioState state;
 
     public PluginInfoAPI(ScenarioState state) {
@@ -44,7 +44,7 @@ public class PluginInfoAPI {
         if(state.loggedInUser() != null){
             headers.put("Authorization", "Basic "+new String(Base64.encode("admin:badger".getBytes())));
         }
-        headers.put("Accept", apiv3);
+        headers.put("Accept", apiVersion);
 
         Response response = RestAssured.given().
                 headers(headers).
