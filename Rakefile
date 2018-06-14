@@ -152,6 +152,16 @@ task :gauge_specs do
  end
 end
 
+task :latest_gauge_specs do
+
+  if LOAD_BALANCED
+    sh "gauge --tags '#{GAUGE_TAGS}' -n #{GO_JOB_RUN_COUNT} -g #{GO_JOB_RUN_INDEX} run specs"
+  else
+    sh "gauge --tags '#{GAUGE_TAGS}' run specs"
+  end
+
+end
+
 task "no-test" do
   ENV["test"]="no"
 end
