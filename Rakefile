@@ -136,28 +136,20 @@ task :setup_go do
   sh "mvn -B -V dependency:resolve dependency:copy-dependencies -DoutputDirectory=libs/"
 end
 
-task :gauge_specs do
- if win_os?
-    system("cmd /c scripts\\enable_ie_proxy.bat enable ")
- end
-
- if LOAD_BALANCED
-  sh "gauge --tags=#{GAUGE_TAGS} -n=#{GO_JOB_RUN_COUNT} -g=#{GO_JOB_RUN_INDEX} specs"
- else
-  sh "gauge --tags=#{GAUGE_TAGS} specs"
- end
-
- if win_os?
-    system("cmd /c scripts\\enable_ie_proxy.bat disable ")
- end
-end
-
 task :latest_gauge_specs do
+
+  if win_os?
+    system("cmd /c scripts\\enable_ie_proxy.bat enable ")
+  end
 
   if LOAD_BALANCED
     sh "gauge --tags '#{GAUGE_TAGS}' -n #{GO_JOB_RUN_COUNT} -g #{GO_JOB_RUN_INDEX} run specs"
   else
     sh "gauge --tags '#{GAUGE_TAGS}' run specs"
+  end
+
+  if win_os?
+    system("cmd /c scripts\\enable_ie_proxy.bat disable ")
   end
 
 end
