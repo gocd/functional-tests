@@ -1665,8 +1665,12 @@ public class CruiseConfigDom {
 			String[] nameAndValue = nameValue.split(">");
 			String value = nameAndValue[1];
 			Attribute attrib = material.attribute(nameAndValue[0]);
-			if (attrib == null || !attrib.getText().equals(value)) {
-				throw new RuntimeException("Could not find attribute pair: "
+			if( attrib == null ){
+				throw new RuntimeException("Attribute value not provided for : "
+						+ nameAndValue[0]);
+			}
+			if (!(attrib.getText().equals(value) || attrib.getText().startsWith(value))) {
+				throw new RuntimeException("Could not find attribute for : "
 						+ nameValue);
 			}
 		}
