@@ -41,7 +41,7 @@ tags: Clicky Admin, 4598
 * Click save - Already on Subversion Material Add Popup
 
 * Verify that material saved successfully
-* Verify that "svn" with name "svn_material" is added with attributes "materialName>svn_material,url>http://foo.bar,username>user,encryptedPassword>/yPnfnXXsrc=,dest>svn,checkexternals>true,autoUpdate>false"
+* Verify that "svn" with name "svn_material" is added with attributes "materialName>svn_material,url>http://foo.bar,username>user,encryptedPassword>AES,dest>svn,checkexternals>true,autoUpdate>false"
 * Edit material "svn_material"
 
 * Verify material name is "svn_material" - Already on Subversion Material Add Popup

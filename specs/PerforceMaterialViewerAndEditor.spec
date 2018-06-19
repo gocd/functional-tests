@@ -42,7 +42,7 @@ tags: Clicky Admin, 4598
 * Click save - Already On Perforce Material Creation Popup
 
 * Verify that material saved successfully
-* Verify that "p4" with name "p4_material" is added with attributes "materialName>p4_material,port>p4:1643,username>user,encryptedPassword>/yPnfnXXsrc=,useTickets>true,dest>p4_dir,autoUpdate>false"
+* Verify that "p4" with name "p4_material" is added with attributes "materialName>p4_material,port>p4:1643,username>user,encryptedPassword>AES,useTickets>true,dest>p4_dir,autoUpdate>false"
 * Edit material "p4_material"
 
 * Verify material name is "p4_material" - Already On Perforce Material Creation Popup
