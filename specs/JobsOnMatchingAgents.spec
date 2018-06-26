@@ -36,6 +36,7 @@ tags: 3102, job template, automate
 * On Pipeline Dashboard Page
 * Looking at pipeline "basic-pipeline-run-till-file-exists"
 * Trigger pipeline
+* Wait for stage "defaultStage" status to be "Building" with label "1"
 * Stop "1" jobs waiting for file to exist - On Pipeline Dashboard Page
 * Wait for stage "defaultStage" status to be "Passed" with label "1"
 * Navigate to stage "defaultStage" of run "1"
