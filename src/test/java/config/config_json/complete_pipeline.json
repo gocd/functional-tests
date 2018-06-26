@@ -213,6 +213,7 @@
               {
                 "type": "fetch",
                 "attributes": {
+                  "origin": "gocd",
                   "run_if": [
                     "passed"
                   ],
