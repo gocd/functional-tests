@@ -286,12 +286,12 @@ public class UsingAgentsApi {
 		}
 	}
 
-	@com.thoughtworks.gauge.Step("Disable an agent showing status <status> - Using Agents API")
+	@com.thoughtworks.gauge.Step("Disable an agent with resource <status> - Using Agents API")
 	public void disableAgentWithStatus(String status) throws Exception {
 		AgentInformation[] agents = listInformationOfAllAgents();
 
 		for (AgentInformation agent : agents) {
-			if (agent.getAgent_state().equals(status)) {
+			if (agent.getResources().contains(status)) {
 				disable(agent.getUuid());
 			}
 		}
