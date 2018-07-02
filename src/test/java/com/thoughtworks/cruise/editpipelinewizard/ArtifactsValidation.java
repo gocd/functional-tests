@@ -62,7 +62,7 @@ public class ArtifactsValidation {
 
 			public boolean call() throws Exception {
 				
-				artifactsPage.enterArtifactDetail(1, source, destination, "Build Artifact");
+				artifactsPage.enterArtifactDetail(1, source, destination, "Build");
 				artifactsPage.clickSave();
 					
 				return (( artifactsPage.isMessagePresent(messageForDestination) && artifactsPage.isMessagePresent(messageForSource) && artifactsPage.isMessagePresent(saveStatus)) == Boolean.valueOf(expected));
