@@ -34,10 +34,10 @@ ArtifactsEdit
 
 * Open artifacts
 
-* Enter artifact detail "1" "first_source" "first_destination" "Test Artifact"
+* Enter artifact detail "1" "first_source" "first_destination" "Test"
 * Click save - Already on Artifacts Listing Page
 * Verify saved successfully - Already on Artifacts Listing Page
-* Enter artifact detail "2" "second_source" "second destination" "Build Artifact"
+* Enter artifact detail "2" "second_source" "second destination" "Build"
 * Click save - Already on Artifacts Listing Page
 * Verify saved successfully - Already on Artifacts Listing Page
 

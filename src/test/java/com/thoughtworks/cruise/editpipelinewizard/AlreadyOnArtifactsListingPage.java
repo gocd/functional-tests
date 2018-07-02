@@ -45,18 +45,18 @@ public class AlreadyOnArtifactsListingPage extends AlreadyOnEditPipelineWizardPa
 	{
 		
 		String listingIdString = "";
-		if(!artifactExists(listingId)) createEmptyArtifact(listingId);
+		if(!artifactExists(listingId)) createEmptyArtifact(listingId, type);
 		listingId = listingId -1 ;
 		
 		listingIdString = (listingId == 0) ? "" : "[" + listingId + "]" ;
 		
 		browser.textbox("job[artifactConfigs][][source]" + listingIdString).setValue(source);
 		browser.textbox("job[artifactConfigs][][destination]" + listingIdString).setValue(destination);
-		browser.select("job[artifactConfigs][][artifactTypeValue]" + listingIdString).choose(type);
 	}
 	
 	
-	private void createEmptyArtifact(Integer listingId) {
+	private void createEmptyArtifact(Integer listingId, String artifactType) {
+		browser.select("select_artifact_type").choose(artifactType);
 		browser.link("Add").click(); 
 		
 	}
