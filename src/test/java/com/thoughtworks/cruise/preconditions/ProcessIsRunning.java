@@ -63,7 +63,6 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
     	String command = stopCommand();
         do {
             try {
-                System.out.println("Trying to stop process using command: " + command);
                 execute(command, new HashMap<String, String>());
 
                 Thread.sleep(1000);
@@ -179,7 +178,6 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
             String pid = pid();
             String output = CommandUtils.exec("ps", "h", "-p", pid, "-o", "comm");
             boolean isStopped = !output.contains("java");
-            System.out.println("Is process " + pid + " stopped? - " + isStopped);
             return isStopped;
         } catch (IOException e) {
             System.out.println("Unable to read pid in order to stop a process");

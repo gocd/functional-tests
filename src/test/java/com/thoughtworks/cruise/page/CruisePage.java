@@ -16,7 +16,6 @@
 
 package com.thoughtworks.cruise.page;
 
-import com.thoughtworks.cruise.Regex;
 import com.thoughtworks.cruise.SahiBrowserWrapper;
 import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.editpipelinewizard.AutoCompleteSuggestions;
@@ -186,9 +185,8 @@ public abstract class CruisePage {
     }
 
     public void verifyThatUnauthorizedAccessMessageIsShown() throws Exception {
-		ElementStub notification = browser.div(Regex.matches("notification"));
-		ElementStub notificationIcon = browser.div("biggest").in(notification);
-		ElementStub notificationText = browser.heading3("Not authorized to view pipeline { Not authorized to view pipeline } ").in(notification);
+		ElementStub notificationIcon = browser.div("biggest");
+		ElementStub notificationText = browser.heading3("Not authorized to view pipeline { Not authorized to view pipeline } ");
 		assertThat(browser.title().contains("HTTP ERROR 403"), Is.is(true));
 		assertThat(notificationIcon.exists(), Is.is(true));
 		assertThat(notificationText.exists(), Is.is(true));
