@@ -1,3 +1,0 @@
-#!/bin/sh
-
-exec `dirname $0`/jruby -S `basename $0` $*

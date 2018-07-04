@@ -1,8 +1,0 @@
-syntax: glob
-
-log/*
-db/*.sqlite3
-tmp/*
-.er
-tmtags
-
