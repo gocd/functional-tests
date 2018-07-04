@@ -1458,7 +1458,7 @@
         		<jobs>
           			<job name="defaultJob">
             			<tasks>
-            				<fetchartifact origin="gocd" pipeline="pipeline_uploading_large_artifact" stage="defaultStage" job="defaultJob" srcfile="bigfile"/>
+            				<fetchartifact artifactOrigin="gocd" pipeline="pipeline_uploading_large_artifact" stage="defaultStage" job="defaultJob" srcfile="bigfile"/>
             			</tasks>
           			</job>
         		</jobs>
@@ -1766,8 +1766,8 @@
                 <jobs>
                     <job name="defaultJob">
                         <tasks>
-                        	 <fetchartifact origin="gocd" stage="defaultStage" job="defaultJob" srcfile="abc.txt" dest="xyz.txt"/>
-                        	 <fetchartifact origin="gocd" stage="defaultStage" job="defaultJob" srcdir="baz" dest="foo/bar"/>
+                        	 <fetchartifact artifactOrigin="gocd" stage="defaultStage" job="defaultJob" srcfile="abc.txt" dest="xyz.txt"/>
+                        	 <fetchartifact artifactOrigin="gocd" stage="defaultStage" job="defaultJob" srcdir="baz" dest="foo/bar"/>
                         </tasks>
                     </job>
                 </jobs>
@@ -1787,7 +1787,7 @@
                 <jobs>
                     <job name="defaultJob">
                         <tasks>
-                        	 <fetchartifact origin="gocd" stage="defaultStage" job="defaultJob" srcfile="new_artifact.txt"/>
+                        	 <fetchartifact artifactOrigin="gocd" stage="defaultStage" job="defaultJob" srcfile="new_artifact.txt"/>
                         </tasks>
                     </job>
                 </jobs>
@@ -1811,7 +1811,7 @@
                 <jobs>
                     <job name="defaultJob">
                         <tasks>
-                        	 <fetchartifact origin="gocd" stage="defaultStage" job="defaultJob" srcfile="new_artifact.txt"/>
+                        	 <fetchartifact artifactOrigin="gocd" stage="defaultStage" job="defaultJob" srcfile="new_artifact.txt"/>
                         </tasks>
                     </job>
                 </jobs>
@@ -1986,7 +1986,7 @@
           <job name="upper-job1">
             <tasks>
               <exec command="echo" args="hello"/>
-              <fetchartifact origin="gocd" pipeline="uppest_pipeline" stage="uppest-stage1" job="uppest-job1" srcfile="first"/>
+              <fetchartifact artifactOrigin="gocd" pipeline="uppest_pipeline" stage="uppest-stage1" job="uppest-job1" srcfile="first"/>
             </tasks>
           </job>
         </jobs>
@@ -2032,8 +2032,8 @@
         <jobs>
           <job name="down-job1">
             <tasks>
-              <fetchartifact origin="gocd" pipeline="uppest_pipeline/upper_pipeline/up_pipeline" stage="uppest-stage1" job="uppest-job1" srcfile="first"/>
-              <fetchartifact origin="gocd" pipeline="uppest_pipeline/upper_peer_pipeline/up_pipeline" stage="uppest-stage1" job="uppest-job1" srcfile="first"/>
+              <fetchartifact artifactOrigin="gocd" pipeline="uppest_pipeline/upper_pipeline/up_pipeline" stage="uppest-stage1" job="uppest-job1" srcfile="first"/>
+              <fetchartifact artifactOrigin="gocd" pipeline="uppest_pipeline/upper_peer_pipeline/up_pipeline" stage="uppest-stage1" job="uppest-job1" srcfile="first"/>
             </tasks>
           </job>
         </jobs>
