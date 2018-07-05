@@ -213,7 +213,7 @@
               {
                 "type": "fetch",
                 "attributes": {
-                  "origin": "gocd",
+                  "artifact_origin": "gocd",
                   "run_if": [
                     "passed"
                   ],
