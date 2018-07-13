@@ -1075,14 +1075,14 @@
         </pipeline>
 
 
-        <pipeline name="pipeline-with-runif">
+        <pipeline name="pipeline.with.runif">
             <materials>
                 <hg url="$hgurl-pipeline-with-runif" dest="hg" autoUpdate="false"/>
             </materials>
-            <stage name="defaultStage">
+            <stage name="default.stage">
                 <approval type="manual"/>
                 <jobs>
-                    <job name="job-with-runif">
+                    <job name="job.with.runif">
                         <tasks>
                             <ant target="fail" workingdir="hg/dev"/>
                             <ant target="sleep30" workingdir="hg/dev">
