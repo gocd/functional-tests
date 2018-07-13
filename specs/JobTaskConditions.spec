@@ -16,7 +16,7 @@ JobTaskConditions
 
 Setup of contexts
 * Basic configuration - setup
-* Using pipeline "pipeline-with-runif" - setup
+* Using pipeline "pipeline.with.runif" - setup
 * With "1" live agents in directory "AgentsUIScreen" - setup
 * Capture go state "JobTaskConditions" - setup
 
@@ -28,9 +28,9 @@ tags: 2318, runif, automate
 
 * Trigger pipeline
 * Verify stage "1" is "Failed" on pipeline with label "1"
-* Navigate to stage "defaultStage" of run "1"
+* Navigate to stage "default.stage" of run "1"
 
-* Navigate to job "job-with-runif"
+* Navigate to job "job.with.runif"
 
 First task fails, second task is runif pass, third task is runif failed and the fourth is runif all.
 * Open console tab
@@ -46,7 +46,7 @@ Teardown of contexts
 ____________________
 * Capture go state "JobTaskConditions" - teardown
 * With "1" live agents in directory "AgentsUIScreen" - teardown
-* Using pipeline "pipeline-with-runif" - teardown
+* Using pipeline "pipeline.with.runif" - teardown
 * Basic configuration - teardown
 
 

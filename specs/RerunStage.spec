@@ -16,7 +16,7 @@ RerunStage
 
 Setup of contexts
 * Basic configuration - setup
-* Using pipeline "basic-pipeline, pipeline-with-runif" - setup
+* Using pipeline "basic-pipeline, pipeline.with.runif" - setup
 * With "1" live agents in directory "RerunStage" - setup
 * Capture go state "RerunStage" - setup
 
@@ -49,14 +49,24 @@ tags: 1646, rerun, job-detail, automate, stage1
 * Verify console contains "Start to upload"
 
 * On Pipeline Dashboard Page
-* Looking at pipeline "pipeline-with-runif"
+* Looking at pipeline "pipeline.with.runif"
 * Trigger pipeline
 * Wait for first stage to fail with pipeline label "1"
-* Navigate to stage "defaultStage" of run "1"
+* Navigate to stage "default.stage" of run "1"
 
-* Navigate to job "job-with-runif"
+* Navigate to job "job.with.runif"
+
+* Store the job completed time stamp
+
+* On Pipeline Dashboard Page
+* Rerun stage "default.stage" for current pipeline having pipeline label "1"
+* Verify stage "1" named "default.stage" is "Failed" on pipeline with label "1" having stage counter "2"
+* Navigate to stage "default.stage" of run "1" having counter "2"
+
+* Navigate to job "job.with.runif"
 
 * Open console tab
+* Verify job completed time stamp is different from the stored value
 * Verify the uRL contain "tab-artifacts"
 * Verify console contains "Start to prepare"
 * Verify console contains "Start to build"
@@ -70,7 +80,7 @@ Teardown of contexts
 ____________________
 * Capture go state "RerunStage" - teardown
 * With "1" live agents in directory "RerunStage" - teardown
-* Using pipeline "basic-pipeline, pipeline-with-runif" - teardown
+* Using pipeline "basic-pipeline, pipeline.with.runif" - teardown
 * Basic configuration - teardown
 
 
