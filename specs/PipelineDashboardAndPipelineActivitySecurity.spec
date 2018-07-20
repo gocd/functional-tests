@@ -38,12 +38,12 @@ Verify that super-admin has all view and operate permissions
 
 Pipeline Visibility
 * PipelineVisibility 
-     |Pipeline Name|Is Visible?|Can Operate Using Ui?|Can Operate?|Can Pause Using Ui?|Can Pause Using Api?|
-     |-------------|-----------|---------------------|------------|-------------------|--------------------|
-     |P1           |true       |true                 |true        |true               |true                |
-     |P2           |true       |true                 |true        |true               |true                |
-     |P3           |true       |true                 |true        |true               |true                |
-     |P4           |true       |true                 |true        |true               |true                |
+     |Pipeline Name|Is Visible?|Can Operate Using Ui?|Can Pause Using Api?|Can Pause Using Ui?|Can Operate?|
+     |-------------|-----------|---------------------|--------------------|-------------------|------------|
+     |P1           |true       |true                 |true                |true               |true        |
+     |P2           |true       |true                 |true                |true               |true        |
+     |P3           |true       |true                 |true                |true               |true        |
+     |P4           |true       |true                 |true                |true               |true        |
 
 * Looking at pipeline "P1"
 * Wait for labels "2" to pass
@@ -74,12 +74,12 @@ Pipeline Visibility
 
 Pipeline Visibility
 * PipelineVisibility 
-     |Pipeline Name|Is Visible?|Can Operate Using Ui?|Can Operate?|Can Pause Using Ui?|Can Pause Using Api?|
-     |-------------|-----------|---------------------|------------|-------------------|--------------------|
-     |P1           |true       |false                |false       |false              |false               |
-     |P2           |true       |true                 |true        |true               |true                |
-     |P3           |true       |true                 |true        |true               |true                |
-     |P4           |false      |false                |true        |false              |true                |
+     |Pipeline Name|Is Visible?|Can Operate Using Ui?|Can Pause Using Api?|Can Pause Using Ui?|Can Operate?        |
+     |-------------|-----------|---------------------|--------------------|-------------------|--------------------|
+     |P1           |true       |false                |false               |false              |false               |
+     |P2           |true       |true                 |true                |true               |true                |
+     |P3           |true       |true                 |true                |true               |true                |
+     |P4           |false      |false                |true                |false              |true                |
 
 * Looking at pipeline "P2"
 * Wait for labels "3" to pass
@@ -101,12 +101,12 @@ Pipeline Visibility
 
 Pipeline Visibility
 * PipelineVisibility 
-     |Pipeline Name|Is Visible?|Can Operate Using Ui?|Can Operate?|Can Pause Using Ui?|Can Pause Using Api?|
-     |-------------|-----------|---------------------|------------|-------------------|--------------------|
-     |P1           |true       |false                |false       |false              |false               |
-     |P2           |false      |false                |false       |false              |false               |
-     |P3           |true       |true                 |true        |true               |true                |
-     |P4           |false      |false                |false       |false              |false               |
+     |Pipeline Name|Is Visible?|Can Operate Using Ui?|Can Pause Using Api?|Can Pause Using Ui?|Can Operate?        |
+     |-------------|-----------|---------------------|--------------------|-------------------|--------------------|
+     |P1           |true       |false                |false               |false              |false               |
+     |P2           |false      |false                |false               |false              |false               |
+     |P3           |true       |true                 |true                |true               |true                |
+     |P4           |false      |false                |false               |false              |false               |
 
 * Looking at pipeline "P3"
 * Wait for labels "4" to pass
@@ -125,12 +125,12 @@ Pipeline Visibility
 
 Pipeline Visibility
 * PipelineVisibility 
-     |Pipeline Name|Is Visible?|Can Operate Using Ui?|Can Operate?|Can Pause Using Ui?|Can Pause Using Api?|
-     |-------------|-----------|---------------------|------------|-------------------|--------------------|
-     |P1           |false      |false                |true        |false              |true                |
-     |P2           |true       |true                 |true        |true               |true                |
-     |P3           |true       |false                |false       |true               |true                |
-     |P4           |true       |false                |false       |false              |false               |
+     |Pipeline Name|Is Visible?|Can Operate Using Ui?|Can Pause Using Api?|Can Pause Using Ui?|Can Operate?        |
+     |-------------|-----------|---------------------|--------------------|-------------------|--------------------|
+     |P1           |false      |false                |true                |false              |true                |
+     |P2           |true       |true                 |true                |true               |true                |
+     |P3           |true       |false                |true                |true               |false               |
+     |P4           |true       |false                |false               |false              |false               |
 
 * Looking at pipeline "P2"
 * Wait for labels "4" to pass
