@@ -67,7 +67,7 @@ public class PipelineVisibility {
         return "true";
     }
     
-public String canOperateUsingUi() throws Exception{
+   public String canOperateUsingUi() throws Exception{
         
         try {
 			dashboardPage.verifyTriggerButtonIsPresent();
