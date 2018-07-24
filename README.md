@@ -6,18 +6,18 @@ Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg
 * Gradle (verified to work on 3.4)
 * Maven (verified to work on 3.3.9)
 * [Node](https://nodejs.org/en/) 6.x (7.x will not work)
-* [Gauge](https://getgauge.io) 0.8.3
+* [Gauge](https://getgauge.io) 1.0.0
 * Mercurial
 * Git
-* **Firefox <= 45.x** (verified on 45.8.0esr; the version of webdriver used only supports up to 45)
+* **Firefox <= 45.x** (verified on 45.9.0esr; the version of webdriver used only supports up to 45)
 
 ## Setup
 * Need the following repos cloned as sibling directories to this repo:
     * [go.cd](https://github.com/gocd/gocd)
     * [go-plugins](https://github.com/gocd/go-plugins)
 * ```$ cd functional-tests```
-* ```$ gauge --install-all```
-* ```$ gauge --update-all``` (in case the plugins were already installed before the previous command, update them to the latest anyway)
+* ```$ gauge install```
+* ```$ gauge update --all``` (in case the plugins were already installed before the previous command, update them to the latest anyway)
 * If you are using `nvm`, verify that Node 6.x is activated
 * Modfiy the paths to `firefox.exe` or `firefox-bin` in `src/test/java/twist.properties` (for both the `sahi.browserLocation` and `webdriver.firefox.bin` properties) to reflect the paths on your machine
 
