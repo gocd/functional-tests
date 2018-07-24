@@ -29,7 +29,7 @@ $ rake prepare
 ## Running tests
 
 ```bash
-$ GO_VERSION=X.x.x gauge specs/AdminTaskListing.spec
+$ GO_VERSION=X.x.x gauge run specs/AdminTaskListing.spec
 ```
 
 ## Contributing
