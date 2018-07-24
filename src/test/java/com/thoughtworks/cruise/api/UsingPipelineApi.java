@@ -27,15 +27,20 @@ import com.thoughtworks.cruise.client.TalkToCruise.CruiseResponse;
 import com.thoughtworks.cruise.materials.Repository;
 import com.thoughtworks.cruise.state.RepositoryState;
 import com.thoughtworks.cruise.state.ScenarioState;
+import com.thoughtworks.cruise.util.CruiseConstants;
 import com.thoughtworks.cruise.utils.Assertions;
 import com.thoughtworks.cruise.utils.Assertions.Predicate;
 import com.thoughtworks.cruise.utils.Timeout;
 import org.apache.commons.httpclient.NameValuePair;
+import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.hamcrest.Matchers;
 import org.hamcrest.core.Is;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.Assert;
 
-import java.util.ArrayList;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,6 +54,7 @@ public class UsingPipelineApi {
     private RepositoryState repositoryState;
     private Map<String, String> revisions;
     private Map<String, String> variables;
+    private boolean updateMaterialBeforeSchedule;
 	private String pipelineName;
 	
 	protected UsingPipelineApi(ScenarioState state, TalkToCruise talkToCruise, RepositoryState repositoryState){
@@ -61,40 +67,74 @@ public class UsingPipelineApi {
 	public void usingLastRevisionOf(String which, String materialName) throws Exception {
         String commit = repositoryState.commitRevision(which, materialName, state.pipelineNamed(pipelineName));
         usingRevisionOf(commit, materialName);
+		this.updateMaterialBeforeSchedule = false;
     }
     
 
     @com.thoughtworks.gauge.Step("For pipeline <pipelineName> - Using pipeline api")
 	public void forPipeline(String pipelineName) throws Exception {
 		this.pipelineName = pipelineName;
-		forPipelineNamed(state.pipelineNamed(pipelineName));		
+		forPipelineNamed(state.pipelineNamed(pipelineName));
+		this.updateMaterialBeforeSchedule = true;
 	}
 
 	@com.thoughtworks.gauge.Step("Schedule should return code <code>")
-	public void scheduleShouldReturnCode(Integer code) throws Exception {		
+	public void scheduleShouldReturnCode(Integer code) throws Exception {
 		CruiseResponse response = schedulePipeline();
 		Assert.assertThat("Schedule failed " + response.getBody(), response.getStatus(), Is.is(code));
 	}
 	
 	@com.thoughtworks.gauge.Step("Schedule should fail with <code> and message <bodyFragment>")
-	public void scheduleShouldFailWithAndMessage(Integer code, String bodyFragment) throws Exception {      
+	public void scheduleShouldFailWithAndMessage(Integer code, String bodyFragment) throws Exception {
         CruiseResponse response = schedulePipeline();
         Assert.assertThat("Schedule failed " + response.getBody(), response.getStatus(), Is.is(code));
         Assert.assertThat(bodyFragment, Matchers.containsString(bodyFragment));
     }
 
-    private CruiseResponse schedulePipeline() {
-        ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();		
-		addParams(params,revisions, "materials");
-		addParams(params,variables, "variables");		
-		CruiseResponse response = talkToCruise.post(scheduleUrl, params);
+    private CruiseResponse schedulePipeline() throws UnsupportedEncodingException, JSONException {
+		StringRequestEntity requestEntity = new StringRequestEntity(
+				"{\"environment_variables\": ["+ getVariablesToTriggerWith(variables) + "]," +
+						"\"materials\": ["+ getMaterialsToTriggerWith(revisions) + "], \"update_materials_before_scheduling\": " + this.updateMaterialBeforeSchedule + " }",
+				"application/json",
+				"UTF-8");
+
+		CruiseResponse response = talkToCruise.post(scheduleUrl, requestEntity, "", CruiseConstants.apiV1);
         return response;
     }
 
-	private void addParams(ArrayList<NameValuePair> params,Map<String, String> map, String paramPrefix) {		
+	private String getMaterialsToTriggerWith(Map<String, String> map) throws JSONException {
+		if (map.isEmpty()) { return ""; }
+
+		String materials = "";
 		for(String key : map.keySet()){
-			params.add(new NameValuePair(String.format("%s[%s]",paramPrefix,key), map.get(key)));
+			materials = materials.concat(String.format("{ \"fingerprint\": \"%s\", \"revision\": \"%s\" },",getMaterialFingerprint(key), map.get(key)));
 		}
+
+		return materials.substring(0, materials.length()-1);
+
+	}
+
+	private String getMaterialFingerprint(String material) throws JSONException {
+
+		CruiseResponse response = talkToCruise.get(Urls.urlFor("/api/config/materials"));
+		JSONArray jsonArray = new JSONArray(response.getBody());
+		for (int i = 0; i < jsonArray.length(); i++) {
+			JSONObject obj = jsonArray.getJSONObject(i);
+			if (obj.get("description").toString().contains(material)) {
+				return obj.get("fingerprint").toString();
+			}
+		}
+		return "";
+	}
+
+	private String getVariablesToTriggerWith(Map<String, String> map) {
+
+		if (map.isEmpty()){ return ""; }
+		String env_variables = "";
+		for(String key : map.keySet()){
+			env_variables = env_variables.concat(String.format("{ \"name\": \"%s\", \"value\": \"%s\" },",key, map.get(key)));
+		}
+		return env_variables.substring(0, env_variables.length()-1);
 	}
 	
 	public void unlockShouldReturn(String pipelineName, Integer code, String shouldHaveMessage) throws Exception {
@@ -121,11 +161,13 @@ public class UsingPipelineApi {
 		this.scheduleUrl = Urls.urlFor(String.format("/api/pipelines/%s/schedule",runtimePipelineName));
 		this.revisions = new HashMap<String,String>();
 		this.variables = new HashMap<String,String>();
+		this.updateMaterialBeforeSchedule = true;
 	}
 
 	@com.thoughtworks.gauge.Step("Using <revision> revision of <material>")
 	public void usingRevisionOf(String revision, String material) throws Exception {
-		this.revisions.put(state.expand(material), state.expand(revision));		
+		this.revisions.put(state.expand(material), state.expand(revision));
+		this.updateMaterialBeforeSchedule = false;
 	}
 	
 	@com.thoughtworks.gauge.Step("Using latest revision of material <materialName> for pipeline <pipelineName>")
@@ -133,11 +175,13 @@ public class UsingPipelineApi {
 		Repository repo = repositoryState.getRepoByMaterialName(state.pipelineNamed(pipelineName), materialName);
 		String revisionNumber = repo.latestRevision().revisionNumber();
 		this.revisions.put(state.expand(materialName), state.expand(revisionNumber));
+		this.updateMaterialBeforeSchedule = false;
 	}
 	
 	@com.thoughtworks.gauge.Step("With variable <name> set to <value>")
 	public void withVariableSetTo(String name, String value) throws Exception {
 		this.variables.put(name, value);
+		this.updateMaterialBeforeSchedule = true;
 	}
 
 	public void usingStageOfUpstreamPipelineWithMaterialNameAndCounter(String stageName,String pipelineName,String materialName, Integer counter)
@@ -149,6 +193,7 @@ public class UsingPipelineApi {
 	@com.thoughtworks.gauge.Step("Using stage <stageName> of upstream pipeline <pipelineName> with counter <counter>")
 	public void usingStageOfUpstreamPipelineWithCounter(String stageName,String pipelineName,Integer counter) throws Exception {
 		usingStageOfUpstreamPipelineWithMaterialNameAndCounter(stageName,pipelineName,state.pipelineNamed(pipelineName),counter);
+		this.updateMaterialBeforeSchedule = false;
 	}
 
 	@com.thoughtworks.gauge.Step("Verify unauthorized to unlock <pipelineName>")
@@ -181,6 +226,7 @@ public class UsingPipelineApi {
 	@com.thoughtworks.gauge.Step("Using remembered revision <revisionAlias> for material <materialName>")
 	public void usingRememberedRevisionForMaterial(String revisionAlias, String materialName) throws Exception {
 		usingRevisionOf(repositoryState.getRevisionFromAlias(revisionAlias), state.expand(materialName));
+		this.updateMaterialBeforeSchedule = false;
 	}
 
     @com.thoughtworks.gauge.Step("Verify card activity between pipeline <pipelineName> counters <fromCounter> and <toCounter> is <cards> with show _ bisect <showBisect>")
@@ -204,15 +250,20 @@ public class UsingPipelineApi {
 		assertThat(response.getStatus(), is(returnCode));
 	}
 	
-	private CruiseResponse pauseApiCall(String actualPipelineName, String cause) {
+	private CruiseResponse pauseApiCall(String actualPipelineName, String cause) throws UnsupportedEncodingException {
+		StringRequestEntity requestEntity = new StringRequestEntity(
+				"{\"pauseCause\": \""+ cause + "\"}",
+				"application/json",
+				"UTF-8");
 		String url = Urls.urlFor(String.format("/api/pipelines/%s/pause", actualPipelineName));
-		CruiseResponse response = talkToCruise.post(url, new NameValuePair("pauseCause", cause));
+		CruiseResponse response = talkToCruise.post(url, requestEntity, "X-GoCD-Confirm", CruiseConstants.apiV1);
 		return response;
 	}
 
-	private CruiseResponse unpauseApiCall(String actualPipelineName) {
+	private CruiseResponse unpauseApiCall(String actualPipelineName) throws UnsupportedEncodingException {
 		String url = Urls.urlFor(String.format("/api/pipelines/%s/unpause", actualPipelineName));
-		CruiseResponse response = talkToCruise.post(url, new NameValuePair());
+		StringRequestEntity requestEntity = new StringRequestEntity("{}", "application/json", "UTF-8");
+		CruiseResponse response = talkToCruise.post(url, requestEntity, "X-GoCD-Confirm", CruiseConstants.apiV1);
 		return response;
 	}
 

@@ -69,20 +69,17 @@ public class TalkToCruise {
         return execute(url, client, post);
     }
 
-    public CruiseResponse post(String url, StringRequestEntity body) {
+    public CruiseResponse post(String url, StringRequestEntity body, String CORSHeader, String version) {
         HttpClient client = client();
         PostMethod post = new PostMethod(url);
         post.setRequestEntity(body);
-        if(supportApiV1(url)){
-            post.setRequestHeader("Accept", CruiseConstants.apiV1);
-            post.setRequestHeader("Content-Type", "application/json");
+        post.setRequestHeader("Accept", version);
+        post.setRequestHeader("Content-Type", "application/json");
+
+        if (CORSHeader != "") {
+            post.setRequestHeader(CORSHeader,"true");
         }
 
-        if(supportApiV2(url)){
-            post.setRequestHeader("Accept", CruiseConstants.apiV2);
-            post.setRequestHeader("Content-Type", "application/json");
-        }
-        post.setRequestHeader("CONFIRM","true");
         return execute(url, client, post);
     }
 
