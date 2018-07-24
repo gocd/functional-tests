@@ -2,9 +2,9 @@
 Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg)](https://getgauge.io)
 
 ## Pre-Requisites
-* JDK 8 (verified on 1.8.0_121-b13)
-* Gradle (verified to work on 3.4)
-* Maven (verified to work on 3.3.9)
+* JDK 8 (verified on 1.8.0_172-b11)
+* Gradle (verified to work on 4.6)
+* Maven (verified to work on 3.5.4)
 * [Node](https://nodejs.org/en/) 6.x (7.x will not work)
 * [Gauge](https://getgauge.io) 1.0.0
 * Mercurial
@@ -41,7 +41,7 @@ A lot of useful information like links to user documentation, design documentati
 ## License
 
 ```plain
-Copyright 2017 ThoughtWorks, Inc.
+Copyright 2018 ThoughtWorks, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
