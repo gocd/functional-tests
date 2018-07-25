@@ -165,8 +165,8 @@ public class UsingPipelineApi {
 	}
 
 	@com.thoughtworks.gauge.Step("Using <revision> revision of <material>")
-	public void usingRevisionOf(String revision, String material) throws Exception {
-		this.revisions.put(state.expand(material), state.expand(revision));
+	public void usingRevisionOf(String revision, String key) throws Exception {
+        this.revisions.put(key, state.expand(revision));
 		this.updateMaterialBeforeSchedule = false;
 	}
 	
@@ -174,7 +174,7 @@ public class UsingPipelineApi {
 	public void usingLatestRevisionOfMaterialForPipeline(String materialName, String pipelineName) throws Exception {
 		Repository repo = repositoryState.getRepoByMaterialName(state.pipelineNamed(pipelineName), materialName);
 		String revisionNumber = repo.latestRevision().revisionNumber();
-		this.revisions.put(state.expand(materialName), state.expand(revisionNumber));
+		this.revisions.put(repo.getUrl(), state.expand(revisionNumber));
 		this.updateMaterialBeforeSchedule = false;
 	}
 	
@@ -225,8 +225,14 @@ public class UsingPipelineApi {
 
 	@com.thoughtworks.gauge.Step("Using remembered revision <revisionAlias> for material <materialName>")
 	public void usingRememberedRevisionForMaterial(String revisionAlias, String materialName) throws Exception {
-		usingRevisionOf(repositoryState.getRevisionFromAlias(revisionAlias), state.expand(materialName));
-		this.updateMaterialBeforeSchedule = false;
+	    Repository repo = repositoryState.getRepoByMaterialName(state.pipelineNamed(pipelineName),state.expand(materialName));
+		if (repo != null){
+            usingRevisionOf(repositoryState.getRevisionFromAlias(revisionAlias), repo.getUrl());
+        }else{
+            usingRevisionOf(repositoryState.getRevisionFromAlias(revisionAlias), state.expand(materialName));
+        }
+
+		this.updateMaterialBeforeSchedule = true;
 	}
 
     @com.thoughtworks.gauge.Step("Verify card activity between pipeline <pipelineName> counters <fromCounter> and <toCounter> is <cards> with show _ bisect <showBisect>")
