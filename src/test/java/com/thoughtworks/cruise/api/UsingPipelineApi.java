@@ -167,7 +167,7 @@ public class UsingPipelineApi {
 	@com.thoughtworks.gauge.Step("Using <revision> revision of <material>")
 	public void usingRevisionOf(String revision, String key) throws Exception {
         this.revisions.put(key, state.expand(revision));
-		this.updateMaterialBeforeSchedule = false;
+		this.updateMaterialBeforeSchedule = true;
 	}
 	
 	@com.thoughtworks.gauge.Step("Using latest revision of material <materialName> for pipeline <pipelineName>")
