@@ -35,7 +35,7 @@ tags: restful api, #2482, svn support, scheduling, diagnostics messages, rerun, 
 * Verify stage "defaultStage" does not have action "Rerun"
 
 * For pipeline named "pipeline-2-manual-stages-that-run-till-file-exists"
-* Schedule should return code "404"
+* Schedule should return code "422"
 
 * Stop "1" jobs that are waiting for file to exist
 
@@ -54,7 +54,7 @@ tags: restful api, #2482, svn support, scheduling, diagnostics messages, rerun, 
 * Verify stage "secondStage" does not have action "Rerun"
 
 * For pipeline named "pipeline-2-manual-stages-that-run-till-file-exists"
-* Schedule should return code "404"
+* Schedule should return code "422"
 
 * Stop "1" jobs that are waiting for file to exist
 

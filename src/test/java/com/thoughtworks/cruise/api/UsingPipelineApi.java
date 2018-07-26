@@ -67,7 +67,7 @@ public class UsingPipelineApi {
 	public void usingLastRevisionOf(String which, String materialName) throws Exception {
         String commit = repositoryState.commitRevision(which, materialName, state.pipelineNamed(pipelineName));
         usingRevisionOf(commit, materialName);
-		this.updateMaterialBeforeSchedule = false;
+		this.updateMaterialBeforeSchedule = true;
     }
     
 
@@ -166,7 +166,7 @@ public class UsingPipelineApi {
 
 	@com.thoughtworks.gauge.Step("Using <revision> revision of <material>")
 	public void usingRevisionOf(String revision, String key) throws Exception {
-        this.revisions.put(key, state.expand(revision));
+        this.revisions.put(state.expand(key), state.expand(revision));
 		this.updateMaterialBeforeSchedule = true;
 	}
 	
@@ -258,7 +258,7 @@ public class UsingPipelineApi {
 	
 	private CruiseResponse pauseApiCall(String actualPipelineName, String cause) throws UnsupportedEncodingException {
 		StringRequestEntity requestEntity = new StringRequestEntity(
-				"{\"pauseCause\": \""+ cause + "\"}",
+				"{\"pause_cause\": \""+ cause + "\"}",
 				"application/json",
 				"UTF-8");
 		String url = Urls.urlFor(String.format("/api/pipelines/%s/pause", actualPipelineName));
