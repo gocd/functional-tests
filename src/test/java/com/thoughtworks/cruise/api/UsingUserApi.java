@@ -60,7 +60,7 @@ public class UsingUserApi {
 				"application/json",
 				"UTF-8");
 		String url = Urls.urlFor(String.format("/api/users"));
-		CruiseResponse response = talkToCruise.post(url, requestEntity, "CONFIRM", CruiseConstants.apiV1);
+		CruiseResponse response = talkToCruise.post(url, requestEntity, "CONFIRM", CruiseConstants.apiV2);
 		return response;
 	}
 }
