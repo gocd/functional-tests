@@ -105,7 +105,7 @@ tags: 3351, automate, 3086, schedule, trigger, restful api, 3453, OOM
 * For pipeline "admin-pipeline" - Using pipeline api
 * Schedule should return code "403"
 * For pipeline named "doesnt-exist"
-* Schedule should return code "422"
+* Schedule should return code "404"
 * For pipeline "basic-pipeline-fast" - Using pipeline api
 * Using "foo" revision of "material-that-doesn't-exist"
 * Schedule should return code "422"
