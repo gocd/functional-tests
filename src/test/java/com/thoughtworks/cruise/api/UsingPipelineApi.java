@@ -66,7 +66,8 @@ public class UsingPipelineApi {
     @com.thoughtworks.gauge.Step("Using <which> last revision of <materialName>")
 	public void usingLastRevisionOf(String which, String materialName) throws Exception {
         String commit = repositoryState.commitRevision(which, materialName, state.pipelineNamed(pipelineName));
-        usingRevisionOf(commit, materialName);
+        Repository repo = repositoryState.getRepoByMaterialName(state.pipelineNamed(pipelineName), materialName);
+        usingRevisionOf(commit, repo.getUrl());
 		this.updateMaterialBeforeSchedule = true;
     }
     
