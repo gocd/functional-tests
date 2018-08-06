@@ -2,15 +2,15 @@
 Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg)](https://getgauge.io)
 
 ## Pre-Requisites
-* JDK 8 (verified on 1.8.0_121-b13)
-* Gradle (verified to work on 3.4)
-* Maven (verified to work on 3.3.9)
+* JDK 8 (verified on 1.8.0_172-b11)
+* Gradle (verified to work on 4.6)
+* Maven (verified to work on 3.5.4)
 * [Node](https://nodejs.org/en/) 6.x (7.x will not work)
-* [Gauge](https://getgauge.io) 0.9.8
+* [Gauge](https://getgauge.io) 1.0.0
 * Mercurial
 * Ant
 * Git
-* **Firefox <= 45.x** (verified on 45.8.0esr; the version of webdriver used only supports up to 45)
+* **Firefox <= 45.x** (verified on 45.9.0esr; the version of webdriver used only supports up to 45)
 * If running specs related to other SCM repos like TFS, SVN, Perforce ensure they are installed on the machine executing the specs
 
 ## Setup
@@ -18,8 +18,8 @@ Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg
     * [go.cd](https://github.com/gocd/gocd)
     * [go-plugins](https://github.com/gocd/go-plugins)
 * ```$ cd functional-tests```
-* ```$ gauge --install-all```
-* ```$ gauge --update-all``` (in case the plugins were already installed before the previous command, update them to the latest anyway)
+* ```$ gauge install```
+* ```$ gauge update --all``` (in case the plugins were already installed before the previous command, update them to the latest anyway)
 * If you are using `nvm`, verify that Node 6.x is activated
 * Modfiy the paths to `firefox.exe` or `firefox-bin` in `src/test/java/twist.properties` (for both the `sahi.browserLocation` and `webdriver.firefox.bin` properties) to reflect the paths on your machine
 
@@ -33,7 +33,7 @@ $ rake clean setup
 ## Running tests
 
 ```bash
-$ GO_VERSION=X.x.x gauge specs/AdminTaskListing.spec
+$ GO_VERSION=X.x.x gauge run specs/AdminTaskListing.spec
 ```
 
 ## Contributing
@@ -45,7 +45,7 @@ A lot of useful information like links to user documentation, design documentati
 ## License
 
 ```plain
-Copyright 2017 ThoughtWorks, Inc.
+Copyright 2018 ThoughtWorks, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
