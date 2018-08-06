@@ -8,8 +8,10 @@ Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg
 * [Node](https://nodejs.org/en/) 6.x (7.x will not work)
 * [Gauge](https://getgauge.io) 1.0.0
 * Mercurial
+* Ant
 * Git
 * **Firefox <= 45.x** (verified on 45.9.0esr; the version of webdriver used only supports up to 45)
+* If running specs related to other SCM repos like TFS, SVN, Perforce ensure they are installed on the machine executing the specs
 
 ## Setup
 * Need the following repos cloned as sibling directories to this repo:
@@ -21,10 +23,12 @@ Badge](https://cdn.rawgit.com/getgauge/getgauge.github.io/master/Gauge_Badge.svg
 * If you are using `nvm`, verify that Node 6.x is activated
 * Modfiy the paths to `firefox.exe` or `firefox-bin` in `src/test/java/twist.properties` (for both the `sahi.browserLocation` and `webdriver.firefox.bin` properties) to reflect the paths on your machine
 
-## Prepare
+## Clean/setup
+* Build GoCD master repo and `go-plugins` repo from their respective folders
 ```bash
-# This will, among other things, build GoCD binaries to use in these tests. Get some coffee.
-$ rake prepare
+# This will prepare the functional tests related artifacts in the functional tests folder
+$ cd functional-tests
+$ rake clean setup
 ```
 ## Running tests
 

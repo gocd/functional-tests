@@ -32,7 +32,7 @@ tags: 3351, automate, 3086, schedule, trigger, restful api, 3453, OOM
 
 * For pipeline "admin-pipeline" - Using pipeline api
 * With variable "VAR_NOT_CONFIGURED" set to "foo"
-* Schedule should return code "404"
+* Schedule should return code "422"
 
 * For pipeline "pipeline-with-environment-variables" - Using pipeline api
 * Using latest revision of material "env-var-material" for pipeline "pipeline-with-environment-variables"
@@ -108,10 +108,10 @@ tags: 3351, automate, 3086, schedule, trigger, restful api, 3453, OOM
 * Schedule should return code "404"
 * For pipeline "basic-pipeline-fast" - Using pipeline api
 * Using "foo" revision of "material-that-doesn't-exist"
-* Schedule should return code "404"
+* Schedule should return code "422"
 * For pipeline "downstream-pipeline" - Using pipeline api
 * Using stage "defaultStage" of upstream pipeline "run.till.file.exists" with counter "1"
-* Schedule should return code "404"
+* Schedule should return code "422"
 
 * For pipeline "basic-pipeline-fast" - Using pipeline api
 * Schedule should return code "202"

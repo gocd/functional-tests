@@ -35,7 +35,7 @@ tags: 7805, plugins-tests
 * Publish new artifact
 
 * For pipeline "pipeline_with_yum_repo_package_api" - Using pipeline api
-* Using "go-agent-13.1.1-16715.noarch" revision of "tw-repo:go-agent"
+* Using "go-agent-13.1.1-16715.noarch" revision of "go-agent"
 * Schedule should return code "202"
 
 Disabling below steps since it has a flaky behavior, the scope of the spec is for the schedule api, so restricting within that
@@ -47,7 +47,7 @@ YumRepoPackageAsMaterial.spec takes care of checking if publish new material on 
 
 * For pipeline "pipeline_with_yum_repo_package_api" - Using pipeline api
 * Using "go-agent-13.1.1-16715.noarch" revision of "tw-repo:go-agent1"
-* Schedule should fail with "404" and message "material with fingerprint [tw-repo:go-agent1] not found in pipeline [pipeline_with_yum_repo_package_api"
+* Schedule should fail with "422" and message "Request to schedule pipeline rejected"
 
 
 
