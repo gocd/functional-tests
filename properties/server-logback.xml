@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ Copyright 2017 ThoughtWorks, Inc.
   ~
@@ -22,11 +21,10 @@
         xsi:schemaLocation="http://ch.qos.logback/xml/ns/logback http://ch.qos.logback/xml/ns/logback/logback.xsd"
         debug="${gocd.server.logback.debug:-false}"
         scan="${gocd.server.logback.scan:-true}"
-        scanPeriod="${gocd.server.logback.scanPeriod:-5 seconds}"
->
+        scanPeriod="${gocd.server.logback.scanPeriod:-5 seconds}">
 
     <appender name="FileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${gocd.server.log.dir:-${GO_SERVER_LOG_DIR:-logs}}/go-server.log</file>
+        <file>logs/go-server.log</file>
         <encoder>
             <pattern>
                 ${gocd.server.logback.defaultPattern:-%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n}
@@ -34,70 +32,19 @@
         </encoder>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${gocd.server.log.dir:-${GO_SERVER_LOG_DIR:-logs}}/go-server.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
-            <maxFileSize>${gocd.server.logback.defaultRollingFileAppender.rotation.maxFileSize:-10 MB}</maxFileSize>
-            <maxHistory>${gocd.server.logback.defaultRollingFileAppender.rotation.maxHistory:-50}</maxHistory>
-            <totalSizeCap>${gocd.server.logback.defaultRollingFileAppender.rotation.totalSizeCap:-512 MB}</totalSizeCap>
+            <fileNamePattern>logs/go-server.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+            <maxFileSize>10 MB</maxFileSize>
+            <maxHistory>50</maxHistory>
+            <totalSizeCap>512 MB</totalSizeCap>
         </rollingPolicy>
     </appender>
 
-    <appender name="ShineFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${gocd.server.log.dir:-${GO_SERVER_LOG_DIR:-logs}}/go-shine.log</file>
-        <encoder>
-            <pattern>
-                ${gocd.server.logback.defaultPattern:-%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n}
-            </pattern>
-        </encoder>
-
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${gocd.server.log.dir:-${GO_SERVER_LOG_DIR:-logs}}/go-shine.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
-            <maxFileSize>${gocd.server.logback.shineRollingFileAppender.rotation.maxFileSize:-10 MB}</maxFileSize>
-            <maxHistory>${gocd.server.logback.shineRollingFileAppender.rotation.maxHistory:-50}</maxHistory>
-            <totalSizeCap>${gocd.server.logback.shineRollingFileAppender.rotation.totalSizeCap:-512 MB}</totalSizeCap>
-        </rollingPolicy>
-    </appender>
-
-    <appender name="WebRequestsFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${gocd.server.log.dir:-${GO_SERVER_LOG_DIR:-logs}}/web-requests.log</file>
-        <encoder>
-            <pattern>
-                ${gocd.server.logback.defaultPattern:-%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n}
-            </pattern>
-        </encoder>
-
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${gocd.server.log.dir:-${GO_SERVER_LOG_DIR:-logs}}/web-requests.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
-            <maxFileSize>${gocd.server.logback.webRequestRollingFileAppender.rotation.maxFileSize:-10 MB}</maxFileSize>
-            <maxHistory>${gocd.server.logback.webRequestRollingFileAppender.rotation.maxHistory:-50}</maxHistory>
-            <totalSizeCap>${gocd.server.logback.webRequestRollingFileAppender.rotation.totalSizeCap:-512 MB}</totalSizeCap>
-        </rollingPolicy>
-    </appender>
-
-    <appender name="PerformanceFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${gocd.server.log.dir:-${GO_SERVER_LOG_DIR:-logs}}/go-server-perf.log</file>
-        <encoder>
-            <pattern>
-                ${gocd.server.logback.defaultPattern:-%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n}
-            </pattern>
-        </encoder>
-
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${gocd.server.log.dir:-${GO_SERVER_LOG_DIR:-logs}}/go-server-perf.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
-            <maxFileSize>${gocd.server.logback.performanceRollingFileAppender.rotation.maxFileSize:-10 MB}</maxFileSize>
-            <maxHistory>${gocd.server.logback.performanceRollingFileAppender.rotation.maxHistory:-50}</maxHistory>
-            <totalSizeCap>${gocd.server.logback.performanceRollingFileAppender.rotation.totalSizeCap:-512 MB}</totalSizeCap>
-        </rollingPolicy>
-    </appender>
-
-    <root level="${gocd.server.logback.root.level:-WARN}">
+    <root level="WARN">
         <appender-ref ref="${gocd.server.logback.root.appender:-FileAppender}"/>
     </root>
 
     <logger name="com.thoughtworks.go" level="INFO"/>
-
-    <logger name="com.thoughtworks.studios.shine" level="WARN">
-        <appender-ref ref="ShineFileAppender"/>
-    </logger>
-
-    <logger name="com.thoughtworks.go.server.Rails" level="WARN"/>
+    <logger name="org.eclipse.jetty.server.RequestLog" level="INFO"/>
+    <logger name="com.thoughtworks.studios.shine" level="WARN" />
+    <logger name="com.thoughtworks.go.server.Rails" level="DEBUG"/>
 </configuration>

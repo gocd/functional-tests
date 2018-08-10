@@ -28,6 +28,8 @@ tar -zxf firefox-24.5.0-profile.tar.gz -C ${HOME}/.mozilla
 
 echo "unzipping the agent and server installers"
 unzip -o target/zip/go-server*.zip -d target
+mkdir -p target/go-server-${GO_VERSION}/config
+cp properties/server-logback.xml target/go-server-${GO_VERSION}/config/logback.xml
 unzip -o target/zip/go-agent*.zip -d target
 
 echo "copying the test addon"
