@@ -19,9 +19,9 @@
         xmlns="http://ch.qos.logback/xml/ns/logback"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://ch.qos.logback/xml/ns/logback http://ch.qos.logback/xml/ns/logback/logback.xsd"
-        debug="${gocd.server.logback.debug:-false}"
-        scan="${gocd.server.logback.scan:-true}"
-        scanPeriod="${gocd.server.logback.scanPeriod:-5 seconds}">
+        debug="true"
+        scan="true"
+        scanPeriod="5 seconds">
 
     <appender name="FileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>logs/go-server.log</file>
@@ -40,7 +40,7 @@
     </appender>
 
     <root level="WARN">
-        <appender-ref ref="${gocd.server.logback.root.appender:-FileAppender}"/>
+        <appender-ref ref="FileAppender"/>
     </root>
 
     <logger name="com.thoughtworks.go" level="INFO"/>
