@@ -22,7 +22,7 @@ Setup of contexts
 PipelineHistoryPagination
 -----------------------------
 
-tags: pipeline-history
+tags: pipeline-history, ignore
 Pipeline history navigation is verified in this spec - https://github.com/gocd/gocd/blob/master/server/webapp/WEB-INF/rails.new/spec/javascripts/pipeline_history_spec.js
 So ignore at E2E level
 The above mentioned js spec did not capture this issue - https://github.com/gocd/gocd/issues/4805 so bringing back this e2e spec
