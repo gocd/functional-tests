@@ -80,12 +80,6 @@ Test that the links in the feeds use the siteUrl when set. It will use siteUrl e
 * Save configuration
 * Verify message "Saved configuration successfully." shows up
 
-* On Admin page
-* Open "OAuth Clients" tab
-* Verify error message "There is currently no 'https' URL configured. For this feature to work please configure the server's siteUrl or secureSiteUrl with an 'https' URL." - On Admin Page
-
-
-
 
 Teardown of contexts
 ____________________
