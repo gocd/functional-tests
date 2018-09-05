@@ -34,7 +34,7 @@ tags: 5570, administration, backup, 5818, stage1, h2db_only
 
 * Proceed with backup
 
-* Verify the message "Backup completed successfully."
+* Verify the message "Backup was generated successfully."
 * Verify the last performed backup message contains "Last backup was taken by 'admin' on"
 
 * Verify the "serverBackups" directory exists
