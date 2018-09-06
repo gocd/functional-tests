@@ -59,7 +59,7 @@ public class CruiseConstants {
     public static final String EDITION = "edition";
     public static final String SUCCESSFULLY_CHANGED_LICENSE = "Your license has been updated successfully.";
 
-    public static final int CONFIG_SCHEMA_VERSION = 112;
+    public static final int CONFIG_SCHEMA_VERSION = 113;
 
     public static final String APPROVAL_SUCCESS = "success";
     public static final String APPROVAL_MANUAL = "manual";
