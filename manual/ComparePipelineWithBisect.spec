@@ -51,7 +51,7 @@ tags: 4688, compare_pipeline, 5789
 * On Pipeline Dashboard Page
 * Looking at pipeline "up"
 * Verify stage "1" is "Cancelled" on pipeline with label "3"
-* Click compare link
+* Compare pipeline instance "2" with "3"
 
 * Verify that "from" textbox is populated with "2"
 * Verify that "to" textbox is populated with "3"

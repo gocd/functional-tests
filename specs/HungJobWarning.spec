@@ -25,9 +25,10 @@ HungJobWarning
 
 tags: #4584, Clicky Admin
 
-* Turn on autoRefresh - On Pipeline Dashboard Page
 * Looking at pipeline "hung-job-pipeline"
 * Trigger pipeline
+
+* On Admin page
 
 * Verify there are "1" warnings
 * Open error and warning messages popup

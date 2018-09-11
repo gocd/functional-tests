@@ -46,7 +46,7 @@ tags: #7467, Yum repo package, plugins-tests
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "A1"
-* Click on pipeline name
+* Navigate to the pipeline history page for pipeline "A1"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "A1"
@@ -71,7 +71,7 @@ tags: #7467, Yum repo package, plugins-tests
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "A1"
-* Click on pipeline name
+* Navigate to the pipeline history page for pipeline "A1"
 
 * Looking at pipeline with label "1"
 * Verify pipeline is triggered by "changes"

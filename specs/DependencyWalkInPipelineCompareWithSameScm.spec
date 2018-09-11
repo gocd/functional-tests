@@ -40,7 +40,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk
 * Trigger pipelines "first" and wait for labels "2" to pass
 * Trigger pipelines "child-of-first" and wait for labels "2" to pass
 * Trigger pipelines "grandchild-of-first" and wait for labels "2" to pass
-* Click compare link
+* Compare pipeline instance "1" with "2"
 
 * Verify displays revision "${runtime_name:first}/2/defaultStage/1" having label "2" under pipeline named "${runtime_name:first}"
 * Verify displays revision "${runtime_name:child-of-first}/2/defaultStage/1" having label "2" under pipeline named "${runtime_name:child-of-first}"

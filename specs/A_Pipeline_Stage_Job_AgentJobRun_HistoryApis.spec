@@ -26,7 +26,7 @@ A_Pipeline_Stage_Job_AgentJobRun_HistoryApis
 
 tags: 3351, automate, 3086, schedule, trigger, restful api, 3453
 
-* Turn on autoRefresh - On Pipeline Dashboard Page
+
 * Looking at pipeline "basic-pipeline-fast"
 * Trigger the pipeline "11" times starting at counter "0"
 
@@ -42,7 +42,6 @@ tags: 3351, automate, 3086, schedule, trigger, restful api, 3453
 
 * Verify "11" instances of "basic-pipeline-fast" "defaultStage" "defaultJob" "Passed" - Using Agents Api
 
-* Turn on autoRefresh - On Pipeline Dashboard Page
 * Looking at pipeline "pipeline-with-failing-stage"
 * Trigger pipeline
 * Verify stage "1" is "Failed" on pipeline with label "1"
@@ -59,7 +58,6 @@ tags: 3351, automate, 3086, schedule, trigger, restful api, 3453
 
 * Verify last job "pipeline-with-failing-stage" "defaultStage" "defaultJob" "Failed"
 
-* Turn on autoRefresh - On Pipeline Dashboard Page
 * Looking at pipeline "run.till.file.exists"
 * Trigger pipeline
 * Verify stage "1" is "Building" on pipeline with label "1"

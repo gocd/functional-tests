@@ -29,6 +29,7 @@
     <bean id="onAnyPage" autowire="constructor" class="com.thoughtworks.cruise.page.OnAnyPage" lazy-init="true"/>
     <bean id="onAgentsPage" autowire="constructor" class="com.thoughtworks.cruise.page.OnAgentsPage" lazy-init="true"/>
     <bean id="onPipelineDashboardPage" autowire="constructor" class="com.thoughtworks.cruise.page.OnPipelineDashboardPage" lazy-init="true"/>
+    <bean id="usingPipelineDashboardAPI" autowire="constructor" class="com.thoughtworks.cruise.page.UsingPipelineDashboardAPI" lazy-init="true"/>
     <bean id="usingPipelineApi" autowire="constructor" class="com.thoughtworks.cruise.api.UsingPipelineApi" lazy-init="true"/>
     <bean id="environmentState" autowire="constructor" class="com.thoughtworks.cruise.state.EnvironmentState" lazy-init="true"/>
     <bean id="repositoryState" autowire="constructor" class="com.thoughtworks.cruise.state.RepositoryState" lazy-init="true"/>

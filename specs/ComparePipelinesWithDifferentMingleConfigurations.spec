@@ -37,7 +37,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687
 * Trigger pipelines "down-pipeline-with-mingle-config" and wait for labels "1" to pass
 
 * Looking at pipeline "down-pipeline-with-mingle-config"
-* Click compare link
+* Compare pipeline instance "1" with "1"
 
 * Verify that there are "3" materials
 * Verify displays revision "${runtime_name:pipeline-with-mingle-config}/1/defaultStage/1" having label "1" under pipeline named "${runtime_name:pipeline-with-mingle-config}"
@@ -48,15 +48,12 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "down-pipeline-with-mingle-config"
-* Click compare link
+* Compare pipeline instance "1" with "1"
 
 * Verify that there are "3" materials
 * Verify displays revision "${runtime_name:pipeline-with-mingle-config}/1/defaultStage/1" having label "1" under pipeline named "${runtime_name:pipeline-with-mingle-config}"
 * Verify displays revision "hg-new" having comment "Added hg-new-file" under "Mercurial" named "hg-for-down-pipeline-with-mingle-config" for pipeline "down-pipeline-with-mingle-config"
 * Verify displays revision "git-new" having comment "Added git-new-file" under "Git" named "git-for-pipeline-with-mingle-config" for pipeline "pipeline-with-mingle-config"
-
-
-
 
 
 Teardown of contexts

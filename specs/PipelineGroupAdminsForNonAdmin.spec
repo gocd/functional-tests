@@ -43,17 +43,7 @@ Pipeline Visibility
      |pipeline3    |false      |true        |
 
 
-* Verify admin link is disabled
-
 * Verify any operation on agents return code "403" - Using Agents Api
-
-* Verify pipeline is not visible "pipeline1"
-* Verify pipeline is visible "pipeline2"
-* Verify pipeline is not visible "pipeline3"
-
-
-
-
 
 Teardown of contexts
 ____________________

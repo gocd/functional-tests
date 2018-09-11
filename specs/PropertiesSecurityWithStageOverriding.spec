@@ -29,7 +29,7 @@ tags: 6786, Permissions
 * Trigger pipelines "P3" and wait for labels "1" to pass
 * Trigger pipelines "P5" and wait for labels "1" to pass
 * Trigger pipelines "P6" and wait for labels "1" to pass
-* Click on pipeline name
+* Navigate to the pipeline history page for pipeline "P6"
 * Looking at pipeline with label "1"
 * Approve stage "secondStage"
 

@@ -13,7 +13,7 @@
 
 #verify user has operate permissions on <defaultStage> for pipeline <P8> on Pipeline Activity Page
 *Looking at pipeline <P8>
-*Click on pipeline name
+* Navigate to the pipeline history page for pipeline <P8>
 *Looking at pipeline with label "1"
 *Verify stage <defaultStage> of pipeline can be rerun
 *Rerun stage <defaultStage> - Already On Pipeline History Page

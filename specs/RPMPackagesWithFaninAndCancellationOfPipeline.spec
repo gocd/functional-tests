@@ -114,7 +114,7 @@ verify pipeline is at label "1" and does not get triggered
 * Navigate to stage "defaultStage" of run "3"
 
 * Cancel "defaultStage" - Already On Stage Detail Page
-* Navigate to pipeline dashboard page
+* On Pipeline Dashboard Page
 
 * Looking at pipeline "fanin_a"
 * Navigate to stage "stage_1" of run "3" having counter "1"
@@ -138,7 +138,7 @@ verify pipeline is at label "2" and does not get triggered
 * Remove custom command "sleep:300"
 
 * Rerun stage "defaultStage"
-* Navigate to pipeline dashboard page
+* On Pipeline Dashboard Page
 
 * Looking at pipeline "fanin_b"
 * Verify stage "1" is "Passed" on pipeline with label "3"

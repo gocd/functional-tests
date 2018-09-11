@@ -115,16 +115,9 @@ public abstract class CruisePage {
     public void logout() {
         String current_url = browser.fetch("window.location.href");
         if (current_url.startsWith("https")) {
-            browser.navigateTo(Urls.localhostSslUrlFor("/old_dashboard"), false);
+            browser.navigateTo(Urls.localhostSslUrlFor("/auth/logout"), false);
         } else{
-            browser.navigateTo(Urls.urlFor("/old_dashboard"), false);
-        }
-		ElementStub userLink = browser.listItem("current_user icon");
-    	if (!browser.title().contains("Login") && userLink.exists() && browser.link("nav-logout").exists()) {
-        	userLink.click();
-            ElementStub logoutLink = browser.link("nav-logout");
-            assertThat(logoutLink.exists(), Is.is(true));
-            logoutLink.click();
+            browser.navigateTo(Urls.urlFor("/auth/logout"), false);
         }
         scenarioState.logOut();
     }

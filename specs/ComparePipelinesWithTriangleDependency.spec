@@ -33,7 +33,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk
 * Trigger pipelines "fourth" and wait for labels "2" to pass
 * Trigger pipelines "fifth" and wait for labels "1" to pass
 * Trigger pipelines "another-sixth-manual" and wait for labels "1" to pass
-* Click compare link
+* Compare pipeline instance "1" with "1"
 
 * Verify displays revision "${runtime_name:fourth}/2/defaultStage/1" having label "2" under pipeline named "${runtime_name:fourth}"
 * Verify displays revision "${runtime_name:fifth}/1/defaultStage/1" having label "1" under pipeline named "${runtime_name:fifth}"

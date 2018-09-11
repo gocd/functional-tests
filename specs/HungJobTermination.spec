@@ -40,7 +40,6 @@ tags: #4584, Clicky Admin
 * Verify that job saved sucessfully
 
 * On Pipeline Dashboard Page
-* Turn on autoRefresh - On Pipeline Dashboard Page
 * Looking at pipeline "hung-job-pipeline"
 * Trigger pipeline
 

@@ -101,7 +101,7 @@ manually trigger the second stage
 * Navigate to stage "defaultStage" of run "2" having counter "1"
 
 * Trigger stage "defaultStage2"
-* Navigate to pipeline dashboard page
+* On Pipeline Dashboard Page
 
 * Navigate to stage "defaultStage2" of run "2" having counter "1"
 

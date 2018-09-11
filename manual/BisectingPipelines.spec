@@ -73,7 +73,7 @@ tags: shine, bisect, automate
 * Verify material has not changed
 
 
-* Click on pipeline name
+* Navigate to the pipeline history page for pipeline "basic-svn-pipeline"
 
 * Looking at pipeline with label "2"
 * Verify build cause message contains "Comment a"

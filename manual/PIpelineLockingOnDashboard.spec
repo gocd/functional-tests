@@ -45,7 +45,7 @@ tags: pipeline-dashboard, #3740
 * Verify the lock status is "click_to_unlock" - On Pipeline Dashboard Page
 
 * Unlock the pipeline - On Pipeline Dashboard Page
-* Click on pipeline name
+* Navigate to the pipeline history page for pipeline "pipeline-with-lock-all-manual"
 
 * Approve stage "stage-2" with label "2"
 

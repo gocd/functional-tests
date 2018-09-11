@@ -32,12 +32,11 @@ tags: #7808, plugins-tests
 
 * Looking at material of type "Package" named "repo-3:CP-2" for pipeline "K1" with counter "1"
 * Verify modification "0" has revision "go-agent-13.1.0-112.noarch"
-* Verify modification "0" has comment containing "Built on go-qa3 Trackback: Not Provided"
-* Verify modification "0" has modified by containing "anonymous"
+* Verify modification "0" has comment containing "Built on go-qa3"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "K1"
-* Click compare link
+* Compare pipeline instance "1" with "1"
 
 * Verify displays package with uri "file://${runtime_package_repo_uri:repo3}" having spec "go-agent" with revision "go-agent-13.1.0-112.noarch" published by "anonymous"
 
@@ -70,7 +69,7 @@ tags: #7808, plugins-tests
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "K2"
-* Click compare link
+* Compare pipeline instance "1" with "1"
 
 * Verify displays package with uri "file://${runtime_package_repo_uri:repo3}" having spec "go-server" with revision "go-server-12.4.0-1234.noarch" published by "Thoughtworks Studios <twstudios@thoughtworks.com>"
 

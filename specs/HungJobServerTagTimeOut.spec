@@ -30,9 +30,10 @@ tags: #4584, admin-page
 * Set cancel job after "3" minutes
 * Save configuration
 
-* Turn on autoRefresh - On Pipeline Dashboard Page
 * Looking at pipeline "hung-job-pipeline"
 * Trigger pipeline
+
+* On Admin page
 
 * Verify there are "1" warnings
 * Open error and warning messages popup

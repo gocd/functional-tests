@@ -28,7 +28,7 @@ tags: 2626, diagnostics messages, svn support, dashboard, authentication, passwo
 * Looking at pipeline "remote-pipeline"
 * Trigger pipeline
 * Verify stage "1" is "Passed" on pipeline with label "1"
-* Click on pipeline name
+* Navigate to the pipeline history page for pipeline "remote-pipeline"
 
 TODO - Add a test to make sure the Pipeline Dashboard build cause popup and the Stage Details Materials tab has password starred out
 

@@ -41,7 +41,7 @@ tags: #7468, Yum repo package, plugins-tests
 * Looking at pipeline "M7"
 * Verify pipeline has not been triggered even once
 
-* Turn on autoRefresh - On Pipeline Dashboard Page
+* On Admin page
 
 * Open error and warning messages popup
 
@@ -54,7 +54,6 @@ tags: #7468, Yum repo package, plugins-tests
 * Verify error message "Modification check failed for material: Repository: [repo_url=file://${runtime_package_repo_uri:repo3}] - Package: [package_spec=go-agent?]" and description "Interaction with plugin with id 'yum' implementing 'package-repository' extension failed while requesting for 'latest-revision'. Reason: [The plugin sent a response that could not be understood by Go. Plugin returned with code '500' and the following response: 'Error while querying repository with path 'file://${runtime_package_repo_uri:repo3}' and package spec 'go-agent?'. ']"
 * Verify error message "Modification check failed for material: Repository: [repo_url=file://${runtime_package_repo_uri:repo3}] - Package: [package_spec=go-agent-13.1.0.noarch]" and description "Interaction with plugin with id 'yum' implementing 'package-repository' extension failed while requesting for 'latest-revision'. Reason: [The plugin sent a response that could not be understood by Go. Plugin returned with code '500' and the following response: 'Error while querying repository with path 'file://${runtime_package_repo_uri:repo3}' and package spec 'go-agent-13.1.0.noarch'. ']"
 
-* Turn off autoRefresh - On Pipeline Dashboard Page
 
 * Publish artifacts "GO-server-13.2.0-125.noarch.rpm" to "repo1"
 

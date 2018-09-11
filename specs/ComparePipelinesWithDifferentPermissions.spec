@@ -38,7 +38,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687, 6786
 
 
 * Looking at pipeline "down-pipeline"
-* Click compare link
+* Compare pipeline instance "1" with "1"
 
 * Verify that there are "3" materials
 * Verify displays revision "${runtime_name:first-pipeline}/1/defaultStage/1" having label "1" under pipeline named "${runtime_name:first-pipeline}"
@@ -57,7 +57,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687, 6786
 
 * Verify pipeline "first-pipeline" is not visible
 * Looking at pipeline "down-pipeline"
-* Click compare link
+* Compare pipeline instance "1" with "1"
 
 * Verify that there are "2" materials
 * Verify displays revision "${runtime_name:first-pipeline}/1/defaultStage/1" having label "1" under pipeline named "${runtime_name:first-pipeline}"
@@ -70,7 +70,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687, 6786
 
 * Verify pipeline "first-pipeline" is visible
 * Looking at pipeline "down-pipeline"
-* Click compare link
+* Compare pipeline instance "1" with "1"
 
 * Verify that there are "3" materials
 * Verify displays revision "${runtime_name:first-pipeline}/1/defaultStage/1" having label "1" under pipeline named "${runtime_name:first-pipeline}"
@@ -88,7 +88,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687, 6786
 
 * Verify pipeline "first-pipeline" is not visible
 * Looking at pipeline "down-pipeline"
-* Click compare link
+* Compare pipeline instance "1" with "1"
 
 * Verify that there are "2" materials
 * Verify displays revision "${runtime_name:first-pipeline}/1/defaultStage/1" having label "1" under pipeline named "${runtime_name:first-pipeline}"
@@ -101,7 +101,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687, 6786
 
 * Verify pipeline "first-pipeline" is visible
 * Looking at pipeline "down-pipeline"
-* Click compare link
+* Compare pipeline instance "1" with "1"
 
 * Verify that there are "3" materials
 * Verify displays revision "${runtime_name:first-pipeline}/1/defaultStage/1" having label "1" under pipeline named "${runtime_name:first-pipeline}"

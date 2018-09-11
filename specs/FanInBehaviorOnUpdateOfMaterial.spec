@@ -44,7 +44,7 @@ left [l1(g1), l2(g3), l3(g5), l3(g7)                  V                         
 * Looking at pipeline "d-down"
 * Verify stage "1" is "Passed" on pipeline with label "1"
 * Verify pipeline "d-down" is triggered by "changes"
-* Click on pipeline name
+* Navigate to the pipeline history page for pipeline "d-down"
 
 * Looking at pipeline with label "1"
 * Verify pipeline is triggered by "changes"

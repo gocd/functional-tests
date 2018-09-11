@@ -29,7 +29,7 @@ tags: #7469, Yum repo package, plugins-tests
 * Trigger pipelines "C1" and wait for labels "1" to pass
 * Trigger pipelines "C2" and wait for labels "1" to pass
 * Looking at pipeline "C2"
-* Click compare link
+* Compare pipeline instance "1" with "1"
 
 * Search for "go-server" on "from" textbox
 * Click on label "1" in the dropdown
@@ -64,7 +64,7 @@ tags: #7469, Yum repo package, plugins-tests
 * Looking at pipeline "C2"
 * Unpause pipeline
 * Trigger pipelines "C2" and wait for labels "4" to pass
-* Click compare link
+* Compare pipeline instance "3" with "4"
 
 * Search for "go-server" on "from" textbox
 * Click on label "2" in the dropdown
@@ -76,7 +76,7 @@ tags: #7469, Yum repo package, plugins-tests
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "C2"
-* Click compare link
+* Compare pipeline instance "3" with "4"
 
 * Search for "go-server" on "from" textbox
 * Click on label "1" in the dropdown

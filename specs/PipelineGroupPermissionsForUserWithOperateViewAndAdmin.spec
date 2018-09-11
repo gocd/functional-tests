@@ -62,11 +62,6 @@ Pipeline Visibility
 
 * Verify any operation on agents return code "403" - Using Agents Api
 
-* On Environments Page
-* Verify pipeline is visible "pipeline1"
-* Verify pipeline is not visible "pipeline2"
-* Verify pipeline is visible "pipeline3"
-
 Implement these once the sahi issue is sorted out.
 
 edit pipeline "pipeline1"

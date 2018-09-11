@@ -94,7 +94,7 @@ public class AsUserOnOauthClient {
 		String headervalue = String.format("Token token=\"%s\"", client.getAccessToken(username == null ? state.loggedInUser() : username));
 		String headerName = "Authorization";
 		//TODO: Clean this up a bit
-		CruiseResponse response = talkToCruise.getWithoutBasicAuth(Urls.urlFor(url), headerName, headervalue);
+		CruiseResponse response = talkToCruise.getWithBasicAuth(Urls.urlFor(url), headerName, headervalue, false);
 		return response;
 	}
 

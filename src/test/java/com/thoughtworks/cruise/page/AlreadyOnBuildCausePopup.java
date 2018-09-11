@@ -16,14 +16,11 @@
 
 package com.thoughtworks.cruise.page;
 
-import com.thoughtworks.cruise.Regex;
 import com.thoughtworks.cruise.SahiBrowserWrapper;
 import com.thoughtworks.cruise.materials.Repository;
 import com.thoughtworks.cruise.state.RepositoryState;
 import com.thoughtworks.cruise.state.ScenarioState;
 import net.sf.sahi.client.Browser;
-import net.sf.sahi.client.ElementStub;
-import org.hamcrest.core.Is;
 
 import static java.lang.String.format;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -47,22 +44,21 @@ public class AlreadyOnBuildCausePopup {
 
     @com.thoughtworks.gauge.Step("Verify modification <modificationOffset> has revision <revision>")
 	public void verifyModificationHasRevision(String modificationOffset, String revision) throws Exception {
-        ElementStub revisionElement = browser.cell("revision").in(elementModificationAt(modificationOffset));
         if (materialType.equals("Pipeline"))
-            assertThat(revisionElement.getText().trim(), containsString(scenarioState.expand(revision)));
+            scenarioState.getBuildCauseResponse().then()
+                    .body(String.format("material_revisions.find { it.material_name == '%s' }.modifications[%s].revision"
+                            ,materialName, modificationOffset), containsString(scenarioState.expand(revision)));
         else
-            assertThat(revisionElement.getText().trim(), containsString(repoState.getRevisionFromAlias(revision)));
+            scenarioState.getBuildCauseResponse().then()
+                    .body(String.format("material_revisions.find { it.material_name == '%s' }.modifications[%s].revision"
+                            ,materialName, modificationOffset), containsString(repoState.getRevisionFromAlias(revision)));
     }
     
 	@com.thoughtworks.gauge.Step("Verify has only <numberOfModificationsExpected> modifications")
 	public void verifyHasOnlyModifications(Integer numberOfModificationsExpected) throws Exception {
 		String messageDidNotFindLastModification = "Failed to find modification numbered: " + (numberOfModificationsExpected - 1) +
 				". This suggests that there are lesser modifications than expected (" + numberOfModificationsExpected + ").";
-		assertThat(messageDidNotFindLastModification, elementModificationAt(String.valueOf(numberOfModificationsExpected - 1)).exists(true), is(true));
-
-		String messageFoundExtraModification = "Found unexpected modification numbered: " + numberOfModificationsExpected +
-				". This suggests that there are more modifications than expected (" + numberOfModificationsExpected + ").";
-		assertThat(messageFoundExtraModification, elementModificationAt(String.valueOf(numberOfModificationsExpected)).exists(true), is(false)); 
+		assertThat(messageDidNotFindLastModification, matchesExpectedNumberOfModifications(Integer.valueOf(numberOfModificationsExpected)), is(true));
 	}
 
 	@com.thoughtworks.gauge.Step("Verify modification <modificationOffset> has latest revision - Already On Build Cause Popup")
@@ -71,8 +67,11 @@ public class AlreadyOnBuildCausePopup {
 		verifyModificationHasRevision(modificationOffset, repo.latestRevision().revisionNumber());
 	}
 
-    private ElementStub elementModificationAt(String offset) {
-        return browser.byId(materialId() + "_" + offset);
+    private boolean matchesExpectedNumberOfModifications(int expected) {
+        int actual = scenarioState.getBuildCauseResponse().then()
+                .extract().path(String.format("material_revisions.find { it.material_name == '%s' }.modifications.size"
+                        ,materialName));
+        return actual == expected;
     }
 
     private String materialId() {
@@ -81,16 +80,14 @@ public class AlreadyOnBuildCausePopup {
 
     @com.thoughtworks.gauge.Step("Verify material has changed")
 	public void verifyMaterialHasChanged() throws Exception {
-        assertThat(materialChangedElement().exists(), is(true));
+        scenarioState.getBuildCauseResponse().then()
+                .body(String.format("material_revisions.find { it.material_name == '%s' }.changed",materialName), is(true));
     }
 
     @com.thoughtworks.gauge.Step("Verify material has not changed")
 	public void verifyMaterialHasNotChanged() throws Exception {
-        assertThat(materialChangedElement().exists(), is(false));
-    }
-
-    private ElementStub materialChangedElement() {
-        return browser.cell(Regex.wholeWord("changed")).in(browser.byId(materialId()));
+        scenarioState.getBuildCauseResponse().then()
+                .body(String.format("material_revisions.find { it.material_name == '%s' }.changed",materialName), is(false));
     }
 
     @com.thoughtworks.gauge.Step("Looking at material of type <materialType> named <materialName> for pipeline <pipeline> with counter <counter>")
@@ -104,54 +101,46 @@ public class AlreadyOnBuildCausePopup {
 
     @com.thoughtworks.gauge.Step("Verify revision <revision> exists")
 	public void verifyRevisionExists(String revision) throws Exception {
-    	String useNewRails = System.getenv("USE_NEW_RAILS");
-    	String revisionString = (useNewRails != null && useNewRails.equals("N")) ? revision : revision + " - VSM";
-
-		ElementStub revisionElement = browser.byText(revisionString, "TD");
-        assertThat(revisionElement.getText().trim(), containsString(revision));
+        scenarioState.getBuildCauseResponse().then()
+                .body(String.format("material_revisions.find { it.material_name == '%s' }.modifications[0].revision"
+                        ,materialName), containsString(revision));
     }
     
 	@com.thoughtworks.gauge.Step("Verify latest revision exists")
 	public void verifyLatestRevisionExists() throws Exception {
     	Repository repo = repoState.getRepoByMaterialName(scenarioState.currentRuntimePipelineName(), this.materialName);
 		String revision = repo.latestRevision().revisionNumber();
-		ElementStub revisionElement = browser.byText(revision, "TD");
-        assertThat(revisionElement.getText().trim(), containsString(revision));
+        verifyRevisionExists(revision);
 	}
 
     @com.thoughtworks.gauge.Step("Verify modification <modificationNumber> has comment containing <comment>")
 	public void verifyModificationHasCommentContaining(Integer modificationNumber, String comment) throws Exception {
-        ElementStub commentElement = commentForModificationAt(modificationNumber);
-        assertThat(commentElement.getText().trim(), containsString(comment));
+        scenarioState.getBuildCauseResponse().then()
+                .body(String.format("material_revisions.find { it.material_name == '%s' }.modifications[%s].comment"
+                        ,materialName, modificationNumber), containsString(comment));
     }
 
 	@com.thoughtworks.gauge.Step("Verify modification <modificationNumber> does not have comment containing <comment>")
-	public void verifyModificationDoesNotHaveCommentContaining(Integer modificationNumber, String comment) throws Exception {	
-        ElementStub commentElement = commentForModificationAt(modificationNumber);
-        assertThat(commentElement.getText().trim(), not(containsString(comment)));
+	public void verifyModificationDoesNotHaveCommentContaining(Integer modificationNumber, String comment) throws Exception {
+        scenarioState.getBuildCauseResponse().then()
+                .body(String.format("material_revisions.find { it.material_name == '%s' }.modifications[%s].comment"
+                        ,materialName, modificationNumber), not(containsString(comment)));
 	}
 
     @com.thoughtworks.gauge.Step("Verify modification <modificationNumber> has multi line comment with paragraph content <content>")
 	public void verifyModificationHasMultiLineCommentWithParagraphContent(Integer modificationNumber, String content) throws Exception {
-        ElementStub commentContainer = commentForModificationAt(modificationNumber);
-        assertThat(commentContainer.containsHTML("<p>"+ content + "</p>"), Is.is(true));
+//        ElementStub commentContainer = commentForModificationAt(modificationNumber);
+//        assertThat(commentContainer.containsHTML("<p>"+ content + "</p>"), Is.is(true));
+        throw new RuntimeException("This step not implemented");
     }
-    
-    private ElementStub commentForModificationAt(Integer modificationNumber) {
-        ElementStub mod = elementModificationAt(String.valueOf(modificationNumber));
-        ElementStub commentElement = browser.cell(Regex.wholeWord("comment")).in(mod);
-        return commentElement;
-    }
+
   
     @com.thoughtworks.gauge.Step("Verify modification <modificationNumber> has modified by containing <modifiedBy>")
 	public void verifyModificationHasModifiedByContaining(Integer modificationNumber, String modifiedBy) throws Exception {
-    	ElementStub modifiedbyContainer = modifiedbyForModificationAt(modificationNumber);
-    	assertThat(modifiedbyContainer.getText().trim(), containsString(modifiedBy));
+        scenarioState.getBuildCauseResponse().then()
+                .body(String.format("material_revisions.find { it.material_name == '%s' }.modifications[%s].user_name"
+                        ,materialName, modificationNumber), containsString(modifiedBy));
     }
     
-    private ElementStub modifiedbyForModificationAt(Integer modificationNumber) {
-        ElementStub mod = elementModificationAt(String.valueOf(modificationNumber));
-        ElementStub modifiedByElement = browser.cell(Regex.wholeWord("modified_by")).in(mod);
-        return modifiedByElement;
-    }
+
 }

@@ -46,7 +46,7 @@ Verify dependency chaining after scm triggers autoFirst pipeline
 * Trigger pipelines "up" and wait for labels "3" to pass
 * Trigger pipelines "down" and wait for labels "3" to pass
 * Trigger pipelines "child-of-down" and wait for labels "3" to pass
-* Click compare link
+* Compare pipeline instance "2" with "3"
 
 * Verify displays revision "${runtime_name:up}/3/defaultStage/1" having label "3" under pipeline named "${runtime_name:up}"
 * Verify displays revision "${runtime_name:down}/3/defaultStage/1" having label "3" under pipeline named "${runtime_name:down}"

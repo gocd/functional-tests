@@ -41,7 +41,7 @@ Gadgets removed as part of 17.1 release, so ignoring this spec. Once 17.1 is rel
 * Trigger pipeline
 * Verify stage "1" is "Passed" on pipeline with label "2"
 * Verify stage "2" is "Building" on pipeline with label "2"
-* Click compare link
+* Compare pipeline instance "1" with "2"
 
 * Verify that page has gadget for url "https://some.mingle.machine:1000/mingle/gadgets/card_activity.xml" project named "some-go-branch" and criteria "foo != not(foo)"
 * Verify that page displays stages "defaultStage (Passed),secondStage (Cancelled)" in pipeline dropdown "from" with pipeline counter "1"
@@ -49,12 +49,6 @@ Gadgets removed as part of 17.1 release, so ignoring this spec. Once 17.1 is rel
 * Click "${runtime_name:pipeline-with-mingle-config}" in breadcrumbs
 
 * Verify on pipeline history page for "pipeline-with-mingle-config"
-
-
-
-
-
-
 
 
 Teardown of contexts

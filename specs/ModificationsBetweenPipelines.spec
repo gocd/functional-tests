@@ -66,7 +66,7 @@ tags: 4521, card_activity, automate, 4520, mingle, 4523, checkins, linux
 * Looking at pipeline "pipeline-with-mingle-config"
 * Trigger pipeline
 * Verify stage "1" is "Passed" on pipeline with label "3"
-* Click compare link
+* Compare pipeline instance "2" with "3"
 
 * Select "Changes" tab
 * Verify displays revision "hg-2-0" having comment "hello world" under "Mercurial" named "pipeline-hg" for pipeline "pipeline-with-mingle-config"

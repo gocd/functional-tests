@@ -42,8 +42,6 @@ Add environment with only name
 * Verify no "added_environment_variables" are shown
 
 * On Environments Page
-* Looking at "first.env.name" environment
-* Verify environment has "There are no pipelines configured for this environment." in it
 * Click add new environment link
 
 Add environment with pipelines, agents and environment variables

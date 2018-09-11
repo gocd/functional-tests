@@ -38,10 +38,9 @@ tags: 3378, 3411, feeds, shine, automate
 * Verify pipeline instance "foo-pipeline" is not found
 * Verify "admin-pipeline" is not viewable
 
+* Logged in as "admin"
 * Trigger pipelines "basic-pipeline-fast" and wait for labels "1" to pass
 * Trigger pipelines "admin-pipeline" and wait for labels "1" to pass
-
-* Logged in as "admin"
 
 * Verify shows first instance of "defaultStage" of "admin-pipeline"
 

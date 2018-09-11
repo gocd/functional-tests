@@ -39,7 +39,6 @@ This is to verify that only the agents associated with an evironment are used to
 * Adding pipeline "basic-pipeline" to "uat" environment
 
 * Looking at pipeline "environment-pipeline"
-* Trigger pipeline
 * Verify stage "1" is "Building" on pipeline with label "1"
 * Looking at pipeline "basic-pipeline"
 * Trigger pipeline

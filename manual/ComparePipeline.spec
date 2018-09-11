@@ -26,7 +26,7 @@ ComparePipeline
 tags: 4688, compare_pipeline, stage1
 
 * Trigger pipelines "up" and wait for labels "1" to pass
-* Click compare link
+* Compare pipeline instance "1" with "1"
 
 * Verify that "to" textbox is populated with "1"
 * Verify that "from" textbox is populated with "1"
@@ -41,7 +41,7 @@ tags: 4688, compare_pipeline, stage1
 * Trigger pipelines "up" and wait for labels "2" to pass
 * Trigger pipelines "down" and wait for labels "1" to pass
 * Looking at pipeline "up"
-* Click compare link
+* Compare pipeline instance "1" with "2"
 
 * Verify that "from" textbox is populated with "1"
 * Verify that "to" textbox is populated with "2"
@@ -54,7 +54,7 @@ tags: 4688, compare_pipeline, stage1
 * Trigger pipelines "up" and wait for labels "3" to pass
 * Trigger pipelines "down" and wait for labels "2" to pass
 * Looking at pipeline "up"
-* Click compare link
+* Compare pipeline instance "2" with "3"
 
 Exact matching labels
 * Verify that "from" textbox is populated with "2"
@@ -92,7 +92,7 @@ Match partial comment
 Downstream
 * On Pipeline Dashboard Page
 * Looking at pipeline "down"
-* Click compare link
+* Compare pipeline instance "1" with "2"
 
 * Verify that "from" textbox is populated with "1"
 * Verify that "to" textbox is populated with "2"

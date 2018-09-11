@@ -45,11 +45,6 @@ Pipeline Visibility
 
 * Verify admin link is disabled
 
-* On Environments Page
-* Verify pipeline is not visible "pipeline1"
-* Verify pipeline is not visible "pipeline2"
-* Verify pipeline is not visible "pipeline3"
-
 
 
 

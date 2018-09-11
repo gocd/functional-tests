@@ -29,7 +29,7 @@ tags: #7468, Yum repo package, plugins-tests
 * Looking at pipeline "M9"
 * Verify pipeline has not been triggered even once
 
-* Turn on autoRefresh - On Pipeline Dashboard Page
+* On Admin page
 
 * Open error and warning messages popup
 
@@ -37,9 +37,6 @@ tags: #7468, Yum repo package, plugins-tests
 old message: Verify error message "Modification check failed for material: Repository: [repo_url=file://${runtime_package_repo_uri:repo3}, repo_url_dup=file://${runtime_package_repo_uri:repo3}] - Package: [package_spec=go-server, package_spec_dup=go-server]" and description "Interaction with plugin with id 'yum' implementing 'package-repository' extension failed while requesting for 'latest-revision'. Reason: [The plugin sent a response that could not be understood by Go. Plugin returned with code '500' and the following response: 'Unsupported key(s) found : REPO_URL_DUP. Allowed key(s) are : REPO_URL, USERNAME, PASSWORD; Unsupported key(s) found : PACKAGE_SPEC_DUP. Allowed key(s) are : PACKAGE_SPEC']"
 * Verify error message "Modification check failed for material: Repository: [] - Package: []" and description "Interaction with plugin with id 'yum' implementing 'package-repository' extension failed while requesting for 'latest-revision'. Reason: [The plugin sent a response that could not be understood by Go. Plugin returned with code '500' and the following response: 'Repository url is empty; Package spec is empty']"
 
-* Turn off autoRefresh - On Pipeline Dashboard Page
-
-* On Admin page
 * Open "Config XML" tab
 
 * Click edit

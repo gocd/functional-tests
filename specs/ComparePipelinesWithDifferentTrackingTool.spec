@@ -38,7 +38,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "down-pipeline-with-tracking-tool"
-* Click compare link
+* Compare pipeline instance "1" with "1"
 
 * Verify that there are "2" materials
 * Verify displays revision "${runtime_name:pipeline-with-tracking-tool}/1/defaultStage/1" having label "1" under pipeline named "${runtime_name:pipeline-with-tracking-tool}"
@@ -49,7 +49,7 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "down-pipeline-with-tracking-tool"
-* Click compare link
+* Compare pipeline instance "0" with "1"
 
 * Verify that there are "3" materials
 * Verify displays revision "${runtime_name:pipeline-with-tracking-tool}/1/defaultStage/1" having label "1" under pipeline named "${runtime_name:pipeline-with-tracking-tool}"

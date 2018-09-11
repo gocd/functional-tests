@@ -79,7 +79,7 @@ Pipeline Visibility
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "P5"
-* Click on pipeline name
+* Navigate to the pipeline history page for pipeline "P5"
 * Looking at pipeline with label "1"
 * Verify stage "defaultStage" of pipeline cannot be rerun
 * Pause pipeline on activity page
@@ -91,13 +91,13 @@ Pipeline Visibility
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "P6"
-* Click on pipeline name
+* Navigate to the pipeline history page for pipeline "P6"
 * Looking at pipeline with label "1"
 * Verify stage "secondStage" of pipeline cannot be rerun
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "P6"
-* Click on pipeline name
+* Navigate to the pipeline history page for pipeline "P6"
 
 * Looking at pipeline with label "2"
 * Verify "secondStage" cannot be approved
@@ -128,7 +128,7 @@ Pipeline Visibility
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "P6"
-* Click on pipeline name
+* Navigate to the pipeline history page for pipeline "P6"
 
 * Looking at pipeline with label "2"
 * Verify "secondStage" cannot be approved

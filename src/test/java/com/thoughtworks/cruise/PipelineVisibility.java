@@ -18,6 +18,7 @@ package com.thoughtworks.cruise;
 
 import com.thoughtworks.cruise.api.UsingPipelineApi;
 import com.thoughtworks.cruise.page.OnPipelineDashboardPage;
+import com.thoughtworks.cruise.page.UsingPipelineDashboardAPI;
 import net.sf.sahi.client.Browser;
 
 public class PipelineVisibility {
@@ -25,17 +26,19 @@ public class PipelineVisibility {
     private String pipelineName;
 
     private final OnPipelineDashboardPage dashboardPage;
+    private final UsingPipelineDashboardAPI dashboardApi;
 
     private final UsingPipelineApi usingPipelineApi;
 
-    public PipelineVisibility(Browser browser, OnPipelineDashboardPage dashboardPage, UsingPipelineApi usingPipelineApi) {
+    public PipelineVisibility(Browser browser, OnPipelineDashboardPage dashboardPage, UsingPipelineApi usingPipelineApi, UsingPipelineDashboardAPI dashboardApi) {
         this.dashboardPage = dashboardPage;
         this.usingPipelineApi = usingPipelineApi;
+        this.dashboardApi = dashboardApi;
     }
 
     public void setPipelineName(String pipelineName) throws Exception {
         this.pipelineName = pipelineName;
-        dashboardPage.lookingAtPipeline(pipelineName);
+        dashboardApi.lookingAtPipeline(pipelineName);
         usingPipelineApi.forPipeline(pipelineName);
     }
 
@@ -49,7 +52,7 @@ public class PipelineVisibility {
 
     public String isVisible() throws Exception {
         try {
-            dashboardPage.verifyPipelineIsVisible(pipelineName);
+            dashboardApi.verifyPipelineIsVisible(pipelineName);
         } catch (AssertionError failure) {
             return "false";
         }
@@ -67,11 +70,11 @@ public class PipelineVisibility {
         return "true";
     }
     
-   public String canOperateUsingUi() throws Exception{
+    public String canOperateUsingUi() throws Exception{
         
         try {
-			dashboardPage.verifyTriggerButtonIsPresent();
-			dashboardPage.verifyTriggerWithOptionsButtonIsPresent();
+            dashboardApi.verifyTriggerButtonIsPresent();
+            dashboardApi.verifyTriggerWithOptionsButtonIsPresent();
 		} catch (AssertionError failure) {			
 			return "false";
 		} catch (Exception e) {			
@@ -96,10 +99,10 @@ public class PipelineVisibility {
     public String canPauseUsingUi() throws Exception {
         
         try {
-			dashboardPage.pausePipelineWithReason("Pausing through UI");
-			dashboardPage.verifyPipelineIsPausedWithReason("Pausing through UI");
-			dashboardPage.unpausePipeline();
-			dashboardPage.verifyPipelineIsUnpaused();
+            dashboardApi.pausePipelineWithReason("Pausing through UI");
+            dashboardApi.verifyPipelineIsPausedWithReason("Pausing through UI");
+            dashboardApi.unpausePipeline();
+            dashboardApi.verifyPipelineIsUnpaused();
 		} catch (AssertionError failure) {			
 			return "false";
 		} catch (Exception e) {			

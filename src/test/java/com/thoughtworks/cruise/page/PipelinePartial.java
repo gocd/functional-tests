@@ -38,32 +38,32 @@ public class PipelinePartial {
 		this.page = page;
 		this.browser = browser;
 	}
-	
+
 	public void verifyCannotTriggerWithOptions(){
 		Assertions.assertOverTime(Timeout.TEN_SECONDS, new Function<Boolean>(){
 			@Override
 			public Boolean call() {
 				return !new SahiBrowserWrapper(browser).isEnabled(elementTriggerWithOptions());
 			}
-			
+
 		});
 	}
-	
+
 	public void openTriggerWithOptions() {
 		Assertions.waitUntil(Timeout.TEN_SECONDS, new Predicate() {
 			@Override
 			public boolean call() throws Exception {
 				page.reloadPage();
-			    ElementStub element = elementTriggerWithOptions();
-			    if (!new SahiBrowserWrapper(browser).isEnabled(element)) {
-			    	return false;
-			    }
-			    element.click();
+				ElementStub element = elementTriggerWithOptions();
+				if (!new SahiBrowserWrapper(browser).isEnabled(element)) {
+					return false;
+				}
+				element.click();
 				return true;
 			}
 
 		});
-		Assertions.waitUntil(Timeout.TEN_SECONDS, new Predicate() {			
+		Assertions.waitUntil(Timeout.TEN_SECONDS, new Predicate() {
 			@Override
 			public boolean call() throws Exception {
 				return browser.byId("MB_caption").getText().contains("Trigger");

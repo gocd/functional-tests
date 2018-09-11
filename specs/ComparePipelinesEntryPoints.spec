@@ -36,7 +36,7 @@ tags: 4521, automate, 4520, mingle, 4649, compare_pipeline
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "basic-environment-pipeline"
-* Click compare link
+* Compare pipeline instance "1" with "2"
 
 Simple case of comparison
 * Verify that "to" textbox is populated with "2"

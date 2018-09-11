@@ -44,7 +44,6 @@ tags: #4584, Clicky Admin
 * Click save - Already On Job Edit Page
 * Verify that job saved sucessfully
 
-* Turn on autoRefresh - On Pipeline Dashboard Page
 * Looking at pipeline "hung-job-zero-timeout-pipeline"
 * Trigger pipeline
 

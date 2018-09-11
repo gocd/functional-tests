@@ -36,7 +36,7 @@ tags: 1996, svn support, diagnostics messages, timer, 2272, automate, failing, l
 
 * Looking at pipeline "basic-pipeline-with-all-materials"
 * Trigger pipeline
-* Turn on autoRefresh - On Pipeline Dashboard Page
+* On Admin page
 * Verify there are at least "5" errors
 * Open error and warning messages popup
 
@@ -147,7 +147,7 @@ tags: 1996, svn support, diagnostics messages, timer, 2272, automate, failing, l
 
 * Make cruise config file invalid
 
-* Turn on autoRefresh - On Pipeline Dashboard Page
+* On Admin page
 * Verify there are at least "5" errors
 * Open error and warning messages popup
 
@@ -159,7 +159,7 @@ tags: 1996, svn support, diagnostics messages, timer, 2272, automate, failing, l
 
 * Restore config by name "LastValid"
 
-* Turn on autoRefresh - On Pipeline Dashboard Page
+* On Admin page
 * Verify there are no error messages
 
 * Verify there are no error messages
@@ -173,7 +173,7 @@ tags: 1996, svn support, diagnostics messages, timer, 2272, automate, failing, l
 * On Pipeline Dashboard Page
 * Navigate to pipeline dependencies for "basic-pipeline-with-all-materials" "1" "defaultStage" "1"
 
-* Turn on autoRefresh - On Pipeline Dashboard Page
+* On Admin page
 * Verify there are no error messages
 
 * On Pipeline Dashboard Page

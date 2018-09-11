@@ -35,7 +35,7 @@ import java.util.List;
 
 public class TalkToCruise {
 
-    private final CurrentUsernameProvider currentUserNameProvider;
+    public final CurrentUsernameProvider currentUserNameProvider;
     private final List<String> apiV4Urls = Arrays.asList("/api/agents");
     private final List<String> apiV1Urls = Arrays.asList("/api/backups");
     private final List<String> apiV2Urls = Arrays.asList("/api/users");
@@ -167,10 +167,10 @@ public class TalkToCruise {
         return execute(url, del, true);
     }
 
-    public CruiseResponse getWithoutBasicAuth(String url, String headerName, String headerValue) {
+    public CruiseResponse getWithBasicAuth(String url, String headerName, String headerValue, boolean withBasicAuth) {
         GetMethod get = new GetMethod(url);
         get.addRequestHeader(headerName, headerValue);
-        return execute(url, get, false);
+        return execute(url, get, withBasicAuth);
     }
 
     private CruiseResponse execute(String url, HttpMethodBase method, boolean useBasicAuth) {

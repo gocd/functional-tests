@@ -32,20 +32,10 @@ This sets up 2 pipeline instances of each pipeline
 * Trigger pipeline "basic-pipeline-fast"
 * Wait for first stage to pass with pipeline label "1"
 
-* On Environments Page
-* Looking at "uat" environment
-* Looking at pipeline "manual-downstream-pipeline" - On Environment Page
-* Verify nothing is currently deployed
-* Deploy latest
-
 * On Pipeline Dashboard Page
 * Looking at pipeline "manual-downstream-pipeline"
 * Wait for first stage to pass with pipeline label "1"
 
-* On Environments Page
-* Looking at "uat" environment
-* Looking at pipeline "manual-downstream-pipeline" - On Environment Page
-* Verify the pipeline has label "1"
 
 
 Operate page assertions are moved to a manual scenario as operate page has been removed as a part of #3494, which does deploy latest button for pipelines in environment

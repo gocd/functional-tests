@@ -31,7 +31,7 @@ tags: #7411, #7571, Yum repo package, plugins-tests
 
 * Update value of key "USERNAME" to "userDoesNotExist" for repo with id "repo-id" - Configure Cruise By
 
-* Turn on autoRefresh - On Pipeline Dashboard Page
+* On Admin page
 
 * Open error and warning messages popup
 
@@ -41,7 +41,6 @@ tags: #7411, #7571, Yum repo package, plugins-tests
 
 * Verify there are no error messages
 
-* Turn off autoRefresh - On Pipeline Dashboard Page
 
 
 

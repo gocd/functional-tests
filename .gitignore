@@ -19,3 +19,7 @@ libs
 test-repos/p4repo-2009
 docs
 .gauge/
+.gradle
+tools
+test-repos
+sahi-bkp
