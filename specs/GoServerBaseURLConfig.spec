@@ -49,7 +49,7 @@ From 18.10 reelase feed apis will have requested URL and not the siteURL set in 
 * Save configuration
 * Verify message "Saved configuration successfully." shows up
 
-* Verify the feed id is ".*?:8253/go/api/pipelines/${runtime_name:basic-pipeline-fast}/stages.xml"
+* Verify the feed id matches ".*?:8253/go/api/pipelines/${runtime_name:basic-pipeline-fast}/stages.xml"
 
 * On Admin page
 * Open "Server Configuration" tab
@@ -63,7 +63,7 @@ From 18.10 reelase feed apis will have requested URL and not the siteURL set in 
 * Save configuration
 * Verify message "Saved configuration successfully." shows up
 
-* Verify the feed id is ".*?:8253/go/api/pipelines/${runtime_name:basic-pipeline-fast}/stages.xml"
+* Verify the feed id matches ".*?:8253/go/api/pipelines/${runtime_name:basic-pipeline-fast}/stages.xml"
 
 * On Admin page
 * Open "Server Configuration" tab
@@ -72,7 +72,7 @@ From 18.10 reelase feed apis will have requested URL and not the siteURL set in 
 * Save configuration
 * Verify message "Saved configuration successfully." shows up
 
-* Verify the feed id is ".*?:8253/go/api/pipelines/${runtime_name:basic-pipeline-fast}/stages.xml"
+* Verify the feed id matches ".*?:8253/go/api/pipelines/${runtime_name:basic-pipeline-fast}/stages.xml"
 
 * On Admin page
 * Open "Server Configuration" tab
