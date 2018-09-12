@@ -58,7 +58,7 @@ User with password containing special characters
 * On Pipeline Dashboard Page
 * Looking at pipeline "pipeline_repo_user_has_special_password"
 * Verify stage "1" is "Passed" on pipeline with label "2"
-* Navigate to stage "defaultStage" of run "1"
+* Navigate to stage "defaultStage" of run "2"
 
 * Navigate to job "defaultJob"
 
