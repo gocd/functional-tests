@@ -65,9 +65,10 @@ Verify a stage can be rerun after releasing the lock
 
 * Stop "1" jobs that are waiting for file to exist
 
+
 * On Pipeline Dashboard Page
 * Looking at pipeline "pipeline-2-manual-stages-that-run-till-file-exists"
-* Navigate to stage "defaultStage" of run "2"
+* Navigate to stage "defaultStage" of run "2" having counter "2"
 
 * Verify stage bar is displaying run "2" of "2"
 * Wait for stage result to show "Passed"
