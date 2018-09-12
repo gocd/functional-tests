@@ -188,6 +188,7 @@ public class AlreadyOnPackageRepositoriesTab extends CruiseAdminPage {
 			@Override
 			public boolean call() throws Exception {
 				String actualMessage = browser.byId("repository_connection_message").getText();
+				System.out.println("This is the message from check connection : " + actualMessage);
 				return actualMessage != null && actualMessage.contains(message);
 			}			
 		});			

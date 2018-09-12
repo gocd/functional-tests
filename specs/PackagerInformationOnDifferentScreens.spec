@@ -64,7 +64,7 @@ tags: #7808, plugins-tests
 
 * Looking at material of type "Package" named "repo-3:CP-1" for pipeline "K2" with counter "1"
 * Verify modification "0" has revision "go-server-12.4.0-1234.noarch"
-* Verify modification "0" has comment containing "Built on go-qa3 Trackback: Not Provided"
+* Verify modification "0" has comment containing "Built on go-qa3"
 * Verify modification "0" has modified by containing "Thoughtworks Studios <twstudios@thoughtworks.com>"
 
 * On Pipeline Dashboard Page
