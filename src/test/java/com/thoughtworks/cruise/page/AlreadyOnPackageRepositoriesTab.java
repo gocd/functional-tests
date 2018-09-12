@@ -184,7 +184,7 @@ public class AlreadyOnPackageRepositoriesTab extends CruiseAdminPage {
 	@com.thoughtworks.gauge.Step("Verify check connection gives message containing <message>")
 	public void verifyCheckConnectionGivesMessageContaining(final String message)throws Exception {
 		browser.button("check_connection").click();
-		Assertions.waitUntil(Timeout.TWENTY_SECONDS, new Predicate(){
+		Assertions.waitUntil(Timeout.ONE_MINUTE, new Predicate(){
 			@Override
 			public boolean call() throws Exception {
 				String actualMessage = browser.byId("repository_connection_message").getText();
