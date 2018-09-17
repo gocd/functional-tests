@@ -17,4 +17,3 @@
 *Verify stage "1" is "Building" on pipeline with label "1"
 *Navigate to stage "defaultStage" of run "1"
 *Cancel "defaultStage" - Already On Stage Detail Page
-*Navigate to pipeline dashboard page
