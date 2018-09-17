@@ -282,7 +282,7 @@ public class UsingPipelineDashboardAPI  {
     }
 
     public boolean verifyCanOperatePipeline() throws Exception {
-        return getDashboard().then()
+            return getDashboard().then()
                 .extract().path(String.format("_embedded.pipelines.find " +
                         "{ it.name == '%s'}.can_operate",scenarioState.currentRuntimePipelineName()));
     }
@@ -324,7 +324,7 @@ public class UsingPipelineDashboardAPI  {
 
     @com.thoughtworks.gauge.Step("Verify cannot trigger pipeline")
     public void verifyCannotTriggerPipeline() throws Exception {
-        Assert.assertTrue(verifyCanOperatePipeline());
+        Assert.assertFalse(verifyCanOperatePipeline());
     }
 
 
