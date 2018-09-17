@@ -47,7 +47,6 @@ tags: 2400, passwordfile support, authorisation, authentication, svn support, 15
 
 * Looking at pipeline "pipeline-with-auto-stage-security"
 * Verify cannot trigger pipeline
-* Verify trigger with option is disabled
 * Navigate to stage "first" of run "1"
 
 * Verify stage "first" does not have any action
