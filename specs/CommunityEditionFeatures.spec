@@ -66,7 +66,7 @@ tags: community, 6316, 6321
 
 
 * Looking at pipeline "some_pipeline_name"
-* Verify cannot trigger pipeline
+* Verify can trigger pipeline
 * Logout
 
 
