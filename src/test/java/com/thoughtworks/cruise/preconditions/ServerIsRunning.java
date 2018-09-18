@@ -170,7 +170,7 @@ public class ServerIsRunning extends ProcessIsRunning {
     }
 
     protected String startCommand() {
-        return SystemUtil.isWindows() ? "start-server.bat" : "./server.sh";
+        return SystemUtil.isWindows() ? "start-server.bat" : "../../scripts/with-java.sh server";
     }
 
     protected String stopCommand() {
