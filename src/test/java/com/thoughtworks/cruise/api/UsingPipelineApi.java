@@ -18,10 +18,7 @@ package com.thoughtworks.cruise.api;
 
 import com.google.gson.Gson;
 import com.thoughtworks.cruise.Urls;
-import com.thoughtworks.cruise.api.response.JobHistoryItem;
-import com.thoughtworks.cruise.api.response.PipelineHistory;
-import com.thoughtworks.cruise.api.response.PipelineInstance;
-import com.thoughtworks.cruise.api.response.StageHistoryItem;
+import com.thoughtworks.cruise.api.response.*;
 import com.thoughtworks.cruise.client.TalkToCruise;
 import com.thoughtworks.cruise.client.TalkToCruise.CruiseResponse;
 import com.thoughtworks.cruise.materials.Repository;
@@ -44,6 +41,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -56,7 +54,7 @@ public class UsingPipelineApi {
     private Map<String, String> variables;
     private boolean updateMaterialBeforeSchedule;
 	private String pipelineName;
-	
+
 	protected UsingPipelineApi(ScenarioState state, TalkToCruise talkToCruise, RepositoryState repositoryState){
 		this.state = state;
 		this.talkToCruise = talkToCruise;
@@ -70,7 +68,7 @@ public class UsingPipelineApi {
         usingRevisionOf(commit, repo.getUrl());
 		this.updateMaterialBeforeSchedule = true;
     }
-    
+
 
     @com.thoughtworks.gauge.Step("For pipeline <pipelineName> - Using pipeline api")
 	public void forPipeline(String pipelineName) throws Exception {
@@ -84,7 +82,7 @@ public class UsingPipelineApi {
 		CruiseResponse response = schedulePipeline();
 		Assert.assertThat("Schedule failed " + response.getBody(), response.getStatus(), Is.is(code));
 	}
-	
+
 	@com.thoughtworks.gauge.Step("Schedule should fail with <code> and message <bodyFragment>")
 	public void scheduleShouldFailWithAndMessage(Integer code, String bodyFragment) throws Exception {
         CruiseResponse response = schedulePipeline();
@@ -137,26 +135,23 @@ public class UsingPipelineApi {
 		}
 		return env_variables.substring(0, env_variables.length()-1);
 	}
-	
+
 	public void unlockShouldReturn(String pipelineName, Integer code, String shouldHaveMessage) throws Exception {
-		String url = Urls.urlFor(String.format("/api/pipelines/%s/releaseLock", pipelineName));
-		CruiseResponse response = talkToCruise.post(url);
-		Assert.assertThat(response.getBody(), Matchers.containsString(shouldHaveMessage));
+		CruiseResponse response = unlockApiCall(pipelineName);
 		Assert.assertThat(response.getStatus(), Matchers.is(code));
+		assertThat(new Gson().fromJson(response.getBody(), SimpleMessage.class).getMessage(), containsString(shouldHaveMessage));
 	}
 
 	public void waitUntilUnlockReturns(String pipelineName, final Integer code, final String shouldHaveMessage) throws Exception {
-		final String url = Urls.urlFor(String.format("/api/pipelines/%s/releaseLock", pipelineName));
 		Assertions.waitUntil(Timeout.TWENTY_SECONDS, new Predicate() {
-			
 			@Override
 			public boolean call() throws Exception {
-				CruiseResponse response = talkToCruise.post(url);
+				CruiseResponse response = unlockApiCall(pipelineName);
 				return response.getBody().contains(shouldHaveMessage) && response.getStatus() == code;
 			}
 		});
 	}
-	
+
 	@com.thoughtworks.gauge.Step("For pipeline named <runtimePipelineName>")
 	public void forPipelineNamed(String runtimePipelineName) throws Exception {
 		this.scheduleUrl = Urls.urlFor(String.format("/api/pipelines/%s/schedule",runtimePipelineName));
@@ -170,7 +165,7 @@ public class UsingPipelineApi {
         this.revisions.put(state.expand(key), state.expand(revision));
 		this.updateMaterialBeforeSchedule = true;
 	}
-	
+
 	@com.thoughtworks.gauge.Step("Using latest revision of material <materialName> for pipeline <pipelineName>")
 	public void usingLatestRevisionOfMaterialForPipeline(String materialName, String pipelineName) throws Exception {
 		Repository repo = repositoryState.getRepoByMaterialName(state.pipelineNamed(pipelineName), materialName);
@@ -178,7 +173,7 @@ public class UsingPipelineApi {
 		this.revisions.put(repo.getUrl(), state.expand(revisionNumber));
 		this.updateMaterialBeforeSchedule = false;
 	}
-	
+
 	@com.thoughtworks.gauge.Step("With variable <name> set to <value>")
 	public void withVariableSetTo(String name, String value) throws Exception {
 		this.variables.put(name, value);
@@ -256,7 +251,7 @@ public class UsingPipelineApi {
 		CruiseResponse response = unpauseApiCall(state.pipelineNamed(pipelineName));
 		assertThat(response.getStatus(), is(returnCode));
 	}
-	
+
 	private CruiseResponse pauseApiCall(String actualPipelineName, String cause) throws UnsupportedEncodingException {
 		StringRequestEntity requestEntity = new StringRequestEntity(
 				"{\"pause_cause\": \""+ cause + "\"}",
@@ -274,6 +269,13 @@ public class UsingPipelineApi {
 		return response;
 	}
 
+	private CruiseResponse unlockApiCall(String actualPipelineName) throws UnsupportedEncodingException {
+		String url = Urls.urlFor(String.format("/api/pipelines/%s/unlock", actualPipelineName));
+		StringRequestEntity requestEntity = new StringRequestEntity("{}", "application/json", "UTF-8");
+		CruiseResponse response = talkToCruise.post(url, requestEntity, "X-GoCD-Confirm", CruiseConstants.apiV1);
+		return response;
+	}
+
 	@com.thoughtworks.gauge.Step("Attempt to pause non existent pipline <pipelineName> with cause <cause> and should return with http status <returnCode>")
 	public void attemptToPauseNonExistentPiplineWithCauseAndShouldReturnWithHttpStatus(String pipelineName, String cause, Integer returnCode) throws Exception {
 		CruiseResponse response = pauseApiCall(pipelineName, cause);
@@ -285,9 +287,9 @@ public class UsingPipelineApi {
 		CruiseResponse response = unpauseApiCall(pipelineName);
 		assertThat(response.getStatus(), is(returnCode));
 	}
-	
+
 	@com.thoughtworks.gauge.Step("Attempt to get scheduled list of jobs should return with status <returnCode>")
-	public void attemptToGetScheduledListOfJobsShouldReturnWithStatus(Integer returnCode) throws Exception {		
+	public void attemptToGetScheduledListOfJobsShouldReturnWithStatus(Integer returnCode) throws Exception {
 		String url = Urls.urlFor(String.format("/api/jobs/scheduled.xml"));
 		CruiseResponse response = talkToCruise.get(url);
 		Assert.assertThat(response.getStatus(), Is.is(returnCode));
