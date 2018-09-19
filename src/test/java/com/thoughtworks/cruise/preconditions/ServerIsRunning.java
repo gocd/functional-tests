@@ -51,6 +51,7 @@ public class ServerIsRunning extends ProcessIsRunning {
 
         if (!isAlreadyRunning()) {
             copyLog4jProperties();
+            copyJabbaWrapper();
             super.start();
             waitForServerToStart();
         }
@@ -59,6 +60,11 @@ public class ServerIsRunning extends ProcessIsRunning {
     private void copyLog4jProperties() throws IOException {
         File agentLog4j = new File(RuntimePath.getServerConfigPath(), "logback.xml");
         FileUtils.copyFile(new File(RuntimePath.pathFor("properties"), "server-logback.xml"), agentLog4j);
+    }
+
+    private void copyJabbaWrapper() throws IOException {
+        File withJava = new File(RuntimePath.getServerRoot(), "with-java.sh");
+        FileUtils.copyFile(new File(RuntimePath.pathFor("scripts"), "with-java.sh"), withJava);
     }
 
     public void stop() throws Exception {

@@ -138,7 +138,7 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
             builder.command("cmd ", "/c", command);
         } else {
             builder.environment().put("DAEMON", "Y");
-            builder.command("bash", "../../scripts/with-java.sh", command);
+            builder.command("bash", "with-java.sh", command);
         }
         System.err.println("Executing command: " + StringUtils.join(builder.command(), " ") + " (in " + getWorkingDir() + ")");
         Process process = builder.start();

@@ -108,6 +108,10 @@ public class AgentLauncher extends ProcessIsRunning {
                     }
             });
         File config_dir = new File(dir, "config");
+        File agentStartScript = new File(dir, "agent.sh");
+        agentStartScript.setExecutable(true);
+        File agentStopScript = new File(dir, "stop-agent.sh");
+        agentStopScript.setExecutable(true);
 
 		if (new File(dir, ".agent-bootstrapper.running").exists()) {
 			throw new RuntimeException("Agent already running in " + dir.getPath());
@@ -120,6 +124,7 @@ public class AgentLauncher extends ProcessIsRunning {
         copyAgentLauncherLogback(config_dir);
         copyAgentBootstarpperLogback(config_dir);
         copyAgentLogback(config_dir);
+        copyJabbaWrapper(dir);
 		AgentLauncher agent = new AgentLauncher(dir);
         return agent;
     }
@@ -132,6 +137,11 @@ public class AgentLauncher extends ProcessIsRunning {
 		File agentLog4j = new File(dir, "agent-launcher-logback.xml");
 		FileUtils.copyFile(new File(RuntimePath.pathFor("properties"), "agent-launcher-logback.xml"), agentLog4j);
 	}
+
+    private static void copyJabbaWrapper(File dir) throws IOException {
+        File withJava = new File(dir, "with-java.sh");
+        FileUtils.copyFile(new File(RuntimePath.pathFor("scripts"), "with-java.sh"), withJava);
+    }
 
     private static void copyAgentBootstarpperLogback(File dir) throws IOException {
         File agentLog4j = new File(dir, "agent-bootstrapper-logback.xml");
@@ -173,7 +183,7 @@ public class AgentLauncher extends ProcessIsRunning {
     }
 
     protected String startCommand() {
-        return SystemUtil.isWindows() ? "start-agent.bat" : "./agent";
+        return SystemUtil.isWindows() ? "start-agent.bat" : "./agent.sh";
     }
     
     protected String stopCommand() {
