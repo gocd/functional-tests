@@ -4,9 +4,12 @@
 mod="$((${GO_PIPELINE_COUNTER} % 4))"
 
 function use_jdk() {
-  source "${HOME}/.jabba/jabba.sh"
-  jabba install "$1=$2"
-  jabba use "$1"
+    if [ ! -f "${HOME}/.jabba/jabba.sh" ]; then
+      curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash
+    fi
+    source "${HOME}/.jabba/jabba.sh"
+    jabba install "$1=$2"
+    jabba use "$1"
 }
 
 if [ "$mod" = "0" ]; then
