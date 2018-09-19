@@ -114,7 +114,6 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
         builder.environment().remove("AGENT_MAX_MEM");
         builder.environment().remove("GO_ENVIRONMENT_NAME");
         builder.environment().remove("GO_PIPELINE_NAME");
-        builder.environment().remove("GO_PIPELINE_COUNTER");
         builder.environment().remove("GO_PIPELINE_LABEL");
         builder.environment().remove("GO_STAGE_NAME");
         builder.environment().remove("GO_STAGE_COUNTER");
