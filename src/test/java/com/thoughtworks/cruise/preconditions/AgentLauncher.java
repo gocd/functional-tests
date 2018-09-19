@@ -203,8 +203,6 @@ public class AgentLauncher extends ProcessIsRunning {
         env.put("PRODUCTION_MODE", "N");
         env.put("GO_SERVER_PORT", Urls.SERVER_PORT);
         env.put("GO_SERVER_SSH_PORT", Urls.SSL_PORT);
-        String pipeline_counter = System.getenv("GO_PIPELINE_COUNTER") != null ? System.getenv("GO_PIPELINE_COUNTER") : "0";
-        env.put("GO_PIPELINE_COUNTER", pipeline_counter);
         //env.put("JVM_DEBUG", "Y"); //uncomment to debug(use deligently, as second agent will not get a bind)
         env.put("GO_AGENT_SYSTEM_PROPERTIES",
                 " -Dagent.get.work.delay=500" +
