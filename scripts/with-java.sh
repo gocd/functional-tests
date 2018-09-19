@@ -20,11 +20,6 @@ elif [ "$mod" = "3" ]; then
   use_jdk "openjdk@1.11.0-28" "tgz+https://nexus.gocd.io/repository/s3-mirrors/local/jdk/openjdk-11-28_linux-x64_bin.tar.gz"
 fi
 
-echo "This is the java home : $JAVA_HOME"
-echo $JAVA_HOME
+echo "JAVA_HOME set to : $JAVA_HOME"
 
-if [ "$1" = "agent" ]; then
-    exec "./agent.sh"
-else
-    exec "./server.sh"
-fi
+exec "$@"
