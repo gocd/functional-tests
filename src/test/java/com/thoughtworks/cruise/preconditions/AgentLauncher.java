@@ -173,7 +173,7 @@ public class AgentLauncher extends ProcessIsRunning {
     }
 
     protected String startCommand() {
-        return SystemUtil.isWindows() ? "start-agent.bat" : "../../scripts/with-java.sh agent";
+        return SystemUtil.isWindows() ? "start-agent.bat" : "./agent";
     }
     
     protected String stopCommand() {
