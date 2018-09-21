@@ -58,7 +58,7 @@ Include server and angular validation on onCancel
 
 
 * Verify task "1" is "Curl " task without on cancel and properties "Url: https://www.codeschool.com, Secure Connection: yes, Request Type: -G" that runs if state is "Passed"
-* Verify task "2" is "Curl" task with cancel "Curl" and properties "Secure Connection: no, Request Type: -d, Additional Options: -u admin:badger -H X-GoCD-Confirm:true -H Content-Type:application/json -H Accept:application/vnd.go.cd.v1+json" that runs if state is "Passed"
+* Verify task "2" is "Curl" task with cancel "Curl" and properties "Secure Connection: no, Request Type: -XPOST, Additional Options: -u admin:badger -H X-GoCD-Confirm:true -H Content-Type:application/json -H Accept:application/vnd.go.cd.v1+json" that runs if state is "Passed"
 
 * Looking at pipeline "curl-task-pass"
 * Trigger pipeline
