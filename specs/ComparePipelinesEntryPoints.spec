@@ -43,13 +43,6 @@ Simple case of comparison
 * Verify that "from" textbox is populated with "1"
 
 * On Pipeline Dashboard Page
-* Looking at pipeline "basic-environment-pipeline" of "prod" environment
-* Click compare link - On Environment Page
-
-* Verify that "to" textbox is populated with "2"
-* Verify that "from" textbox is populated with "1"
-
-* On Pipeline Dashboard Page
 * Looking at pipeline "basic-environment-pipeline"
 * Navigate to stage "defaultStage" of run "2" having counter "1"
 
