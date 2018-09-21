@@ -59,13 +59,6 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "down-pipeline"
-* Navigate to pipeline dependencies for "down-pipeline" "1" "defaultStage" "1"
-
-* Click label "1" for upstream pipeline "first-pipeline"
-* Verify that unauthorized access message is shown - Already On Stage Detail Pipeline Dependencies Page
-
-* On Pipeline Dashboard Page
-* Looking at pipeline "down-pipeline"
 * Navigate to stage "defaultStage" of run "1"
 
 * Navigate to job "defaultJob"
