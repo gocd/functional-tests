@@ -51,6 +51,11 @@ public class UsingStageApi {
 				response.getBody(), url), response.isSuccess(), Is.is(true));
 	}
 
+	@com.thoughtworks.gauge.Step("Run stage <stageName> for current pipeline having pipeline label <pipelineLabel> - Using Stage Api")
+	public void runStageForCurrentPipeline(String stageName, String pipelineLabel) throws Exception {
+		rerunStageForCurrentPipelineHavingPipelineLabel(stageName, pipelineLabel);
+	}
+
 
 	@com.thoughtworks.gauge.Step("Attempt to cancel running stage <stageName> of the current running pipeline should return with status <returnCode>")
 	public void attemptToCancelRunningStageOfTheCurrentRunningPipelineShouldReturnWithStatus(

@@ -71,7 +71,7 @@ tags: diamond dependency, fanin, auto, 6437, 6368, long_running
 * Trigger stage "stage2-manual"
 
 * On Pipeline Dashboard Page
-* Navigate to stage "stage2-manual" of run "1" having counter "2"
+* Navigate to stage "stage2-manual" of run "2" having counter "1"
 
 * Wait for stage result to show "Failed"
 
@@ -107,12 +107,6 @@ tags: diamond dependency, fanin, auto, 6437, 6368, long_running
 * Navigate to stage "stage2-manual" of run "3"
 
 * Wait for stage result to show "Passed"
-
-* On Pipeline Dashboard Page
-* Looking at pipeline "FS2"
-* Trigger pipeline
-* Looking at pipeline "FS1"
-* Navigate to stage "stage2-manual" of run "3"
 
 * Rerun stage "stage2-manual"
 * Cancel "stage2-manual" - Already On Stage Detail Page

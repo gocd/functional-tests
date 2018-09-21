@@ -26,40 +26,41 @@ FaninMultipleStagesDeepTriangle
 tags: diamond dependency, multiple stages, deep triangle, #6435, OOM
 
 * Trigger pipelines "DeepC1, DeepC5, DeepC6" and wait for labels "1" to pass
-* Navigate to pipeline dependencies for "DeepC1" "1" "first_stage" "1"
-
-* Trigger stage "second_stage"
+* Looking at pipeline "DeepC1"
+* Run stage "second_stage" for current pipeline having pipeline label "1" - Using Stage Api
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "DeepC1"
 * Verify stage "2" is "Passed" on pipeline with label "1"
-* Navigate to pipeline dependencies for "DeepC5" "1" "first_stage" "1"
 
-* Trigger stage "second_stage"
+* Looking at pipeline "DeepC5"
+* Run stage "second_stage" for current pipeline having pipeline label "1" - Using Stage Api
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "DeepC5"
 * Verify stage "2" is "Passed" on pipeline with label "1"
-* Navigate to pipeline dependencies for "DeepC6" "1" "first_stage" "1"
 
+* Looking at pipeline "DeepC6"
+* Run stage "second_stage" for current pipeline having pipeline label "1" - Using Stage Api
 
-* Trigger stage "second_stage"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "DeepC6"
 * Verify stage "2" is "Passed" on pipeline with label "1"
-* Trigger pipelines "DeepC2" and wait for labels "1" to pass
-* Navigate to pipeline dependencies for "DeepC2" "1" "first_stage" "1"
 
-* Trigger stage "second_stage"
+* Trigger pipelines "DeepC2" and wait for labels "1" to pass
+
+* Looking at pipeline "DeepC2"
+* Run stage "second_stage" for current pipeline having pipeline label "1" - Using Stage Api
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "DeepC2"
 * Verify stage "2" is "Passed" on pipeline with label "1"
 * Trigger pipelines "DeepC3" and wait for labels "1" to pass
-* Navigate to pipeline dependencies for "DeepC3" "1" "first_stage" "1"
 
-* Trigger stage "second_stage"
+* Looking at pipeline "DeepC3"
+* Run stage "second_stage" for current pipeline having pipeline label "1" - Using Stage Api
+
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "DeepC4-auto"
@@ -81,9 +82,9 @@ On Pipeline Dashboard Page
 looking at pipeline "DeepC4-auto"
 verify pipeline is at label "1" and does not get triggered
 
-* Navigate to pipeline dependencies for "DeepC1" "2" "first_stage" "1"
+* Looking at pipeline "DeepC1"
+* Run stage "second_stage" for current pipeline having pipeline label "2" - Using Stage Api
 
-* Trigger stage "second_stage"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "DeepC1"
@@ -125,9 +126,9 @@ On Pipeline Dashboard Page
 looking at pipeline "DeepC4-auto"
 verify pipeline is at label "2" and does not get triggered
 
-* Navigate to pipeline dependencies for "DeepC5" "2" "first_stage" "1"
+* Looking at pipeline "DeepC5"
+* Run stage "second_stage" for current pipeline having pipeline label "2" - Using Stage Api
 
-* Trigger stage "second_stage"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "DeepC5"
@@ -138,11 +139,10 @@ verify pipeline is at label "2" and does not get triggered
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "DeepC4-auto"
-* Verify pipeline is at label "2" and does not get triggered
+* Verify stage "2" is "Passed" on pipeline with label "2"
 
-* Navigate to pipeline dependencies for "DeepC6" "2" "first_stage" "1"
-
-* Trigger stage "second_stage"
+* Looking at pipeline "DeepC6"
+* Run stage "second_stage" for current pipeline having pipeline label "2" - Using Stage Api
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "DeepC6"

@@ -97,10 +97,6 @@ tags: 1996, svn support, diagnostics messages, timer, 2272, automate, failing, l
 * Verify error "message" contains "Invalid Configuration"
 * Verify error "description" contains "Invalid cron syntax"
 
-* On Pipeline Dashboard Page
-* Navigate to pipeline dependencies for "basic-pipeline-with-all-materials" "1" "defaultStage" "1"
-
-* Verify there are at least "5" errors
 * Open error and warning messages popup
 
 * Verify error "description" contains "Failed to run git clone command"
@@ -170,11 +166,6 @@ tags: 1996, svn support, diagnostics messages, timer, 2272, automate, failing, l
 
 * Verify there are no error messages
 
-* On Pipeline Dashboard Page
-* Navigate to pipeline dependencies for "basic-pipeline-with-all-materials" "1" "defaultStage" "1"
-
-* On Admin page
-* Verify there are no error messages
 
 * On Pipeline Dashboard Page
 * Navigate to stage "defaultStage" of run "1"
