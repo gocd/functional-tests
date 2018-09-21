@@ -577,7 +577,7 @@ public class AlreadyOnStageDetailPage extends CruisePage {
 	public void waitForPipelineWithLabelToAppear(final String label) throws Exception {
 		 /* looks like a system latency issue, when schedule the pipeline thru API and immediately
 		 start reloading the page on browser, the browser not showing up the latest pipeline results, so added this forced wait. Should be removed after analysing the API latency if any */
-		Assertions.sleepMillis(10000);
+		Assertions.sleepMillis(60000);
 		Assertions.waitUntil(Timeout.THREE_MINUTES, new Predicate() {
 			@Override
 			public boolean call() throws Exception {

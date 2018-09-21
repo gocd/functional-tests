@@ -142,7 +142,7 @@ public class UsingPipelineApi {
 		assertThat(new Gson().fromJson(response.getBody(), SimpleMessage.class).getMessage(), containsString(shouldHaveMessage));
 	}
 
-	public void waitUntilUnlockReturns(String pipelineName, final Integer code, final String shouldHaveMessage) throws Exception {
+	public void waitUntilUnlockReturns(final String pipelineName, final Integer code, final String shouldHaveMessage) throws Exception {
 		Assertions.waitUntil(Timeout.TWENTY_SECONDS, new Predicate() {
 			@Override
 			public boolean call() throws Exception {
@@ -194,7 +194,7 @@ public class UsingPipelineApi {
 
 	@com.thoughtworks.gauge.Step("Verify unauthorized to unlock <pipelineName>")
 	public void verifyUnauthorizedToUnlock(String pipelineName) throws Exception {
-		unlockShouldReturn(state.pipelineNamed(pipelineName), 403, "user does not have operate permission on the pipeline");
+		unlockShouldReturn(state.pipelineNamed(pipelineName), 403, "You are not authorized to perform this action");
 	}
 
 	@com.thoughtworks.gauge.Step("Verify unlocking <pipelineName> is not acceptable because <shouldHaveMessage>")

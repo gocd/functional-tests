@@ -39,11 +39,6 @@ tags: 4643, automate, compare_pipeline, dependency_walk, 4687
 * Logout and login as "raghu"
 
 * Verify pipeline "first-pipeline" is not visible
-* Looking at pipeline "down-pipeline"
-* Navigate to stage "defaultStage" of run "1"
-
-* Click on revision "${runtime_name:first-pipeline}/1/defaultStage/1"
-* Verify that unauthorized access message is shown - Already On Stage Detail Page
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "down-pipeline"
