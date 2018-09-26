@@ -23,7 +23,7 @@ Setup of contexts
 PipelineUnlocking-ErrorMessages
 -------------------------------
 
-tags: 3378, 3411, feeds, restful api, shine, 3426, automate
+tags: 3378, 3411, feeds, restful api, 3426, automate
 
 * Logged in as "view"
 

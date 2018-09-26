@@ -204,7 +204,7 @@ public class UsingPipelineApi {
 
 	@com.thoughtworks.gauge.Step("Verify unlocking <litteralPipelineName> fails as pipeline is not found")
 	public void verifyUnlockingFailsAsPipelineIsNotFound(String litteralPipelineName) throws Exception {
-		unlockShouldReturn(litteralPipelineName, 404, String.format("pipeline name %s is incorrect", litteralPipelineName));
+		unlockShouldReturn(litteralPipelineName, 404, "resource you requested was not found");
 	}
 
 	@com.thoughtworks.gauge.Step("Verify can unlock <pipelineName>")
