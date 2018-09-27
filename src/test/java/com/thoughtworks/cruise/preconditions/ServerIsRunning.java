@@ -64,7 +64,7 @@ public class ServerIsRunning extends ProcessIsRunning {
 
     private void copyJabbaWrapper() throws IOException {
         File withJava = new File(RuntimePath.getServerRoot(), "with-java.sh");
-        FileUtils.copyFile(new File(RuntimePath.pathFor("scripts"), "with-java.sh"), withJava);
+        FileUtils.copyFile(new File(RuntimePath.pathFor("scripts"), "with-java-server.sh"), withJava);
     }
 
     public void stop() throws Exception {
