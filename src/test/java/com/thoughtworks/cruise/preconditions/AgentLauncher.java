@@ -140,7 +140,7 @@ public class AgentLauncher extends ProcessIsRunning {
 
     private static void copyJabbaWrapper(File dir) throws IOException {
         File withJava = new File(dir, "with-java.sh");
-        FileUtils.copyFile(new File(RuntimePath.pathFor("scripts"), "with-java.sh"), withJava);
+        FileUtils.copyFile(new File(RuntimePath.pathFor("scripts"), "with-java-agent.sh"), withJava);
     }
 
     private static void copyAgentBootstarpperLogback(File dir) throws IOException {
