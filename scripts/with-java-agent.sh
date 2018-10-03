@@ -2,7 +2,7 @@
 
 # 4, because that's the number of JVMs we test on
 counter=$((${GO_PIPELINE_COUNTER}+1))
-mod="$((${counter} % 4))"
+mod="$((${counter} % 3))"
 
 function use_jdk() {
   if [ ! -f "${HOME}/.jabba/jabba.sh" ]; then
@@ -17,10 +17,8 @@ if [ "$mod" = "0" ]; then
   # use the system jvm
   true
 elif [ "$mod" = "1" ]; then
-  use_jdk "openjdk@1.9.0-4" "tgz+https://nexus.gocd.io/repository/s3-mirrors/local/jdk/openjdk-9.0.4_linux-x64_bin.tar.gz"
-elif [ "$mod" = "2" ]; then
   use_jdk "openjdk@1.10.0-2" "tgz+https://nexus.gocd.io/repository/s3-mirrors/local/jdk/openjdk-10.0.2_linux-x64_bin.tar.gz"
-elif [ "$mod" = "3" ]; then
+elif [ "$mod" = "2" ]; then
   use_jdk "openjdk@1.11.0-28" "tgz+https://nexus.gocd.io/repository/s3-mirrors/local/jdk/openjdk-11-28_linux-x64_bin.tar.gz"
 fi
 
