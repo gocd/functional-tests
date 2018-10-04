@@ -77,19 +77,19 @@ public class AlreadyOnShowEnvironmentPage extends CruisePage {
 		return null;
 	}
 
-	@com.thoughtworks.gauge.Step("Click on edit pipelines")
+	@com.thoughtworks.gauge.Step("Click on edit pipelines - Already on Show Environments page")
 	public void clickOnEditPipelines() throws Exception {
-		browser.byId("edit_pipelines").click();
+		browser.byId(String.format("edit_pipelines_for_%s",this.environmentName)).click();
 	}
-	
-	@com.thoughtworks.gauge.Step("Click on edit agents")
+
+	@com.thoughtworks.gauge.Step("Click on edit agents - Already on Show Environments page")
 	public void clickOnEditAgents() throws Exception {
-		browser.byId("edit_agents").click();
+		browser.byId(String.format("edit_agents_for_%s",this.environmentName)).click();
 	}
-	
-	@com.thoughtworks.gauge.Step("Click on edit environment variables")
+
+	@com.thoughtworks.gauge.Step("Click on edit environment variables - Already on Show Environments page")
 	public void clickOnEditEnvironmentVariables() throws Exception {
-		browser.byId("edit_environment_variables").click();
+		browser.byId(String.format("edit_environment_variables_for_%s",this.environmentName)).click();
 	}
 
 	public void verifyListHas(String section, String list) throws Exception {

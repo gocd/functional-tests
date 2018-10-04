@@ -143,7 +143,8 @@ tags: 7321
 * Assert mD5 - Already on package repositories tab
 
 * On Environments Page
-* Click edit environment link for "uat"
+Click edit environment link for "uat"
+* Looking at "uat" environment
 
 * Click on edit pipelines
 
