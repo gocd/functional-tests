@@ -46,7 +46,7 @@ public class AlreadyOnShowEnvironmentPage extends CruisePage {
 	public void forEnvironment(String environmentName) throws Exception {
 		String url = browser.fetch("window.top.location.href");
 		URI uri = new URI(url);
-		Assert.assertThat(uri.getPath(), Is.is(String.format("/go/environments/%s/show", environmentName)));
+		Assert.assertThat(uri.getPath(), Is.is(String.format("/go/admin/environments", environmentName)));
 		this.environmentName = environmentName;
 	}
 
