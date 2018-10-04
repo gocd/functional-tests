@@ -27,18 +27,18 @@ tags: #4189, clicky ui, environment
 
 Negatve scenario 1
 
-Click edit environment link for "uat"
+* Click edit environment link for "uat"
 
 * For environment named "uat"
 * Change environment name to "new_uat"
 
-* Click on edit pipelines - Already on Show Environments page
+* Click on edit pipelines
 * Verify error message "Environment 'uat' not found." is present
 * Close popup
-* Click on edit agents - Already on Show Environments page
+* Click on edit agents
 * Verify error message "Environment 'uat' not found." is present
 * Close popup
-* Click on edit environment variables - Already on Show Environments page
+* Click on edit environment variables
 * Verify error message "Environment 'uat' not found." is present
 * Close popup
 
@@ -46,8 +46,7 @@ Negative Scenario 2
 
 Pipelines section
 * On Environments Page
-Click edit environment link for "new_uat"
-* Looking at "new_uat" environment
+* Click edit environment link for "new_uat"
 
 * Click on edit pipelines
 * UnSelect pipelines "environment-pipeline,environment-pipeline-locked"
@@ -61,8 +60,7 @@ Click edit environment link for "new_uat"
 
 Agents Section
 * On Environments Page
-Click edit environment link for "uat"
-* Looking at "uat" environment
+* Click edit environment link for "uat"
 
 * Click on edit agents
 * Select agent "missing-agent"
@@ -76,8 +74,7 @@ Click edit environment link for "uat"
 
 Environment Variables Section
 * On Environments Page
-Click edit environment link for "new_uat"
-* Looking at "new_uat" environment
+* Click edit environment link for "new_uat"
 
 * Click on edit environment variables
 

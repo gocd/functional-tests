@@ -87,21 +87,6 @@ public class OnEnvironmentPage extends CruisePage {
 
     }
 
-    @com.thoughtworks.gauge.Step("Click on edit pipelines")
-    public void clickOnEditPipelines() throws Exception {
-        browser.byId(String.format("edit_pipelines_for_%s",this.environmentName)).click();
-    }
-
-    @com.thoughtworks.gauge.Step("Click on edit agents")
-    public void clickOnEditAgents() throws Exception {
-        browser.byId(String.format("edit_agents_for_%s",this.environmentName)).click();
-    }
-
-    @com.thoughtworks.gauge.Step("Click on edit environment variables")
-    public void clickOnEditEnvironmentVariables() throws Exception {
-        browser.byId(String.format("edit_environment_variables_for_%s",this.environmentName)).click();
-    }
-
 
     @com.thoughtworks.gauge.Step("On Environments Page")
     public void goToEnvironmentPage() throws Exception {

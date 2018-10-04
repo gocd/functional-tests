@@ -27,8 +27,7 @@ tags: #4189, clicky ui, environment
 
 Positive scenario
 
-Click edit environment link for "uat"
-* Looking at "uat" environment
+* Click edit environment link for "uat"
 
 * Click on edit pipelines
 * Verify title of modal box is "Pipelines"
