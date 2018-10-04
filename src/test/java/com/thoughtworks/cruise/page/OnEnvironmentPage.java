@@ -66,7 +66,7 @@ public class OnEnvironmentPage extends CruisePage {
 
     @Override
     protected String url() {
-        return Urls.urlFor("/environments?autoRefresh=" + autoRefresh);
+        return Urls.urlFor("/admin/environments?autoRefresh=" + autoRefresh);
     }
 
     public void turnOnAutoRefresh() throws Exception {
