@@ -119,7 +119,7 @@ public class UsingAgentsApi {
 			AgentInformation[] agents = listInformationOfAllAgents();
 
 		for (AgentInformation agent : agents) {
-			if (!(agent.getAgent_state().equals("Missing") || agent.getAgent_state().equals("Disabled"))) {
+			if (!(agent.getAgent_state().equals("Missing") || agent.getAgent_state().equals("Disabled") || agent.getAgent_state().equals("LostContact"))) {
 				agentUUID = agent.getUuid();
 				break;
 			}
