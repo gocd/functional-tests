@@ -25,6 +25,9 @@ AddNewEnvironmentValidationsAndShow
 
 tags: environment, 3300, 4348, clicky ui, 3423, stage1
 
+* Looking at "uat" environment
+* Open environment details
+
 * Click add new environment link
 
 Add environment with only name
@@ -37,9 +40,6 @@ Add environment with only name
 
 * For environment "first.env.name"
 * Verify breadcrumbs has environment name
-* Verify no "added_pipelines" are shown
-* Verify no "added_agents" are shown
-* Verify no "added_environment_variables" are shown
 
 * On Environments Page
 * Click add new environment link
@@ -82,6 +82,7 @@ Add environment with pipelines, agents and environment variables
 
 * For environment "fooEnvironment"
 * Verify breadcrumbs has environment name
+* Open environment details
 * Verify values "${runtime_name:basic-pipeline},${runtime_name:basic-pipeline-slow}" are shown in section "added_pipelines"
 * Verify values "missing-agent (10.232.3.1)" are shown in section "added_agents"
 * Verify values "name = value,name with space = other-value" are shown in section "added_environment_variables"
