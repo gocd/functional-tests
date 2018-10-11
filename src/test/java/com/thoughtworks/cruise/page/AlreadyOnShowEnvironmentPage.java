@@ -46,7 +46,7 @@ public class AlreadyOnShowEnvironmentPage extends CruisePage {
 	public void forEnvironment(String environmentName) throws Exception {
 		String url = browser.fetch("window.top.location.href");
 		URI uri = new URI(url);
-		Assert.assertThat(uri.getPath(), Is.is(String.format("/go/environments/%s/show", environmentName)));
+		Assert.assertThat(uri.getPath(), Is.is("/go/admin/environments"));
 		this.environmentName = environmentName;
 	}
 
@@ -55,6 +55,7 @@ public class AlreadyOnShowEnvironmentPage extends CruisePage {
 		ElementStub envNameInBreadcrumbs = browser.listItem("last").in(browser.list("entity_title"));
 		Assert.assertThat(envNameInBreadcrumbs.getText().trim(), Is.is(environmentName));
 	}
+
 
 	@com.thoughtworks.gauge.Step("Verify no <sectionName> are shown")
 	public void verifyNoAreShown(String sectionName) throws Exception {

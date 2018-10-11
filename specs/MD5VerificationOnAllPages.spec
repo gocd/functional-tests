@@ -142,24 +142,6 @@ tags: 7321
 
 * Assert mD5 - Already on package repositories tab
 
-* On Environments Page
-* Click edit environment link for "uat"
-
-* Click on edit pipelines
-
-* Remember md5
-
-* Click on edit agents
-
-* Assert mD5 - Already on Add Environment Page
-* Close popup - Already on Add Environment Page
-
-* Click on edit environment variables
-
-* Assert mD5 - Already on Add Environment Page
-* Close popup - Already on Add Environment Page
-
-
 
 
 Teardown of contexts
