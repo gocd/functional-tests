@@ -64,7 +64,7 @@ verify second instance built with newer material
 
 * Looking at material of type "Tfs" named "tfs_mat"
 * Verify material has changed - Already On Build Cause Section
-* Verify modification "0" is checked in by "Modified by: go.tfs.user@gmail.com" with comment "Comment: Updated SecondAdd.txt"
+* Verify modification "0" is checked in by "Modified by: go.tfs.user" with comment "Comment: Updated SecondAdd.txt"
 
 
 
