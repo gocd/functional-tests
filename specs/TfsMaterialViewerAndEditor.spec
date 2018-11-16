@@ -80,7 +80,7 @@ tags: Clicky Admin, #5775, 6191, tfs, internal
 * Click save - Already on tfs material creation popup
 
 * Verify that material saved successfully
-* Verify that "tfs" with name "tfs_material" is added with attributes "materialName>tfs_material,url>https://go-tfs-user.visualstudio.com,username>go.tfs.user@gmail.com,dest>tfs_destination,autoUpdate>false,projectPath>$/MyFirstProject"
+* Verify that "tfs" with name "tfs_material" is added with attributes "materialName>tfs_material,url>https://go-tfs-user.visualstudio.com,username>go.tfs.user,dest>tfs_destination,autoUpdate>false,projectPath>$/MyFirstProject"
 * Edit material "tfs_material"
 
 * Enter material name "tfs_material_edited" - Already on Tfs Material Creation Popup
