@@ -18,6 +18,9 @@ package com.thoughtworks.cruise;
 
 // JUnit Assert framework can be used for verification
 
+import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.parsing.Parser;
+import com.jayway.restassured.response.Response;
 import com.thoughtworks.cruise.context.Configuration;
 import net.sf.sahi.client.Browser;
 import org.apache.commons.io.FileUtils;
@@ -26,8 +29,7 @@ import org.junit.Assert;
 
 import java.io.File;
 import java.util.Collection;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.HashMap;
 
 import static org.hamcrest.Matchers.is;
 
@@ -70,14 +72,23 @@ public class WithinArtifactRepository {
 
 	@com.thoughtworks.gauge.Step("Verify the <directory> directory contains file named <backupName> which has running go version")
 	public void verifyTheDirectoryContainsFileNamedWhichHasRunningGoVersion(String directory, String backupName) throws Exception {
-		String runningGoVersion = browser.paragraph("copyright").getText().split("software.")[1].trim();
-		Pattern versionPattern = Pattern.compile("Go Version: (.+?)");
-		Matcher matcher = versionPattern.matcher(runningGoVersion.substring(0, runningGoVersion.length() - 1));
-		if (matcher.matches()) {
-			String backedUpVersion = FileUtils.readFileToString(getBackupFile(directory, backupName));
-			Assert.assertThat(backedUpVersion, is(matcher.group(1)));
-		} else {
-			Assert.fail("failed to load go version from server ui.");
-		}
+
+		RestAssured.defaultParser = Parser.JSON;
+		String version = serverVersion().then()
+				.extract().path("full_version");
+
+		String backedUpVersion = FileUtils.readFileToString(getBackupFile(directory, backupName));
+		Assert.assertThat(backedUpVersion, is(version));
+
+	}
+
+
+	private Response serverVersion(){
+		HashMap<String, String> headers = new HashMap<String, String>();
+
+		headers.put("Accept", "application/vnd.go.cd.v1+json");
+		return RestAssured.given().
+				headers(headers).
+				when().get(Urls.urlFor("/go/api/version"));
 	}
 }

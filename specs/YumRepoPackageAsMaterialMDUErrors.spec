@@ -33,8 +33,6 @@ tags: #7411, #7571, Yum repo package, plugins-tests
 
 * On Admin page
 
-* Open error and warning messages popup
-
 * Verify error message "Modification check failed for material: Repository: [repo_url=http://localhost:8081/${runtime_package_http_repo_name:http_repo1}] - Package: [package_spec=go-agent]" and description "Interaction with plugin with id 'yum' implementing 'package-repository' extension failed while requesting for 'latest-revision-since'. Reason: [The plugin sent a response that could not be understood by Go. Plugin returned with code '500' and the following response: 'HTTP/1.1 401 Unauthorized']"
 
 * Update value of key "USERNAME" to "user" for repo with id "repo-id" - Configure Cruise By

@@ -43,7 +43,6 @@ tags: #7468, Yum repo package, plugins-tests
 
 * On Admin page
 
-* Open error and warning messages popup
 
 * Verify error message "Modification check failed for material: Repository: [repo_url=file://${runtime_package_repo_uri:repo3}] - Package: [package_spec=go-agent+]" and description "Interaction with plugin with id 'yum' implementing 'package-repository' extension failed while requesting for 'latest-revision'. Reason: [The plugin sent a response that could not be understood by Go. Plugin returned with code '500' and the following response: 'Error while querying repository with path 'file://${runtime_package_repo_uri:repo3}' and package spec 'go-agent+'. ']"
 * Verify error message "Modification check failed for material: Repository: [repo_url=file://${runtime_package_repo_uri:repo1}] - Package: [package_spec=GO-server]" and description "Interaction with plugin with id 'yum' implementing 'package-repository' extension failed while requesting for 'latest-revision'. Reason: [The plugin sent a response that could not be understood by Go. Plugin returned with code '500' and the following response: 'Error while querying repository with path 'file://${runtime_package_repo_uri:repo1}' and package spec 'GO-server'. ']"

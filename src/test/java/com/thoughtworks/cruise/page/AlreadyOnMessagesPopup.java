@@ -16,8 +16,10 @@
 
 package com.thoughtworks.cruise.page;
 
-import com.thoughtworks.cruise.Regex;
+import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.response.Response;
 import com.thoughtworks.cruise.SahiBrowserWrapper;
+import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.state.ScenarioState;
 import com.thoughtworks.cruise.utils.Assertions;
 import com.thoughtworks.cruise.utils.Assertions.Predicate;
@@ -25,8 +27,11 @@ import com.thoughtworks.cruise.utils.ScenarioHelper;
 import com.thoughtworks.cruise.utils.Timeout;
 import net.sf.sahi.client.Browser;
 import net.sf.sahi.client.ElementStub;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.DisposableBean;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class AlreadyOnMessagesPopup implements DisposableBean {
@@ -43,30 +48,40 @@ public class AlreadyOnMessagesPopup implements DisposableBean {
 	
 	@com.thoughtworks.gauge.Step("Verify error <location> contains <message>")
 	public void verifyErrorContains(final String location, final String message) throws Exception {
-		assertMessage(location, message, "error");
+		assertMessage(location, message, "ERROR");
 	}
 
 	@com.thoughtworks.gauge.Step("Verify warning <location> contains <message>")
 	public void verifyWarningContains(final String location, String message) throws Exception {
-		assertMessage(location, message, "warning");
+		assertMessage(location, message, "WARNING");
 	}
 
 	private void assertMessage(final String location, final String message, final String status) {
 		Assertions.waitUntil(Timeout.TWO_MINUTES, new Predicate() {			
 			public boolean call() throws Exception {
-				ElementStub content = browser.div(Regex.matches(message));
-				if (content.exists() && content.fetch("className").contains(location) && content.parentNode().fetch("className").contains(status)) {
-					return true;
-				} else {
-					browser.link("MB_close").click();
-					reloadPage();
-					openErrorAndWarningMessagesPopup();
-					return false;
+				String response = serverMessageResponse().getBody().asString();
+				JSONArray jsonarray = new JSONArray(response);
+				for (int i = 0; i < jsonarray.length(); i++) {
+					JSONObject jsonobject = jsonarray.getJSONObject(i);
+					if (jsonobject.getString(location).contains(message) && jsonobject.getString("level").equals(status)){
+						return true;
+					}
 				}
+				return false;
 			}
 		});
 	}
-	
+
+	private Response serverMessageResponse() {
+		HashMap<String, String> headers = new HashMap<String, String>();
+
+		headers.put("Accept", "application/vnd.go.cd.v1+json");
+		return RestAssured.given().
+				headers(headers).
+				when().get(Urls.urlFor("/go/api/server_health_messages"));
+
+	}
+
 	private void reloadPage(){
 		new SahiBrowserWrapper(browser).reload();        
 	}
@@ -89,15 +104,15 @@ public class AlreadyOnMessagesPopup implements DisposableBean {
 		Assertions.waitUntil(Timeout.TWENTY_SECONDS, new Predicate() {
 		
 		public boolean call() throws Exception {
-			ElementStub content = browser.div(Regex.matches(message));
-			if (content.exists() && content.fetch("className").contains(location) && content.parentNode().fetch("className").contains(status)) {
-				browser.link("MB_close").click();
-				reloadPage();
-				openErrorAndWarningMessagesPopup();
-				return false;
-			} else {
-				return true;
+			String response = serverMessageResponse().getBody().asString();
+			JSONArray jsonarray = new JSONArray(response);
+			for (int i = 0; i < jsonarray.length(); i++) {
+				JSONObject jsonobject = jsonarray.getJSONObject(i);
+				if (jsonobject.getString(location).contains(message) && jsonobject.getString("level").equals(status)){
+					return false;
+				}
 			}
+			return true;
 		}
 	});
 	}
