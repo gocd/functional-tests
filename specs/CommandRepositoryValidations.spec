@@ -45,10 +45,9 @@ tags: 6664, admin-page, configuration, task-repository-location, 6669, server_re
 * Open "Server Configuration" tab
 
 * Add valid snippet file with name "should-not-show-after-reload" into command _ repository location "custom"
-* Open error and warning messages popup
 
 
-* Verify warning "description" contains "Failed to access command repository directory: db\\/command_repository\\/custom\\/dirWithoutPermissions."
+* Verify warning "detail" contains "Failed to access command repository directory: db\\/command_repository\\/custom\\/dirWithoutPermissions."
 
 * Click on pipeline "edit-pipeline" for editing
 
@@ -86,9 +85,7 @@ Verifying server health message for an unreadable command snippet file
 * Make snippet with name "should-show-after-reload" in command _ repository location "custom" unreadable
 * Reload command snippet cache
 
-* Open error and warning messages popup
-
-* Verify warning "description" contains "Failed to access command snippet XML file located in Go Server Directory at db\\/command_repository\\/custom\\/should-show-after-reload.xml. Go does not have sufficient permissions to access it."
+* Verify warning "detail" contains "Failed to access command snippet XML file located in Go Server Directory at db\\/command_repository\\/custom\\/should-show-after-reload.xml. Go does not have sufficient permissions to access it."
 
 Verifying server health message for a directory which does not exist being set as the custom command repo location
 * Open "Server Configuration" tab
@@ -113,9 +110,7 @@ Verifying server health message for a directory which does not exist being set a
 
 * Open new task form "More..."
 
-* Open error and warning messages popup
-
-* Verify warning "description" contains "Failed to access command repository located in Go Server Directory at db\\/command_repository\\/dirDoesNotExist. The directory does not exist or Go does not have sufficient permissions to access it."
+* Verify warning "detail" contains "Failed to access command repository located in Go Server Directory at db\\/command_repository\\/dirDoesNotExist. The directory does not exist or Go does not have sufficient permissions to access it."
 
 * Stop server
 * Start server

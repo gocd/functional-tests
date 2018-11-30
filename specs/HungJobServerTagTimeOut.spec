@@ -36,11 +36,9 @@ tags: #4584, admin-page
 * On Admin page
 
 * Verify there are "1" warnings
-* Open error and warning messages popup
 
 * Verify warning "message" contains "is not responding"
-* Verify warning "description" contains "This job may be hung."
-* Close
+* Verify warning "detail" contains "This job may be hung."
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "hung-job-pipeline"

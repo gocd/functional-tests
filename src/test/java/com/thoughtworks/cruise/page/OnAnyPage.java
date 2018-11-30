@@ -16,6 +16,8 @@
 
 package com.thoughtworks.cruise.page;
 
+import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.response.Response;
 import com.thoughtworks.cruise.SahiBrowserWrapper;
 import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.state.ScenarioState;
@@ -27,7 +29,12 @@ import com.thoughtworks.cruise.utils.Timeout;
 import net.sf.sahi.client.Browser;
 import net.sf.sahi.client.ElementStub;
 import org.hamcrest.core.Is;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.Assert;
+
+import java.util.HashMap;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -58,15 +65,16 @@ public class OnAnyPage extends CruisePage {
 		Assertions.waitUntil(Timeout.THREE_MINUTES, new Predicate() {
 			@Override
 			public boolean call() throws Exception {
-				if (!autoRefresh) {
-					reloadPage();
+				String response = serverMessageResponse().getBody().asString();
+				JSONArray jsonarray = new JSONArray(response);
+				int actualErrors = 0;
+				for (int i = 0; i < jsonarray.length(); i++) {
+					JSONObject jsonobject = jsonarray.getJSONObject(i);
+					if (jsonobject.getString("level").equals("ERROR")){
+						actualErrors++;
+					}
 				}
-				ElementStub errors = serverMessageElement();
-				if (!errors.exists()) {
-					return false;
-				}
-				String[] error_count = errors.getText().trim().split("error");
-				int actualErrors = Integer.parseInt(error_count[0].trim());
+
 				return actualErrors >= count;
 			}
 		});
@@ -77,14 +85,17 @@ public class OnAnyPage extends CruisePage {
 		Assertions.waitUntil(Timeout.FIVE_MINUTES, new Predicate() {
 			@Override
 			public boolean call() throws Exception {
-				if (!autoRefresh) {
-					reloadPage();
+				String response = serverMessageResponse().getBody().asString();
+				JSONArray jsonarray = new JSONArray(response);
+				Integer actualWarns = 0;
+				for (int i = 0; i < jsonarray.length(); i++) {
+					JSONObject jsonobject = jsonarray.getJSONObject(i);
+					if (jsonobject.getString("level").equals("WARNING")){
+						actualWarns++;
+					}
 				}
-				ElementStub warnings = serverMessageElement();
-				if (!warnings.exists()) {
-					return false;
-				}
-				return warnings.getText().trim().contains(count + " warning");
+
+				return actualWarns == count;
 			}
 		});
 	}
@@ -96,19 +107,28 @@ public class OnAnyPage extends CruisePage {
 		}
 	}
 
-    private boolean warningsExist() {
-    	if (!autoRefresh) {
-    		reloadPage();
-    	}
-        ElementStub warnings = serverMessageElement();
-    	if (warnings.exists()) {
-			return warnings.getText().trim().contains("warning");
-		}else {return false;}
+    private boolean warningsExist() throws JSONException {
 
+		String response = serverMessageResponse().getBody().asString();
+		JSONArray jsonarray = new JSONArray(response);
+		if(jsonarray.length() == 0 ){
+			return false;
+		}
+		JSONObject jsonobject = jsonarray.getJSONObject(0);
+		if (jsonobject.getString("level").equals("WARNING")) {
+			return true;
+		}
+    	return false;
     }
 
-	private ElementStub serverMessageElement() {
-		return browser.span("messages").in(messagesElement());
+	private Response serverMessageResponse() {
+		HashMap<String, String> headers = new HashMap<String, String>();
+
+		headers.put("Accept", "application/vnd.go.cd.v1+json");
+		return RestAssured.given().
+				headers(headers).
+				when().get(Urls.urlFor("/go/api/server_health_messages"));
+
 	}
 
 	
@@ -136,14 +156,14 @@ public class OnAnyPage extends CruisePage {
 	public void verifyThereAreNoErrorMessages() throws Exception{
 		Assertions.waitUntil(Timeout.ONE_MINUTE, new Predicate() {
 			@Override
-			public boolean call() {
-				if (!autoRefresh) {
-					reloadPage();
+			public boolean call() throws JSONException {
+
+				Response errors = serverMessageResponse();
+				JSONArray jsonarray = new JSONArray(errors);
+				if(jsonarray.length() == 0 ){
+					return true;
 				}
-				ElementStub errors = serverMessageElement();
-				if (errors.exists()) {
-					return !errors.getText().trim().contains("error");
-				}else {return true;}
+				return false;
 			}			
 		});		
 	}
@@ -159,9 +179,15 @@ public class OnAnyPage extends CruisePage {
 			@Override
 			public Boolean call() {
 				for (int i = 0; i < 5; i++) {
-					warningsExist();
+					try {
+						if (!warningsExist()){
+							return true;
+						}
+					} catch (JSONException e) {
+						return false;
+					}
 				}
-				return !warningsExist();
+				return false;
 			}
 		});
     }
