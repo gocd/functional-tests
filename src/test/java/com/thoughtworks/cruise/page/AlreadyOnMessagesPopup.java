@@ -20,30 +20,32 @@ import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.response.Response;
 import com.thoughtworks.cruise.SahiBrowserWrapper;
 import com.thoughtworks.cruise.Urls;
+import com.thoughtworks.cruise.client.TalkToCruise;
 import com.thoughtworks.cruise.state.ScenarioState;
 import com.thoughtworks.cruise.utils.Assertions;
 import com.thoughtworks.cruise.utils.Assertions.Predicate;
 import com.thoughtworks.cruise.utils.ScenarioHelper;
 import com.thoughtworks.cruise.utils.Timeout;
 import net.sf.sahi.client.Browser;
-import net.sf.sahi.client.ElementStub;
+import org.bouncycastle.util.encoders.Base64;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.DisposableBean;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class AlreadyOnMessagesPopup implements DisposableBean {
 
 	private final Browser browser;
 	private final ScenarioState state;
 	private final ScenarioHelper scenarioHelper;
+	private final TalkToCruise talkToCruise;
 
-	public AlreadyOnMessagesPopup(ScenarioState state, ScenarioHelper scenarioHelper, Browser browser) {
+	public AlreadyOnMessagesPopup(ScenarioState state, ScenarioHelper scenarioHelper, Browser browser, TalkToCruise talkToCruise) {
 		this.state = state;
 		this.scenarioHelper = scenarioHelper;
 		this.browser = browser;
+		this.talkToCruise = talkToCruise;
 	}
 	
 	@com.thoughtworks.gauge.Step("Verify error <location> contains <message>")
@@ -74,6 +76,12 @@ public class AlreadyOnMessagesPopup implements DisposableBean {
 
 	private Response serverMessageResponse() {
 		HashMap<String, String> headers = new HashMap<String, String>();
+
+		String user = talkToCruise.currentUserNameProvider.loggedInUser();
+		if (user != null) {
+			String auth = "Basic "+new String(Base64.encode(String.format("%s:badger", user).getBytes()));
+			headers.put("Authorization", auth);
+		}
 
 		headers.put("Accept", "application/vnd.go.cd.v1+json");
 		return RestAssured.given().
@@ -132,30 +140,7 @@ public class AlreadyOnMessagesPopup implements DisposableBean {
 			throws Exception {
 		final String expected = state.expand(description).trim();
 		final String expectedMessage = state.expand(message).trim();
-		Assertions.waitUntil(Timeout.TWO_MINUTES, new Predicate() {
-			public boolean call() throws Exception {
-				List<ElementStub> messageTags = browser.div("message").collectSimilar();
-				ElementStub descriptionTag = null;
-		
-					for (ElementStub elementStub : messageTags) {
-						if(elementStub.containsText(expectedMessage))
-						{
-							descriptionTag = browser.div("description").in(elementStub.parentNode());
-							break;
-						}
-					}
-					if ( !(descriptionTag == null))
-					{
-						return(expected.contains(descriptionTag.getText().trim()));
-					}
-					else
-					{
-						browser.link("MB_close").click();
-						reloadPage();
-						openErrorAndWarningMessagesPopup();
-						return false;
-					}
-				}
-			});
+		assertMessage("message", expectedMessage, "ERROR");
+		assertMessage("detail", expected, "ERROR");
 		}
 }
