@@ -157,8 +157,7 @@ public class OnAnyPage extends CruisePage {
 		Assertions.waitUntil(Timeout.ONE_MINUTE, new Predicate() {
 			@Override
 			public boolean call() throws JSONException {
-
-				Response errors = serverMessageResponse();
+				String errors = serverMessageResponse().getBody().asString();
 				JSONArray jsonarray = new JSONArray(errors);
 				if(jsonarray.length() == 0 ){
 					return true;
