@@ -17,7 +17,7 @@ JobRerunRunMultipleInstance
 Setup of contexts
 * Basic configuration - setup
 * Using pipeline "pipeline-for-job-rerun-run-multiple-instance" - setup
-* With "1" live agents in directory "JobRerunRunMultipleInstance" - setup
+* With "2" live agents in directory "JobRerunRunMultipleInstance" - setup
 * Capture go state "JobRerunRunOnAllAgents" - setup
 
 JobRerunRunMultipleInstance
