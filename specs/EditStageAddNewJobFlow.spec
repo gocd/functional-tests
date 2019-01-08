@@ -22,7 +22,7 @@ Setup of contexts
 EditStageAddNewJobFlow
 ----------------------
 
-tags: Clicky Admin, 4699, smoke
+tags: Clicky Admin, 4699, smoke, manual
 
 * Click on pipeline "edit-pipeline" for editing
 
