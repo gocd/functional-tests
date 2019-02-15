@@ -16,15 +16,23 @@
 
 package com.thoughtworks.cruise.context;
 
+import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.path.json.JsonPath;
+import com.jayway.restassured.response.Response;
 import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.client.TalkToCruise;
-import com.thoughtworks.cruise.client.TalkToCruise.CruiseResponse;
-import org.hamcrest.core.Is;
-import org.junit.Assert;
+import org.bouncycastle.util.encoders.Base64;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 public class WithNoUsers {
 
     private final TalkToCruise talkToCruise;
+	private String auth = "Basic "+new String(Base64.encode("admin:badger".getBytes()));
+	private String apiVersion = "application/vnd.go.cd.v3+json";
+	private String contentType = "application/json";
 
     public WithNoUsers(TalkToCruise talkToCruise) {
         this.talkToCruise = talkToCruise;
@@ -32,11 +40,65 @@ public class WithNoUsers {
 
 	@com.thoughtworks.gauge.Step("With no users - setup")
 	public void setUp() throws Exception {
-	    CruiseResponse response = talkToCruise.get(Urls.urlFor("/add-on/test-addon/admin/users/delete"));
-	    Assert.assertThat(response.getStatus(), Is.is(200));
+		List<String> allUsers = getAllUsers();
+		if( !allUsers.isEmpty()){
+			disableUsers(allUsers).then().statusCode(200);
+			deleteUsers(allUsers).then().statusCode(200);
+		}
 	}
 
 	@com.thoughtworks.gauge.Step("With no users - teardown")
 	public void tearDown() throws Exception {
+	}
+
+
+	private List<String> getAllUsers() throws Exception {
+
+		Response response = RestAssured.given().
+				headers(getHeaders()).
+				when().get(Urls.urlFor("/go/api/users"));
+		if (response.getStatusCode() != 200){
+			System.out.println("No Users setup on server, moving on...");
+			return Collections.emptyList();
+		}
+		JsonPath jsonPathEvaluator = response.jsonPath();
+
+		List<String> allUsers = jsonPathEvaluator.getList("_embedded.users.login_name");
+		allUsers.remove("admin");
+
+		return allUsers;
+
+	}
+
+
+	private Response disableUsers(List<String> users){
+
+		Response response = RestAssured.given().
+				headers(getHeaders()).
+				body(String.format("{ \"users\": %s, \"operations\": { \"enable\": false } }", users)).
+				patch(Urls.urlFor("/go/api/users/operations/state"));
+		return response;
+	}
+
+	private Response deleteUsers(List<String> users){
+
+		Response response = RestAssured.given().
+				headers(getHeaders()).
+				body(String.format("{ \"users\": %s}", users)).
+				delete(Urls.urlFor("/go/api/users"));
+
+		return response;
+	}
+
+	private HashMap<String, String> getHeaders(){
+
+		HashMap<String, String> headers = new HashMap<String, String>();
+
+		headers.put("Authorization", auth);
+		headers.put("Accept", apiVersion);
+		headers.put("Content-Type", "application/json");
+
+		return headers;
+
 	}
 }
