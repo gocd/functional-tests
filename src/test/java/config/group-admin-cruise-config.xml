@@ -54,14 +54,6 @@
       <admins>
         <role>admins</role>
       </admins>
-          <authConfigs>
-              <authConfig id="61f10215-9fba-4962-a2f4-d6c8944ade32" pluginId="cd.go.authentication.passwordfile">
-                  <property>
-                      <key>PasswordFilePath</key>
-                      <value>$password_properties</value>
-                  </property>
-              </authConfig>
-          </authConfigs>
       </security>
   </server>
 

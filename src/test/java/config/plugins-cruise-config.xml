@@ -21,14 +21,6 @@
       <admins>
         <user>admin</user>
       </admins>
-		<authConfigs>
-			<authConfig id="f09fcace-8355-4935-8818-dacec8b3d059" pluginId="cd.go.authentication.passwordfile">
-				<property>
-					<key>PasswordFilePath</key>
-					<value>$password_properties</value>
-				</property>
-			</authConfig>
-		</authConfigs>
 	</security>
 	</server>
     <pipelines group="Task_Plugin">
