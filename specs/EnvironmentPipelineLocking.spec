@@ -16,7 +16,6 @@ EnvironmentPipelineLocking
 
 Setup of contexts
 * Secure configuration - setup
-* Login as "admin" - setup
 * Using pipeline "environment-pipeline, environment-failing-pipeline, environment-pipeline-locked" - setup
 * With "1" live agents in directory "pipeline-locking" - setup
 * Capture go state "EnvironmentPipelineLocking" - setup
@@ -98,7 +97,6 @@ ____________________
 * Capture go state "EnvironmentPipelineLocking" - teardown
 * With "1" live agents in directory "pipeline-locking" - teardown
 * Using pipeline "environment-pipeline, environment-failing-pipeline, environment-pipeline-locked" - teardown
-* Login as "admin" - teardown
 * Secure configuration - teardown
 
 

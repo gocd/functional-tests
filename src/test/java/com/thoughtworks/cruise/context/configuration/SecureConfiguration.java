@@ -20,13 +20,8 @@ import com.thoughtworks.cruise.context.Configuration;
 import com.thoughtworks.cruise.state.RepositoryState;
 import com.thoughtworks.cruise.state.ScenarioState;
 import com.thoughtworks.cruise.utils.ScenarioHelper;
-import com.thoughtworks.cruise.utils.configfile.CruiseConfigDom;
 import com.thoughtworks.gauge.AfterScenario;
 import net.sf.sahi.client.Browser;
-import org.dom4j.Element;
-
-import java.io.File;
-import java.io.IOException;
 
 public class SecureConfiguration extends AbstractConfiguration {
 
@@ -43,21 +38,6 @@ public class SecureConfiguration extends AbstractConfiguration {
 		super.setUp();
 	}
 
-	@Override
-	protected void postProcess(CruiseConfigDom dom) throws IOException {
-		File defaultPasswordProperties = copyPasswordPropertiesToServer("/config/password.properties");
-		File otherPasswordProperties = copyPasswordPropertiesToServer("/config/only-admin-password.properties");
-		pointPasswordFileToAbsolutePath(dom, defaultPasswordProperties);
-	}
-
-	private void pointPasswordFileToAbsolutePath(CruiseConfigDom dom, File passwordProperties) throws IOException {
-		Element passwordFile = dom.getPasswordFile();
-		passwordFile.setText(passwordProperties.getCanonicalPath());
-	}
-
-	private File copyPasswordPropertiesToServer(String name) {
-		return config.copyPasswordFile(getClass().getResource(name));
-	}
 
 	@AfterScenario
 	@com.thoughtworks.gauge.Step("Secure configuration - teardown")

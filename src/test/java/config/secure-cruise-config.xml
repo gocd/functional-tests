@@ -44,14 +44,6 @@
       <admins>
         <role>admins</role>
       </admins>
-      <authConfigs>
-        <authConfig id="7f1f7f6d-3cbd-4c29-8464-fa4536eadabc" pluginId="cd.go.authentication.passwordfile">
-          <property>
-            <key>PasswordFilePath</key>
-            <value>$password_properties</value>
-          </property>
-        </authConfig>
-      </authConfigs>
     </security>
   </server>
   <pipelines group="diamond-dependency">

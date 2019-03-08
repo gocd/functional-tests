@@ -20,12 +20,7 @@ import com.thoughtworks.cruise.context.Configuration;
 import com.thoughtworks.cruise.state.RepositoryState;
 import com.thoughtworks.cruise.state.ScenarioState;
 import com.thoughtworks.cruise.utils.ScenarioHelper;
-import com.thoughtworks.cruise.utils.configfile.CruiseConfigDom;
 import net.sf.sahi.client.Browser;
-import org.dom4j.Element;
-
-import java.io.File;
-import java.io.IOException;
 
 public class DeletePackageConfiguration extends AbstractConfiguration {
 
@@ -45,16 +40,6 @@ public class DeletePackageConfiguration extends AbstractConfiguration {
 		super.setUp();
 	}
 	
-	@Override
-	protected void postProcess(CruiseConfigDom dom) throws IOException {
-		pointPasswordFileToAbsolutePath(dom);
-	}
-
-	private void pointPasswordFileToAbsolutePath(CruiseConfigDom dom) throws IOException {
-		File destination = config.copyPasswordFile(getClass().getResource("/config/password.properties"));
-		Element passwordFile = dom.getPasswordFile();
-		passwordFile.setText(destination.getCanonicalPath());
-	}
 
 	@com.thoughtworks.gauge.Step("Delete package configuration - teardown")
 	public void tearDown() throws Exception {

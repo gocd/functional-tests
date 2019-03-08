@@ -16,7 +16,6 @@ SearchInPackageRepositoryTab
 
 Setup of contexts
 * Group admin security configuration - setup
-* Login as "admin" - setup
 * Using pipeline "pipeline1" - setup
 * Setup http based yum repo - setup
 * Capture go state "SearchInPackageRepositoryTab" - setup
@@ -128,7 +127,6 @@ ____________________
 * Capture go state "SearchInPackageRepositoryTab" - teardown
 * Setup http based yum repo - teardown
 * Using pipeline "pipeline1" - teardown
-* Login as "admin" - teardown
 * Group admin security configuration - teardown
 
 

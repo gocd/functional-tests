@@ -16,7 +16,6 @@ CurlTaskPlugin
 
 Setup of contexts
 * Plugin configuration - setup
-* Login as "admin" - setup
 * Using pipeline "curl-task-pass,curl-task-fail" - setup
 * With "1" live agents in directory "PluginAgents" - setup
 * Capture go state "CurlTaskPlugin" - setup
@@ -111,7 +110,6 @@ ____________________
 * Capture go state "CurlTaskPlugin" - teardown
 * With "1" live agents in directory "PluginAgents" - teardown
 * Using pipeline "curl-task-pass,curl-task-fail" - teardown
-* Login as "admin" - teardown
 * Plugin configuration - teardown
 
 

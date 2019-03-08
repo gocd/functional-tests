@@ -16,7 +16,6 @@ SmokeTest
 
 Setup of contexts
 * SmokeConfiguration - setup
-* Login as "admin" - setup
 * Using pipeline "basic-pipeline-fast, downstream-pipeline, environment-pipeline, run.till.file.exists" - setup
 * With "2" live agents in directory "SmokeTest" - setup
 * Capture go state "SmokeTest" - setup
@@ -98,7 +97,6 @@ ____________________
 * Capture go state "SmokeTest" - teardown
 * With "2" live agents in directory "SmokeTest" - teardown
 * Using pipeline "basic-pipeline-fast, downstream-pipeline, environment-pipeline, run.till.file.exists" - teardown
-* Login as "admin" - teardown
 * SmokeConfiguration - teardown
 
 
