@@ -16,7 +16,6 @@ MD5VerificationOnAllPages
 
 Setup of contexts
 * Secure configuration - setup
-* Login as "admin" - setup
 * Capture go state "MD5VerificationOnAllPages" - setup
 
 MD5VerificationOnAllPages
@@ -147,7 +146,6 @@ tags: 7321
 Teardown of contexts
 ____________________
 * Capture go state "MD5VerificationOnAllPages" - teardown
-* Login as "admin" - teardown
 * Secure configuration - teardown
 
 

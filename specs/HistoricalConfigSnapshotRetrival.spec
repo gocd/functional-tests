@@ -16,7 +16,6 @@ HistoricalConfigSnapshotRetrival
 
 Setup of contexts
 * Secure configuration - setup
-* Login as "admin" - setup
 * Using pipeline "basic-pipeline" - setup
 * Capture go state "HistoricalConfigSnapshotRetrival" - setup
 
@@ -48,7 +47,6 @@ Teardown of contexts
 ____________________
 * Capture go state "HistoricalConfigSnapshotRetrival" - teardown
 * Using pipeline "basic-pipeline" - teardown
-* Login as "admin" - teardown
 * Secure configuration - teardown
 
 

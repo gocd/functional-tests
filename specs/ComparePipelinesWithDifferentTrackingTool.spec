@@ -16,7 +16,6 @@ ComparePipelinesWithDifferentTrackingTool
 
 Setup of contexts
 * Secure configuration - setup
-* Login as "admin" - setup
 * Using pipeline "pipeline-with-tracking-tool,down-pipeline-with-tracking-tool" - setup
 * With "1" live agents in directory "compare_pipelines" - setup
 * Capture go state "ComparePipelinesWithDifferentTrackingTool" - setup
@@ -65,7 +64,6 @@ ____________________
 * Capture go state "ComparePipelinesWithDifferentTrackingTool" - teardown
 * With "1" live agents in directory "compare_pipelines" - teardown
 * Using pipeline "pipeline-with-tracking-tool,down-pipeline-with-tracking-tool" - teardown
-* Login as "admin" - teardown
 * Secure configuration - teardown
 
 

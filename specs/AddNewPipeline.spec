@@ -16,7 +16,6 @@ AddNewPipeline
 
 Setup of contexts
 * Secure configuration - setup
-* Login as "admin" - setup
 * Setup command repo - setup
 * Capture go state "AddNewPipeline" - setup
 
@@ -148,7 +147,6 @@ Teardown of contexts
 ____________________
 * Capture go state "AddNewPipeline" - teardown
 * Setup command repo - teardown
-* Login as "admin" - teardown
 * Secure configuration - teardown
 
 
