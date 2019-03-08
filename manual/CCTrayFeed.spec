@@ -16,7 +16,6 @@ CCTrayFeed
 
 Setup of contexts
 * Secure configuration - setup
-* Login as "admin" - setup
 * Using pipeline "basic-pipeline-for-cctray, admin-pipeline" - setup
 * With "1" live agents in directory "CCTrayFeed" - setup
 * Capture go state "CCTrayFeed" - setup

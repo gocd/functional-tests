@@ -16,7 +16,6 @@ ArtifactUploadFetch
 
 Setup of contexts
 * Secure configuration - setup
-* Login as "admin" - setup
 * Using pipeline "pipeline-artifacts" - setup
 * With "1" live agents in directory "Artifacts" - setup
 * Capture go state "ArtifactUploadFetch" - setup
@@ -68,7 +67,6 @@ ____________________
 * Capture go state "ArtifactUploadFetch" - teardown
 * With "1" live agents in directory "Artifacts" - teardown
 * Using pipeline "pipeline-artifacts" - teardown
-* Login as "admin" - teardown
 * Secure configuration - teardown
 
 

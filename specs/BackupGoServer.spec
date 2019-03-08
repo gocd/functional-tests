@@ -16,7 +16,6 @@ BackupGoServer
 
 Setup of contexts
 * Secure configuration - setup
-* Login as "admin" - setup
 * Using pipeline "basic-pipeline" - setup
 * Delete backup history - setup
 * Capture go state "BackupGoServer" - setup
@@ -53,7 +52,6 @@ ____________________
 * Capture go state "BackupGoServer" - teardown
 * Delete backup history - teardown
 * Using pipeline "basic-pipeline" - teardown
-* Login as "admin" - teardown
 * Secure configuration - teardown
 
 

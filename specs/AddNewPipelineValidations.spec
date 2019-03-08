@@ -16,7 +16,6 @@ AddNewPipelineValidations
 
 Setup of contexts
 * Secure configuration - setup
-* Login as "admin" - setup
 * Using pipeline "edit-pipeline" - setup
 * Capture go state "AddNewPipelineValidations" - setup
 
@@ -173,7 +172,6 @@ Teardown of contexts
 ____________________
 * Capture go state "AddNewPipelineValidations" - teardown
 * Using pipeline "edit-pipeline" - teardown
-* Login as "admin" - teardown
 * Secure configuration - teardown
 
 

@@ -22,9 +22,7 @@ import com.thoughtworks.cruise.state.ScenarioState;
 import com.thoughtworks.cruise.utils.ScenarioHelper;
 import com.thoughtworks.cruise.utils.configfile.CruiseConfigDom;
 import net.sf.sahi.client.Browser;
-import org.dom4j.Element;
 
-import java.io.File;
 import java.io.IOException;
 
 public class GroupAdminSecurityConfiguration extends AbstractConfiguration {
@@ -48,9 +46,9 @@ public class GroupAdminSecurityConfiguration extends AbstractConfiguration {
 	}
 
 	private void pointPasswordFileToAbsolutePath(CruiseConfigDom dom) throws IOException {
-		File destination = config.copyPasswordFile(getClass().getResource("/config/password.properties"));
-		Element passwordFile = dom.getPasswordFile();
-		passwordFile.setText(destination.getCanonicalPath());
+//		File destination = config.copyPasswordFile(getClass().getResource("/config/password.properties"));
+//		Element passwordFile = dom.getPasswordFile();
+//		passwordFile.setText(destination.getCanonicalPath());
 	}
 
 	@com.thoughtworks.gauge.Step("Group admin security configuration - teardown")

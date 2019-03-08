@@ -46,9 +46,9 @@ public class PluginConfiguration extends AbstractConfiguration {
 	
 	@Override
 	protected void postProcess(CruiseConfigDom dom) throws IOException {
-		File defaultPasswordProperties = copyPasswordPropertiesToServer("/config/password.properties");
-		File otherPasswordProperties = copyPasswordPropertiesToServer("/config/only-admin-password.properties");
-		pointPasswordFileToAbsolutePath(dom, defaultPasswordProperties);
+//		File defaultPasswordProperties = copyPasswordPropertiesToServer("/config/password.properties");
+//		File otherPasswordProperties = copyPasswordPropertiesToServer("/config/only-admin-password.properties");
+//		pointPasswordFileToAbsolutePath(dom, defaultPasswordProperties);
 	}
 
 	private void pointPasswordFileToAbsolutePath(CruiseConfigDom dom, File passwordProperties) throws IOException {

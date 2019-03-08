@@ -48,7 +48,7 @@ public class SmokeConfiguration extends AbstractConfiguration {
 
     @Override
     protected void postProcess(CruiseConfigDom dom) throws IOException {
-        pointPasswordFileToAbsolutePath(dom);
+        //pointPasswordFileToAbsolutePath(dom);
     }
 
     private void pointPasswordFileToAbsolutePath(CruiseConfigDom dom) throws IOException {

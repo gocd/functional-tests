@@ -16,7 +16,6 @@ DeletePackageAndRepository
 
 Setup of contexts
 * Delete package configuration - setup
-* Login as "admin" - setup
 * Using pipeline "one,two" - setup
 * Capture go state "DeletePackage" - setup
 
