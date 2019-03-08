@@ -42,7 +42,7 @@ trigger once
 * Goto config tab
 
 verify shown config
-* Verify notification message has "This version of config was edited by admin"
+* Verify notification message has "This version of config was edited by anonymous"
 * Verify config is visible
 * Verify "ant" task "@target: longsleep, @workingdir: hg/dev" exists for "defaultJob" in "defaultStage" in "${runtime_name:edit-pipeline}" for the shown config
 
@@ -89,7 +89,7 @@ trigger again
 * Goto config tab
 
 verify new config shown for the stage details
-* Verify notification message has "This version of config was edited by admin"
+* Verify notification message has "This version of config was edited by anonymous"
 * Verify config is visible
 * Verify "ant" task "@target: all, @workingdir: hg/dev" does not exist for "defaultJob" in "defaultStage" in "${runtime_name:edit-pipeline}" for the shown config
 * Verify "exec" task "@command: invalid-command, @workingdir: hello_world" exists for "defaultJob" in "defaultStage" in "${runtime_name:edit-pipeline}" for the shown config
@@ -107,7 +107,7 @@ manually trigger the second stage
 * Verify no config changed marker is present
 * Goto config tab
 
-* Verify notification message has "This version of config was edited by admin"
+* Verify notification message has "This version of config was edited by anonymous"
 * Verify config is visible
 * Verify "ant" task "@target: all, @workingdir: hg/dev" does not exist for "defaultJob" in "defaultStage" in "${runtime_name:edit-pipeline}" for the shown config
 * Verify "exec" task "@command: invalid-command, @workingdir: hello_world" exists for "defaultJob" in "defaultStage" in "${runtime_name:edit-pipeline}" for the shown config
