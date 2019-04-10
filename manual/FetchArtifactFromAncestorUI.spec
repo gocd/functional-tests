@@ -14,7 +14,7 @@
 FetchArtifactFromAncestorUI
 ===========================
 
-Setup of contexts 
+Setup of contexts
 * Basic configuration - setup
 * Using pipeline "uppest_pipeline, upper_pipeline, upper_peer_pipeline, up_pipeline, down_pipeline" - setup
 * Capture go state "FetchMaterialFromAncestorUI" - setup
@@ -136,5 +136,3 @@ ____________________
 * Capture go state "FetchMaterialFromAncestorUI" - teardown
 * Using pipeline "uppest_pipeline, upper_pipeline, upper_peer_pipeline, up_pipeline, down_pipeline" - teardown
 * Basic configuration - teardown
-
-
