@@ -32,7 +32,7 @@ tags: 2626, diagnostics messages, svn support, dashboard, authentication, passwo
 
 TODO - Add a test to make sure the Pipeline Dashboard build cause popup and the Stage Details Materials tab has password starred out
 
-* Verify build cause message on row "2" contains "http://username:******@localhost:8008" and not "password"
+* Verify build cause message on row "2" contains "http://localhost:8008" and not "password"
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "remote-pipeline"
@@ -41,8 +41,8 @@ TODO - Add a test to make sure the Pipeline Dashboard build cause popup and the 
 * Navigate to job "defaultJob"
 
 * Open console tab
-* Verify console contains "from http://username:******@localhost:8008" and not "password"
-* Verify material tab contains "http://username:******@localhost:8008" and not "password"
+* Verify console contains "from http://localhost:8008" and not "password"
+* Verify material tab contains "http://localhost:8008" and not "password"
 
 
 
