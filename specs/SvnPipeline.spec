@@ -87,7 +87,6 @@ SVN External tests
 
 * On Pipeline Dashboard Page
 * Looking at pipeline "svn-pipeline-with-external"
-* Trigger pipeline
 * Wait for first stage to pass with pipeline label "4"
 * Navigate to stage "defaultStage" of run "4"
 
@@ -105,5 +104,3 @@ ____________________
 * With "1" live agents in directory "AgentsUIScreen" - teardown
 * Using pipeline "svn-pipeline, svn-pipeline-with-external" - teardown
 * Basic configuration - teardown
-
-
