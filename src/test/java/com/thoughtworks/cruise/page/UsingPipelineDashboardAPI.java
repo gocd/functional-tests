@@ -51,7 +51,7 @@ public class UsingPipelineDashboardAPI  {
     private final ScenarioHelper scenarioHelper;
     private final TalkToCruise talkToCruise;
     private final Configuration configuration;
-    private String dashboardApiVersion= "application/vnd.go.cd.v2+json";
+    private String dashboardApiVersion= "application/vnd.go.cd.v3+json";
     private String triggerPipelineAPIVersion= "application/vnd.go.cd.v1+json";
     private String pausePipelineAPIVersion= "application/vnd.go.cd.v1+json";
     private String buildCauseAPIVersion = "application/vnd.go.cd.v1+json";
