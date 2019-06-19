@@ -217,7 +217,7 @@ public class AgentLauncher extends ProcessIsRunning {
 
 
         int index = 101;
-        for (String param : env.get("GO_SERVER_SYSTEM_PROPERTIES").split(" ")){
+        for (String param : env.get("GO_AGENT_SYSTEM_PROPERTIES").split(" ")){
             try {
                 writeTo(properties_file, true, "wrapper.java.additional."+Integer.toString(index)+"="+param);
                 index++;
