@@ -38,12 +38,12 @@ public class AgentLauncher extends ProcessIsRunning {
 	private File dir;
 
 	private String uuid;
-	
+
 
 	public static AgentLauncher startNewAgent(String directory, String srcDir) throws Exception {
         return startAgentWithUUID(directory, null, srcDir);
     }
-    
+
     public static AgentLauncher startAgentWithUUID(String agentDirectory, String uuid, String srcDir) throws Exception {
         AgentLauncher agent = create(agentDirectory, (srcDir == null) ? RuntimePath.getAgentRoot() : srcDir);
         if (uuid != null) {
@@ -108,10 +108,8 @@ public class AgentLauncher extends ProcessIsRunning {
                     }
             });
         File config_dir = new File(dir, "config");
-        File agentStartScript = new File(dir, "agent.sh");
-        agentStartScript.setExecutable(true);
-        File agentStopScript = new File(dir, "stop-agent.sh");
-        agentStopScript.setExecutable(true);
+        File agentExecutable = new File(dir, "bin/go-agent");
+        agentExecutable.setExecutable(true);
 
 		if (new File(dir, ".agent-bootstrapper.running").exists()) {
 			throw new RuntimeException("Agent already running in " + dir.getPath());
@@ -152,7 +150,7 @@ public class AgentLauncher extends ProcessIsRunning {
         File agentLog4j = new File(dir, "agent-logback.xml");
         FileUtils.copyFile(new File(RuntimePath.pathFor("properties"), "agent-logback.xml"), agentLog4j);
     }
-	
+
 	public AgentLauncher(File dir) {
         this.dir = dir;
 	}
@@ -183,11 +181,11 @@ public class AgentLauncher extends ProcessIsRunning {
     }
 
     protected String startCommand() {
-        return SystemUtil.isWindows() ? "start-agent.bat" : "./agent.sh";
+        return SystemUtil.isWindows() ? "start-agent.bat" : "bin/go-agent";
     }
-    
+
     protected String stopCommand() {
-        return SystemUtil.isWindows() ? "stop-agent.bat" : "./stop-agent.sh";
+        return SystemUtil.isWindows() ? "stop-agent.bat" : "bin/go-agent";
     }
 
     protected String getWorkingDir() {
@@ -196,14 +194,6 @@ public class AgentLauncher extends ProcessIsRunning {
 
     protected Map<String, String> getStartEnvVariables() {
         Map<String, String> env = new HashMap<String, String>();
-        env.put("GO_SERVER", "127.0.0.1");
-        env.put("GO_SERVER_URL", "https://127.0.0.1:"+Urls.SSL_PORT+"/go");
-        env.put("VNC", "N");
-        env.put("STOP_BEFORE_STARTUP", "N"); //else when test agent start it will kill "real" agent
-        env.put("PRODUCTION_MODE", "N");
-        env.put("GO_SERVER_PORT", Urls.SERVER_PORT);
-        env.put("GO_SERVER_SSH_PORT", Urls.SSL_PORT);
-        //env.put("JVM_DEBUG", "Y"); //uncomment to debug(use deligently, as second agent will not get a bind)
         env.put("GO_AGENT_SYSTEM_PROPERTIES",
                 " -Dagent.get.work.delay=500" +
                         " -Dagent.get.work.interval=500" +
@@ -216,6 +206,29 @@ public class AgentLauncher extends ProcessIsRunning {
             String additionalStartupArgs = env.get("GO_AGENT_SYSTEM_PROPERTIES") + " " + startUpArgs;
             env.put("GO_AGENT_SYSTEM_PROPERTIES", additionalStartupArgs);
         }
+
+        File properties_file = new File(getWorkingDir(), "/wrapper-config/wrapper-properties.conf");
+        try {
+            writeTo(properties_file, false, "wrapper.app.parameter.101=-serverUrl");
+            writeTo(properties_file, true, "wrapper.app.parameter.102=https://127.0.0.1:"+Urls.SSL_PORT+"/go");
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to write to wrapper config file", e);
+        }
+
+
+        int index = 101;
+        for (String param : env.get("GO_SERVER_SYSTEM_PROPERTIES").split(" ")){
+            try {
+                writeTo(properties_file, true, "wrapper.java.additional."+Integer.toString(index)+"="+param);
+                index++;
+            } catch (IOException e) {
+                throw new RuntimeException("Failed to write to wrapper config file", e);
+            }
+        }
+
+
+
+
         return env;
     }
 
@@ -276,8 +289,7 @@ public class AgentLauncher extends ProcessIsRunning {
 	}
 
     public void deleteDirectory() {
-        dir.delete();        
+        dir.delete();
     }
 
 }
-
