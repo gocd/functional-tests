@@ -115,6 +115,8 @@ public class ServerIsRunning extends ProcessIsRunning {
         if ("Y".equals(System.getenv("USE_JETTY_6"))){
             extraParams.append(" -Dapp.server=com.thoughtworks.go.server.Jetty6Server");
         }
+        String serverMem = System.getenv("TWIST_GO_SERVER_MEM") != null ? System.getenv("TWIST_GO_SERVER_MEM") : "512m";
+        String serverMaxMem = System.getenv("TWIST_GO_SERVER_MAX_MEM") != null ? System.getenv("TWIST_GO_SERVER_MAX_MEM") : "1024m";
         HashMap<String, String> env = new HashMap<String, String>();
         env.put("GO_SERVER_SYSTEM_PROPERTIES",
                 "-Dalways.reload.config.file=true " +
@@ -133,29 +135,31 @@ public class ServerIsRunning extends ProcessIsRunning {
                         "-Dcruise.pipelineStatus.cache.interval=800 " +
                         "-Dcommand.repo.warning.timeout=30000 " +
                         "-Dnew.plugins.framework.enabled=Y " +
-                        "-DDB_DEBUG_MODE=true" +
+                        "-DDB_DEBUG_MODE=true " +
+                        "-Dcruise.server.port="+Urls.SERVER_PORT + " " +
+                        "-Dcruise.server.ssl.port="+Urls.SSL_PORT + " " +
+                        "-Xms"+serverMem + " " +
+                        "-Xmx"+serverMaxMem + " " +
                         extraParams.toString());
-        env.put("GO_SERVER_PORT", Urls.SERVER_PORT);
-        env.put("GO_SERVER_SSL_PORT", Urls.SSL_PORT);
-        String serverMem = System.getenv("TWIST_GO_SERVER_MEM") != null ? System.getenv("TWIST_GO_SERVER_MEM") : "512m";
-        String serverMaxMem = System.getenv("TWIST_GO_SERVER_MAX_MEM") != null ? System.getenv("TWIST_GO_SERVER_MAX_MEM") : "1024m";
-        env.put("SERVER_MEM", serverMem);
-        env.put("SERVER_MAX_MEM", serverMaxMem);
-        env.put("JVM_DEBUG", "true");
-        if (fanInTurnedOff) {
-            String addFaninJVMArg = env.get("GO_SERVER_SYSTEM_PROPERTIES") + " -Dresolve.fanin.revisions=N";
-            env.put("GO_SERVER_SYSTEM_PROPERTIES", addFaninJVMArg);
-        }
-        String useNewRails = System.getenv("USE_NEW_RAILS");
-        if (useNewRails != null && useNewRails.equals("N")) {
-            String addRails4JVMArg = env.get("GO_SERVER_SYSTEM_PROPERTIES") + " -Duse.new.rails=N";
-            env.put("GO_SERVER_SYSTEM_PROPERTIES", addRails4JVMArg);
-        }
+
+
         String startUpArgs = System.getenv("ADDITIONAL_STARTUP_ARGS");
         if (startUpArgs != null && !startUpArgs.equals("")) {
             String additionalStartupArgs = env.get("GO_SERVER_SYSTEM_PROPERTIES") + " " + startUpArgs;
             env.put("GO_SERVER_SYSTEM_PROPERTIES", additionalStartupArgs);
         }
+
+        File properties_file = new File(getWorkingDir(), "/wrapper-config/wrapper-properties.conf");
+        int index = 101;
+        for (String param : env.get("GO_SERVER_SYSTEM_PROPERTIES").split(" ")) {
+            try {
+                writeTo(properties_file, true, "wrapper.java.additional."+Integer.toString(index)+"="+param);
+                index++;
+            } catch (IOException e) {
+                throw new RuntimeException("Failed to write to wrapper config file", e);
+            }
+        }
+
         return env;
     }
 
@@ -176,11 +180,11 @@ public class ServerIsRunning extends ProcessIsRunning {
     }
 
     protected String startCommand() {
-        return SystemUtil.isWindows() ? "start-server.bat" : "./server.sh";
+        return SystemUtil.isWindows() ? "bin/start-go-server-service.bat" : "bin/go-server";
     }
 
     protected String stopCommand() {
-        return SystemUtil.isWindows() ? "stop-server.bat" : "./stop-server.sh";
+        return SystemUtil.isWindows() ? "in/stop-go-server-service.bat" : "bin/go-server";
     }
 
     @Override

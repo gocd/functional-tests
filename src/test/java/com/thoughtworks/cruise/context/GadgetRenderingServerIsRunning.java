@@ -47,7 +47,7 @@ public class GadgetRenderingServerIsRunning {
 	public void tearDown() throws Exception {
 		gadgetRenderingServer.stop();
 	}
-	
+
 	private static class GadgetRenderingServer extends ProcessIsRunning {
 
 		@Override
@@ -97,17 +97,17 @@ public class GadgetRenderingServerIsRunning {
 		protected Map<String, String> getStartEnvVariables() {
 			return new HashMap<String, String>();
 		}
-		
+
 		@Override
 		public void start() throws Exception {
 			stop();
 			waitTillServerIsStopped();
-			execute("./db_reset.sh", new HashMap<String, String>());
+			execute("./db_reset.sh", "", new HashMap<String, String>());
 			super.start();
 			waitTillServerIsStarted();
 			System.out.println("Gadget server started");
 		}
-		
+
 		private void waitTillServerIsStopped() {
 			Assertions.waitUntil(Timeout.TWO_MINUTES, new Predicate() {
 				public boolean call() throws Exception {

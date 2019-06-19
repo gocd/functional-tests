@@ -29,6 +29,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
+import java.io.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -42,7 +43,7 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
     public void destroy() throws Exception {
         stop();
     }
-    
+
     public void afterPropertiesSet() throws Exception {
         try {
             start();
@@ -54,7 +55,7 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
     }
 
     public void start() throws Exception {
-        execute(startCommand(), getStartEnvVariables());
+        execute(startCommand(), "start", getStartEnvVariables());
     }
 
     public void stop() throws Exception {
@@ -63,7 +64,7 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
     	String command = stopCommand();
         do {
             try {
-                execute(command, new HashMap<String, String>());
+                execute(command, "stop", new HashMap<String, String>());
 
                 Thread.sleep(1000);
                 numberOfSecondsToWait--;
@@ -102,7 +103,7 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
         return ProcessUtils.waitForProcessesToExitOrTimeoutToElapse(5000, pattern);
     }
 
-    protected void execute(String command, Map<String, String> envVariables) throws Exception {
+    protected void execute(String command, String action, Map<String, String> envVariables) throws Exception {
         ProcessBuilder builder = new ProcessBuilder();
         builder.redirectErrorStream(true);
 
@@ -129,15 +130,15 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
         builder.environment().remove("CRUISE_ENVIRONMENT_NAME");
         builder.environment().remove("JVM_DEBUG");
         builder.environment().remove("GC_LOG");
-        
+
         builder.environment().putAll(envVariables);
         builder.directory(new File(getWorkingDir()));
         if (SystemUtil.isWindows()) {
         	builder.environment().put("DAEMON", "N");
-            builder.command("cmd ", "/c", command);
+            builder.command("cmd ", "/c", command, action);
         } else {
             builder.environment().put("DAEMON", "Y");
-            builder.command("bash", "with-java.sh", command);
+            builder.command("bash", "with-java.sh", command, action);
         }
         System.err.println("Executing command: " + StringUtils.join(builder.command(), " ") + " (in " + getWorkingDir() + ")");
         Process process = builder.start();
@@ -188,7 +189,7 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
 	protected static Response head(String url) {
 	    return httpInvoke(url, new HeadMethod(url));
 	}
-	
+
 	protected Response get(String url) {
         return httpInvoke(url, new GetMethod(url));
     }
@@ -201,5 +202,22 @@ public abstract class ProcessIsRunning implements DisposableBean, InitializingBe
 	    } catch (IOException e) {
 	        throw new RuntimeException("Failed to get resource " + url + ".", e);
 	    }
+    }
+
+    protected static void writeTo(File file, boolean append, String message) throws IOException {
+        PrintWriter printer = null;
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(file, append);
+            printer = new PrintWriter(writer);
+            printer.println(message);
+        } finally {
+            if (printer != null) {
+                printer.close();
+            }
+            if (writer != null) {
+                writer.close();
+            }
+        }
     }
 }
