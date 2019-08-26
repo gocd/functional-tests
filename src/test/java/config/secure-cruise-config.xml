@@ -1097,16 +1097,4 @@
       </pipelines>
     </environment>
   </environments>
-  <agents>
-    <agent hostname="missing-agent" ipaddress="10.232.3.1" uuid="missing">
-      <resources>
-        <resource>missing</resource>
-      </resources>
-    </agent>
-    <agent hostname="denied-agent" ipaddress="10.232.3.2" uuid="denied" isDisabled="true">
-      <resources>
-        <resource>denied</resource>
-      </resources>
-    </agent>
-  </agents>
 </cruise>

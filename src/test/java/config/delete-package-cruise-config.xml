@@ -17,7 +17,7 @@
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="127">
     <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
     <security>
-      
+
       <admins>
         <user>admin</user>
       </admins>
@@ -31,7 +31,7 @@
       </authConfigs>
     </security>
     </server>
-  <repositories>    
+  <repositories>
   <repository id="67f19a7b-33a7-47d3-a0d4-29581dd97290" name="empty-repo">
       <pluginConfiguration id="yum" version="1"/>
       <configuration>
@@ -119,16 +119,4 @@
       </stage>
     </pipeline>
   </pipelines>
-   <agents>
-    <agent hostname="missing-agent" ipaddress="10.232.3.1" uuid="missing">
-      <resources>
-        <resource>missing</resource>
-      </resources>
-    </agent>
-    <agent hostname="denied-agent" ipaddress="10.232.3.2" uuid="denied" isDisabled="true">
-      <resources>
-        <resource>denied</resource>
-      </resources>
-    </agent>
-  </agents>
 </cruise>

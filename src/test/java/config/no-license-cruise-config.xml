@@ -32,11 +32,4 @@
       </stage>
     </pipeline>
   </pipelines>
-  <agents>
-    <agent hostname="missing-agent" ipaddress="127.0.0.1" uuid="missing">
-      <resources>
-        <resource>missing</resource>
-      </resources>
-    </agent>
-  </agents>
 </cruise>
