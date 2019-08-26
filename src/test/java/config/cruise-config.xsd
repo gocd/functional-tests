@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright 2018 ThoughtWorks, Inc.
+  ~ Copyright 2019 ThoughtWorks, Inc.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 <xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-      Configuration schema for Go. Copyright (c) 2017 ThoughtWorks, Inc.
+      Configuration schema for Go. Copyright (c) 2019 ThoughtWorks, Inc.
       www.thoughtworks.com. All rights reserved.
     </xsd:documentation>
   </xsd:annotation>
@@ -30,6 +30,7 @@
             <xsd:all>
               <xsd:element minOccurs="0" maxOccurs="1" name="security" type="securityType"/>
               <xsd:element minOccurs="0" maxOccurs="1" name="mailhost" type="mailHostType"/>
+              <xsd:element minOccurs="0" maxOccurs="1" name="backup" type="backupType"/>
             </xsd:all>
             <xsd:attributeGroup ref="serverAttributeGroup"/>
           </xsd:complexType>
@@ -58,6 +59,12 @@
             <xsd:field xpath="@id"/>
           </xsd:unique>
         </xsd:element>
+        <xsd:element minOccurs="0" maxOccurs="1" name="secretConfigs" type="secretConfigsType">
+          <xsd:unique name="uniqueSecretConfigId">
+            <xsd:selector xpath="secretConfig"/>
+            <xsd:field xpath="@id"/>
+          </xsd:unique>
+        </xsd:element>
         <xsd:element minOccurs="0" maxOccurs="unbounded" name="pipelines" type="pipelinesType"/>
         <xsd:element minOccurs="0" maxOccurs="1" name="templates" type="templatesType">
           <xsd:unique name="uniquePipelineTemplateName">
@@ -75,14 +82,8 @@
             <xsd:field xpath="@name"/>
           </xsd:unique>
         </xsd:element>
-        <xsd:element minOccurs="0" name="agents" type="agentsType">
-          <xsd:unique name="uniqueUuid">
-            <xsd:selector xpath="agent"/>
-            <xsd:field xpath="@uuid"/>
-          </xsd:unique>
-        </xsd:element>
       </xsd:sequence>
-      <xsd:attribute name="schemaVersion" type="xsd:int" use="required" fixed="108"/>
+      <xsd:attribute name="schemaVersion" type="xsd:int" use="required" fixed="127"/>
     </xsd:complexType>
     <xsd:unique name="uniquePipelines">
       <xsd:selector xpath="pipelines"/>
@@ -140,6 +141,38 @@
     <xsd:attribute type="nameType" name="name" use="required"/>
   </xsd:complexType>
 
+  <xsd:complexType name="secretConfigsType">
+    <xsd:sequence>
+      <xsd:element name="secretConfig" minOccurs="0" maxOccurs="unbounded" type="secretConfigType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="secretConfigType">
+    <xsd:all>
+      <xsd:element name="description" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+      <xsd:element name="configuration" minOccurs="0" maxOccurs="1" type="configurationType"/>
+      <xsd:element name="rules" minOccurs="0" maxOccurs="1" type="rulesType"/>
+    </xsd:all>
+    <xsd:attribute name="id" type="nameType" use="required"/>
+    <xsd:attribute name="pluginId" type="nameType" use="required"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="rulesType">
+    <xsd:choice maxOccurs="unbounded">
+      <xsd:element name="allow" type="directiveType"/>
+      <xsd:element name="deny" type="directiveType"/>
+    </xsd:choice>
+  </xsd:complexType>
+
+  <xsd:complexType name="directiveType">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="action" type="xsd:string" use="required"/>
+        <xsd:attribute name="type" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
   <xsd:complexType name="configReposType">
     <xsd:sequence>
       <xsd:element name="config-repo" minOccurs="0" maxOccurs="unbounded" type="configRepoType"/>
@@ -167,7 +200,6 @@
     <xsd:attribute name="autoUpdate" type="xsd:boolean" use="optional"/>
     <xsd:attribute name="checkexternals" type="xsd:boolean"/>
     <xsd:attribute name="encryptedPassword" type="xsd:string"/>
-    <xsd:attribute name="materialName" type="nameType" use="optional"/>
   </xsd:complexType>
   <xsd:complexType name="configRepoP4Type">
     <xsd:sequence>
@@ -179,17 +211,21 @@
     <xsd:attribute name="autoUpdate" type="xsd:boolean" use="optional"/>
     <xsd:attribute name="encryptedPassword" type="xsd:string"/>
     <xsd:attribute name="useTickets" type="xsd:boolean" use="optional"/>
-    <xsd:attribute name="materialName" type="nameType" use="optional"/>
   </xsd:complexType>
   <xsd:complexType name="configRepoGitType">
     <xsd:attribute name="url" type="xsd:string" use="required"/>
+    <xsd:attribute name="username" type="xsd:string"/>
+    <xsd:attribute name="password" type="xsd:string"/>
+    <xsd:attribute name="encryptedPassword" type="xsd:string"/>
     <xsd:attribute name="branch" type="xsd:string" use="optional"/>
     <xsd:attribute name="autoUpdate" type="xsd:boolean" use="optional"/>
-    <xsd:attribute name="materialName" type="nameType" use="optional"/>
   </xsd:complexType>
   <xsd:complexType name="configRepoHgType">
     <xsd:attribute name="url" type="xsd:string" use="required"/>
-    <xsd:attribute name="materialName" type="nameType" use="optional"/>
+    <xsd:attribute name="username" type="xsd:string"/>
+    <xsd:attribute name="password" type="xsd:string"/>
+    <xsd:attribute name="encryptedPassword" type="xsd:string"/>
+    <xsd:attribute name="branch" type="xsd:string" use="optional"/>
     <xsd:attribute name="autoUpdate" type="xsd:boolean" use="optional"/>
   </xsd:complexType>
   <xsd:complexType name="configRepoTfsType">
@@ -200,7 +236,6 @@
     <xsd:attribute name="autoUpdate" type="xsd:boolean" use="optional"/>
     <xsd:attribute name="encryptedPassword" type="xsd:string"/>
     <xsd:attribute name="projectPath" type="xsd:string" use="required"/>
-    <xsd:attribute name="materialName" type="nameType" use="optional"/>
   </xsd:complexType>
   <xsd:complexType name="configRepoScmReferenceType">
     <xsd:attribute name="ref" type="xsd:string" use="required"/>
@@ -265,25 +300,43 @@
     <xsd:attribute name="username" type="xsd:string"/>
     <xsd:attribute name="password" type="xsd:string"/>
     <xsd:attribute name="encryptedPassword" type="xsd:string"/>
-    <xsd:attribute name="tls" type="xsd:boolean" use="required"/>
+    <xsd:attribute name="tls" type="xsd:boolean" use="optional"/>
     <xsd:attribute name="from" type="emailType" use="required"/>
     <xsd:attribute name="admin" type="emailType" use="required"/>
   </xsd:complexType>
+  <xsd:complexType name="backupType">
+    <xsd:attribute name="schedule" type="xsd:string"/>
+    <xsd:attribute name="postBackupScript" type="xsd:string"/>
+    <xsd:attribute name="emailOnSuccess" type="xsd:boolean"/>
+    <xsd:attribute name="emailOnFailure" type="xsd:boolean"/>
+  </xsd:complexType>
   <xsd:complexType name="elasticConfigType">
-    <xsd:sequence>
-      <xsd:element name="profiles" type="elasticAgentProfilesType" minOccurs="0" maxOccurs="1">
+    <xsd:all>
+      <xsd:element name="clusterProfiles" type="elasticAgentClusterProfilesType" minOccurs="0" maxOccurs="1">
+        <xsd:unique name="uniqueClusterProfileId">
+          <xsd:selector xpath="clusterProfile"/>
+          <xsd:field xpath="@id"/>
+          <!-- Unique clusterProfile id -->
+        </xsd:unique>
+      </xsd:element>
+      <xsd:element name="agentProfiles" type="elasticAgentProfilesType" minOccurs="0" maxOccurs="1">
         <xsd:unique name="uniqueProfileId">
-          <xsd:selector xpath="profile"/>
+          <xsd:selector xpath="agentProfile"/>
           <xsd:field xpath="@id"/>
           <!-- Unique profile id -->
         </xsd:unique>
       </xsd:element>
-    </xsd:sequence>
+    </xsd:all>
     <xsd:attribute name="jobStarvationTimeout" type="xsd:long"/>
   </xsd:complexType>
   <xsd:complexType name="elasticAgentProfilesType">
     <xsd:sequence>
-      <xsd:element minOccurs="0" maxOccurs="unbounded" name="profile" type="pluginProfile"/>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="agentProfile" type="elasticAgentProfile"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="elasticAgentClusterProfilesType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="clusterProfile" type="pluginProfile"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="artifactStoresType">
@@ -302,6 +355,13 @@
     </xsd:sequence>
     <xsd:attribute type="nameType" name="pluginId" use="required"/>
     <xsd:attribute type="nameType" name="id" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="elasticAgentProfile">
+    <xsd:sequence>
+      <xsd:element name="property" minOccurs="0" maxOccurs="unbounded" type="pluginPropertyType"/>
+    </xsd:sequence>
+    <xsd:attribute type="nameType" name="id" use="required"/>
+    <xsd:attribute type="nameType" name="clusterProfileId" use="required"/>
   </xsd:complexType>
   <xsd:simpleType name="emailType">
     <xsd:restriction base="xsd:string">
@@ -387,7 +447,7 @@
             <xsd:element minOccurs="0" maxOccurs="unbounded" name="stage" type="stageType"/>
           </xsd:sequence>
           <xsd:attribute name="name" type="nameType" use="required"/>
-          <xsd:attribute name="labeltemplate" type="labelType"/>
+          <xsd:attribute name="labeltemplate" type="nonEmptyString" use="optional"/>
           <xsd:attribute name="lockBehavior">
             <xsd:simpleType>
               <xsd:restriction base="xsd:string">
@@ -431,6 +491,7 @@
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
+    <xsd:attribute name="allowOnlyOnSuccess" type="xsd:boolean"/>
   </xsd:complexType>
   <xsd:complexType name="materialsType">
     <xsd:choice minOccurs="1" maxOccurs="unbounded">
@@ -483,6 +544,9 @@
       <xsd:element name="filter" type="filterType" minOccurs="0" maxOccurs="1"/>
     </xsd:sequence>
     <xsd:attribute name="url" type="xsd:string" use="required"/>
+    <xsd:attribute name="username" type="xsd:string"/>
+    <xsd:attribute name="password" type="xsd:string"/>
+    <xsd:attribute name="encryptedPassword" type="xsd:string"/>
     <xsd:attribute name="dest" type="filePathType" use="optional"/>
     <xsd:attribute name="branch" type="xsd:string" use="optional"/>
     <xsd:attribute name="shallowClone" type="xsd:boolean" use="optional"/>
@@ -495,6 +559,10 @@
       <xsd:element name="filter" type="filterType" minOccurs="0" maxOccurs="1"/>
     </xsd:sequence>
     <xsd:attribute name="url" type="xsd:string" use="required"/>
+    <xsd:attribute name="username" type="xsd:string"/>
+    <xsd:attribute name="password" type="xsd:string"/>
+    <xsd:attribute name="encryptedPassword" type="xsd:string"/>
+    <xsd:attribute name="branch" type="xsd:string" use="optional"/>
     <xsd:attribute name="dest" type="filePathType" use="optional"/>
     <xsd:attribute name="materialName" type="nameType" use="optional"/>
     <xsd:attribute name="autoUpdate" type="xsd:boolean" use="optional"/>
@@ -650,7 +718,7 @@
         <xsd:attribute name="srcfile" type="filePathType"/>
         <xsd:attribute name="dest" type="filePathType"/>
         <xsd:attribute name="artifactId" type="xsd:string"/>
-        <xsd:attribute name="origin" use="required">
+        <xsd:attribute name="artifactOrigin" use="required">
           <xsd:simpleType>
             <xsd:restriction base="xsd:string">
               <xsd:enumeration value="gocd"/>
@@ -756,24 +824,9 @@
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element ref="environmentvariables" minOccurs="0" maxOccurs="1"/>
-            <xsd:element minOccurs="0" maxOccurs="1" name="agents" type="environmentAgentsType">
-              <xsd:unique name="uniqueEnvironmentAgentsUuid">
-                <xsd:selector xpath="physical"/>
-                <xsd:field xpath="@uuid"/>
-              </xsd:unique>
-            </xsd:element>
             <xsd:element minOccurs="0" maxOccurs="1" name="pipelines" type="environmentPipelinesType"/>
           </xsd:sequence>
           <xsd:attribute name="name" type="environmentName" use="required"/>
-        </xsd:complexType>
-      </xsd:element>
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="environmentAgentsType">
-    <xsd:sequence>
-      <xsd:element minOccurs="0" maxOccurs="unbounded" name="physical">
-        <xsd:complexType>
-          <xsd:attribute name="uuid" type="xsd:string" use="required"/>
         </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
@@ -783,24 +836,6 @@
       <xsd:element minOccurs="0" maxOccurs="unbounded" name="pipeline">
         <xsd:complexType>
           <xsd:attribute name="name" type="nameType" use="required"/>
-        </xsd:complexType>
-      </xsd:element>
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="agentsType">
-    <xsd:sequence>
-      <xsd:element minOccurs="0" maxOccurs="unbounded" name="agent">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element minOccurs="0" name="resources" type="resourcesType"/>
-          </xsd:sequence>
-          <xsd:attribute name="hostname" type="xsd:string" use="required"/>
-          <xsd:attribute name="ipaddress" type="xsd:string" use="required"/>
-          <xsd:attribute name="uuid" type="xsd:string" use="required"/>
-          <xsd:attribute name="isDisabled" type="xsd:boolean" use="optional"/>
-
-          <xsd:attribute name="elasticAgentId" type="xsd:string" use="optional"/>
-          <xsd:attribute name="elasticPluginId" type="xsd:string" use="optional"/>
         </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
@@ -836,12 +871,6 @@
   <xsd:simpleType name="nonEmptyString">
     <xsd:restriction base="xsd:string">
       <xsd:pattern value="[\s]*[\S][\s\S]*"/>
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="labelType">
-    <xsd:restriction base="xsd:string">
-      <xsd:pattern
-          value="(([a-zA-Z0-9_\-.!~*'()#:])*[$#]\{[a-zA-Z0-9_\-.!~*'()#:]+(\[:(\d+)\])?\}([a-zA-Z0-9_\-.!~*'()#:])*)+"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="jobnameType">
@@ -1070,4 +1099,3 @@
     <xsd:attribute name="secure" type="xsd:boolean"/>
   </xsd:complexType>
 </xsd:schema>
-
