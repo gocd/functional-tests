@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="127">
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="128">
     <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
     </server>
     <pipelines group="basic">
@@ -82,7 +82,7 @@
                 </jobs>
             </stage>
         </pipeline>
-        
+
         <pipeline name="edit-pipeline">
             <materials>
                 <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
@@ -214,7 +214,7 @@
                     </job>
                 </jobs>
             </stage>
-            
+
             <stage name="second">
                 <approval type="manual"/>
                 <jobs>
@@ -225,7 +225,7 @@
                     </job>
                 </jobs>
             </stage>
-            
+
             <stage name="third">
                 <approval type="manual"/>
                 <jobs>
@@ -236,7 +236,7 @@
                     </job>
                 </jobs>
             </stage>
-            
+
         </pipeline>
 
         <pipeline name="down">
@@ -254,7 +254,7 @@
                 </jobs>
             </stage>
         </pipeline>
-        
+
         <pipeline name="child-of-down">
             <materials>
                 <pipeline pipelineName="down" stageName="defaultStage"/>
@@ -423,11 +423,11 @@
             <tasks>
 <exec command="/bin/bash">
 <arg>-c</arg>
-<arg>echo environment_variable_1=$environment_variable_1.</arg>                				
+<arg>echo environment_variable_1=$environment_variable_1.</arg>
 </exec>
 <exec command="/bin/bash">
 <arg>-c</arg>
-<arg>echo environment_variable_2=$environment_variable_2.</arg>                				
+<arg>echo environment_variable_2=$environment_variable_2.</arg>
 </exec>
             </tasks>
           </job>
@@ -443,11 +443,11 @@
             <tasks>
 <exec command="/bin/bash">
 <arg>-c</arg>
-<arg>echo environment_variable_1=$environment_variable_1.</arg>                				
+<arg>echo environment_variable_1=$environment_variable_1.</arg>
 </exec>
 <exec command="/bin/bash">
 <arg>-c</arg>
-<arg>echo environment_variable_2=$environment_variable_2.</arg>                				
+<arg>echo environment_variable_2=$environment_variable_2.</arg>
 </exec>
             </tasks>
           </job>
@@ -476,11 +476,11 @@
             <tasks>
 <exec command="/bin/bash">
 <arg>-c</arg>
-<arg>echo environment_variable_1=$environment_variable_1.</arg>                				
+<arg>echo environment_variable_1=$environment_variable_1.</arg>
 </exec>
 <exec command="/bin/bash">
 <arg>-c</arg>
-<arg>echo environment_variable_2=$environment_variable_2.</arg>                				
+<arg>echo environment_variable_2=$environment_variable_2.</arg>
 </exec>
             </tasks>
           </job>
@@ -496,11 +496,11 @@
             <tasks>
 <exec command="/bin/bash">
 <arg>-c</arg>
-<arg>echo environment_variable_1=$environment_variable_1.</arg>                				
+<arg>echo environment_variable_1=$environment_variable_1.</arg>
 </exec>
 <exec command="/bin/bash">
 <arg>-c</arg>
-<arg>echo environment_variable_2=$environment_variable_2.</arg>                				
+<arg>echo environment_variable_2=$environment_variable_2.</arg>
 </exec>
             </tasks>
           </job>
@@ -542,31 +542,31 @@
                             <ant target="longsleep" workingdir="hg/dev"/>
                             <exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE.</arg>                				
+                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE.</arg>
               				</exec>
                             <exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>                				
+                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>
               				</exec>
                             <exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo STAGE_LEVEL_VARIABLE=$STAGE_LEVEL_VARIABLE.</arg>                				
+                				<arg>echo STAGE_LEVEL_VARIABLE=$STAGE_LEVEL_VARIABLE.</arg>
               				</exec>
                             <exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo ENVIRONMENT_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER=$ENVIRONMENT_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER.</arg>                				
+                				<arg>echo ENVIRONMENT_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER=$ENVIRONMENT_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER.</arg>
               				</exec>
                             <exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE=$PIPELINE_LEVEL_VARIABLE.</arg>                				
-              				</exec>              				
-              				<exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY.</arg>                				
+                				<arg>echo PIPELINE_LEVEL_VARIABLE=$PIPELINE_LEVEL_VARIABLE.</arg>
               				</exec>
               				<exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY.</arg>                				
+                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY.</arg>
+              				</exec>
+              				<exec command="/bin/bash">
+                				<arg>-c</arg>
+                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY.</arg>
               				</exec>
                         </tasks>
                     </job>
@@ -581,31 +581,31 @@
                             <ant target="longsleep" workingdir="hg/dev"/>
                             <exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo JOB_LEVEL_VARIABLE=$JOB_LEVEL_VARIABLE.</arg>                				
+                				<arg>echo JOB_LEVEL_VARIABLE=$JOB_LEVEL_VARIABLE.</arg>
               				</exec>
               				<exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>                				
+                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
               				</exec>
               				<exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>                				
+                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>
               				</exec>
               				<exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>                				
+                				<arg>echo STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
               				</exec>
               				<exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>                				
+                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>
               				</exec>
               				<exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>                				
+                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
               				</exec>
               				<exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY.</arg>                				
+                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY.</arg>
               				</exec>
                         </tasks>
                     </job>
@@ -625,23 +625,23 @@
                         <tasks>
                             <exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>                				
+                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>
               				</exec>
               				<exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>                				
+                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
               				</exec>
               				<exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>                				
+                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>
               				</exec>
               				<exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>                				
+                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
               				</exec>
 							<exec command="/bin/bash">
                 				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY.</arg>                				
+                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY.</arg>
               				</exec>
                         </tasks>
                     </job>
@@ -718,7 +718,7 @@
                 </jobs>
             </stage>
         </pipeline>
-        
+
         <pipeline name="svn-postcommithook-pipeline">
             <materials>
                 <svn url="svn-url-basic-svn-pipeline" dest="svn" materialName="svn" autoUpdate="false"/>
@@ -733,7 +733,7 @@
                 </jobs>
             </stage>
         </pipeline>
-        
+
         <pipeline name="another-svn-postcommithook-pipeline">
             <materials>
                 <svn url="svn-url-basic-svn-pipeline" dest="svn" materialName="svn" autoUpdate="false"/>
@@ -898,9 +898,9 @@
             <environmentvariables>
                 <variable name="NAME">
                 	<value>hucha_raghuveer</value>
-                </variable>            
+                </variable>
             </environmentvariables>
-            
+
             <materials>
                 <hg url="$hgurl-simple-pipeline" dest="hg" autoUpdate="false"/>
             </materials>
@@ -1010,7 +1010,7 @@
             <materials>
                 <hg url="$hgurl-pipeline-with-mingle-config" dest="hg" autoUpdate="false" materialName="pipeline-hg"/>
                 <git url="$giturl-pipeline-with-mingle-config" dest="git" materialName="pipeline-git"/>
-                <pipeline pipelineName="mingle-config-parent" stageName="defaultStage"/> 
+                <pipeline pipelineName="mingle-config-parent" stageName="defaultStage"/>
             </materials>
             <stage name="defaultStage">
                 <approval type="manual"/>
@@ -1024,7 +1024,7 @@
             </stage>
 </pipeline>
 
-        
+
         <pipeline name="pipeline-with-mingle-config">
             <mingle baseUrl="https://some.mingle.machine:1000/mingle" projectIdentifier="some-go-branch">
                 <mqlGroupingConditions>foo != not(foo)</mqlGroupingConditions>
@@ -1032,7 +1032,7 @@
             <materials>
                 <hg url="$hgurl-pipeline-with-mingle-config" dest="hg" autoUpdate="false" materialName="pipeline-hg"/>
                 <git url="$giturl-pipeline-with-mingle-config" dest="git" materialName="pipeline-git"/>
-                <pipeline pipelineName="mingle-config-parent" stageName="defaultStage"/> 
+                <pipeline pipelineName="mingle-config-parent" stageName="defaultStage"/>
             </materials>
             <stage name="defaultStage">
                 <approval type="manual"/>
@@ -1044,8 +1044,8 @@
                     </job>
                 </jobs>
             </stage>
-            <stage name="secondStage">      
-                      
+            <stage name="secondStage">
+
                 <jobs>
                     <job name="defaultJob">
                         <tasks>
@@ -1136,7 +1136,7 @@
                 </jobs>
             </stage>
         </pipeline>
-        
+
         <pipeline name="child-of-basic-pipeline-fast">
             <materials>
                 <pipeline pipelineName="basic-pipeline-fast" stageName="defaultStage" materialName="upstream-material"/>
@@ -1241,7 +1241,7 @@
                         </tasks>
                     </job>
                 </jobs>
-            </stage>        
+            </stage>
             <stage name="stage-2">
                 <approval type="manual"/>
                 <jobs>
@@ -1426,7 +1426,7 @@
                 </jobs>
             </stage>
         </pipeline>
-        
+
         <pipeline name="pipeline_uploading_large_artifact">
       		<materials>
         		<git url="$giturl" autoUpdate="false"/>
@@ -1448,7 +1448,7 @@
         		</jobs>
       		</stage>
     	</pipeline>
-    	
+
     	<pipeline name="pipeline_downloading_large_artifact">
       		<materials>
         		<pipeline pipelineName="pipeline_uploading_large_artifact" stageName="defaultStage"/>
@@ -1603,14 +1603,14 @@
                 <hg url="$hgurl-same" materialName="hg-first" autoUpdate="true"/>
             </materials>
         </pipeline>
-        
+
         <pipeline name="child-of-first" template="dependency-pipeline-template">
             <materials>
                 <hg url="$hgurl-same" materialName="hg-child-of-first" autoUpdate="true"/>
                 <pipeline pipelineName="first" stageName="defaultStage"/>
             </materials>
         </pipeline>
-        
+
         <pipeline name="grandchild-of-first" template="dependency-pipeline-template">
             <materials>
                 <hg url="$hgurl-same" materialName="hg-grandchild-of-first" autoUpdate="true"/>
@@ -1779,7 +1779,7 @@
             </materials>
             <stage name="defaultStage">
                 <jobs>
-                    <job name="defaultJob"/>                     	
+                    <job name="defaultJob"/>
                 </jobs>
             </stage>
             <stage name="secondStage">
@@ -1817,7 +1817,7 @@
                 </jobs>
             </stage>
         </pipeline>
-        
+
 	</pipelines>
     <pipelines group="params_group">
         <pipeline name="basic-params-pipeline">
@@ -1876,19 +1876,19 @@
         </pipeline>
         <pipeline name="template-params-pipeline-trunk" template="template-with-param">
         	<params>
-                <param name="WORKING_DIR">trunk-dir</param>               
-            </params>  
+                <param name="WORKING_DIR">trunk-dir</param>
+            </params>
  			<materials>
                 <hg url="$hgurl" materialName="hg-trunk"/>
-            </materials>                      
+            </materials>
         </pipeline>
         <pipeline name="template-params-pipeline-branch" template="template-with-param">
         	<params>
-                <param name="WORKING_DIR">branch-dir</param>                
+                <param name="WORKING_DIR">branch-dir</param>
             </params>
  			<materials>
                 <hg url="$hgurl" materialName="hg-branch"/>
-            </materials>                        
+            </materials>
         </pipeline>
     </pipelines>
     <pipelines group="tfs_group">
@@ -1898,8 +1898,8 @@
                   <filter>
                         <ignore pattern="*.ignore.txt"/>
                         <ignore pattern="$/for_twist_tests_1/Folder with space/*"/>
-                    </filter>	
-                  </tfs>  
+                    </filter>
+                  </tfs>
             </materials>
             <stage name="defaultStage">
                 <approval type="manual"/>
@@ -1930,7 +1930,7 @@
             </stage>
         </pipeline>
     </pipelines>
-    
+
     <pipelines group="fetch-artifact-from-ancestor-group">
       <pipeline name="uppest_pipeline">
       <materials>
@@ -2049,13 +2049,13 @@
       </stage>
     </pipeline>
     </pipelines>
-    
+
         <pipelines group="git_hg_post_commit_hook_pipelines">
-    
+
           <pipeline name="git-postcommithook-pipeline">
             <materials>
                 <git url="$git-pc-hook-url" dest="git" materialName="git" autoUpdate="false"/>
-            </materials>          
+            </materials>
             <stage name="defaultStage">
                 <jobs>
                     <job name="defaultJob">
@@ -2066,7 +2066,7 @@
                 </jobs>
             </stage>
         </pipeline>
-        
+
         <pipeline name="another-git-postcommithook-pipeline">
             <materials>
                 <git url="$git-pc-hook-url" dest="git" materialName="git" autoUpdate="false"/>
@@ -2082,27 +2082,11 @@
                 </jobs>
             </stage>
         </pipeline>
-        
-        
+
+
          <pipeline name="hg-postcommithook-pipeline">
             <materials>
-                <hg url="$hg-pc-hook-url" dest="hg" materialName="hg" autoUpdate="false"/>             
-            </materials>           
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        
-          <pipeline name="another-hg-postcommithook-pipeline">
-            <materials>
-                <hg url="$hg-pc-hook-url" dest="hg" materialName="hg" autoUpdate="false"/>  
-                <hg url="$hg-another-pc-hook-url" dest="hg-2" materialName="hg-2" autoUpdate="false"/>                                 
+                <hg url="$hg-pc-hook-url" dest="hg" materialName="hg" autoUpdate="false"/>
             </materials>
             <stage name="defaultStage">
                 <jobs>
@@ -2114,10 +2098,26 @@
                 </jobs>
             </stage>
         </pipeline>
-        
-        
+
+          <pipeline name="another-hg-postcommithook-pipeline">
+            <materials>
+                <hg url="$hg-pc-hook-url" dest="hg" materialName="hg" autoUpdate="false"/>
+                <hg url="$hg-another-pc-hook-url" dest="hg-2" materialName="hg-2" autoUpdate="false"/>
+            </materials>
+            <stage name="defaultStage">
+                <jobs>
+                    <job name="defaultJob">
+                        <tasks>
+                            <exec command="ls"/>
+                        </tasks>
+                    </job>
+                </jobs>
+            </stage>
+        </pipeline>
+
+
     </pipelines>
-    
+
     <templates>
         <pipeline name="defaultPipeline">
             <stage name="defaultStage">
@@ -2162,7 +2162,7 @@
                     <job name="defaultJob">
                         <tasks>
                             <exec command="echo" args="#{WORKING_DIR}"/>
-                        </tasks>                       
+                        </tasks>
                     </job>
                 </jobs>
             </stage>
@@ -2190,7 +2190,7 @@
             </pipelines>
         </environment>
         <environment name="env-job-rerun">
-            <agents/>   
+            <agents/>
             <pipelines>
                 <pipeline name="pipeline-for-job-rerun-run-on-all"/>
             </pipelines>
@@ -2209,18 +2209,7 @@
         <pipeline name="different_variable_at_environment_pipeline_stage_job"/>
       </pipelines>
   </environment>
-  
+
     </environments>
-    <agents>
-        <agent hostname="missing-agent" ipaddress="10.232.3.1" uuid="missing">
-            <resources>
-                <resource>missing</resource>
-            </resources>
-        </agent>
-        <agent hostname="denied-agent" ipaddress="10.232.3.2" uuid="denied" isDisabled="true">
-            <resources>
-                <resource>denied</resource>
-            </resources>
-        </agent>
-    </agents>
+
 </cruise>

@@ -61,32 +61,18 @@ public class ConfigFileFixture {
     * "max_active_users"=>nil}
     */
 
-    private static final String MISSING_AGENTS ="<agents>\n" +
-    "<agent hostname=\"missing-agent\" ipaddress=\"10.232.3.1\" uuid=\"missing\">\n" +
-    "<resources>\n" +
-    "<resource>missing</resource>\n" +
-    "</resources>\n" +
-    "</agent>\n" +
-    "<agent hostname=\"denied-agent\" ipaddress=\"10.232.3.2\" uuid=\"denied\" isDisabled=\"true\">\n" +
-    "<resources>\n" +
-    "<resource>denied</resource>\n" +
-    "</resources>\n" +
-    "</agent>\n" +
-    "</agents>\n";
-    
-    
-    public static final String EMPTY_CRUISE = HEADER + "<server></server>\n" + MISSING_AGENTS + "</cruise>";
+    public static final String EMPTY_CRUISE = HEADER + "<server></server>\n" + "</cruise>";
     public static final String WITHOUT_LICENSE = HEADER + "<server artifactsdir=\"logs\"/>\n</cruise>";
 
-    //{"allow_anonymous"=>false, 
-    //"product"=>"cruise", 
-    //"licensee"=>"Cruise team internal", 
-    //"type"=>"standard", "max_light_users"=>nil,  
-    //"cruise_max_users"=>20,  
-    //"cruise_max_agents"=>100,  
-    //"cruise_edition"=>"Enterprise",  
-    //"expiration_date"=>2018-04-28,  
-    //"customer_number"=>"111eval",  
+    //{"allow_anonymous"=>false,
+    //"product"=>"cruise",
+    //"licensee"=>"Cruise team internal",
+    //"type"=>"standard", "max_light_users"=>nil,
+    //"cruise_max_users"=>20,
+    //"cruise_max_agents"=>100,
+    //"cruise_edition"=>"Enterprise",
+    //"expiration_date"=>2018-04-28,
+    //"customer_number"=>"111eval",
     //"max_active_users"=>nil}
     private static final String ENTERPRISE_LICENSE =
             "E0TCr1FPWPOfh+yfApnYqUkqgNDbByvoWnaql4QvzgOj4Y8kfKCpM9GzOEQz"
@@ -113,15 +99,15 @@ public class ConfigFileFixture {
     private static final String PROFESSIONAL_LICENSE_USER = "internal_test_professional";
 
     // {"allow_anonymous"=>false,
-    //"product"=>"cruise",   
-    //"licensee"=>"Ricky",   
-    //"type"=>"standard",   
-    //"max_light_users"=>nil,   
-    //"cruise_max_users"=>5,   
-    //"cruise_max_agents"=>2,   
-    //"cruise_edition"=>"Free",   
-    //"expiration_date"=>2018-04-28,   
-    //"customer_number"=>"111eval",   
+    //"product"=>"cruise",
+    //"licensee"=>"Ricky",
+    //"type"=>"standard",
+    //"max_light_users"=>nil,
+    //"cruise_max_users"=>5,
+    //"cruise_max_agents"=>2,
+    //"cruise_edition"=>"Free",
+    //"expiration_date"=>2018-04-28,
+    //"customer_number"=>"111eval",
     //"max_active_users"=>nil}
     public static final String FREE_LICENSE =
             "Wc54kj15kDDqvjutrIYuvaViVv9IGHYq4GtG5eadypNcPzoL45D2hA+D/VZj"
@@ -140,13 +126,13 @@ public class ConfigFileFixture {
 //                    + "nptvPeF5yZo3vhxAqRlD0rMXlWLfPDd8BBq53j4UKrgtiQkJ8USROGrrYe/F"
 //                    + "adqOTqvVZUPcpDj9hRcNqqcWW9dTPFXXSk3wgG8Qcw==";
 //    public static final String OLD_FREE_LICENSE_USER = "Ricky";
-    
-    public static final String OLD_FREE_LICENSE = "M83LmtvD27f1Bt6FUlEvTeuOCyjD3TseNmLmTzs653wGY0T00cmTo6HGBc3m" 
-        + " ICsrLggtIclM/xUi08LtQKicIT9i4tDv3rObeXOaoEXk+nwY6eAN3pT+ORNE" 
+
+    public static final String OLD_FREE_LICENSE = "M83LmtvD27f1Bt6FUlEvTeuOCyjD3TseNmLmTzs653wGY0T00cmTo6HGBc3m"
+        + " ICsrLggtIclM/xUi08LtQKicIT9i4tDv3rObeXOaoEXk+nwY6eAN3pT+ORNE"
         + "HUPG9NHLQ9iwooQAIo3enTMaarJoPExuFws07jReyGl0lCkK5NjaHpjvcZgZ"
         + "O7YMRS6D2z11AVB7JodtvKbjyZWbTPbbXMRdrlgHOkYumQUWa3D94k5oBvQK"
         + "7RYts714dNmWlsE1ANKGwK7+nUuCi70/CrRjvt8r3cNyoON89nJ2nx7mGS0F"
-        + "yQOdSVX/kBc3XHWAYsL2D45D69JIIP54KgMysc0g5A==";    
+        + "yQOdSVX/kBc3XHWAYsL2D45D69JIIP54KgMysc0g5A==";
     public static final String OLD_FREE_LICENSE_USER = "Cruise Test License with 36 Users";
 
     public static final String OLD_ENTERPRISE_LICENSE =
@@ -164,7 +150,7 @@ public class ConfigFileFixture {
                     + "ELSw8GM+CqomMGhopf28iehYOxH3Gip4P7+jm1lvkLztPmw5/5G0qx24QY+o\n"
                     + "f4X6ng2rC/tB3sS9s3YTKKKEqoYO95krea0tX3qtaP7E2ODZEV28QKz79rhE\n"
                     + "wF0VXkXgoaQ4z114ZPZIWyYEiwxapLwvB2r8Ks7u3Q==";
-    public static final String OLD_STANDARD_LICENSE_USER = "Cruise team internal";        		
+    public static final String OLD_STANDARD_LICENSE_USER = "Cruise team internal";
 
     public void useCleanConfigXml() {
         cruiseConfigUtil.resetCruiseConfig();

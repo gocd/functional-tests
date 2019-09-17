@@ -14,10 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="127">
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="128">
   <server artifactsdir="artifacts" commandRepositoryLocation="default" serverId="twist" tokenGenerationKey="token">
  <security>
- 
+
       <roles>
         <role name="misc">
           <users>
@@ -159,8 +159,8 @@
       </stage>
     </pipeline>
   </pipelines>
-  
-  
+
+
   <pipelines group="GroupE">
     <authorization>
       <view>
@@ -291,7 +291,7 @@
       </stage>
     </pipeline>
   </pipelines>
-  
+
      <pipelines group="GroupH">
     <authorization>
       <view>
@@ -321,7 +321,7 @@
       </stage>
     </pipeline>
   </pipelines>
-  
+
     <pipelines group="GroupI">
     <authorization>
       <admins>
@@ -349,18 +349,6 @@
       </stage>
     </pipeline>
   </pipelines>
-  
-    
-  <agents>
-    <agent hostname="missing-agent" ipaddress="10.232.3.1" uuid="missing">
-      <resources>
-        <resource>missing</resource>
-      </resources>
-    </agent>
-    <agent hostname="denied-agent" ipaddress="10.232.3.2" uuid="denied" isDisabled="true">
-      <resources>
-        <resource>denied</resource>
-      </resources>
-    </agent>
-  </agents>
+
+
 </cruise>

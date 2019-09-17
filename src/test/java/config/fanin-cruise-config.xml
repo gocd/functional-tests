@@ -14,11 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="127">
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="128">
     <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
     </server>
-    
-     <!-- group 1-->    
+
+     <!-- group 1-->
      <pipelines group="big-setup">
         <pipeline name="C1" template="manualStagePipelineTemplate">
       	  <materials>
@@ -117,10 +117,10 @@
       </materials>
     </pipeline>
   </pipelines>
-  
-  
+
+
     <!-- group 2-->
-    <pipelines group="dependency-group">       
+    <pipelines group="dependency-group">
         <pipeline name="d-up-left" template="manualStagePipelineTemplate">
             <materials>
                 <git url="$git-second" materialName="git-second" autoUpdate="true"/>
@@ -138,8 +138,8 @@
             </materials>
         </pipeline>
     </pipelines>
- 
-     <!-- group 3-->   
+
+     <!-- group 3-->
     <pipelines group="dummy-group">
 	       <pipeline name="basic-auto-pipeline" template="manualStagePipelineTemplate">
             <materials>
@@ -147,10 +147,10 @@
             </materials>
         </pipeline>
       </pipelines>
-      
 
-    <!-- group 4-->     
-    <pipelines group="dependency-add-group"> 
+
+    <!-- group 4-->
+    <pipelines group="dependency-add-group">
      <pipeline name="grandparent" template="manualStagePipelineTemplate">
         <materials>
             <git url="$git-second" materialName="git-second" autoUpdate="true"/>
@@ -175,8 +175,8 @@
     </pipeline>
 </pipelines>
 
-<!-- group 5-->     
-  <pipelines group="all-auto-group"> 
+<!-- group 5-->
+  <pipelines group="all-auto-group">
     <pipeline name="grandparent-fast" template="autoStagePipelineTemplate">
         <materials>
             <git url="$git-five" materialName="git-five" autoUpdate="true"/>
@@ -201,7 +201,7 @@
         </materials>
     </pipeline>
   </pipelines>
-  
+
 <!-- group 6-->
      <pipelines group="multi-stage-deep-triangle">
         <pipeline name="DeepC1" template="multi-stage-deep-triangle-template">
@@ -219,7 +219,7 @@
         <pipeline pipelineName="DeepC2" stageName="first_stage"/>
       </materials>
     </pipeline>
-  
+
   <pipeline name="DeepC5" template="multi-stage-deep-triangle-template">
       <materials>
         <git url="$git-two" materialName="git-two" autoUpdate="true"/>
@@ -259,7 +259,7 @@
       </materials>
     </pipeline>
   </pipelines>
-  
+
   <pipelines group="manual_and_auto_trigger_for_deep_diamond_configuration">
     <pipeline name="P1" template="manualStagePipelineTemplate">
       <materials>
@@ -285,7 +285,7 @@
       </materials>
     </pipeline>
   </pipelines>
-  
+
     <pipelines group="stage-fail-and-cancel">
     <pipeline name="FS1">
       <materials>
@@ -317,7 +317,7 @@
         <pipeline pipelineName="FS1" stageName="stage2-manual"/>
       </materials>
       <stage name="stage1">
-        
+
         <jobs>
           <job name="job1">
             <tasks>
@@ -343,7 +343,7 @@
       </stage>
     </pipeline>
   </pipelines>
-  
+
   <pipelines group="inconsistent-revisions">
     <pipeline name="FIR1">
       <materials>
@@ -391,7 +391,7 @@
       </stage>
     </pipeline>
   </pipelines>
-  
+
   <pipelines group="trigger-with-options">
     <pipeline name="FTO1">
       <materials>
@@ -562,11 +562,11 @@
                         <tasks>
                      		<ant target="run.till.file.exists" workingdir="git-one">
                                 <oncancel/>
-                            </ant>             		 
+                            </ant>
                         </tasks>
                     </job>
                  </jobs>
-              </stage>      
+              </stage>
 	</pipeline>
      <pipeline name="Upstream2" template="upstream_2_template">
             <materials>
@@ -576,12 +576,12 @@
      <pipeline name="Downstream1" template="autoStagePipelineTemplate">
             <materials>
 		        <pipeline pipelineName="Upstream1" stageName="defaultStage"/>
-		        <pipeline pipelineName="Upstream2" stageName="defaultStage"/>            
+		        <pipeline pipelineName="Upstream2" stageName="defaultStage"/>
             </materials>
      </pipeline>
-</pipelines>      
+</pipelines>
 
-      
+
     <templates>
 
         <pipeline name="upstream_2_template">
@@ -597,7 +597,7 @@
             </stage>
         </pipeline>
 
-    
+
         <pipeline name="autoStagePipelineTemplate">
             <stage name="defaultStage">
                 <jobs>
@@ -634,8 +634,8 @@
             </jobs>
          </stage>
         </pipeline>
-        
-        
+
+
     <pipeline name="multi-stage-deep-triangle-template">
             <stage name="first_stage">
                 <approval type="manual"/>
@@ -681,23 +681,11 @@
                     </job>
                 </jobs>
             </stage>
-            
+
 </pipeline>
-        
-        
-        
+
+
+
     </templates>
-    
-    <agents>
-        <agent hostname="missing-agent" ipaddress="10.232.3.1" uuid="missing">
-            <resources>
-                <resource>missing</resource>
-            </resources>
-        </agent>
-        <agent hostname="denied-agent" ipaddress="10.232.3.2" uuid="denied" isDisabled="true">
-            <resources>
-                <resource>denied</resource>
-            </resources>
-        </agent>
-    </agents>
+
 </cruise>
