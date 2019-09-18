@@ -37,7 +37,7 @@ import net.sf.sahi.client.ElementStub;
 import org.apache.commons.lang.StringUtils;
 import org.hamcrest.Matchers;
 import org.hamcrest.core.Is;
-import org.hamcrest.text.StringContains;
+import org.hamcrest.core.StringContains;
 import org.junit.Assert;
 
 import java.net.InetAddress;
@@ -47,7 +47,7 @@ import java.util.regex.Pattern;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.Matchers.not;
-import static org.hamcrest.text.StringContains.containsString;
+import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertThat;
 
 @SuppressWarnings("serial")

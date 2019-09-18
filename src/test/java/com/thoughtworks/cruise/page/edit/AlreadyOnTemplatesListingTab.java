@@ -28,7 +28,7 @@ import com.thoughtworks.cruise.utils.Timeout;
 import net.sf.sahi.client.Browser;
 import net.sf.sahi.client.ElementStub;
 import org.hamcrest.core.Is;
-import org.hamcrest.text.StringContains;
+import org.hamcrest.core.StringContains;
 
 import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.MatcherAssert.assertThat;

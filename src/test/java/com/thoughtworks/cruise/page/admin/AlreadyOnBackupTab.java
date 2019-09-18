@@ -23,7 +23,7 @@ import net.sf.sahi.client.Browser;
 import net.sf.sahi.client.ElementStub;
 
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.text.StringContains.containsString;
+import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertThat;
 
 public class AlreadyOnBackupTab {

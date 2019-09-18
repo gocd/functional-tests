@@ -39,7 +39,7 @@ import net.sf.sahi.client.Browser;
 import net.sf.sahi.client.ElementStub;
 import org.hamcrest.Matchers;
 import org.hamcrest.core.Is;
-import org.hamcrest.text.StringContains;
+import org.hamcrest.core.StringContains;
 
 import java.io.File;
 import java.util.regex.Pattern;
