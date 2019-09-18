@@ -116,7 +116,15 @@ public class UsingPipelineApi {
 	private String getMaterialFingerprint(String material) throws JSONException {
 
 		CruiseResponse response = talkToCruise.get(Urls.urlFor("/api/config/materials"));
-		JSONArray jsonArray = new JSONArray(response.getBody());
+		JSONArray jsonArray = null;
+
+		try {
+			jsonArray = new JSONArray(response.getBody());
+		} catch (JSONException e) {
+			System.err.println(response.getBody());
+			throw e;
+		}
+
 		for (int i = 0; i < jsonArray.length(); i++) {
 			JSONObject obj = jsonArray.getJSONObject(i);
 			if (obj.get("description").toString().contains(material)) {
