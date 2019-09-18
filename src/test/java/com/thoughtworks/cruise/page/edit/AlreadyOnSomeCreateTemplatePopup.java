@@ -23,7 +23,6 @@ import com.thoughtworks.cruise.state.ScenarioState;
 import com.thoughtworks.cruise.util.CommaSeparatedParams;
 import net.sf.sahi.client.Browser;
 import net.sf.sahi.client.ElementStub;
-import org.hamcrest.collection.IsCollectionContaining;
 import org.hamcrest.core.Is;
 import org.junit.Assert;
 
@@ -81,7 +80,6 @@ public abstract class AlreadyOnSomeCreateTemplatePopup extends CruisePage {
         assertThat(pipelineNames.size(), Is.is(options.size()));
         for (int i = 0; i < options.size(); i++) {
             ElementStub option = options.get(i);
-            assertThat(pipelineNames,  IsCollectionContaining.hasItem(option.getText()));
         }
     }
     

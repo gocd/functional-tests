@@ -34,7 +34,7 @@ import org.hamcrest.Matchers;
 import org.hamcrest.core.Is;
 import org.hamcrest.core.IsNot;
 import org.hamcrest.core.IsNull;
-import org.hamcrest.text.StringContains;
+import org.hamcrest.core.StringContains;
 import org.junit.Assert;
 
 import java.util.List;

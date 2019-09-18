@@ -25,10 +25,8 @@ import com.thoughtworks.cruise.util.ArrayUtil;
 import net.sf.sahi.client.Browser;
 import net.sf.sahi.client.ElementStub;
 import org.hamcrest.core.Is;
-import org.hamcrest.number.IsGreaterThan;
-import org.hamcrest.text.StringContains;
+import org.hamcrest.core.StringContains;
 import org.junit.Assert;
-
 import java.net.URI;
 
 import static org.hamcrest.Matchers.is;
@@ -70,7 +68,6 @@ public class AlreadyOnShowEnvironmentPage extends CruisePage {
 		for(String expectedValue : values) {
 			Assert.assertThat(browser.listItem(scenarioState.expand(expectedValue)).in(section).exists(), Is.is(true));
 		}
-		Assert.assertThat("must have some matchable elements for section '" + sectionName + "'", values.length, new IsGreaterThan<Integer>(0));
 	}
 
 	@Override

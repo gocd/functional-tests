@@ -29,7 +29,7 @@ import com.thoughtworks.cruise.utils.ScenarioHelper;
 import com.thoughtworks.cruise.utils.Timeout;
 import net.sf.sahi.client.Browser;
 import org.hamcrest.core.Is;
-import org.hamcrest.text.StringContains;
+import org.hamcrest.core.StringContains;
 import org.junit.Assert;
 
 import static org.hamcrest.MatcherAssert.assertThat;
