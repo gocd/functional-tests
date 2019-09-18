@@ -1082,7 +1082,7 @@
         <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>does-not-matter</value></variable>
         <variable name="ENVIRONMENT_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER"><value>does-not-matter</value></variable>
       </environmentvariables>
-      <agents/>
+
       <pipelines>
         <pipeline name="environment-pipeline"/>
         <pipeline name="environment-pipeline-locked"/>
@@ -1091,7 +1091,7 @@
       </pipelines>
     </environment>
     <environment name="prod">
-      <agents/>
+
       <pipelines>
         <pipeline name="basic-environment-pipeline"/>
       </pipelines>

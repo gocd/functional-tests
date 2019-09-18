@@ -243,14 +243,12 @@
   	</templates>
   	<environments>
   		<environment name="environment1">
-  			<agents/>
   			<pipelines>
   				<pipeline name="pipeline1"/>
   				<pipeline name="pipeline2"/>
   			</pipelines>
   		</environment>
   		<environment name="environment2">
-  			<agents/>
   			<pipelines>
   				<pipeline name="pipeline3"/>
   			</pipelines>
