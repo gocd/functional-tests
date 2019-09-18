@@ -149,8 +149,8 @@ public class TalkToCruise {
             uri.addParameter(nameValuePair.getName(), nameValuePair.getValue());
         }
         GetMethod get = new GetMethod(uri.toString());
-        if(supportApiV4(url) && !isAncient(url))
-            get.setRequestHeader("Accept", CruiseConstants.apiV4);
+        if(!isAncient(url))
+            get.setRequestHeader("Accept", CruiseConstants.apiV);
         get.setFollowRedirects(shouldFollowRedirect);
         return execute(url, get, true);
     }
