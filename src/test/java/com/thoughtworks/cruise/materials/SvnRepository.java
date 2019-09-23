@@ -23,6 +23,7 @@ import com.thoughtworks.cruise.util.*;
 import com.thoughtworks.cruise.util.command.ConsoleResult;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.NameValuePair;
+import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.dom4j.Document;
@@ -199,7 +200,18 @@ public class SvnRepository extends AbstractRepository {
 
     @Override
     public void initatePostCommitHook(TalkToCruise talkToCruise) {
-        CruiseResponse response = talkToCruise.post(Urls.svnPostCommitHook(), new NameValuePair("uuid", repoUUID));
+        StringRequestEntity requestEntity;
+        requestEntity = null;
+        try {
+            requestEntity = new StringRequestEntity(
+                    "{\"repository_url\": \""+ getUrl() + "\"}",
+                    "application/json",
+                    "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        String url = Urls.svnPostCommitHook();
+        CruiseResponse response = talkToCruise.post(url, requestEntity, "CONFIRM", CruiseConstants.apiV1);
         Assert.assertThat(response.getStatus(), Is.is(HttpStatus.SC_ACCEPTED));
     }
 }
