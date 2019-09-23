@@ -122,15 +122,15 @@ public class Urls {
 	}
 
     public static String svnPostCommitHook() {
-        return urlFor("/go/api/material/notify/svn");
+        return urlFor("/go/api/material/svn/notify");
     }
 
     public static String gitPostCommitHook() {
-        return urlFor("/go/api/material/notify/git");
+        return urlFor("/go/api/material/git/notify");
     }
 
     public static String hgPostCommitHook() {
-        return urlFor("/go/api/material/notify/hg");
+        return urlFor("/go/api/material/hg/notify");
     }
 
     public static String apiSupportURL() {
