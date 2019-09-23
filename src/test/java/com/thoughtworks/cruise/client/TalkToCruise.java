@@ -37,7 +37,7 @@ public class TalkToCruise {
 
     public final CurrentUsernameProvider currentUserNameProvider;
     private final List<String> apiV4Urls = Arrays.asList("/api/agents");
-    private final List<String> apiV1Urls = Arrays.asList("/api/backups");
+    private final List<String> apiV1Urls = Arrays.asList("/api/backups","/api/admin/materials/git/notify","/api/admin/materials/svn/notify");
     private final List<String> apiV2Urls = Arrays.asList("/api/users");
     private final List<String> ancientUrls = Arrays.asList("/job_run_history");
 
@@ -56,9 +56,15 @@ public class TalkToCruise {
         HttpClient client = client();
         PostMethod post = new PostMethod(url);
         post.addParameters(nameValuePairs);
-        post.setRequestHeader("Accept", CruiseConstants.apiV);
-        post.setRequestHeader("Content-Type", "application/json");
+        if(supportApiV1(url)){
+            post.setRequestHeader("Accept", CruiseConstants.apiV1);
+            post.setRequestHeader("Content-Type", "application/json");
+        }
 
+        if(supportApiV2(url)){
+            post.setRequestHeader("Accept", CruiseConstants.apiV2);
+            post.setRequestHeader("Content-Type", "application/json");
+        }
         post.setRequestHeader("CONFIRM","true");
         return execute(url, client, post);
     }
