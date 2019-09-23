@@ -19,17 +19,20 @@ package com.thoughtworks.cruise.materials;
 import com.thoughtworks.cruise.Urls;
 import com.thoughtworks.cruise.client.TalkToCruise;
 import com.thoughtworks.cruise.client.TalkToCruise.CruiseResponse;
+import com.thoughtworks.cruise.util.CruiseConstants;
 import com.thoughtworks.cruise.util.FileUtil;
 import com.thoughtworks.cruise.util.TestFileUtil;
 import com.thoughtworks.cruise.util.command.ConsoleResult;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.NameValuePair;
+import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.apache.commons.lang.StringUtils;
 import org.dom4j.Element;
 import org.hamcrest.core.Is;
 import org.junit.Assert;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -157,7 +160,18 @@ public class HgRepository extends AbstractRepository {
 
     @Override
     public void initatePostCommitHook(TalkToCruise talkToCruise) {
-        CruiseResponse response = talkToCruise.post(Urls.hgPostCommitHook(), new NameValuePair("repository_url", getUrl()));
+        StringRequestEntity requestEntity;
+        requestEntity = null;
+        try {
+            requestEntity = new StringRequestEntity(
+                    "{\"repository_url\": \""+ getUrl() + "\"}",
+                    "application/json",
+                    "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        String url = Urls.hgPostCommitHook();
+        CruiseResponse response = talkToCruise.post(url, requestEntity, "CONFIRM", CruiseConstants.apiV1);
         Assert.assertThat(response.getStatus(), Is.is(HttpStatus.SC_ACCEPTED));
     }
 }
