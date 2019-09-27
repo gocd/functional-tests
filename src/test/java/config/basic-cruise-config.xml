@@ -940,13 +940,6 @@
                         <tasks>
                             <ant target="longsleep" workingdir="dev"/>
                         </tasks>
-                        <properties>
-                            <property name="illegal.file" src="not-present" xpath="string(/testsuite/@errors)"/>
-                            <property name="illegal.xpath" src="junit-output/TEST-cruise.testing.JUnit.xml" xpath="!@"/>
-                            <property name="xpath.not.found" src="junit-output/TEST-cruise.testing.JUnit.xml" xpath="buhao"/>
-                            <property name="src.is.folder" src="junit-output" xpath="string(//testsuite/@time)"/>
-                            <property name="suite.time" src="junit-output/TEST-cruise.testing.JUnit.xml" xpath="string(//testsuite/@time)"/>
-                        </properties>
                     </job>
                 </jobs>
             </stage>
