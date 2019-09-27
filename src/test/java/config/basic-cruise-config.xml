@@ -997,9 +997,7 @@
         </pipeline>
 
 <pipeline name="two-stage-pipeline-with-mingle-config">
-            <mingle baseUrl="https://some.mingle.machine:1000/mingle" projectIdentifier="some-go-branch">
-                <mqlGroupingConditions>foo != not(foo)</mqlGroupingConditions>
-            </mingle>
+            <trackingtool link="https://github.com/bob/my-project/issues/${ID}" regex="##(\d+)" />
             <materials>
                 <hg url="$hgurl-pipeline-with-mingle-config" dest="hg" autoUpdate="false" materialName="pipeline-hg"/>
                 <git url="$giturl-pipeline-with-mingle-config" dest="git" materialName="pipeline-git"/>
@@ -1019,9 +1017,7 @@
 
 
         <pipeline name="pipeline-with-mingle-config">
-            <mingle baseUrl="https://some.mingle.machine:1000/mingle" projectIdentifier="some-go-branch">
-                <mqlGroupingConditions>foo != not(foo)</mqlGroupingConditions>
-            </mingle>
+            <trackingtool link="https://github.com/bob/my-project/issues/${ID}" regex="##(\d+)" />
             <materials>
                 <hg url="$hgurl-pipeline-with-mingle-config" dest="hg" autoUpdate="false" materialName="pipeline-hg"/>
                 <git url="$giturl-pipeline-with-mingle-config" dest="git" materialName="pipeline-git"/>

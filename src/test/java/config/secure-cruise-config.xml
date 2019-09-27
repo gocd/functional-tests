@@ -873,9 +873,7 @@
       </admins>
     </authorization>
     <pipeline name="first-pipeline" template="simple-pass">
-      <mingle baseUrl="https://mingle-different.example.com" projectIdentifier="my_project">
-        <mqlGroupingConditions>status &gt; 'In Dev'</mqlGroupingConditions>
-      </mingle>
+      <trackingtool link="https://github.com/alice/my-project/issues/${ID}" regex="##(\d+)" />
       <materials>
         <git url="$git-on-first-pipeline" dest="git" materialName="git-for-first-pipeline" autoUpdate="false"/>
       </materials>
@@ -889,9 +887,7 @@
     </pipeline>
 
     <pipeline name="pipeline-with-mingle-config" template="simple-pass">
-      <mingle baseUrl="https://mingle.example.com" projectIdentifier="my_project">
-        <mqlGroupingConditions>status &gt; 'In Dev'</mqlGroupingConditions>
-      </mingle>
+      <trackingtool link="https://github.com/bob/my-project/issues/${ID}" regex="##(\d+)" />
       <materials>
         <git url="$git-on-pipeline-with-mingle-config" dest="git" materialName="git-for-pipeline-with-mingle-config" autoUpdate="false"/>
       </materials>
@@ -929,9 +925,7 @@
     </pipeline>
 
     <pipeline name="down-pipeline-with-mingle-config" template="simple-pass">
-      <mingle baseUrl="https://mingle-different.example.com" projectIdentifier="my_project">
-        <mqlGroupingConditions>status &gt; 'In Dev'</mqlGroupingConditions>
-      </mingle>
+      <trackingtool link="https://github.com/alice/my-project/issues/${ID}" regex="##(\d+)" />
       <materials>
         <hg url="$hgurl-down-pipeline-with-mingle-config" dest="hg" autoUpdate="false" materialName="hg-for-down-pipeline-with-mingle-config"/>
         <pipeline pipelineName="pipeline-with-mingle-config" stageName="defaultStage"/>
