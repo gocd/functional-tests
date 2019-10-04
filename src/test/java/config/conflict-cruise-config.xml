@@ -14,92 +14,95 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="131">
-  <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="132">
+  <server serverId="twist" tokenGenerationKey="token">
+    <artifacts>
+      <artifactsDir>artifacts</artifactsDir>
+    </artifacts>
     <security>
       <roles>
         <role name="admins">
-        <users>
-          <user>admin</user>
+          <users>
+            <user>admin</user>
           </users>
         </role>
         <role name="viewer">
-        <users>
-          <user>view</user>
-          <user>operate</user>
+          <users>
+            <user>view</user>
+            <user>operate</user>
           </users>
         </role>
         <role name="operator">
-        <users>
-          <user>operatorUser</user>
+          <users>
+            <user>operatorUser</user>
           </users>
         </role>
-       <role name="misc">
-        <users>
-          <user>group1View</user>
+        <role name="misc">
+          <users>
+            <user>group1View</user>
           </users>
         </role>
       </roles>
       <admins>
         <role>admins</role>
       </admins>
-        <authConfigs>
-            <authConfig id="abd33fcb-a1eb-4384-a255-025594538fd8" pluginId="cd.go.authentication.passwordfile">
-                <property>
-                    <key>PasswordFilePath</key>
-                    <value>$password_properties</value>
-                </property>
-            </authConfig>
-        </authConfigs>
+      <authConfigs>
+        <authConfig id="abd33fcb-a1eb-4384-a255-025594538fd8" pluginId="cd.go.authentication.passwordfile">
+          <property>
+            <key>PasswordFilePath</key>
+            <value>$password_properties</value>
+          </property>
+        </authConfig>
+      </authConfigs>
     </security>
   </server>
 
   <pipelines group="basic">
-	  <pipeline name="basic-pipeline">
-		<materials>
-			<hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
-        </materials>
-        <stage name="defaultStage">
-        	<approval type="manual"/>
-        	<jobs>
-            	<job name="replace-job">
-                    <tasks>
-                        <exec command="ls"/>
-                    </tasks>
-                 </job>
-            </jobs>
-	  	</stage>
-	  </pipeline>
-	  <pipeline name="upstream-pipeline">
-		<materials>
-			<hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
-        </materials>
-        <stage name="defaultStage">
-        	<approval type="manual"/>
-        	<jobs>
-            	<job name="defaultJob">
-                    <tasks>
-                        <exec command="ls"/>
-                    </tasks>
-                 </job>
-            </jobs>
-	  	</stage>
-	  </pipeline>
-	  <pipeline name="middle-pipeline">
-		<materials>
-			<hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
-        </materials>
-        <stage name="defaultStage">
-        	<approval type="manual"/>
-        	<jobs>
-            	<job name="defaultJob">
-                    <tasks>
-                        <exec command="ls"/>
-                    </tasks>
-                 </job>
-            </jobs>
-	  	</stage>
-	  </pipeline>
+    <pipeline name="basic-pipeline">
+      <materials>
+        <hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="replace-job">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="upstream-pipeline">
+      <materials>
+        <hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="middle-pipeline">
+      <materials>
+        <hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
   </pipelines>
 
 </cruise>

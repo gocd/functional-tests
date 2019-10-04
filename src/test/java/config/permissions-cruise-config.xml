@@ -14,10 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="131">
-  <server artifactsdir="artifacts" commandRepositoryLocation="default" serverId="twist" tokenGenerationKey="token">
- <security>
-
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="132">
+  <server commandRepositoryLocation="default" serverId="twist" tokenGenerationKey="token">
+    <artifacts>
+      <artifactsDir>artifacts</artifactsDir>
+    </artifacts>
+    <security>
       <roles>
         <role name="misc">
           <users>
@@ -25,18 +27,18 @@
           </users>
         </role>
       </roles>
-   <admins>
-     <user>admin</user>
-  </admins>
-   <authConfigs>
-     <authConfig id="faf64df3-15c4-44dd-9865-99cc92dc579d" pluginId="cd.go.authentication.passwordfile">
-       <property>
-         <key>PasswordFilePath</key>
-         <value>$password_properties</value>
-       </property>
-     </authConfig>
-   </authConfigs>
- </security>
+      <admins>
+        <user>admin</user>
+      </admins>
+      <authConfigs>
+        <authConfig id="faf64df3-15c4-44dd-9865-99cc92dc579d" pluginId="cd.go.authentication.passwordfile">
+          <property>
+            <key>PasswordFilePath</key>
+            <value>$password_properties</value>
+          </property>
+        </authConfig>
+      </authConfigs>
+    </security>
   </server>
   <pipelines group="GroupA">
     <authorization>
@@ -58,7 +60,7 @@
           <job name="defaultJob">
             <tasks>
               <exec command="sleep">
-              <arg>10</arg>
+                <arg>10</arg>
               </exec>
             </tasks>
           </job>
@@ -263,7 +265,7 @@
       </materials>
       <stage name="firstStage">
         <approval type="manual">
-         <authorization>
+          <authorization>
             <role>misc</role>
           </authorization>
         </approval>
@@ -292,7 +294,7 @@
     </pipeline>
   </pipelines>
 
-     <pipelines group="GroupH">
+  <pipelines group="GroupH">
     <authorization>
       <view>
         <user>raghu</user>
@@ -322,7 +324,7 @@
     </pipeline>
   </pipelines>
 
-    <pipelines group="GroupI">
+  <pipelines group="GroupI">
     <authorization>
       <admins>
         <user>group1View</user>
@@ -349,6 +351,4 @@
       </stage>
     </pipeline>
   </pipelines>
-
-
 </cruise>

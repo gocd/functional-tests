@@ -14,82 +14,84 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="131">
-  <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
-      <security>
-
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="132">
+  <server serverId="twist" tokenGenerationKey="token">
+    <artifacts>
+      <artifactsDir>artifacts</artifactsDir>
+    </artifacts>
+    <security>
       <roles>
         <role name="admins">
-        <users>
-          <user>admin</user>
+          <users>
+            <user>admin</user>
           </users>
         </role>
       </roles>
       <admins>
         <role>admins</role>
       </admins>
-          <authConfigs>
-              <authConfig id="2775bbd3-bff4-4eb4-af1c-d025412cf6c4" pluginId="cd.go.authentication.passwordfile">
-                  <property>
-                      <key>PasswordFilePath</key>
-                      <value>$password_properties</value>
-                  </property>
-              </authConfig>
-          </authConfigs>
-      </security>
+      <authConfigs>
+        <authConfig id="2775bbd3-bff4-4eb4-af1c-d025412cf6c4" pluginId="cd.go.authentication.passwordfile">
+          <property>
+            <key>PasswordFilePath</key>
+            <value>$password_properties</value>
+          </property>
+        </authConfig>
+      </authConfigs>
+    </security>
   </server>
 
-   <repositories>
+  <repositories>
     <repository id="repo-id" name="tw-repo">
-        <pluginConfiguration id="yum" version="1"/>
-        <configuration>
+      <pluginConfiguration id="yum" version="1"/>
+      <configuration>
+        <property>
+          <key>REPO_URL</key>
+          <value>http://localhost:8081/${http_repo1}</value>
+        </property>
+        <property>
+          <key>USERNAME</key>
+          <value>user</value>
+        </property>
+        <property>
+          <key>PASSWORD</key>
+          <value>password</value>
+        </property>
+      </configuration>
+      <packages>
+        <package id="package-id" name="go-agent">
+          <configuration>
             <property>
-                <key>REPO_URL</key>
-                <value>http://localhost:8081/${http_repo1}</value>
+              <key>PACKAGE_SPEC</key>
+              <value>go-agent</value>
             </property>
-            <property>
-                <key>USERNAME</key>
-                <value>user</value>
-            </property>
-            <property>
-                <key>PASSWORD</key>
-                <value>password</value>
-            </property>
-        </configuration>
-        <packages>
-            <package id="package-id" name="go-agent">
-                <configuration>
-                    <property>
-                        <key>PACKAGE_SPEC</key>
-                        <value>go-agent</value>
-                    </property>
-                </configuration>
-            </package>
-        </packages>
+          </configuration>
+        </package>
+      </packages>
     </repository>
-   </repositories>
-    <scms>
-        <scm id="33001480-9228-4aaf-b9f4-cc08466859da" name="jgitmat">
-            <pluginConfiguration id="jgit" version="1"/>
-            <configuration>
-                <property>
-                    <key>url</key>
-                    <value>https://github.com/test/test.git</value>
-                </property>
-                <property>
-                    <key>username</key>
-                    <value>user</value>
-                </property>
-                <property>
-                    <key>password</key>
-                    <value>password</value>
-                </property>
-                <property>
-                    <key>branch</key>
-                    <value>master</value>
-                </property>
-            </configuration>
-        </scm>
-    </scms>
+  </repositories>
+  <scms>
+    <scm id="33001480-9228-4aaf-b9f4-cc08466859da" name="jgitmat">
+      <pluginConfiguration id="jgit" version="1"/>
+      <configuration>
+        <property>
+          <key>url</key>
+          <value>https://github.com/test/test.git</value>
+        </property>
+        <property>
+          <key>username</key>
+          <value>user</value>
+        </property>
+        <property>
+          <key>password</key>
+          <value>password</value>
+        </property>
+        <property>
+          <key>branch</key>
+          <value>master</value>
+        </property>
+      </configuration>
+    </scm>
+  </scms>
 
 </cruise>

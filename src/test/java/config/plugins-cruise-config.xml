@@ -14,85 +14,87 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="131">
-    <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="132">
+  <server serverId="twist" tokenGenerationKey="token">
+    <artifacts>
+      <artifactsDir>artifacts</artifactsDir>
+    </artifacts>
     <security>
-
       <admins>
         <user>admin</user>
       </admins>
-	</security>
-	</server>
-    <pipelines group="Task_Plugin">
-      <pipeline name="curl-task-pass">
-            <materials>
-                <git url="$giturl-basic-pipeline-with-job-resources" dest="git" materialName="basic-git-material" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <task>
-							      <pluginConfiguration id="cd.go.contrib.task.skeleton" version="1.0"/>
-							      <configuration>
-							           <property>
-							                <key>Url</key>
-							                <value>https://www.codeschool.com</value>
-							           </property>
-							           <property>
-                    						<key>SecureConnection</key>
-                    						<value>yes</value>
-                  						</property>
-						                  <property>
-						                    <key>RequestType</key>
-						                    <value>-G</value>
-						                  </property>
-						                  <property>
-						                    <key>AdditionalOptions</key>
-						                    <value/>
-						                  </property>
-							      </configuration>
-							</task>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="curl-task-fail">
-	            <materials>
-	                <git url="$giturl-basic-pipeline-with-job-resources" dest="git" materialName="basic-git-material" autoUpdate="false"/>
-	            </materials>
-	            <stage name="defaultStage">
-	                <approval type="manual"/>
-	                <jobs>
-	                    <job name="defaultJob">
-	                        <tasks>
-	                            <task>
-								      <pluginConfiguration id="cd.go.contrib.task.skeleton" version="1.0"/>
-								      <configuration>
-								           <property>
-								                <key>Url</key>
-								                <value>https://www.abcdummynonexistent.com</value>
-								           </property>
-								           <property>
-                    						 <key>SecureConnection</key>
-                    						 <value>no</value>
-                  							</property>
-						                  <property>
-						                    <key>RequestType</key>
-						                    <value>-G</value>
-						                  </property>
-						                  <property>
-						                    <key>AdditionalOptions</key>
-						                    <value/>
-						                  </property>
-								      </configuration>
-								</task>
-	                        </tasks>
-	                    </job>
-	                </jobs>
-	            </stage>
-	        </pipeline>
-    </pipelines>
+    </security>
+  </server>
+  <pipelines group="Task_Plugin">
+    <pipeline name="curl-task-pass">
+      <materials>
+        <git url="$giturl-basic-pipeline-with-job-resources" dest="git" materialName="basic-git-material" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <task>
+                <pluginConfiguration id="cd.go.contrib.task.skeleton" version="1.0"/>
+                <configuration>
+                  <property>
+                    <key>Url</key>
+                    <value>https://www.codeschool.com</value>
+                  </property>
+                  <property>
+                    <key>SecureConnection</key>
+                    <value>yes</value>
+                  </property>
+                  <property>
+                    <key>RequestType</key>
+                    <value>-G</value>
+                  </property>
+                  <property>
+                    <key>AdditionalOptions</key>
+                    <value/>
+                  </property>
+                </configuration>
+              </task>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="curl-task-fail">
+      <materials>
+        <git url="$giturl-basic-pipeline-with-job-resources" dest="git" materialName="basic-git-material" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <task>
+                <pluginConfiguration id="cd.go.contrib.task.skeleton" version="1.0"/>
+                <configuration>
+                  <property>
+                    <key>Url</key>
+                    <value>https://www.abcdummynonexistent.com</value>
+                  </property>
+                  <property>
+                    <key>SecureConnection</key>
+                    <value>no</value>
+                  </property>
+                  <property>
+                    <key>RequestType</key>
+                    <value>-G</value>
+                  </property>
+                  <property>
+                    <key>AdditionalOptions</key>
+                    <value/>
+                  </property>
+                </configuration>
+              </task>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
 </cruise>

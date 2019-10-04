@@ -14,10 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="131">
-    <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
-    </server>
-    <pipelines group="basic">
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="132">
+  <server serverId="twist" tokenGenerationKey="token">
+    <artifacts>
+      <artifactsDir>artifacts</artifactsDir>
+    </artifacts>
+  </server>
+  <pipelines group="basic">
     <pipeline name="parent_pipeline">
       <materials>
         <hg url="$hgurl-basic-pipeline-with-filter" dest="hg" autoUpdate="false" materialName="hg">
@@ -58,338 +61,340 @@
       </stage>
     </pipeline>
     <pipeline name="up">
-            <materials>
-                <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-            <stage name="anotherStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+      <materials>
+        <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="anotherStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-        <pipeline name="edit-pipeline">
-            <materials>
-                <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="pipeline-using-hg-branch">
-            <materials>
-                <hg url="$hgurl##second" dest="hg" materialName="hg-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="pipeline-using-hg-default-branch">
-            <materials>
-                <hg url="$hgurl" dest="hg" materialName="hg-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+    <pipeline name="edit-pipeline">
+      <materials>
+        <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="pipeline-using-hg-branch">
+      <materials>
+        <hg url="$hgurl##second" dest="hg" materialName="hg-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="pipeline-using-hg-default-branch">
+      <materials>
+        <hg url="$hgurl" dest="hg" materialName="hg-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-        <pipeline name="hung-job-pipeline">
-            <materials>
-                <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="sleep" args="300"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+    <pipeline name="hung-job-pipeline">
+      <materials>
+        <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="sleep" args="300"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-        <pipeline name="artifact-reject-pipeline">
-            <environmentvariables>
-                 <variable name="SIZE"><value>10</value></variable>
-			</environmentvariables>
-            <materials>
-                <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <rake buildfile="create_file.rake" target="create" workingdir="hg"/>
-                        </tasks>
-                        <artifacts>
-							<artifact type="build" src="hg/big_file.txt" dest="pkg"/>
-                        </artifacts>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+    <pipeline name="artifact-reject-pipeline">
+      <environmentvariables>
+        <variable name="SIZE">
+          <value>10</value>
+        </variable>
+      </environmentvariables>
+      <materials>
+        <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <rake buildfile="create_file.rake" target="create" workingdir="hg"/>
+            </tasks>
+            <artifacts>
+              <artifact type="build" src="hg/big_file.txt" dest="pkg"/>
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-        <pipeline name="hung-job-zero-timeout-pipeline">
-            <materials>
-                <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="sleep" args="160"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+    <pipeline name="hung-job-zero-timeout-pipeline">
+      <materials>
+        <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="sleep" args="160"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
 
-        <pipeline name="edit-pipeline-with-tasks">
-            <materials>
-                <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-							<rake target="all" workingdir="hg/dev"/>
-							<nant target="all" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+    <pipeline name="edit-pipeline-with-tasks">
+      <materials>
+        <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+              <rake target="all" workingdir="hg/dev"/>
+              <nant target="all" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-           <pipeline name="edit-pipeline-with-3-stages">
-            <materials>
-                <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
+    <pipeline name="edit-pipeline-with-3-stages">
+      <materials>
+        <hg url="$hgurl-up" dest="hg" autoUpdate="false" materialName="hg-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
 
-            <stage name="second">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
+      <stage name="second">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
 
-            <stage name="third">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
+      <stage name="third">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
 
-        </pipeline>
+    </pipeline>
 
-        <pipeline name="down">
-            <materials>
-                <pipeline pipelineName="up" stageName="defaultStage"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+    <pipeline name="down">
+      <materials>
+        <pipeline pipelineName="up" stageName="defaultStage"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-        <pipeline name="child-of-down">
-            <materials>
-                <pipeline pipelineName="down" stageName="defaultStage"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+    <pipeline name="child-of-down">
+      <materials>
+        <pipeline pipelineName="down" stageName="defaultStage"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-        <pipeline name="basic-pipeline">
-            <materials>
-                <hg url="$hgurl-basic-pipeline" dest="hg" materialName="basic-hg-material" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+    <pipeline name="basic-pipeline">
+      <materials>
+        <hg url="$hgurl-basic-pipeline" dest="hg" materialName="basic-hg-material" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-        <pipeline name="fetch-materials">
-            <materials>
-                <hg url="$hgurl-no-fetch-material" dest="hg" materialName="basic-hg-material" autoUpdate="false"/>
-            </materials>
-            <stage name="first">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                        <resources>
-                            <resource>first</resource>
-                        </resources>
-                    </job>
-                </jobs>
-            </stage>
+    <pipeline name="fetch-materials">
+      <materials>
+        <hg url="$hgurl-no-fetch-material" dest="hg" materialName="basic-hg-material" autoUpdate="false"/>
+      </materials>
+      <stage name="first">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+            <resources>
+              <resource>first</resource>
+            </resources>
+          </job>
+        </jobs>
+      </stage>
 
-            <stage name="second" fetchMaterials="false">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                        <resources>
-                            <resource>second</resource>
-                        </resources>
-                    </job>
-                </jobs>
-            </stage>
+      <stage name="second" fetchMaterials="false">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+            <resources>
+              <resource>second</resource>
+            </resources>
+          </job>
+        </jobs>
+      </stage>
 
-            <stage name="third" fetchMaterials="true">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                        <resources>
-                            <resource>third</resource>
-                        </resources>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+      <stage name="third" fetchMaterials="true">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+            <resources>
+              <resource>third</resource>
+            </resources>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-        <pipeline name="pipeline-clean-working-dir">
-            <materials>
-                <hg url="$hgurl-clean-working-dir" materialName="basic-hg-material" autoUpdate="false"/>
-            </materials>
-            <stage name="setup">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="setupJob">
-                        <tasks>
-                            <exec command="touch" args="abc.txt"/>
-                            <exec command="mkdir" args="bar"/>
-                            <exec command="touch" args="xyz.txt"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-            <stage name="first">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="firstJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-            <stage name="second" cleanWorkingDir="true">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="secondJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+    <pipeline name="pipeline-clean-working-dir">
+      <materials>
+        <hg url="$hgurl-clean-working-dir" materialName="basic-hg-material" autoUpdate="false"/>
+      </materials>
+      <stage name="setup">
+        <approval type="manual"/>
+        <jobs>
+          <job name="setupJob">
+            <tasks>
+              <exec command="touch" args="abc.txt"/>
+              <exec command="mkdir" args="bar"/>
+              <exec command="touch" args="xyz.txt"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="first">
+        <approval type="manual"/>
+        <jobs>
+          <job name="firstJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="second" cleanWorkingDir="true">
+        <approval type="manual"/>
+        <jobs>
+          <job name="secondJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-        <pipeline name="basic-pipeline-with-job-resources">
-            <materials>
-                <hg url="$hgurl-basic-pipeline-with-job-resources" dest="hg" materialName="basic-hg-material" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="job-basic-pipeline-with-job-resources">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                        <resources>
-                            <resource>test_resource</resource>
-                        </resources>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+    <pipeline name="basic-pipeline-with-job-resources">
+      <materials>
+        <hg url="$hgurl-basic-pipeline-with-job-resources" dest="hg" materialName="basic-hg-material" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="job-basic-pipeline-with-job-resources">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+            <resources>
+              <resource>test_resource</resource>
+            </resources>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-<pipeline name="different_variable_at_environment_pipeline_stage_job">
+    <pipeline name="different_variable_at_environment_pipeline_stage_job">
       <environmentvariables>
         <variable name="environment_variable_1">
           <value>at_pipeline_level</value>
@@ -399,1538 +404,1611 @@
         </variable>
       </environmentvariables>
       <materials>
-	<hg url="$hgurl-pipeline-with-environment-variables" dest="hg" materialName="basic-hg-material" autoUpdate="false"/>
+        <hg url="$hgurl-pipeline-with-environment-variables" dest="hg" materialName="basic-hg-material" autoUpdate="false"/>
       </materials>
       <stage name="stage_1">
-      <environmentvariables>
-        <variable name="environment_variable_1">
-          <value>at_stage_level_1</value>
-        </variable>
-        <variable name="environment_variable_2">
-          <value>at_stage_level_2</value>
-        </variable>
-      </environmentvariables>
+        <environmentvariables>
+          <variable name="environment_variable_1">
+            <value>at_stage_level_1</value>
+          </variable>
+          <variable name="environment_variable_2">
+            <value>at_stage_level_2</value>
+          </variable>
+        </environmentvariables>
         <jobs>
           <job name="job_1">
-       <environmentvariables>
-         <variable name="environment_variable_1">
-           <value>at_job_level_1</value>
-         </variable>
-         <variable name="environment_variable_2">
-           <value>at_job_level_2</value>
-         </variable>
-       </environmentvariables>
+            <environmentvariables>
+              <variable name="environment_variable_1">
+                <value>at_job_level_1</value>
+              </variable>
+              <variable name="environment_variable_2">
+                <value>at_job_level_2</value>
+              </variable>
+            </environmentvariables>
             <tasks>
-<exec command="/bin/bash">
-<arg>-c</arg>
-<arg>echo environment_variable_1=$environment_variable_1.</arg>
-</exec>
-<exec command="/bin/bash">
-<arg>-c</arg>
-<arg>echo environment_variable_2=$environment_variable_2.</arg>
-</exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo environment_variable_1=$environment_variable_1.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo environment_variable_2=$environment_variable_2.</arg>
+              </exec>
             </tasks>
           </job>
           <job name="job_2">
-       <environmentvariables>
-         <variable name="environment_variable_1">
-           <value>at_job_level_1</value>
-         </variable>
-         <variable name="environment_variable_2">
-           <value>at_job_level_2</value>
-         </variable>
-       </environmentvariables>
+            <environmentvariables>
+              <variable name="environment_variable_1">
+                <value>at_job_level_1</value>
+              </variable>
+              <variable name="environment_variable_2">
+                <value>at_job_level_2</value>
+              </variable>
+            </environmentvariables>
             <tasks>
-<exec command="/bin/bash">
-<arg>-c</arg>
-<arg>echo environment_variable_1=$environment_variable_1.</arg>
-</exec>
-<exec command="/bin/bash">
-<arg>-c</arg>
-<arg>echo environment_variable_2=$environment_variable_2.</arg>
-</exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo environment_variable_1=$environment_variable_1.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo environment_variable_2=$environment_variable_2.</arg>
+              </exec>
             </tasks>
           </job>
         </jobs>
       </stage>
 
       <stage name="stage_2">
-      <environmentvariables>
-        <variable name="environment_variable_1">
-          <value>at_stage_level_1</value>
-        </variable>
-        <variable name="environment_variable_2">
-          <value>at_stage_level_2</value>
-        </variable>
-      </environmentvariables>
+        <environmentvariables>
+          <variable name="environment_variable_1">
+            <value>at_stage_level_1</value>
+          </variable>
+          <variable name="environment_variable_2">
+            <value>at_stage_level_2</value>
+          </variable>
+        </environmentvariables>
         <jobs>
           <job name="job_1">
-       <environmentvariables>
-         <variable name="environment_variable_1">
-           <value>at_job_level_1</value>
-         </variable>
-         <variable name="environment_variable_2">
-           <value>at_job_level_2</value>
-         </variable>
-       </environmentvariables>
+            <environmentvariables>
+              <variable name="environment_variable_1">
+                <value>at_job_level_1</value>
+              </variable>
+              <variable name="environment_variable_2">
+                <value>at_job_level_2</value>
+              </variable>
+            </environmentvariables>
             <tasks>
-<exec command="/bin/bash">
-<arg>-c</arg>
-<arg>echo environment_variable_1=$environment_variable_1.</arg>
-</exec>
-<exec command="/bin/bash">
-<arg>-c</arg>
-<arg>echo environment_variable_2=$environment_variable_2.</arg>
-</exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo environment_variable_1=$environment_variable_1.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo environment_variable_2=$environment_variable_2.</arg>
+              </exec>
             </tasks>
           </job>
           <job name="job_2">
-       <environmentvariables>
-         <variable name="environment_variable_1">
-           <value>at_job_level_1</value>
-         </variable>
-         <variable name="environment_variable_2">
-           <value>at_job_level_2</value>
-         </variable>
-       </environmentvariables>
+            <environmentvariables>
+              <variable name="environment_variable_1">
+                <value>at_job_level_1</value>
+              </variable>
+              <variable name="environment_variable_2">
+                <value>at_job_level_2</value>
+              </variable>
+            </environmentvariables>
             <tasks>
-<exec command="/bin/bash">
-<arg>-c</arg>
-<arg>echo environment_variable_1=$environment_variable_1.</arg>
-</exec>
-<exec command="/bin/bash">
-<arg>-c</arg>
-<arg>echo environment_variable_2=$environment_variable_2.</arg>
-</exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo environment_variable_1=$environment_variable_1.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo environment_variable_2=$environment_variable_2.</arg>
+              </exec>
             </tasks>
           </job>
         </jobs>
       </stage>
     </pipeline>
 
-        <pipeline name="pipeline-with-environment-variables">
+    <pipeline name="pipeline-with-environment-variables">
+      <environmentvariables>
+        <variable name="PIPELINE_LEVEL_VARIABLE">
+          <value>pipeline</value>
+        </variable>
+        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE">
+          <value>pipeline-overrides-env</value>
+        </variable>
+        <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE">
+          <value>does-not-matter</value>
+        </variable>
+        <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+          <value>does-not-matter</value>
+        </variable>
+        <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY">
+          <value>value-set-by-pipeline</value>
+        </variable>
+        <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY">
+          <value>value-set-by-pipeline</value>
+        </variable>
+      </environmentvariables>
+      <materials>
+        <hg url="$hgurl-pipeline-with-environment-variables" dest="hg" materialName="basic-hg-material" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <environmentvariables>
+          <variable name="STAGE_LEVEL_VARIABLE">
+            <value>stage</value>
+          </variable>
+          <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE">
+            <value>stage-overrides-pipeline</value>
+          </variable>
+          <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE">
+            <value>stage-overrides-env</value>
+          </variable>
+          <variable name="STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+            <value>does-not-matter</value>
+          </variable>
+          <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY">
+            <value>stage-overrides-pipeline</value>
+          </variable>
+        </environmentvariables>
+        <jobs>
+          <job name="pipeline-with-environment-variables-job">
             <environmentvariables>
-                <variable name="PIPELINE_LEVEL_VARIABLE"><value>pipeline</value></variable>
-                <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE"><value>pipeline-overrides-env</value></variable>
-                <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE"><value>does-not-matter</value></variable>
-                <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>does-not-matter</value></variable>
-                <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY"><value>value-set-by-pipeline</value></variable>
-                <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY"><value>value-set-by-pipeline</value></variable>
+              <variable name="JOB_LEVEL_VARIABLE">
+                <value>job</value>
+              </variable>
+              <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+                <value>job-overrides-pipeline</value>
+              </variable>
+              <variable name="STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+                <value>job-overrides-stage</value>
+              </variable>
+              <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+                <value>job-overrides-env</value>
+              </variable>
+              <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY">
+                <value>job-overrides-pipeline</value>
+              </variable>
             </environmentvariables>
-            <materials>
-                <hg url="$hgurl-pipeline-with-environment-variables" dest="hg" materialName="basic-hg-material" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <environmentvariables>
-                    <variable name="STAGE_LEVEL_VARIABLE"><value>stage</value></variable>
-                    <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE"><value>stage-overrides-pipeline</value></variable>
-                    <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE"><value>stage-overrides-env</value></variable>
-                    <variable name="STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>does-not-matter</value></variable>
-                    <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY"><value>stage-overrides-pipeline</value></variable>
-                </environmentvariables>
-                <jobs>
-                    <job name="pipeline-with-environment-variables-job">
-                        <environmentvariables>
-                            <variable name="JOB_LEVEL_VARIABLE"><value>job</value></variable>
-                            <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>job-overrides-pipeline</value></variable>
-                            <variable name="STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>job-overrides-stage</value></variable>
-                            <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>job-overrides-env</value></variable>
-                            <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY"><value>job-overrides-pipeline</value></variable>
-                        </environmentvariables>
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                            <exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE.</arg>
-              				</exec>
-                            <exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>
-              				</exec>
-                            <exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo STAGE_LEVEL_VARIABLE=$STAGE_LEVEL_VARIABLE.</arg>
-              				</exec>
-                            <exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo ENVIRONMENT_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER=$ENVIRONMENT_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER.</arg>
-              				</exec>
-                            <exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE=$PIPELINE_LEVEL_VARIABLE.</arg>
-              				</exec>
-              				<exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY.</arg>
-              				</exec>
-              				<exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY.</arg>
-              				</exec>
-                        </tasks>
-                    </job>
-                    <job name="another-job">
-                        <environmentvariables>
-                            <variable name="JOB_LEVEL_VARIABLE"><value>another-job</value></variable>
-                            <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>another-job-overrides-env</value></variable>
-                            <variable name="STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>another-job-overrides-stage</value></variable>
-                            <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>another-job-overrides-pipeline</value></variable>
-                        </environmentvariables>
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                            <exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo JOB_LEVEL_VARIABLE=$JOB_LEVEL_VARIABLE.</arg>
-              				</exec>
-              				<exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
-              				</exec>
-              				<exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>
-              				</exec>
-              				<exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
-              				</exec>
-              				<exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>
-              				</exec>
-              				<exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
-              				</exec>
-              				<exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY.</arg>
-              				</exec>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-            <stage name="secondStage">
-                <environmentvariables>
-                    <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE"><value>secondstage-overrides-env</value></variable>
-                	<variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE"><value>secondstage-overrides-pipeline</value></variable>
-                </environmentvariables>
-                <jobs>
-                    <job name="job">
-                        <environmentvariables>
-                            <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>second-job-overrides-env</value></variable>
-                        	<variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>second-job-overrides-pipeline</value></variable>
-                        </environmentvariables>
-                        <tasks>
-                            <exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>
-              				</exec>
-              				<exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
-              				</exec>
-              				<exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>
-              				</exec>
-              				<exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
-              				</exec>
-							<exec command="/bin/bash">
-                				<arg>-c</arg>
-                				<arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY.</arg>
-              				</exec>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-
-        <pipeline name="basic-pipeline-with-filter">
-            <materials>
-                <hg url="$hgurl-basic-pipeline-with-filter" dest="hg" materialName="hg" autoUpdate="false">
-                    <filter>
-                        <ignore pattern="*.ignore"/>
-                    </filter>
-                </hg>
-                <svn url="svn-url-svn-pipeline" dest="svn" materialName="svn" autoUpdate="false">
-                    <filter>
-                        <ignore pattern="*.ignore"/>
-                    </filter>
-                </svn>
-                <git url="$git-on-git-pipeline" dest="git" materialName="git" autoUpdate="false">
-                    <filter>
-                        <ignore pattern="*.ignore"/>
-                    </filter>
-                </git>
-                <p4 port="localhost:1666" useTickets="true" dest="p4" materialName="p4" autoUpdate="false">
-                    <view>//depot/... //p4test_1/...</view>
-                    <filter>
-                        <ignore pattern="*.ignore"/>
-                    </filter>
-                </p4>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-
-        <pipeline name="nant-pipeline">
-            <materials>
-                <hg url="$hgurl-nant-pipeline" dest="hg" materialName="nant-hg-material" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <nant buildfile="nant.build" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-
-        <pipeline name="basic-svn-pipeline">
-            <materials>
-                <svn url="svn-url-basic-svn-pipeline" dest="svn" materialName="svn" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="basic-svn-pipeline-job">
-                        <tasks>
-                            <ant workingdir="svn"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="svn-postcommithook-pipeline">
-            <materials>
-                <svn url="svn-url-basic-svn-pipeline" dest="svn" materialName="svn" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="another-svn-postcommithook-pipeline">
-            <materials>
-                <svn url="svn-url-basic-svn-pipeline" dest="svn" materialName="svn" autoUpdate="false"/>
-                <svn url="svn-url-svn-pipeline" dest="svn-2" materialName="svn-2" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="svn-pipeline">
-            <materials>
-                <svn url="svn-url-svn-pipeline" dest="svn" materialName="svn" autoUpdate="false"/>
-                <hg url="$hgurl-svn-pipeline" dest="hg" materialName="hg" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="svn-pipeline-job">
-                        <tasks>
-                            <ant workingdir="svn"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="svn-pipeline-with-external">
-            <materials>
-                <svn url="svn-url-svn-pipeline-with-external" dest="svn-external" materialName="svn-external" checkexternals="true" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="svn-pipeline-with-external-job">
-                        <tasks>
-                            <ant workingdir="svn-external"/>
-                            <ant target="longsleep" workingdir="svn-external"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="basic-pipeline-slow">
-            <materials>
-                <hg url="$hgurl-basic-pipeline-slow" dest="hg" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="sleep60" workingdir="hg/dev">
-                                <oncancel/>
-                            </ant>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="basic-pipeline-run-till-file-exists">
-            <materials>
-                <hg url="$hgurl-basic-pipeline-run-till-file-exists" dest="hg" autoUpdate="false" materialName="hg-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="basic-pipeline-run-till-file-exists-job">
-                        <tasks>
-                            <ant target="run.till.file.exists" workingdir="hg/dev">
-                                <oncancel/>
-                            </ant>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-
-        <pipeline name="multiple-same-materials">
-            <materials>
-                <hg url="$hgurl-multiple-same-materials" dest="first" materialName="first-material"/>
-                <hg url="$hgurl-multiple-same-materials" dest="second"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="job">
-                        <tasks>
-                            <ant target="run.till.file.exists" workingdir="first/dev">
-                                <oncancel/>
-                            </ant>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="multiple-materials-pipeline-run-till-file-exists">
-            <materials>
-                <hg url="$hgurl-multiple-materials-pipeline-run-till-file-exists" dest="hg" autoUpdate="false" materialName="hg-material"/>
-                <svn url="$svnurl-multiple-materials-pipeline-run-till-file-exists" dest="svn" autoUpdate="false" materialName="svn-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="run.till.file.exists" workingdir="hg/dev">
-                                <oncancel/>
-                            </ant>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="remote-pipeline">
-            <materials>
-                <hg url="$hgurl-remote-pipeline" dest="hg-remote" autoUpdate="false" materialName="hg-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="basic-pipeline-fast">
-            <materials>
-                <hg url="$hgurl-basic-pipeline-fast" dest="hg" autoUpdate="false" materialName="basic_hg_material"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="simple-pipeline">
-            <params>
-                <param name="name">value</param>
-            </params>
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo STAGE_LEVEL_VARIABLE=$STAGE_LEVEL_VARIABLE.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo
+                  ENVIRONMENT_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER=$ENVIRONMENT_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER.
+                </arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo PIPELINE_LEVEL_VARIABLE=$PIPELINE_LEVEL_VARIABLE.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo
+                  PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY.
+                </arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo
+                  PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY.
+                </arg>
+              </exec>
+            </tasks>
+          </job>
+          <job name="another-job">
             <environmentvariables>
-                <variable name="NAME">
-                	<value>hucha_raghuveer</value>
-                </variable>
+              <variable name="JOB_LEVEL_VARIABLE">
+                <value>another-job</value>
+              </variable>
+              <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+                <value>another-job-overrides-env</value>
+              </variable>
+              <variable name="STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+                <value>another-job-overrides-stage</value>
+              </variable>
+              <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+                <value>another-job-overrides-pipeline</value>
+              </variable>
             </environmentvariables>
-
-            <materials>
-                <hg url="$hgurl-simple-pipeline" dest="hg" autoUpdate="false"/>
-            </materials>
-            <stage name="first">
-                <approval type="manual"/>
-                <environmentvariables>
-	                <variable name="STAGE_LEVEL_VARIABLE">
-	                	<value>stage</value>
-	                </variable>
-	                <variable name="PARAM_VALUE_ENV_VAR">
-	                	<value>#{name}</value>
-	                </variable>
-            	</environmentvariables>
-                <jobs>
-                    <job name="job">
-		                <environmentvariables>
-			                <variable name="JOB_LEVEL_VARIABLE">
-			                	<value>job</value>
-			                </variable>
-		            	</environmentvariables>
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="basic-pipeline-fast-with-job-properties">
-            <materials>
-                <hg url="$hgurl-basic-pipeline-fast-with-job-properties" autoUpdate="false" materialName="materialWithJobProperties"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="pipeline-ls">
-            <materials>
-                <hg url="$hgurl-pipeline-ls" dest="hg" autoUpdate="false" materialName="pipeline-ls-hg"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="pipeline-with-wierd-command">
-            <params>
-                <param name="wierd-command">some_command_that_can_never_ever_exist</param>
-            </params>
-            <materials>
-                <hg url="$hgurl-pipeline-ls" dest="hg" autoUpdate="false" materialName="pipeline-ls-hg"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="#{wierd-command}_with_tail"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="mingle-config-parent" labeltemplate="hello-world-${COUNT}">
-            <materials>
-                <svn url="svn-url-mingle-config-parent" dest="svn" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-<pipeline name="two-stage-pipeline-with-mingle-config">
-            <trackingtool link="https://github.com/bob/my-project/issues/${ID}" regex="##(\d+)" />
-            <materials>
-                <hg url="$hgurl-pipeline-with-mingle-config" dest="hg" autoUpdate="false" materialName="pipeline-hg"/>
-                <git url="$giturl-pipeline-with-mingle-config" dest="git" materialName="pipeline-git"/>
-                <pipeline pipelineName="mingle-config-parent" stageName="defaultStage"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-</pipeline>
-
-
-        <pipeline name="pipeline-with-mingle-config">
-            <trackingtool link="https://github.com/bob/my-project/issues/${ID}" regex="##(\d+)" />
-            <materials>
-                <hg url="$hgurl-pipeline-with-mingle-config" dest="hg" autoUpdate="false" materialName="pipeline-hg"/>
-                <git url="$giturl-pipeline-with-mingle-config" dest="git" materialName="pipeline-git"/>
-                <pipeline pipelineName="mingle-config-parent" stageName="defaultStage"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-            <stage name="secondStage">
-
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                        <resources>
-                            <resource>some_resource_that_does_not_exist</resource>
-                        </resources>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="basic-auto-pipeline">
-            <materials>
-                <git url="$git-on-basic-auto-pipeline" dest="git" materialName="git"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-
-        <pipeline name="pipeline.with.runif">
-            <materials>
-                <hg url="$hgurl-pipeline-with-runif" dest="hg" autoUpdate="false"/>
-            </materials>
-            <stage name="default.stage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="job.with.runif">
-                        <tasks>
-                            <ant target="fail" workingdir="hg/dev"/>
-                            <ant target="sleep30" workingdir="hg/dev">
-                                <runif status="passed"/>
-                            </ant>
-                            <ant target="sleep" workingdir="hg/dev">
-                                <runif status="failed"/>
-                            </ant>
-                            <ant target="echo_message" workingdir="hg/dev">
-                                <runif status="any"/>
-                            </ant>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="basic-pipeline-fail">
-            <materials>
-                <hg url="$hgurl-basic-pipeline-fail" dest="hg" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="fail" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="downstream-pipeline">
-            <materials>
-                <pipeline pipelineName="basic-pipeline-fast" stageName="defaultStage" materialName="upstream-material"/>
-                <hg url="$hgurl-downstream-pipeline" dest="hg" materialName="downstream-hg-material">
-                    <filter>
-                        <ignore pattern="**/*"/>
-                    </filter>
-                </hg>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="success"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="child-of-basic-pipeline-fast">
-            <materials>
-                <pipeline pipelineName="basic-pipeline-fast" stageName="defaultStage" materialName="upstream-material"/>
-            </materials>
-            <stage name="stage1">
-                <approval type="success"/>
-                <jobs>
-                    <job name="job1">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-            <stage name="stage2">
-                <approval type="success"/>
-                <jobs>
-                    <job name="job2">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="manual-downstream-pipeline">
-            <materials>
-                <pipeline pipelineName="basic-pipeline-fast" stageName="defaultStage" materialName="upstream-material"/>
-                <hg url="$hgurl-manual-downstream-pipeline" dest="hg" materialName="downstream-hg-material" autoUpdate="false">
-                    <filter>
-                        <ignore pattern="**/*"/>
-                    </filter>
-                </hg>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="process-tree">
-            <materials>
-                <hg url="$hgurl-process-tree" dest="hg" materialName="process-tree-material" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <rake target="fork" buildfile="hg/fork_self.rake"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-
-        <pipeline name="pipeline-with-lock" lockBehavior="lockOnFailure">
-            <materials>
-                <hg url="$hgurl-pipeline-with-lock" dest="hg" materialName="pipeline-with-lock-material" autoUpdate="false"/>
-            </materials>
-            <stage name="stage-1">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="fast">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-            <stage name="stage-2">
-                <jobs>
-                    <job name="long">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="pipeline-with-lock-all-manual" lockBehavior="lockOnFailure">
-            <materials>
-                <hg url="$hgurl-basic-pipeline-run-till-file-exists" dest="hg" autoUpdate="false" materialName="hg-material"/>
-            </materials>
-            <stage name="stage-1">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="basic-pipeline-run-till-file-exists-job">
-                        <tasks>
-                            <ant target="run.till.file.exists" workingdir="hg/dev">
-                                <oncancel/>
-                            </ant>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-            <stage name="stage-2">
-                <approval type="manual"/>
-                <jobs>
-                     <job name="basic-pipeline-run-till-file-exists-job">
-                        <tasks>
-                            <ant target="run.till.file.exists" workingdir="hg/dev">
-                                <oncancel/>
-                            </ant>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="basic-environment-pipeline">
-            <materials>
-                <hg url="$hgurl-basic-environment-pipeline" dest="hg" autoUpdate="false" materialName="hg-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="environment-pipeline">
-            <materials>
-                <hg url="$hgurl-environment-pipeline" dest="hg" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="short">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-            <stage name="second">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="long">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="git-pipeline">
-            <materials>
-                <git url="$git-on-git-pipeline" materialName="git-submodule" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="run-till-file-exists"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="pipeline-with-3-jobs">
-            <materials>
-                <git url="$git-on-pipeline-with-3-jobs" materialName="git" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="first">
-                        <tasks>
-                            <ant target="run-till-file-exists"/>
-                        </tasks>
-                    </job>
-                    <job name="second">
-                        <tasks>
-                            <ant target="a-target-that-does-not-exist"/>
-                        </tasks>
-                    </job>
-                    <job name="third">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="pipeline-for-job-rerun-run-on-all">
-            <materials>
-                <git url="$git-on-pipeline-with-3-jobs" materialName="git" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="first">
-                        <tasks>
-                            <exec command="echo" args="hello"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="pipeline-for-job-rerun-run-multiple-instance">
-            <materials>
-                <git url="$git-on-pipeline-with-3-jobs" materialName="git" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-            	<approval type="manual"/>
-                <jobs>
-                    <job name="first">
-                        <tasks>
-                            <exec command="/bin/sh">
-                            	<arg>-c</arg>
-                            	<arg>echo</arg>
-                            	<arg>Job Run Count: </arg>
-                            	<arg>$GO_JOB_RUN_COUNT</arg>
-                            	<arg> Job Run Index: </arg>
-                            	<arg>$GO_JOB_RUN_INDEX</arg>
-                            	<runif status="passed"/>
-                            </exec>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="pipeline-with-all-materials">
-            <materials>
-                <git url="$giturl" materialName="modifiable_git" dest="git-mod" autoUpdate="false"/>
-                <git url="$giturl1" materialName="name-with-hyphen" dest="name-with-hyphen" autoUpdate="false"/>
-                <hg url="hg-url-pipeline-with-all-materials" dest="hg" autoUpdate="false"/>
-                <git url="git-url-pipeline-with-all-materials" dest="git" autoUpdate="false"/>
-                <git url="git-url-pipeline-with-all-materials-submodule" dest="git-submodule" autoUpdate="false"/>
-                <svn url="svn-url-pipeline-with-all-materials" dest="svn" autoUpdate="false"/>
-                <svn url="svn-url-pipeline-with-all-materials-external" dest="svn-external" checkexternals="true" autoUpdate="false"/>
-                <p4 port="localhost:1666" useTickets="true" dest="p4" autoUpdate="false">
-                    <view>//depot/... //p4test_1/...</view>
-                </p4>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="pipeline-with-all-materials-job">
-                        <tasks>
-                            <ant target="longsleep" workingdir="hg/dev"/>
-                        </tasks>
-
-                        <artifacts>
-                            <artifact type="build" src="hg/dev/nant.build" dest="hg-artifact"/>
-                            <artifact type="build" src="git/first.txt" dest="git-artifact"/>
-                            <artifact type="build" src="svn/build.xml" dest="svn-artifact"/>
-                            <artifact type="build" src="p4/README.txt,v" dest="p4-artifact"/>
-                        </artifacts>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="pipeline-with-all-materials-downstream">
-            <materials>
-                <hg url="$hgurl-pipeline-with-all-materials-downstream" autoUpdate="false"/>
-                <pipeline pipelineName="pipeline-with-all-materials" stageName="defaultStage"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="pipeline-with-all-materials-downstream-job">
-                        <tasks>
-                            <ant target="longsleep" workingdir="dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="pipeline_uploading_large_artifact">
-      		<materials>
-        		<git url="$giturl" autoUpdate="false"/>
-      		</materials>
-      		<stage name="defaultStage">
-      			<approval type="manual"/>
-        		<jobs>
-          			<job name="defaultJob">
-            			<tasks>
-              				<exec command="/bin/sh">
-              					<arg>-c</arg>
-              					<arg>dd if=/dev/urandom of=bigfile bs=1M count=15</arg>
-              				</exec>
-            			</tasks>
-            			<artifacts>
-              				<artifact type="build" src="bigfile"/>
-            			</artifacts>
-          			</job>
-        		</jobs>
-      		</stage>
-    	</pipeline>
-
-    	<pipeline name="pipeline_downloading_large_artifact">
-      		<materials>
-        		<pipeline pipelineName="pipeline_uploading_large_artifact" stageName="defaultStage"/>
-      		</materials>
-      		<stage name="defaultStage">
-      			<approval type="manual"/>
-        		<jobs>
-          			<job name="defaultJob">
-            			<tasks>
-            				<fetchartifact artifactOrigin="gocd" pipeline="pipeline_uploading_large_artifact" stage="defaultStage" job="defaultJob" srcfile="bigfile"/>
-            			</tasks>
-          			</job>
-        		</jobs>
-      		</stage>
-    	</pipeline>
-
-        <pipeline name="junit-failures">
-            <materials>
-                <hg url="$hgurl-junit-failures" materialName="junit-failures-material" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="fail" workingdir="dev"/>
-                        </tasks>
-                        <artifacts>
-                            <artifact type="test" src="junit-output" dest="junit"/>
-                        </artifacts>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="junit-tests">
-            <materials>
-                <hg url="$hgurl-junit-tests" materialName="junit-tests-material" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="run-till-file-exists" workingdir="dev"/>
-                        </tasks>
-                        <artifacts>
-                            <artifact type="test" src="junit-output" dest="junit"/>
-                        </artifacts>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-        <pipeline name="shine-message">
-            <materials>
-                <hg url="$hgurl-shine-message" materialName="shine-message-material" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="shine-message-job">
-                        <tasks>
-                            <ant target="longsleep" workingdir="dev"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="p4-pipeline">
-            <materials>
-                <p4 port="localhost:1666" useTickets="true" dest="p4" autoUpdate="false" materialName="p4">
-                    <view>//depot/... //p4test_1/...</view>
-                </p4>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="whitelist_pipeline">
-            <materials>
-                <hg url="$hgurl-whitelist-pipeline-with-filter" dest="hg" autoUpdate="true" materialName="hg">
-                    <filter>
-                        <ignore pattern="*.txt"/>
-                    </filter>
-                </hg>
-                <svn url="svn-url-whitelist-pipeline" dest="svn" autoUpdate="true" materialName="svn">
-                    <filter>
-                        <ignore pattern="*.txt"/>
-                    </filter>
-                </svn>
-                <git url="$git-on-whitelist-pipeline" dest="git" autoUpdate="true" materialName="git">
-                    <filter>
-                        <ignore pattern="*.txt"/>
-                    </filter>
-                </git>
-            </materials>
-            <stage name="first_stage">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls">
-                                <runif status="passed"/>
-                            </exec>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-    </pipelines>
-    <pipelines group="dependency-group">
-
-        <!--Pipelines with auto stage to test Dependency Resolution-->
-        <pipeline name="autoFirst" template="autoStagePipelineTemplate">
-            <materials>
-                <hg url="$hgurl-autoFirst" materialName="hg-first">
-                    <filter>
-                        <ignore pattern="*.oneignore"/>
-                        <ignore pattern="*.twoignore"/>
-                    </filter>
-                </hg>
-            </materials>
-        </pipeline>
-        <pipeline name="child-of-autoFirst" template="autoStagePipelineTemplate">
-            <materials>
-                <hg url="$hgurl-child-of-autoFirst" materialName="hg-first" dest="hgfolder">
-                    <filter>
-                        <ignore pattern="*.twoignore"/>
-                    </filter>
-                </hg>
-                <pipeline pipelineName="autoFirst" stageName="defaultStage"/>
-            </materials>
-        </pipeline>
-        <pipeline name="grandchild-of-autoFirst" template="autoStagePipelineTemplate">
-            <materials>
-                <hg url="$hgurl-grandchild-of-autoFirst" materialName="hg-first" dest="hgfolder"/>
-                <pipeline pipelineName="child-of-autoFirst" stageName="defaultStage"/>
-            </materials>
-        </pipeline>
-        <!--Pipelines with manual stage to test Dependency Resolution-->
-
-        <pipeline name="first" template="dependency-pipeline-template">
-            <materials>
-                <hg url="$hgurl-same" materialName="hg-first" autoUpdate="true"/>
-            </materials>
-        </pipeline>
-
-        <pipeline name="child-of-first" template="dependency-pipeline-template">
-            <materials>
-                <hg url="$hgurl-same" materialName="hg-child-of-first" autoUpdate="true"/>
-                <pipeline pipelineName="first" stageName="defaultStage"/>
-            </materials>
-        </pipeline>
-
-        <pipeline name="grandchild-of-first" template="dependency-pipeline-template">
-            <materials>
-                <hg url="$hgurl-same" materialName="hg-grandchild-of-first" autoUpdate="true"/>
-                <pipeline pipelineName="child-of-first" stageName="defaultStage"/>
-                <pipeline pipelineName="first" stageName="defaultStage"/>
-            </materials>
-        </pipeline>
-        <pipeline name="second" template="dependency-pipeline-template">
-            <materials>
-                <git url="$git-second" materialName="git-second" autoUpdate="true"/>
-            </materials>
-        </pipeline>
-        <pipeline name="third" template="dependency-pipeline-template">
-            <materials>
-                <pipeline pipelineName="first" stageName="defaultStage"/>
-                <pipeline pipelineName="second" stageName="defaultStage"/>
-                <svn url="$svn-same" materialName="svn-third" autoUpdate="true"/>
-            </materials>
-        </pipeline>
-        <pipeline name="fourth" template="dependency-pipeline-template">
-            <materials>
-                <hg url="$hgurl-four" materialName="hg-first" autoUpdate="true"/>
-            </materials>
-        </pipeline>
-        <pipeline name="fifth" template="dependency-pipeline-template">
-            <materials>
-                <pipeline pipelineName="fourth" stageName="defaultStage"/>
-            </materials>
-        </pipeline>
-        <pipeline name="sixth" template="dependency-pipeline-template">
-            <materials>
-                <pipeline pipelineName="fifth" stageName="defaultStage"/>
-            </materials>
-        </pipeline>
-        <pipeline name="another-sixth">
-            <materials>
-                <pipeline pipelineName="fourth" stageName="defaultStage"/>
-                <pipeline pipelineName="fifth" stageName="defaultStage"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="job-of-last">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="another-sixth-manual">
-            <materials>
-                <pipeline pipelineName="fourth" stageName="defaultStage"/>
-                <pipeline pipelineName="fifth" stageName="defaultStage"/>
-            </materials>
-            <stage name="defaultStage">
-            <approval type="manual"/>
-                <jobs>
-                    <job name="job-of-last">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="last-sixth">
-            <materials>
-                <pipeline pipelineName="fourth" stageName="defaultStage"/>
-                <pipeline pipelineName="sixth" stageName="defaultStage"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="job-of-last">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="last">
-            <materials>
-                <pipeline pipelineName="second" stageName="defaultStage"/>
-                <pipeline pipelineName="third" stageName="defaultStage"/>
-                <hg url="$hgurl-same" materialName="hg-last" dest="hg-folder" autoUpdate="true">
-                    <filter>
-                        <ignore pattern="**/*.ignore"/>
-                    </filter>
-                </hg>
-                <svn url="$svn-same" materialName="svn-last" dest="svn-folder" autoUpdate="true">
-                    <filter>
-                        <ignore pattern="**/*.ignore"/>
-                    </filter>
-                </svn>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="job-of-last">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="seventh" template="autoStagePipelineTemplate">
-            <materials>
-                <hg url="$hgurl-four" materialName="hg-first" autoUpdate="true"/>
-            </materials>
-        </pipeline>
-        <pipeline name="eigth" template="autoStagePipelineTemplate">
-            <materials>
-                <pipeline pipelineName="seventh" stageName="defaultStage"/>
-                <hg url="$hgurl-four" materialName="hg-first" autoUpdate="true"/>
-            </materials>
-        </pipeline>
-        <!-- d stands for diamond -->
-        <pipeline name="d-up-left" template="dependency-pipeline-template">
-            <materials>
-                <git url="$git-second" materialName="git-second" autoUpdate="true"/>
-            </materials>
-        </pipeline>
-        <pipeline name="d-up-right" template="dependency-pipeline-template">
-            <materials>
-                <git url="$git-second" materialName="git-second" autoUpdate="true"/>
-            </materials>
-        </pipeline>
-        <pipeline name="d-down" template="autoStagePipelineTemplate">
-            <materials>
-                <pipeline pipelineName="d-up-left" stageName="defaultStage"/>
-                <pipeline pipelineName="d-up-right" stageName="defaultStage"/>
-                <git url="$git-second" materialName="git-second" autoUpdate="true"/>
-            </materials>
-        </pipeline>
-    </pipelines>
-	<pipelines group="artifact_md5_verification">
-		<pipeline name="artifact-md5-up">
-			<materials>
-                <hg url="$hgurl-junit-failures" materialName="junit-failures-material" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                        <artifacts>
-                            <artifact type="build" src="abc.txt"/>
-                            <artifact type="build" src="baz"/>
-                        </artifacts>
-                    </job>
-                </jobs>
-            </stage>
-            <stage name="secondStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                        	 <fetchartifact artifactOrigin="gocd" stage="defaultStage" job="defaultJob" srcfile="abc.txt" dest="xyz.txt"/>
-                        	 <fetchartifact artifactOrigin="gocd" stage="defaultStage" job="defaultJob" srcdir="baz" dest="foo/bar"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="artifact-md5-skip">
-			<materials>
-                <hg url="$hgurl-junit-failures" materialName="junit-failures-material" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob"/>
-                </jobs>
-            </stage>
-            <stage name="secondStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                        	 <fetchartifact artifactOrigin="gocd" stage="defaultStage" job="defaultJob" srcfile="new_artifact.txt"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="artifact-md5-mismatch">
-			<materials>
-                <hg url="$hgurl-junit-failures" materialName="junit-failures-material" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                    	<artifacts>
-                            <artifact type="build" src="new_artifact.txt"/>
-                        </artifacts>
-                    </job>
-                </jobs>
-            </stage>
-            <stage name="secondStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                        	 <fetchartifact artifactOrigin="gocd" stage="defaultStage" job="defaultJob" srcfile="new_artifact.txt"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-	</pipelines>
-    <pipelines group="params_group">
-        <pipeline name="basic-params-pipeline">
-            <params>
-                <param name="command">echo</param>
-            </params>
-            <materials>
-                <hg url="$hgurl-param" dest="hg" materialName="hg-param-material"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="#{command}" args="Hello World via #{command}"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="complex-params-pipeline" labeltemplate="#{NUMBER}-label-${COUNT}">
-            <params>
-                <param name="NUMBER">2.1</param>
-                <param name="STRING">param_string</param>
-                <param name="URL">http://www.someurl.local</param>
-                <param name="COMMAND">echo</param>
-                <param name="TIMER">0 0 22 ? * MON-FRI</param>
-            </params>
-            <trackingtool link="#{URL}/mingle/${ID}" regex="#{STRING}"/>
-            <timer>#{TIMER}</timer>
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo JOB_LEVEL_VARIABLE=$JOB_LEVEL_VARIABLE.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.
+                </arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo
+                  PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_JOB_ONLY.
+                </arg>
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="secondStage">
+        <environmentvariables>
+          <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE">
+            <value>secondstage-overrides-env</value>
+          </variable>
+          <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE">
+            <value>secondstage-overrides-pipeline</value>
+          </variable>
+        </environmentvariables>
+        <jobs>
+          <job name="job">
             <environmentvariables>
-                <variable name="ENV_#{STRING}"><value>VALUE_#{STRING}</value></variable>
+              <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+                <value>second-job-overrides-env</value>
+              </variable>
+              <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+                <value>second-job-overrides-pipeline</value>
+              </variable>
             </environmentvariables>
-            <materials>
-                <svn url="#{URL}" dest="#{STRING}1" username="#{STRING}" password="#{STRING}" materialName="param-svn-material"/>
-                <git url="#{URL}" dest="#{STRING}2" branch="#{STRING}" materialName="param-git-material"/>
-                <hg url="#{URL}" dest="#{STRING}3" materialName="param-hg-material">
-                    <filter>
-                        <ignore pattern="#{STRING}"/>
-                    </filter>
-                </hg>
-            </materials>
-            <stage name="firstStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="firstJob">
-                        <tasks>
-                            <exec command="#{COMMAND}" args="#{STRING}"/>
-                        </tasks>
-                        <resources>
-                            <resource>#{STRING}</resource>
-                        </resources>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="template-params-pipeline-trunk" template="template-with-param">
-        	<params>
-                <param name="WORKING_DIR">trunk-dir</param>
-            </params>
- 			<materials>
-                <hg url="$hgurl" materialName="hg-trunk"/>
-            </materials>
-        </pipeline>
-        <pipeline name="template-params-pipeline-branch" template="template-with-param">
-        	<params>
-                <param name="WORKING_DIR">branch-dir</param>
-            </params>
- 			<materials>
-                <hg url="$hgurl" materialName="hg-branch"/>
-            </materials>
-        </pipeline>
-    </pipelines>
-    <pipelines group="tfs_group">
-     	<pipeline name="basic-tfs-pipeline">
-            <materials>
-                  <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_1" dest="new_dir" materialName="tfs_mat" autoUpdate="false">
-                  <filter>
-                        <ignore pattern="*.ignore.txt"/>
-                        <ignore pattern="$/for_twist_tests_1/Folder with space/*"/>
-                    </filter>
-                  </tfs>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob" runOnAllAgents="true">
-                        <tasks>
-                            <exec command="echo" args="Hello World"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-		<pipeline name="tfs-pipeline-with-duplicate-materials">
-            <materials>
-                  <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_2" dest="new_dir_1" materialName="tfs_mat_1" autoUpdate="false"/>
-				  <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/for_twist_tests_2" dest="new_dir_2" materialName="tfs_mat_2" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="dir" args="new_dir_1"/>
-							<exec command="dir" args="new_dir_2"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-    </pipelines>
+            <tasks>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE.
+                </arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB.</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo
+                  PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY=$PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_ONE_STAGE_ONLY.
+                </arg>
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-    <pipelines group="fetch-artifact-from-ancestor-group">
-      <pipeline name="uppest_pipeline">
+
+    <pipeline name="basic-pipeline-with-filter">
+      <materials>
+        <hg url="$hgurl-basic-pipeline-with-filter" dest="hg" materialName="hg" autoUpdate="false">
+          <filter>
+            <ignore pattern="*.ignore"/>
+          </filter>
+        </hg>
+        <svn url="svn-url-svn-pipeline" dest="svn" materialName="svn" autoUpdate="false">
+          <filter>
+            <ignore pattern="*.ignore"/>
+          </filter>
+        </svn>
+        <git url="$git-on-git-pipeline" dest="git" materialName="git" autoUpdate="false">
+          <filter>
+            <ignore pattern="*.ignore"/>
+          </filter>
+        </git>
+        <p4 port="localhost:1666" useTickets="true" dest="p4" materialName="p4" autoUpdate="false">
+          <view>//depot/... //p4test_1/...</view>
+          <filter>
+            <ignore pattern="*.ignore"/>
+          </filter>
+        </p4>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+
+    <pipeline name="nant-pipeline">
+      <materials>
+        <hg url="$hgurl-nant-pipeline" dest="hg" materialName="nant-hg-material" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <nant buildfile="nant.build" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+
+    <pipeline name="basic-svn-pipeline">
+      <materials>
+        <svn url="svn-url-basic-svn-pipeline" dest="svn" materialName="svn" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="basic-svn-pipeline-job">
+            <tasks>
+              <ant workingdir="svn"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="svn-postcommithook-pipeline">
+      <materials>
+        <svn url="svn-url-basic-svn-pipeline" dest="svn" materialName="svn" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="another-svn-postcommithook-pipeline">
+      <materials>
+        <svn url="svn-url-basic-svn-pipeline" dest="svn" materialName="svn" autoUpdate="false"/>
+        <svn url="svn-url-svn-pipeline" dest="svn-2" materialName="svn-2" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="svn-pipeline">
+      <materials>
+        <svn url="svn-url-svn-pipeline" dest="svn" materialName="svn" autoUpdate="false"/>
+        <hg url="$hgurl-svn-pipeline" dest="hg" materialName="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="svn-pipeline-job">
+            <tasks>
+              <ant workingdir="svn"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="svn-pipeline-with-external">
+      <materials>
+        <svn url="svn-url-svn-pipeline-with-external" dest="svn-external" materialName="svn-external"
+             checkexternals="true" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="svn-pipeline-with-external-job">
+            <tasks>
+              <ant workingdir="svn-external"/>
+              <ant target="longsleep" workingdir="svn-external"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="basic-pipeline-slow">
+      <materials>
+        <hg url="$hgurl-basic-pipeline-slow" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="sleep60" workingdir="hg/dev">
+                <oncancel/>
+              </ant>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="basic-pipeline-run-till-file-exists">
+      <materials>
+        <hg url="$hgurl-basic-pipeline-run-till-file-exists" dest="hg" autoUpdate="false" materialName="hg-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="basic-pipeline-run-till-file-exists-job">
+            <tasks>
+              <ant target="run.till.file.exists" workingdir="hg/dev">
+                <oncancel/>
+              </ant>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+
+    <pipeline name="multiple-same-materials">
+      <materials>
+        <hg url="$hgurl-multiple-same-materials" dest="first" materialName="first-material"/>
+        <hg url="$hgurl-multiple-same-materials" dest="second"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="job">
+            <tasks>
+              <ant target="run.till.file.exists" workingdir="first/dev">
+                <oncancel/>
+              </ant>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="multiple-materials-pipeline-run-till-file-exists">
+      <materials>
+        <hg url="$hgurl-multiple-materials-pipeline-run-till-file-exists" dest="hg" autoUpdate="false"
+            materialName="hg-material"/>
+        <svn url="$svnurl-multiple-materials-pipeline-run-till-file-exists" dest="svn" autoUpdate="false"
+             materialName="svn-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="run.till.file.exists" workingdir="hg/dev">
+                <oncancel/>
+              </ant>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="remote-pipeline">
+      <materials>
+        <hg url="$hgurl-remote-pipeline" dest="hg-remote" autoUpdate="false" materialName="hg-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="basic-pipeline-fast">
+      <materials>
+        <hg url="$hgurl-basic-pipeline-fast" dest="hg" autoUpdate="false" materialName="basic_hg_material"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="simple-pipeline">
+      <params>
+        <param name="name">value</param>
+      </params>
+      <environmentvariables>
+        <variable name="NAME">
+          <value>hucha_raghuveer</value>
+        </variable>
+      </environmentvariables>
+
+      <materials>
+        <hg url="$hgurl-simple-pipeline" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="first">
+        <approval type="manual"/>
+        <environmentvariables>
+          <variable name="STAGE_LEVEL_VARIABLE">
+            <value>stage</value>
+          </variable>
+          <variable name="PARAM_VALUE_ENV_VAR">
+            <value>#{name}</value>
+          </variable>
+        </environmentvariables>
+        <jobs>
+          <job name="job">
+            <environmentvariables>
+              <variable name="JOB_LEVEL_VARIABLE">
+                <value>job</value>
+              </variable>
+            </environmentvariables>
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="basic-pipeline-fast-with-job-properties">
+      <materials>
+        <hg url="$hgurl-basic-pipeline-fast-with-job-properties" autoUpdate="false"
+            materialName="materialWithJobProperties"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="pipeline-ls">
+      <materials>
+        <hg url="$hgurl-pipeline-ls" dest="hg" autoUpdate="false" materialName="pipeline-ls-hg"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="pipeline-with-wierd-command">
+      <params>
+        <param name="wierd-command">some_command_that_can_never_ever_exist</param>
+      </params>
+      <materials>
+        <hg url="$hgurl-pipeline-ls" dest="hg" autoUpdate="false" materialName="pipeline-ls-hg"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="#{wierd-command}_with_tail"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="mingle-config-parent" labeltemplate="hello-world-${COUNT}">
+      <materials>
+        <svn url="svn-url-mingle-config-parent" dest="svn" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="two-stage-pipeline-with-mingle-config">
+      <trackingtool link="https://github.com/bob/my-project/issues/${ID}" regex="##(\d+)"/>
+      <materials>
+        <hg url="$hgurl-pipeline-with-mingle-config" dest="hg" autoUpdate="false" materialName="pipeline-hg"/>
+        <git url="$giturl-pipeline-with-mingle-config" dest="git" materialName="pipeline-git"/>
+        <pipeline pipelineName="mingle-config-parent" stageName="defaultStage"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+
+    <pipeline name="pipeline-with-mingle-config">
+      <trackingtool link="https://github.com/bob/my-project/issues/${ID}" regex="##(\d+)"/>
+      <materials>
+        <hg url="$hgurl-pipeline-with-mingle-config" dest="hg" autoUpdate="false" materialName="pipeline-hg"/>
+        <git url="$giturl-pipeline-with-mingle-config" dest="git" materialName="pipeline-git"/>
+        <pipeline pipelineName="mingle-config-parent" stageName="defaultStage"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="secondStage">
+
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+            <resources>
+              <resource>some_resource_that_does_not_exist</resource>
+            </resources>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="basic-auto-pipeline">
+      <materials>
+        <git url="$git-on-basic-auto-pipeline" dest="git" materialName="git"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+
+    <pipeline name="pipeline.with.runif">
+      <materials>
+        <hg url="$hgurl-pipeline-with-runif" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="default.stage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="job.with.runif">
+            <tasks>
+              <ant target="fail" workingdir="hg/dev"/>
+              <ant target="sleep30" workingdir="hg/dev">
+                <runif status="passed"/>
+              </ant>
+              <ant target="sleep" workingdir="hg/dev">
+                <runif status="failed"/>
+              </ant>
+              <ant target="echo_message" workingdir="hg/dev">
+                <runif status="any"/>
+              </ant>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="basic-pipeline-fail">
+      <materials>
+        <hg url="$hgurl-basic-pipeline-fail" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="fail" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="downstream-pipeline">
+      <materials>
+        <pipeline pipelineName="basic-pipeline-fast" stageName="defaultStage" materialName="upstream-material"/>
+        <hg url="$hgurl-downstream-pipeline" dest="hg" materialName="downstream-hg-material">
+          <filter>
+            <ignore pattern="**/*"/>
+          </filter>
+        </hg>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="success"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="child-of-basic-pipeline-fast">
+      <materials>
+        <pipeline pipelineName="basic-pipeline-fast" stageName="defaultStage" materialName="upstream-material"/>
+      </materials>
+      <stage name="stage1">
+        <approval type="success"/>
+        <jobs>
+          <job name="job1">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="stage2">
+        <approval type="success"/>
+        <jobs>
+          <job name="job2">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="manual-downstream-pipeline">
+      <materials>
+        <pipeline pipelineName="basic-pipeline-fast" stageName="defaultStage" materialName="upstream-material"/>
+        <hg url="$hgurl-manual-downstream-pipeline" dest="hg" materialName="downstream-hg-material" autoUpdate="false">
+          <filter>
+            <ignore pattern="**/*"/>
+          </filter>
+        </hg>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="process-tree">
+      <materials>
+        <hg url="$hgurl-process-tree" dest="hg" materialName="process-tree-material" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <rake target="fork" buildfile="hg/fork_self.rake"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+
+    <pipeline name="pipeline-with-lock" lockBehavior="lockOnFailure">
+      <materials>
+        <hg url="$hgurl-pipeline-with-lock" dest="hg" materialName="pipeline-with-lock-material" autoUpdate="false"/>
+      </materials>
+      <stage name="stage-1">
+        <approval type="manual"/>
+        <jobs>
+          <job name="fast">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="stage-2">
+        <jobs>
+          <job name="long">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="pipeline-with-lock-all-manual" lockBehavior="lockOnFailure">
+      <materials>
+        <hg url="$hgurl-basic-pipeline-run-till-file-exists" dest="hg" autoUpdate="false" materialName="hg-material"/>
+      </materials>
+      <stage name="stage-1">
+        <approval type="manual"/>
+        <jobs>
+          <job name="basic-pipeline-run-till-file-exists-job">
+            <tasks>
+              <ant target="run.till.file.exists" workingdir="hg/dev">
+                <oncancel/>
+              </ant>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="stage-2">
+        <approval type="manual"/>
+        <jobs>
+          <job name="basic-pipeline-run-till-file-exists-job">
+            <tasks>
+              <ant target="run.till.file.exists" workingdir="hg/dev">
+                <oncancel/>
+              </ant>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="basic-environment-pipeline">
+      <materials>
+        <hg url="$hgurl-basic-environment-pipeline" dest="hg" autoUpdate="false" materialName="hg-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="environment-pipeline">
+      <materials>
+        <hg url="$hgurl-environment-pipeline" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="short">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="second">
+        <approval type="manual"/>
+        <jobs>
+          <job name="long">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="git-pipeline">
+      <materials>
+        <git url="$git-on-git-pipeline" materialName="git-submodule" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="run-till-file-exists"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="pipeline-with-3-jobs">
+      <materials>
+        <git url="$git-on-pipeline-with-3-jobs" materialName="git" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="first">
+            <tasks>
+              <ant target="run-till-file-exists"/>
+            </tasks>
+          </job>
+          <job name="second">
+            <tasks>
+              <ant target="a-target-that-does-not-exist"/>
+            </tasks>
+          </job>
+          <job name="third">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="pipeline-for-job-rerun-run-on-all">
+      <materials>
+        <git url="$git-on-pipeline-with-3-jobs" materialName="git" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="first">
+            <tasks>
+              <exec command="echo" args="hello"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="pipeline-for-job-rerun-run-multiple-instance">
+      <materials>
+        <git url="$git-on-pipeline-with-3-jobs" materialName="git" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="first">
+            <tasks>
+              <exec command="/bin/sh">
+                <arg>-c</arg>
+                <arg>echo</arg>
+                <arg>Job Run Count:</arg>
+                <arg>$GO_JOB_RUN_COUNT</arg>
+                <arg>Job Run Index:</arg>
+                <arg>$GO_JOB_RUN_INDEX</arg>
+                <runif status="passed"/>
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="pipeline-with-all-materials">
+      <materials>
+        <git url="$giturl" materialName="modifiable_git" dest="git-mod" autoUpdate="false"/>
+        <git url="$giturl1" materialName="name-with-hyphen" dest="name-with-hyphen" autoUpdate="false"/>
+        <hg url="hg-url-pipeline-with-all-materials" dest="hg" autoUpdate="false"/>
+        <git url="git-url-pipeline-with-all-materials" dest="git" autoUpdate="false"/>
+        <git url="git-url-pipeline-with-all-materials-submodule" dest="git-submodule" autoUpdate="false"/>
+        <svn url="svn-url-pipeline-with-all-materials" dest="svn" autoUpdate="false"/>
+        <svn url="svn-url-pipeline-with-all-materials-external" dest="svn-external" checkexternals="true"
+             autoUpdate="false"/>
+        <p4 port="localhost:1666" useTickets="true" dest="p4" autoUpdate="false">
+          <view>//depot/... //p4test_1/...</view>
+        </p4>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="pipeline-with-all-materials-job">
+            <tasks>
+              <ant target="longsleep" workingdir="hg/dev"/>
+            </tasks>
+
+            <artifacts>
+              <artifact type="build" src="hg/dev/nant.build" dest="hg-artifact"/>
+              <artifact type="build" src="git/first.txt" dest="git-artifact"/>
+              <artifact type="build" src="svn/build.xml" dest="svn-artifact"/>
+              <artifact type="build" src="p4/README.txt,v" dest="p4-artifact"/>
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="pipeline-with-all-materials-downstream">
+      <materials>
+        <hg url="$hgurl-pipeline-with-all-materials-downstream" autoUpdate="false"/>
+        <pipeline pipelineName="pipeline-with-all-materials" stageName="defaultStage"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="pipeline-with-all-materials-downstream-job">
+            <tasks>
+              <ant target="longsleep" workingdir="dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="pipeline_uploading_large_artifact">
+      <materials>
+        <git url="$giturl" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="/bin/sh">
+                <arg>-c</arg>
+                <arg>dd if=/dev/urandom of=bigfile bs=1M count=15</arg>
+              </exec>
+            </tasks>
+            <artifacts>
+              <artifact type="build" src="bigfile"/>
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="pipeline_downloading_large_artifact">
+      <materials>
+        <pipeline pipelineName="pipeline_uploading_large_artifact" stageName="defaultStage"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <fetchartifact artifactOrigin="gocd" pipeline="pipeline_uploading_large_artifact" stage="defaultStage"
+                             job="defaultJob" srcfile="bigfile"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="junit-failures">
+      <materials>
+        <hg url="$hgurl-junit-failures" materialName="junit-failures-material" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="fail" workingdir="dev"/>
+            </tasks>
+            <artifacts>
+              <artifact type="test" src="junit-output" dest="junit"/>
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="junit-tests">
+      <materials>
+        <hg url="$hgurl-junit-tests" materialName="junit-tests-material" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="run-till-file-exists" workingdir="dev"/>
+            </tasks>
+            <artifacts>
+              <artifact type="test" src="junit-output" dest="junit"/>
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+    <pipeline name="shine-message">
+      <materials>
+        <hg url="$hgurl-shine-message" materialName="shine-message-material" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="shine-message-job">
+            <tasks>
+              <ant target="longsleep" workingdir="dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="p4-pipeline">
+      <materials>
+        <p4 port="localhost:1666" useTickets="true" dest="p4" autoUpdate="false" materialName="p4">
+          <view>//depot/... //p4test_1/...</view>
+        </p4>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="whitelist_pipeline">
+      <materials>
+        <hg url="$hgurl-whitelist-pipeline-with-filter" dest="hg" autoUpdate="true" materialName="hg">
+          <filter>
+            <ignore pattern="*.txt"/>
+          </filter>
+        </hg>
+        <svn url="svn-url-whitelist-pipeline" dest="svn" autoUpdate="true" materialName="svn">
+          <filter>
+            <ignore pattern="*.txt"/>
+          </filter>
+        </svn>
+        <git url="$git-on-whitelist-pipeline" dest="git" autoUpdate="true" materialName="git">
+          <filter>
+            <ignore pattern="*.txt"/>
+          </filter>
+        </git>
+      </materials>
+      <stage name="first_stage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls">
+                <runif status="passed"/>
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+  <pipelines group="dependency-group">
+
+    <!--Pipelines with auto stage to test Dependency Resolution-->
+    <pipeline name="autoFirst" template="autoStagePipelineTemplate">
+      <materials>
+        <hg url="$hgurl-autoFirst" materialName="hg-first">
+          <filter>
+            <ignore pattern="*.oneignore"/>
+            <ignore pattern="*.twoignore"/>
+          </filter>
+        </hg>
+      </materials>
+    </pipeline>
+    <pipeline name="child-of-autoFirst" template="autoStagePipelineTemplate">
+      <materials>
+        <hg url="$hgurl-child-of-autoFirst" materialName="hg-first" dest="hgfolder">
+          <filter>
+            <ignore pattern="*.twoignore"/>
+          </filter>
+        </hg>
+        <pipeline pipelineName="autoFirst" stageName="defaultStage"/>
+      </materials>
+    </pipeline>
+    <pipeline name="grandchild-of-autoFirst" template="autoStagePipelineTemplate">
+      <materials>
+        <hg url="$hgurl-grandchild-of-autoFirst" materialName="hg-first" dest="hgfolder"/>
+        <pipeline pipelineName="child-of-autoFirst" stageName="defaultStage"/>
+      </materials>
+    </pipeline>
+    <!--Pipelines with manual stage to test Dependency Resolution-->
+
+    <pipeline name="first" template="dependency-pipeline-template">
+      <materials>
+        <hg url="$hgurl-same" materialName="hg-first" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+
+    <pipeline name="child-of-first" template="dependency-pipeline-template">
+      <materials>
+        <hg url="$hgurl-same" materialName="hg-child-of-first" autoUpdate="true"/>
+        <pipeline pipelineName="first" stageName="defaultStage"/>
+      </materials>
+    </pipeline>
+
+    <pipeline name="grandchild-of-first" template="dependency-pipeline-template">
+      <materials>
+        <hg url="$hgurl-same" materialName="hg-grandchild-of-first" autoUpdate="true"/>
+        <pipeline pipelineName="child-of-first" stageName="defaultStage"/>
+        <pipeline pipelineName="first" stageName="defaultStage"/>
+      </materials>
+    </pipeline>
+    <pipeline name="second" template="dependency-pipeline-template">
+      <materials>
+        <git url="$git-second" materialName="git-second" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+    <pipeline name="third" template="dependency-pipeline-template">
+      <materials>
+        <pipeline pipelineName="first" stageName="defaultStage"/>
+        <pipeline pipelineName="second" stageName="defaultStage"/>
+        <svn url="$svn-same" materialName="svn-third" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+    <pipeline name="fourth" template="dependency-pipeline-template">
+      <materials>
+        <hg url="$hgurl-four" materialName="hg-first" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+    <pipeline name="fifth" template="dependency-pipeline-template">
+      <materials>
+        <pipeline pipelineName="fourth" stageName="defaultStage"/>
+      </materials>
+    </pipeline>
+    <pipeline name="sixth" template="dependency-pipeline-template">
+      <materials>
+        <pipeline pipelineName="fifth" stageName="defaultStage"/>
+      </materials>
+    </pipeline>
+    <pipeline name="another-sixth">
+      <materials>
+        <pipeline pipelineName="fourth" stageName="defaultStage"/>
+        <pipeline pipelineName="fifth" stageName="defaultStage"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="job-of-last">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="another-sixth-manual">
+      <materials>
+        <pipeline pipelineName="fourth" stageName="defaultStage"/>
+        <pipeline pipelineName="fifth" stageName="defaultStage"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="job-of-last">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="last-sixth">
+      <materials>
+        <pipeline pipelineName="fourth" stageName="defaultStage"/>
+        <pipeline pipelineName="sixth" stageName="defaultStage"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="job-of-last">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="last">
+      <materials>
+        <pipeline pipelineName="second" stageName="defaultStage"/>
+        <pipeline pipelineName="third" stageName="defaultStage"/>
+        <hg url="$hgurl-same" materialName="hg-last" dest="hg-folder" autoUpdate="true">
+          <filter>
+            <ignore pattern="**/*.ignore"/>
+          </filter>
+        </hg>
+        <svn url="$svn-same" materialName="svn-last" dest="svn-folder" autoUpdate="true">
+          <filter>
+            <ignore pattern="**/*.ignore"/>
+          </filter>
+        </svn>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="job-of-last">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="seventh" template="autoStagePipelineTemplate">
+      <materials>
+        <hg url="$hgurl-four" materialName="hg-first" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+    <pipeline name="eigth" template="autoStagePipelineTemplate">
+      <materials>
+        <pipeline pipelineName="seventh" stageName="defaultStage"/>
+        <hg url="$hgurl-four" materialName="hg-first" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+    <!-- d stands for diamond -->
+    <pipeline name="d-up-left" template="dependency-pipeline-template">
+      <materials>
+        <git url="$git-second" materialName="git-second" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+    <pipeline name="d-up-right" template="dependency-pipeline-template">
+      <materials>
+        <git url="$git-second" materialName="git-second" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+    <pipeline name="d-down" template="autoStagePipelineTemplate">
+      <materials>
+        <pipeline pipelineName="d-up-left" stageName="defaultStage"/>
+        <pipeline pipelineName="d-up-right" stageName="defaultStage"/>
+        <git url="$git-second" materialName="git-second" autoUpdate="true"/>
+      </materials>
+    </pipeline>
+  </pipelines>
+  <pipelines group="artifact_md5_verification">
+    <pipeline name="artifact-md5-up">
+      <materials>
+        <hg url="$hgurl-junit-failures" materialName="junit-failures-material" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <artifacts>
+              <artifact type="build" src="abc.txt"/>
+              <artifact type="build" src="baz"/>
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="secondStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <fetchartifact artifactOrigin="gocd" stage="defaultStage" job="defaultJob" srcfile="abc.txt"
+                             dest="xyz.txt"/>
+              <fetchartifact artifactOrigin="gocd" stage="defaultStage" job="defaultJob" srcdir="baz" dest="foo/bar"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="artifact-md5-skip">
+      <materials>
+        <hg url="$hgurl-junit-failures" materialName="junit-failures-material" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob"/>
+        </jobs>
+      </stage>
+      <stage name="secondStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <fetchartifact artifactOrigin="gocd" stage="defaultStage" job="defaultJob" srcfile="new_artifact.txt"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="artifact-md5-mismatch">
+      <materials>
+        <hg url="$hgurl-junit-failures" materialName="junit-failures-material" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <artifacts>
+              <artifact type="build" src="new_artifact.txt"/>
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="secondStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <fetchartifact artifactOrigin="gocd" stage="defaultStage" job="defaultJob" srcfile="new_artifact.txt"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+
+  </pipelines>
+  <pipelines group="params_group">
+    <pipeline name="basic-params-pipeline">
+      <params>
+        <param name="command">echo</param>
+      </params>
+      <materials>
+        <hg url="$hgurl-param" dest="hg" materialName="hg-param-material"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="#{command}" args="Hello World via #{command}"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="complex-params-pipeline" labeltemplate="#{NUMBER}-label-${COUNT}">
+      <params>
+        <param name="NUMBER">2.1</param>
+        <param name="STRING">param_string</param>
+        <param name="URL">http://www.someurl.local</param>
+        <param name="COMMAND">echo</param>
+        <param name="TIMER">0 0 22 ? * MON-FRI</param>
+      </params>
+      <trackingtool link="#{URL}/mingle/${ID}" regex="#{STRING}"/>
+      <timer>#{TIMER}</timer>
+      <environmentvariables>
+        <variable name="ENV_#{STRING}">
+          <value>VALUE_#{STRING}</value>
+        </variable>
+      </environmentvariables>
+      <materials>
+        <svn url="#{URL}" dest="#{STRING}1" username="#{STRING}" password="#{STRING}"
+             materialName="param-svn-material"/>
+        <git url="#{URL}" dest="#{STRING}2" branch="#{STRING}" materialName="param-git-material"/>
+        <hg url="#{URL}" dest="#{STRING}3" materialName="param-hg-material">
+          <filter>
+            <ignore pattern="#{STRING}"/>
+          </filter>
+        </hg>
+      </materials>
+      <stage name="firstStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="firstJob">
+            <tasks>
+              <exec command="#{COMMAND}" args="#{STRING}"/>
+            </tasks>
+            <resources>
+              <resource>#{STRING}</resource>
+            </resources>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="template-params-pipeline-trunk" template="template-with-param">
+      <params>
+        <param name="WORKING_DIR">trunk-dir</param>
+      </params>
+      <materials>
+        <hg url="$hgurl" materialName="hg-trunk"/>
+      </materials>
+    </pipeline>
+    <pipeline name="template-params-pipeline-branch" template="template-with-param">
+      <params>
+        <param name="WORKING_DIR">branch-dir</param>
+      </params>
+      <materials>
+        <hg url="$hgurl" materialName="hg-branch"/>
+      </materials>
+    </pipeline>
+  </pipelines>
+  <pipelines group="tfs_group">
+    <pipeline name="basic-tfs-pipeline">
+      <materials>
+        <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword"
+             projectPath="$/for_twist_tests_1" dest="new_dir" materialName="tfs_mat" autoUpdate="false">
+          <filter>
+            <ignore pattern="*.ignore.txt"/>
+            <ignore pattern="$/for_twist_tests_1/Folder with space/*"/>
+          </filter>
+        </tfs>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob" runOnAllAgents="true">
+            <tasks>
+              <exec command="echo" args="Hello World"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="tfs-pipeline-with-duplicate-materials">
+      <materials>
+        <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword"
+             projectPath="$/for_twist_tests_2" dest="new_dir_1" materialName="tfs_mat_1" autoUpdate="false"/>
+        <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword"
+             projectPath="$/for_twist_tests_2" dest="new_dir_2" materialName="tfs_mat_2" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="dir" args="new_dir_1"/>
+              <exec command="dir" args="new_dir_2"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+
+  <pipelines group="fetch-artifact-from-ancestor-group">
+    <pipeline name="uppest_pipeline">
       <materials>
         <hg url="$hgurl" materialName="hg_material"/>
       </materials>
       <stage name="uppest-stage1">
-      <approval type="manual"/>
+        <approval type="manual"/>
         <jobs>
           <job name="uppest-job1">
             <tasks>
-               <exec command="echo" args="hello"/>
+              <exec command="echo" args="hello"/>
             </tasks>
             <artifacts>
               <artifact type="build" src="first"/>
@@ -1938,7 +2016,7 @@
           </job>
           <job name="uppest-job1a">
             <tasks>
-               <exec command="echo" args="hello"/>
+              <exec command="echo" args="hello"/>
             </tasks>
           </job>
         </jobs>
@@ -1947,7 +2025,7 @@
         <jobs>
           <job name="uppest-job2">
             <tasks>
-               <exec command="echo" args="hello"/>
+              <exec command="echo" args="hello"/>
             </tasks>
             <artifacts>
               <artifact type="build" src="second"/>
@@ -1959,7 +2037,7 @@
         <jobs>
           <job name="uppest-job3">
             <tasks>
-                <exec command="echo" args="hello"/>
+              <exec command="echo" args="hello"/>
             </tasks>
           </job>
         </jobs>
@@ -1970,12 +2048,13 @@
         <pipeline pipelineName="uppest_pipeline" stageName="uppest-stage2"/>
       </materials>
       <stage name="upper-stage1">
-       <approval type="manual"/>
+        <approval type="manual"/>
         <jobs>
           <job name="upper-job1">
             <tasks>
               <exec command="echo" args="hello"/>
-              <fetchartifact artifactOrigin="gocd" pipeline="uppest_pipeline" stage="uppest-stage1" job="uppest-job1" srcfile="first"/>
+              <fetchartifact artifactOrigin="gocd" pipeline="uppest_pipeline" stage="uppest-stage1" job="uppest-job1"
+                             srcfile="first"/>
             </tasks>
           </job>
         </jobs>
@@ -1986,11 +2065,11 @@
         <pipeline pipelineName="uppest_pipeline" stageName="uppest-stage1"/>
       </materials>
       <stage name="upper-peer-stage1">
-       <approval type="manual"/>
+        <approval type="manual"/>
         <jobs>
           <job name="upper-peer-job1">
             <tasks>
-               <exec command="echo" args="hello"/>
+              <exec command="echo" args="hello"/>
             </tasks>
           </job>
         </jobs>
@@ -2006,7 +2085,7 @@
         <jobs>
           <job name="up-job1">
             <tasks>
-                <exec command="echo" args="hello"/>
+              <exec command="echo" args="hello"/>
             </tasks>
           </job>
         </jobs>
@@ -2017,18 +2096,20 @@
         <pipeline pipelineName="up_pipeline" stageName="up-stage1"/>
       </materials>
       <stage name="down-stage1">
-      <approval type="manual"/>
+        <approval type="manual"/>
         <jobs>
           <job name="down-job1">
             <tasks>
-              <fetchartifact artifactOrigin="gocd" pipeline="uppest_pipeline/upper_pipeline/up_pipeline" stage="uppest-stage1" job="uppest-job1" srcfile="first"/>
-              <fetchartifact artifactOrigin="gocd" pipeline="uppest_pipeline/upper_peer_pipeline/up_pipeline" stage="uppest-stage1" job="uppest-job1" srcfile="first"/>
+              <fetchartifact artifactOrigin="gocd" pipeline="uppest_pipeline/upper_pipeline/up_pipeline"
+                             stage="uppest-stage1" job="uppest-job1" srcfile="first"/>
+              <fetchartifact artifactOrigin="gocd" pipeline="uppest_pipeline/upper_peer_pipeline/up_pipeline"
+                             stage="uppest-stage1" job="uppest-job1" srcfile="first"/>
             </tasks>
           </job>
         </jobs>
       </stage>
       <stage name="down-stage2">
-      <approval type="manual"/>
+        <approval type="manual"/>
         <jobs>
           <job name="down-job2">
             <tasks>
@@ -2037,152 +2118,162 @@
         </jobs>
       </stage>
     </pipeline>
-    </pipelines>
+  </pipelines>
 
-        <pipelines group="git_hg_post_commit_hook_pipelines">
+  <pipelines group="git_hg_post_commit_hook_pipelines">
 
-          <pipeline name="git-postcommithook-pipeline">
-            <materials>
-                <git url="$git-pc-hook-url" dest="git" materialName="git" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+    <pipeline name="git-postcommithook-pipeline">
+      <materials>
+        <git url="$git-pc-hook-url" dest="git" materialName="git" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-        <pipeline name="another-git-postcommithook-pipeline">
-            <materials>
-                <git url="$git-pc-hook-url" dest="git" materialName="git" autoUpdate="false"/>
-                <git url="$git-another-pc-hook-url" dest="git-2" materialName="git-2" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-
-         <pipeline name="hg-postcommithook-pipeline">
-            <materials>
-                <hg url="$hg-pc-hook-url" dest="hg" materialName="hg" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-
-          <pipeline name="another-hg-postcommithook-pipeline">
-            <materials>
-                <hg url="$hg-pc-hook-url" dest="hg" materialName="hg" autoUpdate="false"/>
-                <hg url="$hg-another-pc-hook-url" dest="hg-2" materialName="hg-2" autoUpdate="false"/>
-            </materials>
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
+    <pipeline name="another-git-postcommithook-pipeline">
+      <materials>
+        <git url="$git-pc-hook-url" dest="git" materialName="git" autoUpdate="false"/>
+        <git url="$git-another-pc-hook-url" dest="git-2" materialName="git-2" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
 
-    </pipelines>
+    <pipeline name="hg-postcommithook-pipeline">
+      <materials>
+        <hg url="$hg-pc-hook-url" dest="hg" materialName="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-    <templates>
-        <pipeline name="defaultPipeline">
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <ant target="run-till-file-exists"/>
-                        </tasks>
+    <pipeline name="another-hg-postcommithook-pipeline">
+      <materials>
+        <hg url="$hg-pc-hook-url" dest="hg" materialName="hg" autoUpdate="false"/>
+        <hg url="$hg-another-pc-hook-url" dest="hg-2" materialName="hg-2" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="autoStagePipelineTemplate">
-            <stage name="defaultStage">
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="dependency-pipeline-template">
-            <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="ls"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-        </pipeline>
-        <pipeline name="template-with-param">
-          <stage name="defaultStage">
-                <approval type="manual"/>
-                <jobs>
-                    <job name="defaultJob">
-                        <tasks>
-                            <exec command="echo" args="#{WORKING_DIR}"/>
-                        </tasks>
-                    </job>
-                </jobs>
-            </stage>
-         </pipeline>
-    </templates>
-    <environments>
-        <environment name="uat">
-            <environmentvariables>
-                <variable name="ENV_LEVEL_VARIABLE"><value>environment</value></variable>
-                <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE"><value>does-not-matter</value></variable>
-                <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE"><value>does-not-matter</value></variable>
-                <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>does-not-matter</value></variable>
-                <variable name="ENVIRONMENT_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER"><value>does-not-matter</value></variable>
-            </environmentvariables>
-            <pipelines>
-                <pipeline name="environment-pipeline"/>
-                <pipeline name="pipeline-with-environment-variables"/>
-            </pipelines>
-        </environment>
-        <environment name="prod">
-            <pipelines>
-                <pipeline name="basic-environment-pipeline"/>
-            </pipelines>
-        </environment>
-        <environment name="env-job-rerun">
-            <pipelines>
-                <pipeline name="pipeline-for-job-rerun-run-on-all"/>
-            </pipelines>
-        </environment>
-        <environment name="qa"/>
-	<environment name="environment_1">
+
+  </pipelines>
+
+  <templates>
+    <pipeline name="defaultPipeline">
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="run-till-file-exists"/>
+            </tasks>
+
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="autoStagePipelineTemplate">
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="dependency-pipeline-template">
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="template-with-param">
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="echo" args="#{WORKING_DIR}"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </templates>
+  <environments>
+    <environment name="uat">
+      <environmentvariables>
+        <variable name="ENV_LEVEL_VARIABLE">
+          <value>environment</value>
+        </variable>
+        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE">
+          <value>does-not-matter</value>
+        </variable>
+        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE">
+          <value>does-not-matter</value>
+        </variable>
+        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+          <value>does-not-matter</value>
+        </variable>
+        <variable name="ENVIRONMENT_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER">
+          <value>does-not-matter</value>
+        </variable>
+      </environmentvariables>
+      <pipelines>
+        <pipeline name="environment-pipeline"/>
+        <pipeline name="pipeline-with-environment-variables"/>
+      </pipelines>
+    </environment>
+    <environment name="prod">
+      <pipelines>
+        <pipeline name="basic-environment-pipeline"/>
+      </pipelines>
+    </environment>
+    <environment name="env-job-rerun">
+      <pipelines>
+        <pipeline name="pipeline-for-job-rerun-run-on-all"/>
+      </pipelines>
+    </environment>
+    <environment name="qa"/>
+    <environment name="environment_1">
       <environmentvariables>
         <variable name="environment_variable_1">
           <value>environment_value_1</value>
@@ -2194,8 +2285,8 @@
       <pipelines>
         <pipeline name="different_variable_at_environment_pipeline_stage_job"/>
       </pipelines>
-  </environment>
+    </environment>
 
-    </environments>
+  </environments>
 
 </cruise>

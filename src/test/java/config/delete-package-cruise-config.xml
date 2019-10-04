@@ -14,10 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="131">
-    <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="132">
+  <server serverId="twist" tokenGenerationKey="token">
+    <artifacts>
+      <artifactsDir>artifacts</artifactsDir>
+    </artifacts>
     <security>
-
       <admins>
         <user>admin</user>
       </admins>
@@ -30,9 +32,9 @@
         </authConfig>
       </authConfigs>
     </security>
-    </server>
+  </server>
   <repositories>
-  <repository id="67f19a7b-33a7-47d3-a0d4-29581dd97290" name="empty-repo">
+    <repository id="67f19a7b-33a7-47d3-a0d4-29581dd97290" name="empty-repo">
       <pluginConfiguration id="yum" version="1"/>
       <configuration>
         <property>

@@ -14,165 +14,167 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="131">
-	<server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
-		<security>
-
-			<roles>
-				<role name="admins">
-					<users>
-						<user>admin</user>
-					</users>
-				</role>
-				<role name="viewer">
-					<users>
-						<user>view</user>
-					</users>
-				</role>
-				<role name="operator">
-					<users>
-						<user>operate</user>
-					</users>
-				</role>
-				<role name="misc">
-					<users>
-						<user>group1View</user>
-					</users>
-				</role>
-			</roles>
-			<admins>
-				<role>admins</role>
-			</admins>
-			<authConfigs>
-				<authConfig id="1ac8bf7f-325e-4f05-b29b-8a0bf085c05a" pluginId="cd.go.authentication.passwordfile">
-					<property>
-						<key>PasswordFilePath</key>
-						<value>$password_properties</value>
-					</property>
-				</authConfig>
-			</authConfigs>
-		</security>
-	</server>
-	<pipelines group="A">
-		<authorization>
-			<view>
-				<user>view</user>
-				<user>operate</user>
-				<role>misc</role>
-			</view>
-			<operate>
-				<user>view</user>
-				<user>operate</user>
-			</operate>
-		</authorization>
-		<pipeline name="p1">
-			<materials>
-				<hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
-			</materials>
-			<stage name="defaultStage">
-				<approval type="manual">
-					<authorization>
-						<user>operate</user>
-					</authorization>
-				</approval>
-				<jobs>
-					<job name="defaultJob">
-						<tasks>
-							<exec command="ls"/>
-						</tasks>
-					</job>
-				</jobs>
-			</stage>
-		</pipeline>
-		<pipeline name="p2">
-			<materials>
-				<hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
-			</materials>
-			<stage name="defaultStage">
-				<approval type="manual"/>
-				<jobs>
-					<job name="defaultJob">
-						<tasks>
-							<exec command="ls"/>
-						</tasks>
-					</job>
-				</jobs>
-			</stage>
-		</pipeline>
-	</pipelines>
-	<pipelines group="B">
-		<authorization>
-			<admins>
-				<user>view</user>
-				<role>misc</role>
-			</admins>
-		</authorization>
-		<pipeline name="p3">
-			<materials>
-				<hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
-			</materials>
-			<stage name="defaultStage">
-				<approval type="manual">
-					<authorization>
-						<user>operate</user>
-					</authorization>
-				</approval>
-				<jobs>
-					<job name="defaultJob">
-						<tasks>
-							<exec command="ls"/>
-						</tasks>
-					</job>
-				</jobs>
-			</stage>
-		</pipeline>
-	</pipelines>
-	<pipelines group="C">
-		<authorization>
-			<view>
-				<user>view</user>
-				<user>operate</user>
-				<role>misc</role>
-			</view>
-			<operate>
-				<user>view</user>
-				<user>operate</user>
-				<role>misc</role>
-			</operate>
-		</authorization>
-		<pipeline name="p4">
-			<materials>
-				<hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
-			</materials>
-			<stage name="defaultStage">
-				<approval type="manual">
-					<authorization>
-						<user>view</user>
-						<role>misc</role>
-					</authorization>
-				</approval>
-				<jobs>
-					<job name="defaultJob">
-						<tasks>
-							<exec command="ls"/>
-						</tasks>
-					</job>
-				</jobs>
-			</stage>
-			<stage name="stage2">
-				<approval type="manual">
-					<authorization>
-						<user>operate</user>
-					</authorization>
-				</approval>
-				<jobs>
-					<job name="defaultJob">
-						<tasks>
-							<exec command="ls"/>
-						</tasks>
-					</job>
-				</jobs>
-			</stage>
-		</pipeline>
-	</pipelines>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="132">
+  <server serverId="twist" tokenGenerationKey="token">
+    <artifacts>
+      <artifactsDir>artifacts</artifactsDir>
+    </artifacts>
+    <security>
+      <roles>
+        <role name="admins">
+          <users>
+            <user>admin</user>
+          </users>
+        </role>
+        <role name="viewer">
+          <users>
+            <user>view</user>
+          </users>
+        </role>
+        <role name="operator">
+          <users>
+            <user>operate</user>
+          </users>
+        </role>
+        <role name="misc">
+          <users>
+            <user>group1View</user>
+          </users>
+        </role>
+      </roles>
+      <admins>
+        <role>admins</role>
+      </admins>
+      <authConfigs>
+        <authConfig id="1ac8bf7f-325e-4f05-b29b-8a0bf085c05a" pluginId="cd.go.authentication.passwordfile">
+          <property>
+            <key>PasswordFilePath</key>
+            <value>$password_properties</value>
+          </property>
+        </authConfig>
+      </authConfigs>
+    </security>
+  </server>
+  <pipelines group="A">
+    <authorization>
+      <view>
+        <user>view</user>
+        <user>operate</user>
+        <role>misc</role>
+      </view>
+      <operate>
+        <user>view</user>
+        <user>operate</user>
+      </operate>
+    </authorization>
+    <pipeline name="p1">
+      <materials>
+        <hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual">
+          <authorization>
+            <user>operate</user>
+          </authorization>
+        </approval>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="p2">
+      <materials>
+        <hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+  <pipelines group="B">
+    <authorization>
+      <admins>
+        <user>view</user>
+        <role>misc</role>
+      </admins>
+    </authorization>
+    <pipeline name="p3">
+      <materials>
+        <hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual">
+          <authorization>
+            <user>operate</user>
+          </authorization>
+        </approval>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+  <pipelines group="C">
+    <authorization>
+      <view>
+        <user>view</user>
+        <user>operate</user>
+        <role>misc</role>
+      </view>
+      <operate>
+        <user>view</user>
+        <user>operate</user>
+        <role>misc</role>
+      </operate>
+    </authorization>
+    <pipeline name="p4">
+      <materials>
+        <hg url="$hgurl-basic-pipeline" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual">
+          <authorization>
+            <user>view</user>
+            <role>misc</role>
+          </authorization>
+        </approval>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="stage2">
+        <approval type="manual">
+          <authorization>
+            <user>operate</user>
+          </authorization>
+        </approval>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
 </cruise>

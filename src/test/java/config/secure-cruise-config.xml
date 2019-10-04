@@ -14,10 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="131">
-  <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="132">
+  <server serverId="twist" tokenGenerationKey="token">
+    <artifacts>
+      <artifactsDir>artifacts</artifactsDir>
+    </artifacts>
     <security>
-
       <roles>
         <role name="admins">
           <users>
@@ -393,12 +395,24 @@
 
     <pipeline name="pipeline-with-environment-variables">
       <environmentvariables>
-        <variable name="PIPELINE_LEVEL_VARIABLE"><value>pipeline</value></variable>
-        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE"><value>pipeline-overrides-env</value></variable>
-        <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE"><value>does-not-matter</value></variable>
-        <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>does-not-matter</value></variable>
-        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER"><value>does-not-matter</value></variable>
-        <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER"><value>does-not-matter</value></variable>
+        <variable name="PIPELINE_LEVEL_VARIABLE">
+          <value>pipeline</value>
+        </variable>
+        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE">
+          <value>pipeline-overrides-env</value>
+        </variable>
+        <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE">
+          <value>does-not-matter</value>
+        </variable>
+        <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+          <value>does-not-matter</value>
+        </variable>
+        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER">
+          <value>does-not-matter</value>
+        </variable>
+        <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER">
+          <value>does-not-matter</value>
+        </variable>
       </environmentvariables>
       <materials>
         <hg url="$hgurl-pipeline-with-environment-variables" dest="hg" materialName="env-var-material" autoUpdate="false"/>
@@ -406,20 +420,40 @@
       <stage name="defaultStage">
         <approval type="manual"/>
         <environmentvariables>
-          <variable name="STAGE_LEVEL_VARIABLE"><value>stage</value></variable>
-          <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE"><value>stage-overrides-pipeline</value></variable>
-          <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE"><value>stage-overrides-env</value></variable>
-          <variable name="STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>does-not-matter</value></variable>
-          <variable name="STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER"><value>does-not-matter</value></variable>
+          <variable name="STAGE_LEVEL_VARIABLE">
+            <value>stage</value>
+          </variable>
+          <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE">
+            <value>stage-overrides-pipeline</value>
+          </variable>
+          <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE">
+            <value>stage-overrides-env</value>
+          </variable>
+          <variable name="STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+            <value>does-not-matter</value>
+          </variable>
+          <variable name="STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER">
+            <value>does-not-matter</value>
+          </variable>
         </environmentvariables>
         <jobs>
           <job name="pipeline-with-environment-variables-job">
             <environmentvariables>
-              <variable name="JOB_LEVEL_VARIABLE"><value>pipeline-with-environment-variables-job</value></variable>
-              <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>job-overrides-pipeline</value></variable>
-              <variable name="STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>job-overrides-stage</value></variable>
-              <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>job-overrides-env</value></variable>
-              <variable name="JOB_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER"><value>does-not-matter</value></variable>
+              <variable name="JOB_LEVEL_VARIABLE">
+                <value>pipeline-with-environment-variables-job</value>
+              </variable>
+              <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+                <value>job-overrides-pipeline</value>
+              </variable>
+              <variable name="STAGE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+                <value>job-overrides-stage</value>
+              </variable>
+              <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+                <value>job-overrides-env</value>
+              </variable>
+              <variable name="JOB_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER">
+                <value>does-not-matter</value>
+              </variable>
             </environmentvariables>
             <tasks>
               <ant target="longsleep" workingdir="hg/dev"/>
@@ -427,7 +461,9 @@
           </job>
           <job name="another-job">
             <environmentvariables>
-              <variable name="JOB_LEVEL_VARIABLE"><value>another-job</value></variable>
+              <variable name="JOB_LEVEL_VARIABLE">
+                <value>another-job</value>
+              </variable>
             </environmentvariables>
             <tasks>
               <exec command="ls"/>
@@ -437,14 +473,22 @@
       </stage>
       <stage name="secondStage">
         <environmentvariables>
-          <variable name="STAGE_LEVEL_VARIABLE"><value>stage</value></variable>
+          <variable name="STAGE_LEVEL_VARIABLE">
+            <value>stage</value>
+          </variable>
         </environmentvariables>
         <jobs>
           <job name="foo">
             <environmentvariables>
-              <variable name="JOB_LEVEL_VARIABLE"><value>foo</value></variable>
-              <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>job-overrides-pipeline</value></variable>
-              <variable name="JOB_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER"><value>does-not-matter</value></variable>
+              <variable name="JOB_LEVEL_VARIABLE">
+                <value>foo</value>
+              </variable>
+              <variable name="PIPELINE_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+                <value>job-overrides-pipeline</value>
+              </variable>
+              <variable name="JOB_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER">
+                <value>does-not-matter</value>
+              </variable>
             </environmentvariables>
             <tasks>
               <exec command="ls"/>
@@ -873,7 +917,7 @@
       </admins>
     </authorization>
     <pipeline name="first-pipeline" template="simple-pass">
-      <trackingtool link="https://github.com/alice/my-project/issues/${ID}" regex="##(\d+)" />
+      <trackingtool link="https://github.com/alice/my-project/issues/${ID}" regex="##(\d+)"/>
       <materials>
         <git url="$git-on-first-pipeline" dest="git" materialName="git-for-first-pipeline" autoUpdate="false"/>
       </materials>
@@ -887,7 +931,7 @@
     </pipeline>
 
     <pipeline name="pipeline-with-mingle-config" template="simple-pass">
-      <trackingtool link="https://github.com/bob/my-project/issues/${ID}" regex="##(\d+)" />
+      <trackingtool link="https://github.com/bob/my-project/issues/${ID}" regex="##(\d+)"/>
       <materials>
         <git url="$git-on-pipeline-with-mingle-config" dest="git" materialName="git-for-pipeline-with-mingle-config" autoUpdate="false"/>
       </materials>
@@ -925,7 +969,7 @@
     </pipeline>
 
     <pipeline name="down-pipeline-with-mingle-config" template="simple-pass">
-      <trackingtool link="https://github.com/alice/my-project/issues/${ID}" regex="##(\d+)" />
+      <trackingtool link="https://github.com/alice/my-project/issues/${ID}" regex="##(\d+)"/>
       <materials>
         <hg url="$hgurl-down-pipeline-with-mingle-config" dest="hg" autoUpdate="false" materialName="hg-for-down-pipeline-with-mingle-config"/>
         <pipeline pipelineName="pipeline-with-mingle-config" stageName="defaultStage"/>
@@ -1032,7 +1076,9 @@
         <jobs>
           <job name="defaultJob">
             <environmentvariables>
-              <variable name="#{var_name}"><value>value</value></variable>
+              <variable name="#{var_name}">
+                <value>value</value>
+              </variable>
             </environmentvariables>
             <tasks>
               <exec command="ls"/>
@@ -1070,11 +1116,21 @@
   <environments>
     <environment name="uat">
       <environmentvariables>
-        <variable name="ENV_LEVEL_VARIABLE"><value>environment</value></variable>
-        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE"><value>does-not-matter</value></variable>
-        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE"><value>does-not-matter</value></variable>
-        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB"><value>does-not-matter</value></variable>
-        <variable name="ENVIRONMENT_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER"><value>does-not-matter</value></variable>
+        <variable name="ENV_LEVEL_VARIABLE">
+          <value>environment</value>
+        </variable>
+        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_PIPELINE">
+          <value>does-not-matter</value>
+        </variable>
+        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_STAGE">
+          <value>does-not-matter</value>
+        </variable>
+        <variable name="ENV_LEVEL_VARIABLE_OVERRIDDEN_BY_JOB">
+          <value>does-not-matter</value>
+        </variable>
+        <variable name="ENVIRONMENT_LEVEL_VARIABLE_OVERRIDDEN_BY_TRIGGER">
+          <value>does-not-matter</value>
+        </variable>
       </environmentvariables>
 
       <pipelines>
