@@ -14,33 +14,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="131">
-  <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
-      <security>
-          <authConfigs>
-              <authConfig id="301dd1cf-0f7d-4e4e-a1e1-b36df85cf3b6" pluginId="cd.go.authentication.ldap">
-                  <property>
-                      <key>Url</key>
-                      <value>$ldap_server</value>
-                  </property>
-                  <property>
-                      <key>ManagerDN</key>
-                      <value/>
-                  </property>
-                  <property>
-                      <key>SearchBases</key>
-                      <value>ou=People,dc=tests,dc=com
-                      </value>
-                  </property>
-                  <property>
-                      <key>UserLoginFilter</key>
-                      <value>(uid={0})</value>
-                  </property>
-                  <property>
-                      <key>Password</key>
-                  </property>
-              </authConfig>
-          </authConfigs>
-      </security>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="132">
+  <server serverId="twist" tokenGenerationKey="token">
+    <artifacts>
+      <artifactsDir>artifacts</artifactsDir>
+    </artifacts>
+    <security>
+      <authConfigs>
+        <authConfig id="301dd1cf-0f7d-4e4e-a1e1-b36df85cf3b6" pluginId="cd.go.authentication.ldap">
+          <property>
+            <key>Url</key>
+            <value>$ldap_server</value>
+          </property>
+          <property>
+            <key>ManagerDN</key>
+            <value/>
+          </property>
+          <property>
+            <key>SearchBases</key>
+            <value>ou=People,dc=tests,dc=com
+            </value>
+          </property>
+          <property>
+            <key>UserLoginFilter</key>
+            <value>(uid={0})</value>
+          </property>
+          <property>
+            <key>Password</key>
+          </property>
+        </authConfig>
+      </authConfigs>
+    </security>
   </server>
 </cruise>

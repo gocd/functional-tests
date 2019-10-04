@@ -14,127 +14,130 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="131">
-    <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
-    </server>
-    <pipelines group="basic">
-	    <pipeline name="tfs_artifact_in_dest">
-	      <materials>
-	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/MyFirstProject" materialName="tfs_mat" autoUpdate="false"/>
-	      </materials>
-	      <stage name="defaultStage">
-	      	<approval type="manual"/>
-	        <jobs>
-	          <job name="defaultJob">
-	            <tasks>
-	              <exec command="/bin/bash">
-	                <arg>create_file.sh</arg>
-	                <arg>artifact.file</arg>
-	                <runif status="passed"/>
-	              </exec>
-	            </tasks>
-	            <artifacts>
-	              <artifact type="build" src="artifact.file"/>
-	            </artifacts>
-	          </job>
-	        </jobs>
-	      </stage>
-	    </pipeline>
-	    <pipeline name="tfs_artifact_in_child_directory">
-	      <materials>
-	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/MyFirstProject" materialName="tfs_mat" autoUpdate="false"/>
-	      </materials>
-	      <stage name="defaultStage">
-	       	<approval type="manual"/>
-	        <jobs>
-	          <job name="defaultJob">
-	            <tasks>
-	              <exec command="mkdir">
-	              	<arg>child</arg>
-	              </exec>
-	              <exec command="/bin/bash">
-	                <arg>create_file.sh</arg>
-	                <arg>child/artifact.file</arg>
-	                <runif status="passed"/>
-	              </exec>
-	            </tasks>
-	            <artifacts>
-	              <artifact type="build" src="child/artifact.file"/>
-	            </artifacts>
-	          </job>
-	        </jobs>
-	      </stage>
-	    </pipeline>
-	    <pipeline name="tfs_generated_file_gets_deleted">
-	      <materials>
-	        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/MyFirstProject" materialName="tfs_mat" autoUpdate="false"/>
-	      </materials>
-	      <stage name="defaultStage">
-	       	<approval type="manual"/>
-	        <jobs>
-	          <job name="defaultJob">
-	            <tasks>
-	              <exec command="/bin/bash">
-	                <arg>create_file.sh</arg>
-	                <arg>artifact.file</arg>
-	                <runif status="passed"/>
-	              </exec>
-	              <exec command="rm">
-	              	<arg>-rf</arg>
-	              	<arg>artifact.file</arg>
-	              </exec>
-	            </tasks>
-	            <artifacts>
-	              <artifact type="build" src="artifact.file"/>
-	            </artifacts>
-	          </job>
-	        </jobs>
-	      </stage>
-	    </pipeline>
-	    <pipeline name="tfs-pipeline-with-multiple-stages">
-	      <materials>
-		    <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/MyFirstProject" materialName="tfs_mat" autoUpdate="false"/>
-		  </materials>
-		  <stage name="stage1">
-		  	<approval type="manual"/>
-		    <jobs>
-		      <job name="defaultJob">
-		        <tasks/>
-		      </job>
-		    </jobs>
-		  </stage>
-		  <stage name="stage2">
-		  	<approval type="manual"/>
-		    <jobs>
-		      <job name="defaultJob">
-		        <tasks>
-		        	<exec command="sleep">
-		        		<arg>60</arg>
-		        	</exec>
-		        </tasks>
-		      </job>
-		    </jobs>
-		  </stage>
-	    </pipeline>
-			<pipeline name="basic-tfs-pipeline">
-				<materials>
-					<tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/MyFirstProject" dest="new_dir" materialName="tfs_mat" autoUpdate="false">
-						<filter>
-							<ignore pattern="*.ignore.txt"/>
-							<ignore pattern="$/MyFirstProject/Folder with space/*"/>
-						</filter>
-					</tfs>
-				</materials>
-				<stage name="defaultStage">
-					<approval type="manual"/>
-					<jobs>
-						<job name="defaultJob" runOnAllAgents="true">
-							<tasks>
-								<exec command="echo" args="Hello World"/>
-							</tasks>
-						</job>
-					</jobs>
-				</stage>
-			</pipeline>
-		</pipelines>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="132">
+  <server serverId="twist" tokenGenerationKey="token">
+    <artifacts>
+      <artifactsDir>artifacts</artifactsDir>
+    </artifacts>
+  </server>
+  <pipelines group="basic">
+    <pipeline name="tfs_artifact_in_dest">
+      <materials>
+        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/MyFirstProject" materialName="tfs_mat" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="/bin/bash">
+                <arg>create_file.sh</arg>
+                <arg>artifact.file</arg>
+                <runif status="passed"/>
+              </exec>
+            </tasks>
+            <artifacts>
+              <artifact type="build" src="artifact.file"/>
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="tfs_artifact_in_child_directory">
+      <materials>
+        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/MyFirstProject" materialName="tfs_mat" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="mkdir">
+                <arg>child</arg>
+              </exec>
+              <exec command="/bin/bash">
+                <arg>create_file.sh</arg>
+                <arg>child/artifact.file</arg>
+                <runif status="passed"/>
+              </exec>
+            </tasks>
+            <artifacts>
+              <artifact type="build" src="child/artifact.file"/>
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="tfs_generated_file_gets_deleted">
+      <materials>
+        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/MyFirstProject" materialName="tfs_mat" autoUpdate="false"/>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="/bin/bash">
+                <arg>create_file.sh</arg>
+                <arg>artifact.file</arg>
+                <runif status="passed"/>
+              </exec>
+              <exec command="rm">
+                <arg>-rf</arg>
+                <arg>artifact.file</arg>
+              </exec>
+            </tasks>
+            <artifacts>
+              <artifact type="build" src="artifact.file"/>
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="tfs-pipeline-with-multiple-stages">
+      <materials>
+        <tfs url="$tfsurl" username="$tfsuser" domain="$tfsdomain" password="$tfspassword" projectPath="$/MyFirstProject" materialName="tfs_mat" autoUpdate="false"/>
+      </materials>
+      <stage name="stage1">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks/>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="stage2">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="sleep">
+                <arg>60</arg>
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="basic-tfs-pipeline">
+      <materials>
+        <tfs url="$tfsurl" domain="$tfsdomain" username="$tfsuser" password="$tfspassword" projectPath="$/MyFirstProject" dest="new_dir" materialName="tfs_mat" autoUpdate="false">
+          <filter>
+            <ignore pattern="*.ignore.txt"/>
+            <ignore pattern="$/MyFirstProject/Folder with space/*"/>
+          </filter>
+        </tfs>
+      </materials>
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob" runOnAllAgents="true">
+            <tasks>
+              <exec command="echo" args="Hello World"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
 </cruise>

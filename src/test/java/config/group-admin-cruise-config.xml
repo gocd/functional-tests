@@ -14,244 +14,247 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *************************GO-LICENSE-END******************************* -->
-<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="131">
-  <server artifactsdir="artifacts" serverId="twist" tokenGenerationKey="token">
-      <security>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="132">
+  <server serverId="twist" tokenGenerationKey="token">
+    <artifacts>
+      <artifactsDir>artifacts</artifactsDir>
+    </artifacts>
+    <security>
 
       <roles>
         <role name="admins">
-        <users>
-          <user>admin</user>
+          <users>
+            <user>admin</user>
           </users>
         </role>
         <role name="viewer">
-        <users>
-          <user>view</user>
-          <user>operate</user>
+          <users>
+            <user>view</user>
+            <user>operate</user>
           </users>
         </role>
         <role name="operator">
-        <users>
-          <user>operatorUser</user>
+          <users>
+            <user>operatorUser</user>
           </users>
         </role>
         <role name="group1AdminRole">
-        <users>
-          <user>group1Admin</user>
+          <users>
+            <user>group1Admin</user>
           </users>
         </role>
         <role name="group2AdminRole">
-        <users>
-          <user>group2Admin</user>
+          <users>
+            <user>group2Admin</user>
           </users>
         </role>
         <role name="group3AdminRole">
-        <users>
-          <user>group3Admin</user>
+          <users>
+            <user>group3Admin</user>
           </users>
         </role>
       </roles>
       <admins>
         <role>admins</role>
       </admins>
-      </security>
+    </security>
   </server>
 
   <pipelines group="group1">
-	 <authorization>
-	   <admins>
-	     <role>group1AdminRole</role>
-	   </admins>
-       <view>
-           <user>group1View</user>
-       </view>
-	 </authorization>
-	 <pipeline name="pipeline1">
-		<materials>
-			<hg url="$hgurl-pipeline1" dest="hg" autoUpdate="false"/>
-        </materials>
-         <stage name="first">
-        	<jobs>
-            	<job name="defaultJob">
-                    <tasks>
-                        <exec command="ls"/>
-                    </tasks>
-                 </job>
-            </jobs>
-	  	</stage>
-	  </pipeline>
-	  	 <pipeline name="pipeline4">
-		<materials>
-			<hg url="$hgurl-pipeline4" dest="hg" autoUpdate="false"/>
-        </materials>
-         <stage name="first">
-        	<jobs>
-            	<job name="defaultJob">
-                    <tasks>
-                        <exec command="ls"/>
-                    </tasks>
-                 </job>
-            </jobs>
-	  	</stage>
-	  </pipeline>
+    <authorization>
+      <admins>
+        <role>group1AdminRole</role>
+      </admins>
+      <view>
+        <user>group1View</user>
+      </view>
+    </authorization>
+    <pipeline name="pipeline1">
+      <materials>
+        <hg url="$hgurl-pipeline1" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="first">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="pipeline4">
+      <materials>
+        <hg url="$hgurl-pipeline4" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="first">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
 
   </pipelines>
   <pipelines group="group2">
-      <authorization>
-	   <admins>
-	     <role>group2AdminRole</role>
-	   </admins>
-       <operate>
-           <user>group1Admin</user>
-       </operate>
-	   <view>
-	   	   <user>notInAnyRoleA</user>
-	   </view>
-	 </authorization>
-       <pipeline name="pipeline2" template="simple-pass">
-		<materials>
-			<hg url="$hgurl-pipeline2" dest="hg" autoUpdate="false"/>
-        </materials>
-	  </pipeline>
-      <pipeline name="pipeline-down" template="simple-pass">
-		<materials>
-			<pipeline pipelineName="pipeline1" stageName="first"/>
-        </materials>
-	  </pipeline>
+    <authorization>
+      <admins>
+        <role>group2AdminRole</role>
+      </admins>
+      <operate>
+        <user>group1Admin</user>
+      </operate>
+      <view>
+        <user>notInAnyRoleA</user>
+      </view>
+    </authorization>
+    <pipeline name="pipeline2" template="simple-pass">
+      <materials>
+        <hg url="$hgurl-pipeline2" dest="hg" autoUpdate="false"/>
+      </materials>
+    </pipeline>
+    <pipeline name="pipeline-down" template="simple-pass">
+      <materials>
+        <pipeline pipelineName="pipeline1" stageName="first"/>
+      </materials>
+    </pipeline>
   </pipelines>
- <pipelines group="group3">
-	 <authorization>
-	   <admins>
-	     <role>group3AdminRole</role>
-	   </admins>
-       <view>
-           <user>group1Admin</user>
-       </view>
-       <operate>
-       	   <user>notInAnyRoleA</user>
-       </operate>
-	 </authorization>
-	 <pipeline name="pipeline3">
-		<materials>
-			<hg url="$hgurl-pipeline3" dest="hg" autoUpdate="false"/>
-        </materials>
-         <stage name="first">
-        	<jobs>
-            	<job name="defaultJob">
-                    <tasks>
-                        <exec command="ls"/>
-                    </tasks>
-                 </job>
-            </jobs>
-	  	</stage>
-	  </pipeline>
+  <pipelines group="group3">
+    <authorization>
+      <admins>
+        <role>group3AdminRole</role>
+      </admins>
+      <view>
+        <user>group1Admin</user>
+      </view>
+      <operate>
+        <user>notInAnyRoleA</user>
+      </operate>
+    </authorization>
+    <pipeline name="pipeline3">
+      <materials>
+        <hg url="$hgurl-pipeline3" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="first">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
   </pipelines>
   <pipelines group="group4">
-	 <pipeline name="pipeline5">
-		<materials>
-			<hg url="$hgurl-pipeline5" dest="hg-folder" autoUpdate="false"/>
-        </materials>
-         <stage name="first">
-        	<jobs>
-            	<job name="defaultJob">
-                    <tasks>
-                        <exec command="ls"/>
-                    </tasks>
-                 </job>
-            </jobs>
-	  	</stage>
-	  </pipeline>
+    <pipeline name="pipeline5">
+      <materials>
+        <hg url="$hgurl-pipeline5" dest="hg-folder" autoUpdate="false"/>
+      </materials>
+      <stage name="first">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
   </pipelines>
   <pipelines group="group5">
-  <authorization>
-	   <admins>
-	     <role>group1AdminRole</role>
-	   </admins>
-	 </authorization>
-	 <pipeline name="pipeline6">
-		<materials>
-			<hg url="$hgurl-pipeline6" dest="hg-folder" autoUpdate="false"/>
-        </materials>
-         <stage name="first">
-        	<jobs>
-            	<job name="defaultJob">
-                    <tasks>
-                        <exec command="ls"/>
-                    </tasks>
-                 </job>
-            </jobs>
-	  	</stage>
-	  </pipeline>
+    <authorization>
+      <admins>
+        <role>group1AdminRole</role>
+      </admins>
+    </authorization>
+    <pipeline name="pipeline6">
+      <materials>
+        <hg url="$hgurl-pipeline6" dest="hg-folder" autoUpdate="false"/>
+      </materials>
+      <stage name="first">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
   </pipelines>
-    <pipelines group="groupWithStageSecurity">
-	 <authorization>
-	   <admins>
-	   	<user>pavan</user>
-	   </admins>
-	   <operate>
-	     <user>operate</user>
-	   </operate>
-	 </authorization>
-	 <pipeline name="pipeline-with-group-and-stage-security">
-		<materials>
-			<hg url="$hgurl-pipeline1" dest="hg" autoUpdate="false"/>
-        </materials>
-         <stage name="first">
-		    <approval type="manual">
-		      	 <authorization>
-				     <user>operate</user>
-				 </authorization>
-		    </approval>
-	    	<jobs>
-            	<job name="defaultJob">
-                    <tasks>
-                        <ant target="run.till.file.exists" workingdir="hg/dev">
-                            <oncancel/>
-                        </ant>
-                    </tasks>
-                 </job>
-            </jobs>
-	  	</stage>
-	  </pipeline>
-	</pipelines>
+  <pipelines group="groupWithStageSecurity">
+    <authorization>
+      <admins>
+        <user>pavan</user>
+      </admins>
+      <operate>
+        <user>operate</user>
+      </operate>
+    </authorization>
+    <pipeline name="pipeline-with-group-and-stage-security">
+      <materials>
+        <hg url="$hgurl-pipeline1" dest="hg" autoUpdate="false"/>
+      </materials>
+      <stage name="first">
+        <approval type="manual">
+          <authorization>
+            <user>operate</user>
+          </authorization>
+        </approval>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <ant target="run.till.file.exists" workingdir="hg/dev">
+                <oncancel/>
+              </ant>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
 
   <templates>
-	  	<pipeline name="simple-pass">
-	        <stage name="defaultStage">
-	        	<approval type="manual"/>
-	        	<jobs>
-	            	<job name="defaultJob">
-	                    <tasks>
-	                        <exec command="ls"/>
-	                    </tasks>
-	                 </job>
-	            </jobs>
-		  	</stage>
-	  	</pipeline>
-	  	<pipeline name="default.pipeline">
-	        <stage name="default.stage">
-	        	<approval type="manual"/>
-	        	<jobs>
-	            	<job name="default.job">
-	                    <tasks>
-	                        <ant target="run.till.file.exists" workingdir="hg/dev"/>
-	                    </tasks>
-	                 </job>
-	            </jobs>
-		  	</stage>
-	  	</pipeline>
-  	</templates>
-  	<environments>
-  		<environment name="environment1">
-  			<pipelines>
-  				<pipeline name="pipeline1"/>
-  				<pipeline name="pipeline2"/>
-  			</pipelines>
-  		</environment>
-  		<environment name="environment2">
-  			<pipelines>
-  				<pipeline name="pipeline3"/>
-  			</pipelines>
-  		</environment>
-  	</environments>
+    <pipeline name="simple-pass">
+      <stage name="defaultStage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="ls"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="default.pipeline">
+      <stage name="default.stage">
+        <approval type="manual"/>
+        <jobs>
+          <job name="default.job">
+            <tasks>
+              <ant target="run.till.file.exists" workingdir="hg/dev"/>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </templates>
+  <environments>
+    <environment name="environment1">
+      <pipelines>
+        <pipeline name="pipeline1"/>
+        <pipeline name="pipeline2"/>
+      </pipelines>
+    </environment>
+    <environment name="environment2">
+      <pipelines>
+        <pipeline name="pipeline3"/>
+      </pipelines>
+    </environment>
+  </environments>
 </cruise>
