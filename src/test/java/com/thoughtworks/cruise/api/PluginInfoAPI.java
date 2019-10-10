@@ -29,7 +29,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class PluginInfoAPI {
 
-    private String apiVersion = "application/vnd.go.cd.v5+json";
+    private String apiVersion = "application/vnd.go.cd+json";
     private final ScenarioState state;
 
     public PluginInfoAPI(ScenarioState state) {
