@@ -21,7 +21,7 @@ Setup of contexts
 ServerConfigurationTabMailHost
 ------------------------------
 
-tags: 4171, clicky ui, admin-page, configuration
+tags: 4171, clicky ui, admin-page, configuration, ignore
 
 
 * ConfigureMailHost 
