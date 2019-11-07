@@ -18,7 +18,7 @@
 <xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:annotation>
     <xsd:documentation xml:lang="en">
-      Configuration schema for Go. Copyright (c) 2019 ThoughtWorks, Inc.
+      Configuration schema for GoCD. Copyright (c) 2019 ThoughtWorks, Inc.
       www.thoughtworks.com. All rights reserved.
     </xsd:documentation>
   </xsd:annotation>
@@ -85,7 +85,7 @@
           </xsd:unique>
         </xsd:element>
       </xsd:sequence>
-      <xsd:attribute name="schemaVersion" type="xsd:int" use="required" fixed="132"/>
+      <xsd:attribute name="schemaVersion" type="xsd:int" use="required" fixed="133"/>
     </xsd:complexType>
     <xsd:unique name="uniquePipelines">
       <xsd:selector xpath="pipelines"/>
@@ -294,7 +294,6 @@
       </xsd:element>
     </xsd:all>
     <xsd:attribute name="anonymous" type="xsd:boolean"/>
-    <xsd:attribute name="allowOnlyKnownUsersToLogin" type="xsd:boolean"/>
   </xsd:complexType>
   <xsd:complexType name="mailHostType">
     <xsd:attribute name="hostname" type="xsd:string" use="required"/>
@@ -332,14 +331,14 @@
   </xsd:complexType>
   <xsd:complexType name="artifactConfigType">
     <xsd:all>
-      <xsd:element name="artifactsDir" minOccurs="0" maxOccurs="1" type="xsd:string"/>
-      <xsd:element name="purgeSettings" minOccurs="0" maxOccurs="1" type="purgeSettingsType"/>
+      <xsd:element name="artifactsDir" minOccurs="0" maxOccurs="1" type="xsd:string" />
+      <xsd:element name="purgeSettings" minOccurs="0" maxOccurs="1" type="purgeSettingsType" />
     </xsd:all>
   </xsd:complexType>
   <xsd:complexType name="purgeSettingsType">
     <xsd:all>
-      <xsd:element name="purgeStartDiskSpace" minOccurs="0" maxOccurs="1" type="xsd:double"/>
-      <xsd:element name="purgeUptoDiskSpace" minOccurs="0" maxOccurs="1" type="xsd:double"/>
+      <xsd:element name="purgeStartDiskSpace" minOccurs="0" maxOccurs="1" type="xsd:double" />
+      <xsd:element name="purgeUptoDiskSpace" minOccurs="0" maxOccurs="1" type="xsd:double" />
     </xsd:all>
   </xsd:complexType>
   <xsd:complexType name="elasticConfigType">
@@ -378,7 +377,7 @@
   </xsd:complexType>
   <xsd:complexType name="authConfigsType">
     <xsd:sequence>
-      <xsd:element minOccurs="0" maxOccurs="unbounded" name="authConfig" type="pluginProfile"/>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="authConfig" type="authConfigProfile"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="pluginProfile">
@@ -394,6 +393,14 @@
     </xsd:sequence>
     <xsd:attribute type="nameType" name="id" use="required"/>
     <xsd:attribute type="nameType" name="clusterProfileId" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="authConfigProfile">
+    <xsd:sequence>
+      <xsd:element name="property" minOccurs="0" maxOccurs="unbounded" type="pluginPropertyType"/>
+    </xsd:sequence>
+    <xsd:attribute type="nameType" name="pluginId" use="required"/>
+    <xsd:attribute type="nameType" name="id" use="required"/>
+    <xsd:attribute name="allowOnlyKnownUsersToLogin" type="xsd:boolean"/>
   </xsd:complexType>
   <xsd:simpleType name="emailType">
     <xsd:restriction base="xsd:string">
